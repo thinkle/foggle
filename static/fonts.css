@@ -1,0 +1,16 @@
+@font-face {
+    src: url('fonts/IndoorKidVariable[EMPH,slnt,wdth,wght].woff2') format("woff2"),
+         url('fonts/IndoorKidVariable[EMPH,slnt,wdth,wght].woff') format("woff");
+    font-family: 'Indoor Kid Web';
+    font-style: normal oblique 0deg 15deg;
+    font-weight: 300 700;
+    }
+    
+@font-face {
+    src: url('fonts/IndoorKidVariable[EMPH,slnt,wdth,wght].woff2') format("woff2"),
+         url('fonts/IndoorKidVariable[EMPH,slnt,wdth,wght].woff') format("woff");
+    font-family: 'Indoor Kid Web';
+    font-style: oblique 0deg 15deg;
+    font-weight: 300 700;
+    }
+    
