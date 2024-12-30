@@ -10,7 +10,25 @@
 	
     let {theWord, guesses, nextGuess, isRight, isInvalid, justify = undefined, isDemo = false} = $props();
     
-    
+    let sizeAdjust = $derived.by(
+        () => {
+            let maxGuessLength = nextGuess.length;
+            for (let guess of guesses) {
+                maxGuessLength = Math.max(maxGuessLength, guess.length);
+            }
+            if (maxGuessLength > 9) {
+                return 1.5;
+            } else if (maxGuessLength > 7) {
+                return 1.8;
+            } else if (maxGuessLength > 5) {
+                return 2;
+            } else {
+                return 3;
+            }
+        }
+        
+    )
+
 
     let justifyMode : 'left' | 'right' | 'center' = $state(justify||'center');
     let guessContainer : HTMLDivElement;
@@ -62,6 +80,7 @@
         class:center={justifyMode === 'center'}
         class:left={justifyMode === 'left'}
         class:right={justifyMode === 'right'}
+        style:--font-size="{sizeAdjust}rem"
     >
       {#each guesses as guess}
         <Word word={guess} answer={theWord} {isDemo}></Word>
@@ -105,11 +124,20 @@
     .center {
         align-items: center;
     }
+    .center :global(.wordrow) {
+        justify-content: center;
+    }
     .left {
         align-items: flex-start;
     }
+    .left :global(.wordrow) {
+        justify-content: start;
+    }
     .right {
         align-items: flex-end;
+    }
+    .right :global(.wordrow) {
+        justify-content: end;
     }
     .justify-buttons {
         opacity: 0;

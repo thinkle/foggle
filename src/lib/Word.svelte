@@ -125,19 +125,22 @@ if (hasFeedback) {
     --present: #ea842bc2;
     --incorrect: #6c757d;
     --white: #f1edede1;
-    --ltr-height: 3rem;
-    --ltr-width: 3rem;
+    --ltr-height: 1.5em;
+    --ltr-width: 1.5em;
+    --font-size: 2rem;
     --letter-delay: 200ms; /* Delay per letter */
 }
 
 .wordrow {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
+    justify-content: start;
 }
 
 .letter {
     font-family: 'Indoor Kid Web';
-    font-size: 2rem;
+    font-size: var(--font-size, 2rem);
     font-weight: bold;
     padding: 8px;
     border-radius: 8px;
