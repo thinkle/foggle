@@ -208,13 +208,18 @@
         transition-delay: 300ms;
     }
     .victory {        
-        animation: roll-in 1s;
+        animation: roll-in 2s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+        opacity: 0;
     }
     @keyframes roll-in {
         0% {
-            transform: scale(0)translateX(-100%)rotate(-1800deg);
+            opacity: 0;
+            transform: scale(0)translateX(-120vw)rotate(-1800deg);
         }
         100% {
+            opacity: 1;
             transform: scale(1);
         }
     }
