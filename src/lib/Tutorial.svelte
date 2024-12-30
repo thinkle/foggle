@@ -164,9 +164,13 @@
       display: flex;
       margin-bottom: 10dvh;
       flex-direction: column;
-      align-items: flex-start;              
-      animation: fade-in 1s both;
-      animation-timeline: view(block);      
+      align-items: flex-start;                    
+    }
+    @supports (animation-timeline: view(block)) {
+        .step {
+            animation: fade-in 1s both;
+        animation-timeline: view(block);      
+        }
     }
     .step.right {
         animation-name: fade-in-right;
