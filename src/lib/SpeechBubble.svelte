@@ -1,9 +1,9 @@
 <script>
-    export let position = "left"; // "left" or "right"
-    export let skew = -15; // Skew angle in degrees (optional)
+    let {position, maxWidth} = $props();
   </script>
   
-  <div class="speech-bubble" class:left={position === "left"} class:right={position === "right"}>
+  <div class="speech-bubble" class:left={position === "left"} class:right={position === "right"}
+  style:--max-width={maxWidth}>
     <slot />
   </div>
   
@@ -13,7 +13,7 @@
       --triangle-offset: 20px; /* Horizontal offset for triangle */
   
       font-size: 1.5rem;
-      max-width: 20rem;
+      max-width: var(--max-width,20rem);
       padding: 1rem;
       background: #242;
       color: #fff;

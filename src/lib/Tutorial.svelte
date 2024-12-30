@@ -1,6 +1,6 @@
 <script>
-    import SpeechBubble from "./SpeechBubble.svelte";
-    import Word from "./Word.svelte";
+	import GuessArea from './GuessArea.svelte';
+    import SpeechBubble from "./SpeechBubble.svelte";    
   
     let {onClose = () => {}} = $props(); // Callback for when the tutorial is closed
   
@@ -14,14 +14,14 @@
       position: "right",
       example: {
         answer: "foggy",
-        guess: "funky",
+        guesses: ["funky","fools","foggy"],
         caption: "The green 'f' and 'y' show correct letters in the correct positions.",
       },
     },
     {      
       example: {
         answer: "foggy",
-        guess: "grove",
+        guesses: ["grove","often"],
         caption: "Orange shows letters are present in the answer, but misplaced"
       },
     },
@@ -30,28 +30,39 @@
       position: "right",
     },
     {
-      text: "In that case, the word could match from the left or the right...",
+      text: "In that case, the word could match from the left...",
       position: "left",
       example: {
         answer: "foggy",
-        guess: "fog",
-        caption: "'F', 'o', and 'g' match correctly from the left.",
+        guesses: ["fog","foggy"],
+        justify : "left",        
       },
-    },
-    {      
+    },  
+    {
+      text: "Or it could match from the right...",
       position: "right",
       example: {
         answer: "foggy",
-        guess: "shy",
-        caption: "And 'Y' matches from the right.",
+        guesses: ["shy","foggy"],
+        justify : "right",        
       },
-    },          
+    },
+    {
+        text: "Or it could match from multiple spots!",
+        position: "left",
+        example: {
+            answer: "foggy",
+            guesses: ["fetchingly","foggy"],
+            justify: "left",
+            caption: "You can use the align button to shift the words left or right to help you see how the letters line up!"            
+        },
+    },
     {
       text: "Usually a solid green means you have the right length, but not always!",
       position: "left",
       example: {
         answer: "foggy",
-        guess: "high",
+        guesses: ["high","foggy"],
         caption: "'G' is solid green because it's both the third from the left and the second from the right, even though the guess length is wrong.",
       },
     },
@@ -60,7 +71,7 @@
       position: "right",
       example: {
         answer: "foggy",
-        guess: "farfalle",
+        guesses: ["farfalle","farflung","foggy"],
         caption: "'F' is green in two places because it matches as the first from the left and the fifth from the right.",
       },
     },
@@ -73,13 +84,21 @@
         position: "right",
         example : {
             "answer" : "confusion",
-            "guess" :  "contagious",
+            "guesses" :  ["contagious"],
             "caption" : "After matching the 'i' and 'o' in the 7th and 8th positions, the game will make you guess at least 8 letters.",
         }
     },
     {
         text : "If you haven't typed a long enough word, it will show a ... to indicate you need more letters. Move your mouse over the ... to see the minimum length your word could be based on the feedback you've gotten so far!",
         position: 'left'
+    },
+    {
+        text : "Things can get hard to wrap your brain around when you match from both sides, especially if they're not right at the edges.",
+        position: 'right',
+        example: {
+            "answer" : "foggy",
+            "guesses": ["frightful","regretfully","foggy"],            
+        }
     },
     {
       text: "We're still in testing phase, so I haven't figured out how many guesses to give you so far. But I hope you enjoy the game!",
@@ -101,10 +120,12 @@
         </SpeechBubble>
         {/if}
         {#if step.example}
-          <SpeechBubble position={step.position} >
-            <div class="caption">If the answer is: <b>{step.example.answer}</b>
-                </div>
-            <Word isDemo={true} answer={step.example.answer} word={step.example.guess} />
+        {@const nletters = Math.max(...step.example.guesses.map(guess => guess.length))}
+          <SpeechBubble position={step.position} 
+          maxWidth={`${nletters * 3.5}rem`}
+          >            
+            <GuessArea guesses={step.example.guesses} theWord={step.example.answer} isRight={true} isDemo={true} nextGuess='' isInvalid={false}
+            justify={step.example.justify}/>            
             {#if step.example.caption}
               <p>{step.example.caption}</p>
             {/if}                        

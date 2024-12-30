@@ -1,18 +1,18 @@
 <script lang="ts">
 	
 	
-    import CurrentGuess from '../lib/CurrentGuess.svelte';          
+    import CurrentGuess from './CurrentGuess.svelte';          
     
     import Word from '$lib/Word.svelte';    
 	import { letterFeedback } from '$lib/stores.svelte';
 	import { onMount } from 'svelte';
 	import { CORRECT_L, CORRECT_R } from '$lib/types';
 	
-    let {theWord, guesses, nextGuess, isRight, isInvalid} = $props();
+    let {theWord, guesses, nextGuess, isRight, isInvalid, justify = undefined, isDemo = false} = $props();
     
     
 
-    let justifyMode : 'left' | 'right' | 'center' = $state('center');
+    let justifyMode : 'left' | 'right' | 'center' = $state(justify||'center');
     let guessContainer : HTMLDivElement;
     // Handle keydown events
    
@@ -52,7 +52,6 @@
     )
 
   </script>
-
 <div class="justify-buttons" class:visible={guesses.reduce((acc, guess) => acc.add(guess.length), new Set()).size > 1}>
         <button class:active={justifyMode=='left'} onclick={() => justifyMode = 'left'}>← Left</button>
         <button class:active={justifyMode=='center'} onclick={() => justifyMode = 'center'}>Center</button>
@@ -65,7 +64,7 @@
         class:right={justifyMode === 'right'}
     >
       {#each guesses as guess}
-        <Word word={guess} answer={theWord}></Word>
+        <Word word={guess} answer={theWord} {isDemo}></Word>
       {/each}
       {#if !isRight}
       <CurrentGuess word={nextGuess} invalid={isInvalid}></CurrentGuess>
@@ -92,26 +91,7 @@
     .justify-buttons button.active {
         text-decoration: wavy underline white;
     }
-    main {
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-      height: 100dvh;
-      width: 100vw;
-      position: fixed;
-      top: 0;
-      left: 0;        
-      padding: 1rem;
-      gap: 8px;
-      background-image: url("/bg-comic.png");
-      background-size: cover;
-      background-position: center;
-      font-family: "Indoor Kid Web";
-      text-shadow: 2px 2px 3px rgba(10, 50, 26, 0.467);
-      color: rgb(238, 237, 246);
-    }
+    
     .guesses {
       display: flex;
       flex-direction: column;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import GuessArea from './GuessArea.svelte';
+    import GuessArea from '../lib/GuessArea.svelte';
 
 	import Tutorial from './../lib/Tutorial.svelte';
 	
