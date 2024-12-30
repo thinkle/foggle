@@ -93,7 +93,9 @@
       {#each guesses as guess}
         <Word word={guess} answer={theWord}></Word>
       {/each}
-      <CurrentGuess word={nextGuess} invalid={isInvalid}></CurrentGuess>
+      {#if !isRight}
+        <CurrentGuess word={nextGuess} invalid={isInvalid}></CurrentGuess>
+      {/if}
     </div>
     <!-- Input -->
      {#if !isRight}
