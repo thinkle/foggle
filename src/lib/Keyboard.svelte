@@ -28,11 +28,11 @@
                 {:else}
                 <button
                     class:just-typed={key.toLowerCase()==lastLetter}
-                    class:present={letterFeedback[key] === PRESENT}
-                    class:correct-left={letterFeedback[key] === CORRECT_L}
-                    class:correct-right={letterFeedback[key] === CORRECT_R}
-                    class:correct-left-and-right={letterFeedback[key] === CORRECT_B}
-                    class:incorrect={letterFeedback[key] === INCORRECT}
+                    class:present={$letterFeedback[key] === PRESENT}
+                    class:correct-left={$letterFeedback[key] === CORRECT_L}
+                    class:correct-right={$letterFeedback[key] === CORRECT_R}
+                    class:correct-left-and-right={$letterFeedback[key] === CORRECT_B}
+                    class:incorrect={$letterFeedback[key] === INCORRECT}
                     
                         onclick={()=>oninput(key.toLowerCase())}>{key}</button>
                 {/if}
