@@ -8,6 +8,7 @@
     import Word from '$lib/Word.svelte';    
 	import { minWordLength, resetFeedback } from '$lib/stores.svelte';
 	import { onMount } from 'svelte';
+	import SpeechBubble from '$lib/SpeechBubble.svelte';
   
     let theWord: string = $state(getTheWord());
     let guesses: string[] = $state([]);
@@ -117,8 +118,11 @@
     ></Keyboard>
       <p class="spoiler">Spoiler: {theWord}</p>
       {:else}
+      
       <div class="victory">
-        <h2>🎉 You got it! 🎉</h2>
+        <SpeechBubble>
+        <h2>🔨 Nailed it! 💪</h2>
+        <p>📣 The fog has lifted! 🛶 </p>
         <button onclick={() => {
             console.log('Reset!')
             resetFeedback();
@@ -126,6 +130,7 @@
             guesses = [];
             nextGuess = '';
         }}>Play Again</button>
+        </SpeechBubble>
         </div>
       {/if}
 
@@ -173,6 +178,7 @@
       gap: 0.5rem;
       overflow-y: auto;      
       flex-grow: 1;
+      min-width: 80vw;
     }
 
     .center {
@@ -204,13 +210,7 @@
         color: orange;
         
     }
-    .victory {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        background: #fff8;
-        padding: 1rem;
+    .victory {        
         animation: roll-in 1s;
     }
     @keyframes roll-in {

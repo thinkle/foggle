@@ -6,11 +6,11 @@
   
     const tutorialSteps = [
     {
-      text: "Welcome to Foggle! You're guessing in the fog, trying to figure out both the word and its length.",
+      text: "Welcome to Foggle! It's like wordle, but you're guessing in the fog, trying to figure out both the word and its length.",
       position: "left",
     },
     {
-      text: "Start by typing any word. We'll show feedback on which letters are correct and where they might fit.",
+      text: "The basics are familiar: guess letters right, and they turn green...",
       position: "right",
       example: {
         answer: "foggy",
@@ -18,13 +18,11 @@
         caption: "The green 'f' and 'y' show correct letters in the correct positions.",
       },
     },
-    {
-      text: "Next, we'll show when letters are present but in the wrong positions.",
-      position: "left",
+    {      
       example: {
         answer: "foggy",
         guess: "grove",
-        caption: "Orange letters 'g' and 'o' are present but in the wrong positions.",
+        caption: "Orange shows letters are present in the answer, but misplaced"
       },
     },
     {
@@ -41,11 +39,11 @@
       },
     },
     {      
-      position: "left",
+      position: "right",
       example: {
         answer: "foggy",
-        guess: "cry",
-        caption: "'Y' is green because it's in the correct position from the right.",
+        guess: "shy",
+        caption: "And 'Y' matches from the right.",
       },
     },          
     {
@@ -58,7 +56,7 @@
       },
     },
     {
-      text: "Finally, a single letter in the answer might match in two positions in the guess!",
+      text: "A single letter in the answer might match in two different positions in the guess!",
       position: "right",
       example: {
         answer: "foggy",
@@ -67,9 +65,30 @@
       },
     },
     {
-      text: "You'll need to use both the feedback and your wits to figure it out. Good luck!",
+        text: "Finally, the game will limit you to guesses at least as long as you know the answer might be.",
+        position: "left"
+    },
+    {
+        text: "Let's say the word is 'confusion' for example...",
+        position: "right",
+        example : {
+            "answer" : "confusion",
+            "guess" :  "contagious",
+            "caption" : "After matching the 'i' and 'o' in the 7th and 8th positions, the game will make you guess at least 8 letters.",
+        }
+    },
+    {
+        text : "If you haven't typed a long enough word, it will show a ... to indicate you need more letters. Move your mouse over the ... to see the minimum length your word could be based on the feedback you've gotten so far!",
+        position: 'left'
+    },
+    {
+      text: "We're still in testing phase, so I haven't figured out how many guesses to give you so far. But I hope you enjoy the game!",
       position: "center",
     },
+    {
+        text: "(If you get frustrated, there's a hidden box in the lower right that will reveal the answer)",
+        position: "right",
+    }
 ];
   </script>
   <div class="tutorial-frame">
