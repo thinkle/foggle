@@ -5,7 +5,7 @@ const words = allTheWords.split(/\s*\n\s*/g)
 const answers = answerList.split(/\s*\n\s*/g)
 
 export const getTheWord = () => {
-    return 'continue'
+    //return 'continue'
     return answers[Math.floor(Math.random() * answers.length)];
 }
 
