@@ -44,9 +44,7 @@
 </div>
 
 <style>
-    h1 {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
+   
     .row {
         display: flex;
         justify-content: center;
@@ -66,6 +64,7 @@
         background: radial-gradient(circle, var(--white) 70%, transparent 100%);
         border: 3px solid #222a;
         transition: border-color 0.3s;
+        font-family: "Indoor Kid Web";
     }
     button.just-typed {
         border-color: rgba(247, 126, 13, 0.852);
