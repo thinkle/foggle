@@ -44,16 +44,7 @@
 </div>
 
 <style>
-    @media (max-width: 800px) {
-        :root {
-            font-size: 12px;   
-        }
-    }
-   @media (max-width: 450px) {
-        :root {
-            font-size: 8px;
-        }
-    }
+
     
 
     .row {
@@ -64,6 +55,7 @@
     }
 
     button {
+        box-sizing: border-box;
         font-size: 2rem;
         font-weight: bold;        
         padding: 8px;
@@ -71,8 +63,9 @@
         display: grid;
         place-content: center;
         text-align: center;
-        min-width: 2.5rem;
-        height: 2.5rem;
+        /* Adjust width to fit 10 keys */
+        width: calc((100vw - 3rem) / 10);
+        height: 3.5rem;
         background: radial-gradient(circle, var(--white) 70%, transparent 100%);
         border: 3px solid #222a;
         transition: border-color 0.3s;
