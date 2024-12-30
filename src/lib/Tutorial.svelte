@@ -122,13 +122,18 @@
     button {
         font-size: 2rem;
         padding: 1rem 2rem;
-        border-radius: 8px;
+        border-radius: 2rem;
         border: none;
-        background: #472904;
+        background: #ff542e;
         color: #fff;
         cursor: pointer;
-        font-family: 'Indoor Kid Web';
-        text-decoration: 1px wavy underline;
+        font-family: 'Indoor Kid Web';   
+        transition: transform 0.2s;     
+    }
+    button:hover {
+        transform-origin: center;
+        transform: scale(1.1);
+        text-decoration: wavy underline;
     }
     .tutorial-frame {
         position: fixed;
