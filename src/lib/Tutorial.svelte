@@ -133,7 +133,7 @@
     .tutorial-frame {
         position: fixed;
         width: 100vw;
-        height: 100vh;
+        height: 100dvh;
         top: 0;
         left: 0;
         z-index: 3;
@@ -156,7 +156,7 @@
   
     .step {      
       display: flex;
-      margin-bottom: 10vh;
+      margin-bottom: 10dvh;
       flex-direction: column;
       align-items: flex-start;              
       animation: fade-in 1s both;
@@ -170,8 +170,8 @@
     }
        
     .step:first-child {
-        margin-top: calc(50vh - 50%);
-        margin-bottom: 50vh;
+        margin-top: calc(50dvh - 50%);
+        margin-bottom: 50dvh;
     }      
   
     .caption {

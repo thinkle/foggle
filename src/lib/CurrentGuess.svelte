@@ -30,7 +30,7 @@
     visibility: visible;        
     animation: fade-in 0.5s;        
     position: fixed;
-    bottom: 30vh;
+    bottom: 30dvh;
     left: 20vw;
     font-size: 2rem;
     width: 18rem;

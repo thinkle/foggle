@@ -143,7 +143,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
-      height: 100vh;
+      height: 100dvh;
       width: 100vw;
       position: fixed;
       top: 0;
