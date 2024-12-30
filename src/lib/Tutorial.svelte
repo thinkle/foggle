@@ -10,6 +10,10 @@
       position: "left",
     },
     {
+      text: "It's a little trickier though, so you're going to want to learn how it works. Scroll down to see the tutorial!",
+      position: "right",
+    },
+    {
       text: "The basics are familiar: guess letters right, and they turn green...",
       position: "right",
       example: {
@@ -54,7 +58,7 @@
             answer: "foggy",
             guesses: ["fetchingly","foggy"],
             justify: "left",
-            caption: "You can use the align button to shift the words left or right to help you see how the letters line up!"            
+            caption: "You can use the left/right to shift the words and see how the letters line up!"            
         },
     },
     {
@@ -204,7 +208,7 @@
        
     .step:first-child {
         margin-top: calc(50dvh - 50%);
-        margin-bottom: 50dvh;
+        --margin-bottom: 0dvh;
     }      
   
     .caption {
