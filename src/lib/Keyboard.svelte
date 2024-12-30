@@ -22,9 +22,9 @@
         <div class="row">
             {#each row as key}
                 {#if key === 'ENT'}
-                    <button onclick={onsubmit}>Enter</button>                                
+                    <button onclick={onsubmit}>⏎ </button>                                
                 {:else if key == 'DEL'} 
-                    <button onclick={ondelete}>Delete</button>
+                    <button onclick={ondelete}>⌫</button>
                 {:else}
                 <button
                     class:just-typed={key.toLowerCase()==lastLetter}
@@ -44,11 +44,23 @@
 </div>
 
 <style>
-   
+    @media (max-width: 800px) {
+        :root {
+            font-size: 12px;   
+        }
+    }
+   @media (max-width: 450px) {
+        :root {
+            font-size: 8px;
+        }
+    }
+    
+
     .row {
         display: flex;
         justify-content: center;
-
+        /* worst case...*/
+        flex-wrap: wrap;
     }
 
     button {
@@ -59,8 +71,8 @@
         display: grid;
         place-content: center;
         text-align: center;
-        min-width: 3rem;
-        height: 3rem;
+        min-width: 2.5rem;
+        height: 2.5rem;
         background: radial-gradient(circle, var(--white) 70%, transparent 100%);
         border: 3px solid #222a;
         transition: border-color 0.3s;
