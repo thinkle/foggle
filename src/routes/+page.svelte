@@ -24,6 +24,7 @@
                 resetFeedback();
         }
     )
+    $inspect(isRight,guesses,nextGuess)
 
     
     
