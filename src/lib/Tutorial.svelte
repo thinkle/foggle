@@ -128,7 +128,8 @@
         color: #fff;
         cursor: pointer;
         font-family: 'Indoor Kid Web';   
-        transition: transform 0.2s;     
+        transition: transform 0.2s;   
+        margin-bottom: 30vh;  
     }
     button:hover {
         transform-origin: center;
@@ -196,7 +197,7 @@
       cursor: pointer;
       position: fixed;
       top: 10px;
-      right: 10px;
+      right: 10px;      
     }
   
     .close-btn:hover {
