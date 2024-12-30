@@ -8,10 +8,11 @@
 	import { onMount } from 'svelte';
 	import { CORRECT_L, CORRECT_R } from '$lib/types';
 	
-    let {theWord, guesses, nextGuess, isRight, isInvalid, justify = undefined, isDemo = false} = $props();
+    let {theWord, guesses, nextGuess, isRight, isInvalid, justify = undefined, isDemo = false, letterSize = undefined} = $props();
     
     let sizeAdjust = $derived.by(
         () => {
+            if (letterSize) return letterSize;
             let maxGuessLength = nextGuess.length;
             for (let guess of guesses) {
                 maxGuessLength = Math.max(maxGuessLength, guess.length);
