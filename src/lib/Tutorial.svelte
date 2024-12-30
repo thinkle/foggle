@@ -72,8 +72,17 @@
       example: {
         answer: "foggy",
         guesses: ["farfalle","farflung","foggy"],
-        caption: "'F' is green in two places because it matches as the first from the left and the fifth from the right.",
+        caption: "'F' is green in two places because it matches as the first from the left and the fifth from the right. Click 'left' and 'right' to see the letters line up!",
       },
+    },
+    {
+        text : "Things can get hard to wrap your brain around when you match from both sides, especially if they're not right at the edges.",
+        position: 'right',
+        example: {
+            "answer" : "foggy",
+            "guesses": ["frightful","regretfully","foggy"],
+            caption : "Click the 'left' and 'right' buttons to see how this works!",
+        }
     },
     {
         text: "Finally, the game will limit you to guesses at least as long as you know the answer might be.",
@@ -92,14 +101,7 @@
         text : "If you haven't typed a long enough word, it will show a ... to indicate you need more letters. Move your mouse over the ... to see the minimum length your word could be based on the feedback you've gotten so far!",
         position: 'left'
     },
-    {
-        text : "Things can get hard to wrap your brain around when you match from both sides, especially if they're not right at the edges.",
-        position: 'right',
-        example: {
-            "answer" : "foggy",
-            "guesses": ["frightful","regretfully","foggy"],            
-        }
-    },
+    
     {
       text: "We're still in testing phase, so I haven't figured out how many guesses to give you so far. But I hope you enjoy the game!",
       position: "center",
