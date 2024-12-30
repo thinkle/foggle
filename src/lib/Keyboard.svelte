@@ -64,7 +64,7 @@
         place-content: center;
         text-align: center;
         /* Adjust width to fit 10 keys */
-        width: calc((100vw - 3rem) / 10);
+        width: min(calc((100vw - 3rem) / 10),4rem);
         height: 3.5rem;
         background: radial-gradient(circle, var(--white) 70%, transparent 100%);
         border: 3px solid #222a;
