@@ -86,7 +86,7 @@
       position: "center",
     },
     {
-        text: "(If you get frustrated, there's a hidden box in the lower right that will reveal the answer)",
+        text: "(If you get frustrated, there's a hidden box in the top left that will reveal the answer)",
         position: "right",
     }
 ];
