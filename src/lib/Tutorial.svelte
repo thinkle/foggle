@@ -94,7 +94,7 @@
   <div class="tutorial-frame">
   <div class="tutorial">
     {#each tutorialSteps as step, i}
-      <div class="step visible" class:left={step.position === "left"} class:right={step.position === "right"}>
+      <div class="step" class:left={step.position === "left"} class:right={step.position === "right"}>
         {#if step.text}
         <SpeechBubble position={step.position}>
           {step.text}
@@ -107,9 +107,7 @@
             <Word isDemo={true} answer={step.example.answer} word={step.example.guess} />
             {#if step.example.caption}
               <p>{step.example.caption}</p>
-            {/if}
-            
-            
+            {/if}                        
           </SpeechBubble>
         {/if}
       </div>
@@ -123,13 +121,14 @@
   <style>
     button {
         font-size: 2rem;
-        padding: 0.5rem 1rem;
+        padding: 1rem 2rem;
         border-radius: 8px;
         border: none;
-        background: #427dfb;
+        background: #472904;
         color: #fff;
         cursor: pointer;
         font-family: 'Indoor Kid Web';
+        text-decoration: 1px wavy underline;
     }
     .tutorial-frame {
         position: fixed;
@@ -155,27 +154,25 @@
       position: relative;
     }
   
-    .step {
+    .step {      
       display: flex;
+      margin-bottom: 10vh;
       flex-direction: column;
-      align-items: flex-start;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      align-items: flex-start;              
+      animation: fade-in 1s both;
+      animation-timeline: view(block);      
     }
-  
-    .step.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .step.right {
+        animation-name: fade-in-right;
     }
-  
-    .example {
-      margin-top: 1rem;
-      padding: 1rem;
-      background: #333;
-      border-radius: 10px;
-      text-align: center;
+    .step.left {
+        animation-name: fade-in-left;
     }
+       
+    .step:first-child {
+        margin-top: calc(50vh - 50%);
+        margin-bottom: 50vh;
+    }      
   
     .caption {
       margin-top: 0.5rem;
@@ -202,6 +199,65 @@
     }
     :global(.wordrow) {
         justify-content: center;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+            transform: rotateX(90deg);
+        }
+        20% {
+            opacity: 1;
+            transform: rotateX(70deg);
+        }
+        40% {
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+        80% {
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+        100% {
+            opacity: 0;
+            transform: rotateX(90deg);
+        }
+    }
+    @keyframes fade-in-right {
+        0% {
+            opacity: 0;
+            transform: translateX(50vw);        
+        }
+        25% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        75% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(50vw);
+        }
+    }
+    @keyframes fade-in-left {
+        0% {
+            opacity: 0;
+            transform: translateX(-50vw);        
+        }
+        25% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        75% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(-50vw);
+        }
     }
   </style>
   
