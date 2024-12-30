@@ -94,11 +94,11 @@
     }
 
     .correct-left {
-        background: linear-gradient(to right, var(--correct) 50%, transparent 100%);
+        background: linear-gradient(to right, var(--correct) 40%, var(--white) 60%);
     }
 
     .correct-right {
-        background: linear-gradient(to left, var(--correct) 50%, transparent 100%);
+        background: linear-gradient(to left, var(--correct) 40%, var(--white) 60%);
     }
 
     .correct-left-and-right {
