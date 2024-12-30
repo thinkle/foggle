@@ -63,7 +63,7 @@
       example: {
         answer: "foggy",
         guess: "farfalle",
-        caption: "'F' is green in two places because it matches as the second from the left and the fifth from the right.",
+        caption: "'F' is green in two places because it matches as the first from the left and the fifth from the right.",
       },
     },
     {
