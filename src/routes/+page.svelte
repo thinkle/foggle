@@ -159,7 +159,7 @@
       left: 0;        
       padding: 1rem;
       gap: 8px;
-      background-image: url("bg-comic.png");
+      background-image: url("/bg-comic.png");
       background-size: cover;
       background-position: center;
       font-family: "Indoor Kid Web";
