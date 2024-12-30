@@ -134,9 +134,7 @@
         }}>Play Again</button>
         </SpeechBubble>
         </div>
-      {/if}
-
-    
+      {/if}    
   </main>
   <!-- Global Keydown Listener -->
   <svelte:window on:keydown={handleKeydown} />
@@ -180,7 +178,7 @@
       gap: 0.5rem;
       overflow-y: auto;      
       flex-grow: 1;
-      min-width: 15rem;
+      min-width: min(100vw,15rem);
     }
 
     .center {
