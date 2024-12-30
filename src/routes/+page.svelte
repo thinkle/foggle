@@ -1,7 +1,9 @@
 <script lang="ts">
+  import GuessArea from './GuessArea.svelte';
+
 	import Tutorial from './../lib/Tutorial.svelte';
 	
-    import CurrentGuess from '../lib/CurrentGuess.svelte';
+    
     import Keyboard from '../lib/Keyboard.svelte';
   
     import { getTheWord, isValid } from "$lib/words";
@@ -23,8 +25,8 @@
         }
     )
 
-    let justifyMode : 'left' | 'right' | 'center' = $state('center');
-    let guessContainer : HTMLDivElement;
+    
+    
     // Handle keydown events
     function handleKeydown(event: KeyboardEvent) {
       const key = event.key.toLowerCase();
@@ -50,13 +52,7 @@
       }
     }
 
-    $effect(
-        () => {
-            if (guesses.length || nextGuess) {
-                guessContainer.scrollTop = guessContainer.scrollHeight;
-            }
-        }
-    )
+    
     let showTutorial = $state(true);
     
     onMount(() => {
@@ -79,24 +75,14 @@
   <main>    
     <h1>Foggle</h1>
     
-    <div class="justify-buttons" class:visible={guesses.reduce((acc, guess) => acc.add(guess.length), new Set()).size > 1}>
-        <button onclick={() => justifyMode = 'left'}>← Left</button>
-        <button onclick={() => justifyMode = 'center'}>Center</button>
-        <button onclick={() => justifyMode = 'right'}>Right →</button>
-    </div>
-    <div class="guesses"
-        bind:this={guessContainer}
-        class:center={justifyMode === 'center'}
-        class:left={justifyMode === 'left'}
-        class:right={justifyMode === 'right'}
-    >
-      {#each guesses as guess}
-        <Word word={guess} answer={theWord}></Word>
-      {/each}
-      {#if !isRight}
-        <CurrentGuess word={nextGuess} invalid={isInvalid}></CurrentGuess>
-      {/if}
-    </div>
+    <GuessArea
+        {theWord}
+        {guesses}
+        {isInvalid}
+        {isRight}
+        {nextGuess}
+    ></GuessArea>
+    
     <!-- Input -->
      {#if !isRight}
     <Keyboard
@@ -118,7 +104,7 @@
       }}
       lastLetter={nextGuess[nextGuess.length - 1]}
     ></Keyboard>
-      <p class="spoiler">Spoiler: {theWord}</p>
+      <p class="spoiler">Spoiler: <span class="answer">{theWord}</span></p>
       {:else}
       
       <div class="victory">
@@ -203,12 +189,22 @@
         font-weight: bold;
         font-size: 12px;
         position: absolute;
-        right: 1rem;
-        bottom: 1rem;
+        top: 1rem;
+        left: 1rem;
+    }
+    .spoiler .answer {
+        opacity: 0;
+    }
+    .spoiler:hover .answer {
+        opacity: 1;
+        color: orange;
+        transition: 1s color;
+        transition-delay: 1500ms;
     }
     .spoiler:hover {
         color: orange;
-        
+        transition: 1s color;
+        transition-delay: 300ms;
     }
     .victory {        
         animation: roll-in 1s;
