@@ -180,7 +180,7 @@
       gap: 0.5rem;
       overflow-y: auto;      
       flex-grow: 1;
-      min-width: 80vw;
+      min-width: 15rem;
     }
 
     .center {
