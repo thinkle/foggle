@@ -73,7 +73,7 @@
   </script>
 <div class="justify-buttons" class:visible={guesses.reduce((acc, guess) => acc.add(guess.length), new Set()).size > 1}>
         <button class:active={justifyMode=='left'} onclick={() => justifyMode = 'left'}>← Left</button>
-        <button class:active={justifyMode=='center'} onclick={() => justifyMode = 'center'}>Center</button>
+        <button class:active={justifyMode=='center'} onclick={() => justifyMode = 'center'}>All</button>
         <button class:active={justifyMode=='right'} onclick={() => justifyMode = 'right'}>Right →</button>
     </div>
     <div class="guesses"
@@ -140,6 +140,31 @@
     .right :global(.wordrow) {
         justify-content: end;
     }
+    :root {
+        --correct-aligned-filter: brightness(1.5)saturate(1.4)drop-shadow(1px 16px 3px rgba(13, 245, 13, 0.9));        
+        --correct-filter: brightness(1.5)saturate(1.4);
+        --deemphasize-filter: saturate(0.8);
+    }
+    /* Adjust highlighting... */
+    .right :global(.correct-right),.right :global(.correct-left-and-right) {
+        filter: var(--correct-aligned-filter);
+    }
+    .right :global(.correct-left),.left :global(.correct-left-and-right) {
+        filter: var(--deemphasize-filter);
+    }
+    .left :global(.correct-left),.left :global(.correct-left-and-right) {
+        filter: var(--correct-aligned-filter);
+    }
+    .left :global(.correct-right),.right :global(.correct-left-and-right) {        
+        filter: var(--deemphasize-filter);
+    }
+    
+    .center :global(.correct-left),.center :global(.correct-right),.center :global(.correct-left-and-right) {
+        filter: var(--correct-filter);
+    }
+
+
+
     .justify-buttons {
         opacity: 0;
         transition: opacity 0.5s;
@@ -189,5 +214,6 @@
         background: #222;
         border-radius: 50%;
     }
+    
   </style>
 

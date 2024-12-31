@@ -66,7 +66,7 @@
     .current-guess.too-short :global(.wordrow::after) {
         content: '...';
         font-family: 'Indoor Kid Web';
-       font-size: 2rem;
+       font-size: var(--font-size, 2rem);
        font-weight: bold;
        padding: 8px;
        border-radius: 8px;
@@ -78,6 +78,7 @@
        background: radial-gradient(circle, var(--white) 70%, transparent 100%);
        text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.644);
        color: #224;
+       box-sizing: border-box;
     }
     .invalid {
         animation: shake 0.5s;        
