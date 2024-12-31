@@ -141,7 +141,7 @@
         justify-content: end;
     }
     :root {
-        --correct-aligned-filter: brightness(1.5)saturate(1.4)drop-shadow(1px 16px 3px rgba(13, 245, 13, 0.9));        
+        --correct-aligned-filter: brightness(1.5)saturate(1.4)drop-shadow(1px 16px 3px rgba(9, 152, 9, 0.645));        
         --correct-filter: brightness(1.5)saturate(1.4);
         --deemphasize-filter: saturate(0.8);
     }
@@ -149,13 +149,13 @@
     .right :global(.correct-right),.right :global(.correct-left-and-right) {
         filter: var(--correct-aligned-filter);
     }
-    .right :global(.correct-left),.left :global(.correct-left-and-right) {
+    .right :global(.correct-left) {
         filter: var(--deemphasize-filter);
     }
     .left :global(.correct-left),.left :global(.correct-left-and-right) {
         filter: var(--correct-aligned-filter);
     }
-    .left :global(.correct-right),.right :global(.correct-left-and-right) {        
+    .left :global(.correct-right) {
         filter: var(--deemphasize-filter);
     }
     
