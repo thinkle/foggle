@@ -86,7 +86,7 @@
       {#each guesses as guess}
         <Word word={guess} answer={theWord} {isDemo}></Word>
       {/each}
-      {#if !isRight}
+      {#if !isRight && guesses.length < 6}
       <CurrentGuess word={nextGuess} invalid={isInvalid}></CurrentGuess>
     {/if}
   </div>

@@ -130,6 +130,12 @@ if (hasFeedback) {
     --font-size: 2rem;
     --letter-delay: 200ms; /* Delay per letter */
 }
+@media (max-width: 480px) {
+    :root {
+        --ltr-width: 1.2em;
+        --ltr-height: 1.2em;
+    }
+}
 
 .wordrow {
     display: flex;

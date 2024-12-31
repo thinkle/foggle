@@ -83,9 +83,19 @@
         {isRight}
         {nextGuess}
     ></GuessArea>
-    
+    {#if guesses.length == 6 && !isRight}
+    <Word word={theWord} answer={theWord} isDemo={true}></Word>
+    {/if}
+    <button onclick={() => {
+        console.log('Reset!')
+        resetFeedback();
+        theWord = getTheWord();            
+        guesses = [];
+        nextGuess = '';
+    }}>Play Again</button>
+
     <!-- Input -->
-     {#if !isRight}
+     {#if !isRight && guesses.length < 6}
     <Keyboard
       oninput={(ltr: string) => {
         nextGuess += ltr;
@@ -105,8 +115,8 @@
       }}
       lastLetter={nextGuess[nextGuess.length - 1]}
     ></Keyboard>
-      <p class="spoiler">Spoiler: <span class="answer">{theWord}</span></p>
-      {:else}
+      
+      {:else if isRight}
       
       <div class="victory">
         <SpeechBubble>
@@ -126,7 +136,9 @@
   <!-- Global Keydown Listener -->
   <svelte:window on:keydown={handleKeydown} />
   
-  <style>         
+  <style>     
+ 
+
     button {
         font-family: "Indoor Kid Web";
         background: transparent;
@@ -157,56 +169,7 @@
       font-family: "Indoor Kid Web";
       text-shadow: 2px 2px 3px rgba(10, 50, 26, 0.467);
       color: rgb(238, 237, 246);
-    }
-    .guesses {
-      display: flex;
-      flex-direction: column;
-      justify-content: start;
-      gap: 0.5rem;
-      overflow-y: auto;      
-      flex-grow: 1;
-      min-width: min(100vw,15rem);
-    }
-
-    .center {
-        align-items: center;
-    }
-    .left {
-        align-items: flex-start;
-    }
-    .right {
-        align-items: flex-end;
-    }
-    .justify-buttons {
-        opacity: 0;
-        transition: opacity 0.5s;
-    }
-    .justify-buttons.visible {
-        opacity: 1;
-    }
-    .spoiler {
-        border: 1px solid #333;
-        color: transparent;
-        font-weight: bold;
-        font-size: 12px;
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-    }
-    .spoiler .answer {
-        opacity: 0;
-    }
-    .spoiler:hover .answer {
-        opacity: 1;
-        color: orange;
-        transition: 1s color;
-        transition-delay: 1500ms;
-    }
-    .spoiler:hover {
-        color: orange;
-        transition: 1s color;
-        transition-delay: 300ms;
-    }
+    }    
     .victory {        
         animation: roll-in 2s;
         animation-delay: 1s;
@@ -240,5 +203,31 @@
     .tutorial-button:hover {
         background: #222;
         border-radius: 50%;
+    }
+    h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+    @media (min-width: 1080px) {
+        h1 {
+            font-size: 3rem;
+            margin: 0.5rem;
+        }
+        
+    }
+    @media (max-width: 800px) {
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .tutorial-button {
+            top: 0.5rem;
+        }
+        
+    }
+    @media (max-width: 460px) {
+        :root,main {
+            font-size: 13px;
+        }
     }
   </style>
