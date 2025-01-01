@@ -86,13 +86,13 @@
         position: 'right',
         example: {
             "answer" : "foggy",
-            size: 1.5,
+            size: 1.3,
             "guesses": ["frightful","regretfully","foggy"],
             caption : "Click the 'left' and 'right' buttons to see how this works!",
         }
     },
     {
-        text: "Finally, the game will limit you to guesses at least as long as you know the answer might be.",
+        text: "Finally, the game will limit you to guesses at least as long as you know the answer must be based on your guesses so far.",
         position: "left"
     },
     {
@@ -104,12 +104,7 @@
             "guesses" :  ["contagious"],            
             "caption" : "After matching the 'i' and 'o' in the 7th and 8th positions, the game will make you guess at least 8 letters.",
         }
-    },
-    {
-        text : "If you haven't typed a long enough word, it will show a ... to indicate you need more letters. Move your mouse over the ... to see the minimum length your word could be based on the feedback you've gotten so far!",
-        position: 'left'
-    },
-    
+    },        
     {
       text: "Just like regular wordle, you get six guesses to get the word.",
       position: "center",
