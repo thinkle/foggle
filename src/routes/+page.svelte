@@ -105,8 +105,7 @@
     }}>Play Again</button>
     {/if}
     <!-- Input -->
-     {#if !isRight && guesses.length < 6}
-     {theWord}
+     {#if !isRight && guesses.length < 6}     
     <Keyboard
       oninput={(ltr: string) => {
         nextGuess += ltr;
