@@ -74,7 +74,7 @@
     <button class="tutorial-button" onclick={() => showTutorial = true} data-tooltip="Show Tutorial">?</button>
   {/if}
   <main>    
-    <h1>Foggle</h1>
+    <h1>Fo<span class="g">g</span>gle</h1>
     
     <GuessArea
         {theWord}
@@ -208,6 +208,14 @@
     h1 {
         margin: 0;
         font-size: 2rem;
+        font-stretch: 130%;
+        font-weight: 100;
+        letter-spacing: 0px;
+        text-shadow: 3px 3px 1px rgba(4, 23, 12, 0.8);
+        -webkit-text-stroke: 1px rgb(218, 248, 231);
+    }
+    .g {
+        letter-spacing: -4px;
     }
     @media (min-width: 1080px) {
         h1 {

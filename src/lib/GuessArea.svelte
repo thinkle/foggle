@@ -24,13 +24,18 @@ let {
     letterSize = undefined
 } = $props();
 
-let sizeAdjust = $derived.by(
+let maxGuessLength = $derived.by(
     () => {
-        if (letterSize) return letterSize;
         let maxGuessLength = nextGuess.length;
         for (let guess of guesses) {
             maxGuessLength = Math.max(maxGuessLength, guess.length);
         }
+        return maxGuessLength;
+    }
+)
+
+let sizeAdjust = $derived.by(
+    () => {             
         if (maxGuessLength > 9) {
             return 1.5;
         } else if (maxGuessLength > 7) {
@@ -38,10 +43,29 @@ let sizeAdjust = $derived.by(
         } else if (maxGuessLength > 5) {
             return 2;
         } else {
-            return 3;
+            return 2.5;
         }
     }
+)
+let stretch = $derived.by(
+    () => {
+        if (maxGuessLength > 16) {
+            /* 70% is the narrowest Indoor Kid size */
+            return .70;
+        }
+        if (maxGuessLength > 13) {
+            return .8; /* narrow */
+        } else if (maxGuessLength >= 11) {
+            return .9; /* kinda narrow */
+        } else if (maxGuessLength > 8) {
+            return 1; /* normal */
+        } else if (maxGuessLength > 5) {
+            return 1.15; /* wide */
+        } else {
+            return 1.3 // extended
+        }
 
+    }
 )
 
 let justifyMode: 'left' | 'right' | 'center' = $state(justify || 'center');
@@ -90,6 +114,7 @@ $effect(
     class:left={justifyMode === 'left'}
     class:right={justifyMode === 'right'}
     style:--font-size="{sizeAdjust}rem"
+    style:--stretch="{stretch}"
     >
     <div class="justify-buttons" class:visible={guesses.length}>
         <button class:active={justifyMode=='left'} onclick={() => justifyMode = 'left'}>
@@ -227,6 +252,9 @@ $effect(
                  transform: scale(1);
              }
          }
-
+         .guesses {
+            --font-stretch: calc(var(--stretch) * 100%);
+            --ltr-width: calc(var(--stretch) * 1.5em);
+         }
        
 </style>

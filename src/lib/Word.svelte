@@ -129,6 +129,7 @@ if (hasFeedback) {
     --ltr-width: 1.5em;
     --font-size: 2rem;
     --letter-delay: 200ms; /* Delay per letter */
+    --letter-stretch: calc(100% * var)
 }
 @media (max-width: 480px) {
     :root {
@@ -161,6 +162,7 @@ if (hasFeedback) {
     box-sizing: border-box;
     animation: pop-in 300ms ease-out;
     animation-fill-mode: both;
+    font-stretch: var(--font-stretch, 100%);
 }
 
 /* Feedback Styles */

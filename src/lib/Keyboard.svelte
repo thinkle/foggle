@@ -70,6 +70,8 @@
         border: 3px solid #222a;
         transition: border-color 0.3s;
         font-family: "Indoor Kid Web";
+        font-stretch: 130%;
+        font-weight: 900;
     }
     button.just-typed {
         border-color: rgba(247, 126, 13, 0.852);
