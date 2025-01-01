@@ -11,7 +11,15 @@
 	import { minWordLength, resetFeedback } from '$lib/stores.svelte';
 	import { onMount } from 'svelte';
 	import SpeechBubble from '$lib/SpeechBubble.svelte';
-  
+
+    const getExpression = () => {
+        let expressions = ['Wow','Nailed it','Nice one','Amazing','Sweeeet',
+            'Yowzers','Yikes','Kapow','Bazinga','Bingo','Shazam',
+        ]
+        return expressions[Math.floor(Math.random() * expressions.length)];
+    }
+
+    let expression = $state(getExpression());
     let theWord: string = $state(getTheWord());
     let guesses: string[] = $state([]);
     let nextGuess: string = $state('');
@@ -22,6 +30,7 @@
         () => {
             if (theWord) 
                 resetFeedback();
+                expression = getExpression();
         }
     )
     $inspect(isRight,guesses,nextGuess)
@@ -97,6 +106,7 @@
     {/if}
     <!-- Input -->
      {#if !isRight && guesses.length < 6}
+     {theWord}
     <Keyboard
       oninput={(ltr: string) => {
         nextGuess += ltr;
@@ -121,15 +131,15 @@
       
       <div class="victory">
         <SpeechBubble>
-        <h2>Got it!</h2>
-        <p>The fog has lifted!</p>
-        <button onclick={() => {
-            console.log('Reset!')
-            resetFeedback();
-            theWord = getTheWord();            
-            guesses = [];
-            nextGuess = '';
-        }}>Play Again</button>
+            <h2>{"{"}{expression}{"}"}</h2>
+            <p>The fog has lifted!</p>
+            <button onclick={() => {
+                console.log('Reset!')
+                resetFeedback();
+                theWord = getTheWord();            
+                guesses = [];
+                nextGuess = '';
+            }}>Play Again</button>
         </SpeechBubble>
         </div>
       {/if}    
@@ -205,7 +215,14 @@
         background: #222;
         border-radius: 50%;
     }
-    h1 {
+h2 {
+    font-variation-settings: 'EMPH' 125;
+  font-weight: 700;
+  font-stretch: 105%;
+  font-style: oblique 20deg;
+  font-feature-settings: "ss03" on;  
+}
+h1 {
         margin: 0;
         font-size: 2rem;
         font-stretch: 130%;
