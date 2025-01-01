@@ -86,6 +86,7 @@
     {#if guesses.length == 6 && !isRight}
     <Word word={theWord} answer={theWord} isDemo={true}></Word>
     {/if}
+    {#if !isRight && guesses.length >= 6}
     <button onclick={() => {
         console.log('Reset!')
         resetFeedback();
@@ -93,7 +94,7 @@
         guesses = [];
         nextGuess = '';
     }}>Play Again</button>
-
+    {/if}
     <!-- Input -->
      {#if !isRight && guesses.length < 6}
     <Keyboard
@@ -120,8 +121,8 @@
       
       <div class="victory">
         <SpeechBubble>
-        <h2>🔨 Nailed it! 💪</h2>
-        <p>📣 The fog has lifted! 🛶 </p>
+        <h2>Got it!</h2>
+        <p>The fog has lifted!</p>
         <button onclick={() => {
             console.log('Reset!')
             resetFeedback();

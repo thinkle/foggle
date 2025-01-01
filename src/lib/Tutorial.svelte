@@ -56,6 +56,7 @@
         position: "left",
         example: {
             answer: "foggy",
+            size: 1.5,
             guesses: ["fetchingly","foggy"],
             justify: "left",
             caption: "You can use the left/right to shift the words and see how the letters line up!"            
@@ -75,6 +76,7 @@
       position: "right",
       example: {
         answer: "foggy",
+        size: 1.5,
         guesses: ["farfalle","farflung","foggy"],
         caption: "'F' is green in two places because it matches as the first from the left and the fifth from the right. Click 'left' and 'right' to see the letters line up!",
       },
@@ -84,6 +86,7 @@
         position: 'right',
         example: {
             "answer" : "foggy",
+            size: 1.5,
             "guesses": ["frightful","regretfully","foggy"],
             caption : "Click the 'left' and 'right' buttons to see how this works!",
         }
@@ -97,7 +100,8 @@
         position: "right",
         example : {
             "answer" : "confusion",
-            "guesses" :  ["contagious"],
+            size: 1.5,
+            "guesses" :  ["contagious"],            
             "caption" : "After matching the 'i' and 'o' in the 7th and 8th positions, the game will make you guess at least 8 letters.",
         }
     },
@@ -107,11 +111,11 @@
     },
     
     {
-      text: "We're still in testing phase, so I haven't figured out how many guesses to give you so far. But I hope you enjoy the game!",
+      text: "Just like regular wordle, you get six guesses to get the word.",
       position: "center",
     },
     {
-        text: "(If you get frustrated, there's a hidden box in the top left that will reveal the answer)",
+        text: "(hint: long words will give you a lot more information!)",
         position: "right",
     }
 ];
@@ -128,10 +132,10 @@
         {#if step.example}
         {@const nletters = Math.max(...step.example.guesses.map(guess => guess.length))}
           <SpeechBubble position={step.position} 
-          maxWidth={`${nletters * 3.5}rem`}
+          maxWidth={`min(85vw,${nletters * 3.5}rem)`}
           >            
-            <GuessArea guesses={step.example.guesses} theWord={step.example.answer} isRight={true} isDemo={true} nextGuess='' isInvalid={false}
-            justify={step.example.justify} letterSize={2}/>            
+            <GuessArea guesses={step.example.guesses} theWord={step.example.answer} isRight={!step.example.showGuess} isDemo={true} nextGuess='' isInvalid={false}
+            justify={step.example.justify} letterSize={step.example.size||2}/>            
             {#if step.example.caption}
               <p>{step.example.caption}</p>
             {/if}                        
@@ -182,7 +186,7 @@
       align-items: center;
       gap: 2rem;
       padding: 1rem;
-      max-width: 40rem;
+      max-width: 40rem;      
       margin: 0 auto;      
       position: relative;
     }
