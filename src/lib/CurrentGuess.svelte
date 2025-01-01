@@ -5,13 +5,32 @@
     let {word,invalid} = $props();
     let tooShort = $derived(word.length < $minWordLength);
     
+    let displayWord = $derived.by(
+        () => {           
+            if (word.length >= $minWordLength) {
+                return word;
+            } else {
+                let effectiveWord = word;
+                while (effectiveWord.length < $minWordLength) {
+                    if (effectiveWord.length + 1 === $minWordLength) {
+                        effectiveWord += '…';
+                    } else {
+                        effectiveWord += ' ';
+                    }                    
+                }
+                return effectiveWord;               
+            }
+        }
+    )
+    $inspect(displayWord);
+
 </script>
 
 <div class:invalid={invalid} class="current-guess"
     class:too-short={tooShort}
     data-tooltip={tooShort ? 'Word is at least ${minWordLength} letters long.' : ''}
 >      
-    {#key word}<Word {word} answer={""} /> {/key}
+    {#key word}<Word word={displayWord} answer={""} /> {/key}
     {#if tooShort}<div class="hint">Word must be at least {$minWordLength} letters long!</div>{/if}
 </div>
 
@@ -63,7 +82,7 @@
     .current-guess {
         min-height: var(--ltr-height,3rem);
     }
-    .current-guess.too-short :global(.wordrow::after) {
+   /*  .current-guess.too-short :global(.wordrow::after) {
         content: '...';
         font-family: 'Indoor Kid Web';
        font-size: var(--font-size, 2rem);
@@ -79,7 +98,7 @@
        text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.644);
        color: #224;
        box-sizing: border-box;
-    }
+    } */
     .invalid {
         animation: shake 0.5s;        
     }
