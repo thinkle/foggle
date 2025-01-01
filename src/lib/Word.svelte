@@ -129,7 +129,7 @@ if (hasFeedback) {
     --ltr-width: 1.5em;
     --font-size: 2rem;
     --letter-delay: 200ms; /* Delay per letter */
-    --letter-stretch: calc(100% * var)
+    
 }
 @media (max-width: 480px) {
     :root {
@@ -140,7 +140,7 @@ if (hasFeedback) {
 
 .wordrow {
     display: flex;
-    gap: 8px;
+    gap: calc(4px * var(--stretch,1));
     flex-wrap: wrap;
     justify-content: start;
 }
