@@ -261,12 +261,14 @@ approve
 approximate
 apricot
 apron
+aqua
 arbor
 arc
 arcade
 arch
 archaeology
 archery
+archipelago
 architect
 architecture
 archive
@@ -297,6 +299,7 @@ artery
 artichoke
 article
 artifact
+artillery
 artist
 artistic
 as
@@ -373,6 +376,7 @@ avoid
 award
 aware
 away
+awl
 awning
 ax
 axe
@@ -427,6 +431,7 @@ bark
 barley
 barn
 barnacle
+barrack
 barrel
 barren
 barricade
@@ -437,6 +442,7 @@ basic
 basil
 basin
 basket
+bass
 bastion
 bat
 bath
@@ -446,6 +452,7 @@ baton
 batter
 battery
 battle
+battleship
 bay
 bayonet
 be
@@ -520,6 +527,7 @@ bilge
 bill
 billow
 bind
+binder
 binge
 binoculars
 biological
@@ -549,6 +557,7 @@ blank
 blanket
 blast
 blaze
+bleach
 bleak
 bleed
 blend
@@ -703,6 +712,7 @@ bundle
 bungalow
 bungle
 bunk
+bunker
 bunting
 buoy
 burden
@@ -724,6 +734,7 @@ business
 busy
 but
 butler
+butte
 butter
 butterfly
 button
@@ -863,6 +874,7 @@ chairlift
 chairman
 chalice
 chalk
+chalky
 challenge
 chamber
 champion
@@ -874,6 +886,7 @@ chaos
 chapel
 chapter
 character
+charcoal
 charge
 charger
 chariot
@@ -908,6 +921,7 @@ child
 childhood
 chili
 chime
+chimera
 chimney
 chin
 chip
@@ -930,6 +944,7 @@ chord
 chrome
 chronic
 chronicle
+chrysanthemum
 chunk
 church
 churn
@@ -945,6 +960,7 @@ circumstance
 citadel
 cite
 citizen
+citizenship
 city
 civil
 civilization
@@ -968,6 +984,7 @@ classroom
 clay
 claymore
 clean
+cleaner
 clear
 cleat
 cleaver
@@ -1022,6 +1039,7 @@ cog
 cognition
 cognitive
 coin
+colander
 cold
 coleslaw
 collaborate
@@ -1121,6 +1139,7 @@ consider
 consistent
 constable
 constant
+constellation
 constitute
 constitution
 constraint
@@ -1135,6 +1154,7 @@ contain
 container
 contemporary
 content
+contentment
 contest
 context
 continent
@@ -1225,6 +1245,7 @@ crankshaft
 crash
 crate
 crawl
+crayon
 crazy
 creak
 cream
@@ -1264,8 +1285,10 @@ cruel
 cruise
 crumble
 crumbly
+crunchy
 crush
 crust
+crutch
 cry
 crystal
 cub
@@ -1306,6 +1329,7 @@ cylinder
 cypress
 czar
 dad
+daffodil
 dagger
 dahlia
 daily
@@ -1325,6 +1349,7 @@ darkness
 dart
 dartboard
 data
+database
 date
 daughter
 dawn
@@ -1420,6 +1445,7 @@ destroy
 detail
 detect
 detective
+detergent
 determine
 detour
 develop
@@ -1483,8 +1509,10 @@ discovery
 discretion
 discuss
 disease
+disgust
 dish
 dishwasher
+disinfectant
 dismiss
 disorder
 dispatch
@@ -1502,6 +1530,7 @@ divan
 dive
 diver
 diverse
+diversity
 divide
 dividend
 divine
@@ -1509,6 +1538,7 @@ divinity
 division
 divorce
 dizzy
+djinn
 do
 dock
 dockyard
@@ -1517,6 +1547,7 @@ document
 doe
 dog
 dogwood
+doll
 dollar
 dollhouse
 dolphin
@@ -1541,6 +1572,7 @@ doubt
 doughnut
 dove
 down
+downpour
 downtown
 dowry
 dozen
@@ -1587,6 +1619,7 @@ durable
 during
 dusk
 dust
+duster
 dustpan
 duty
 dwell
@@ -1636,6 +1669,7 @@ eggplant
 eight
 either
 elaborate
+elastic
 elbow
 elder
 elderly
@@ -1687,6 +1721,7 @@ encase
 enclave
 encore
 encounter
+encryption
 end
 endless
 endorse
@@ -1739,6 +1774,7 @@ errand
 error
 escalator
 escape
+escarpment
 espadrille
 especially
 espresso
@@ -1748,10 +1784,14 @@ establish
 estate
 esteem
 estimate
+estuary
+etching
 eternal
+eternity
 ethic
 ethics
 ethnic
+euro
 evaluate
 even
 evening
@@ -1871,6 +1911,7 @@ father
 fatigue
 faucet
 fault
+fauna
 favor
 favorite
 fear
@@ -1927,6 +1968,7 @@ fire
 firefighter
 firefly
 firetruck
+firewall
 firewood
 firm
 first
@@ -1953,6 +1995,7 @@ flavor
 flax
 flee
 fleece
+fleet
 flesh
 flexible
 flight
@@ -1967,6 +2010,7 @@ flower
 flowerpot
 flu
 fluff
+fluffy
 fluid
 flute
 flutter
@@ -1977,6 +2021,7 @@ fog
 foggy
 foil
 fold
+folder
 foliage
 folk
 folklore
@@ -2006,6 +2051,7 @@ former
 formula
 fort
 forth
+fortress
 fortune
 forward
 fossil
@@ -2025,6 +2071,7 @@ fragment
 fragrance
 frame
 framework
+franc
 frank
 freckle
 free
@@ -2078,6 +2125,7 @@ gale
 gallery
 galosh
 game
+gaming
 gang
 gap
 garage
@@ -2144,6 +2192,7 @@ glider
 glimpse
 global
 gloom
+glossy
 glove
 glow
 glue
@@ -2177,6 +2226,7 @@ grade
 gradually
 graduate
 grain
+grainy
 grand
 grandfather
 grandmother
@@ -2189,6 +2239,8 @@ graph
 graphic
 grasp
 grass
+grater
+gratitude
 grave
 gravel
 gravity
@@ -2196,6 +2248,7 @@ gray
 great
 green
 greet
+grenade
 grief
 griffin
 grill
@@ -2225,8 +2278,10 @@ guideline
 guilt
 guilty
 guitar
+gulf
 gull
 gun
+gurney
 gust
 gut
 guy
@@ -2260,6 +2315,7 @@ hardy
 harmony
 harness
 harp
+harpy
 harvest
 haste
 hat
@@ -2271,6 +2327,7 @@ hawk
 haystack
 hazard
 haze
+hazel
 hazelnut
 he
 head
@@ -2309,11 +2366,13 @@ hesitate
 hexagon
 hey
 hi
+hibiscus
 hickory
 hide
 hideout
 high
 highlight
+highlighter
 highly
 highway
 hike
@@ -2350,6 +2409,7 @@ honeycomb
 honeymoon
 honk
 honor
+hoodie
 hook
 hope
 hopper
@@ -2448,6 +2508,7 @@ improve
 in
 incentive
 incident
+incision
 include
 income
 incorporate
@@ -2457,6 +2518,7 @@ independence
 independent
 index
 indicate
+indigo
 individual
 industrial
 industry
@@ -2535,6 +2597,7 @@ investment
 investor
 invite
 involve
+iris
 iron
 is
 island
@@ -2557,7 +2620,10 @@ jaguar
 jail
 jam
 jar
+jasmine
 jazz
+jealousy
+jeans
 jeep
 jelly
 jellyfish
@@ -2612,6 +2678,7 @@ king
 kingdom
 kiss
 kitchen
+kite
 kiwi
 knee
 knife
@@ -2624,6 +2691,7 @@ knot
 know
 knowledge
 koala
+kraken
 lab
 label
 labor
@@ -2635,6 +2703,7 @@ lacquer
 ladder
 ladle
 lady
+lagoon
 lake
 lamb
 lamp
@@ -2659,6 +2728,7 @@ laugh
 launch
 laundry
 lava
+lavender
 law
 lawyer
 lay
@@ -2698,6 +2768,7 @@ lettuce
 level
 lever
 liberal
+liberty
 librarian
 library
 license
@@ -2712,6 +2783,7 @@ lighthouse
 lightning
 like
 likely
+lily
 limb
 lime
 limestone
@@ -2729,6 +2801,7 @@ linkage
 lion
 lip
 liquid
+lira
 list
 listen
 literally
@@ -2779,6 +2852,7 @@ lucky
 luggage
 lumber
 lumberjack
+lumpy
 lunch
 lung
 lure
@@ -2789,6 +2863,7 @@ macaw
 machine
 mad
 magazine
+magenta
 magic
 magnet
 magnolia
@@ -2824,6 +2899,7 @@ marigold
 marine
 mariner
 mark
+marker
 market
 marketing
 marmalade
@@ -2892,12 +2968,14 @@ merely
 merge
 merit
 mermaid
+mesa
 mesh
 mess
 message
 metal
 metaphor
 metaphysics
+meteor
 meteorologist
 meter
 method
@@ -2909,6 +2987,7 @@ might
 migration
 military
 milk
+millennium
 million
 mind
 mine
@@ -2942,6 +3021,8 @@ model
 moderate
 modern
 modest
+module
+moist
 molecule
 mom
 moment
@@ -2964,6 +3045,7 @@ morality
 more
 moreover
 morning
+mortar
 mortgage
 mosaic
 mosque
@@ -3006,6 +3088,7 @@ my
 myself
 mystery
 myth
+nail
 naked
 name
 nanotechnology
@@ -3023,6 +3106,7 @@ near
 nearby
 nearly
 neat
+nebula
 necessarily
 necessary
 neck
@@ -3165,8 +3249,10 @@ option
 or
 oracle
 orange
+orbit
 orchard
 orchestra
+orchid
 oregano
 organ
 organism
@@ -3177,6 +3263,7 @@ outsole
 oval
 oven
 over
+overcoat
 owl
 ox
 oyster
@@ -3199,9 +3286,11 @@ pan
 pancake
 panel
 panic
+pansy
 pant
 panther
 pants
+papaya
 paper
 paperclip
 paprika
@@ -3251,12 +3340,15 @@ pebble
 pecan
 pedal
 peel
+peeler
 pelican
 pen
 penalty
 pencil
 pendant
 penguin
+pentagon
+peony
 people
 pepper
 perceive
@@ -3276,6 +3368,7 @@ person
 personal
 personality
 persuade
+peso
 petal
 pharaoh
 pharmacist
@@ -3344,6 +3437,7 @@ plead
 please
 pleasure
 plenty
+pliable
 pliers
 plot
 plow
@@ -3352,6 +3446,7 @@ plumber
 plume
 plunge
 plunger
+plush
 pocket
 poem
 poet
@@ -3383,6 +3478,7 @@ population
 porch
 porcupine
 pork
+porous
 port
 portion
 portrait
@@ -3405,6 +3501,7 @@ pound
 pour
 poverty
 powder
+powdery
 power
 practical
 practice
@@ -3447,6 +3544,7 @@ principal
 principle
 print
 prior
+prism
 prison
 private
 prize
@@ -3489,6 +3587,7 @@ protect
 protein
 protest
 proton
+protractor
 proud
 prove
 provide
@@ -3529,6 +3628,7 @@ quantity
 quantum
 quarter
 quartz
+quasar
 queen
 quest
 question
@@ -3551,6 +3651,7 @@ radiation
 radio
 radish
 raft
+rag
 rail
 railway
 rain
@@ -3697,7 +3798,9 @@ review
 revolution
 reward
 rhino
+rhombus
 rhythm
+rib
 rice
 rich
 rickshaw
@@ -3747,12 +3850,15 @@ rotor
 rough
 round
 route
+router
 routine
+rover
 row
 rowboat
 royal
 rub
 rubber
+ruble
 ruby
 ruin
 rule
@@ -3760,6 +3866,7 @@ ruler
 run
 runner
 running
+rupee
 rural
 rush
 sacred
@@ -3785,10 +3892,12 @@ sample
 sand
 sandal
 sandbar
+sandbox
 sandcastle
 sander
 sandstone
 sandwich
+sandy
 sapling
 sapphire
 satellite
@@ -3808,6 +3917,7 @@ scan
 scandal
 scare
 scarf
+scarlet
 scatter
 scenario
 scene
@@ -3823,6 +3933,7 @@ scooter
 scope
 score
 scorpion
+scraper
 scream
 screen
 screw
@@ -3830,6 +3941,7 @@ screwdriver
 script
 scripture
 scroll
+scrubber
 sculptor
 sculpture
 sea
@@ -3875,6 +3987,7 @@ series
 serious
 sermon
 serve
+server
 service
 session
 set
@@ -3907,6 +4020,7 @@ she
 sheaf
 shears
 sheath
+shed
 sheep
 sheet
 shelf
@@ -3914,6 +4028,7 @@ shell
 shelter
 shield
 shift
+shilling
 shine
 shiny
 ship
@@ -3987,18 +4102,23 @@ skirt
 skis
 skunk
 sky
+skyscraper
 slate
 slave
 sled
 sledge
+sleek
 sleep
 sleeping
 slice
 slick
 slide
 slight
+sling
+slingshot
 slip
 slipper
+slippery
 sloop
 slope
 sloth
@@ -4040,6 +4160,7 @@ solar
 soldier
 sole
 solid
+solidarity
 solution
 solve
 some
@@ -4071,6 +4192,7 @@ spaceship
 spade
 spare
 sparrow
+spatula
 speak
 special
 species
@@ -4081,16 +4203,22 @@ speed
 spell
 spend
 sphere
+sphinx
 spiderweb
+spiky
 spill
 spin
 spinach
 spindle
+spine
 spiral
 spire
 spirit
 splash
+splint
 split
+sponge
+spongy
 sponsor
 spool
 spoon
@@ -4108,9 +4236,11 @@ spy
 squad
 square
 squash
+squeegee
 squeeze
 squid
 squirrel
+squishy
 stability
 stable
 stadium
@@ -4152,6 +4282,7 @@ stethoscope
 stew
 stick
 sticky
+stiff
 stiletto
 still
 stimulate
@@ -4172,6 +4303,8 @@ story
 stove
 straight
 strain
+strainer
+strait
 strange
 stranger
 strategic
@@ -4184,6 +4317,7 @@ strength
 strengthen
 stress
 stretch
+stretchy
 strike
 string
 strip
@@ -4287,6 +4421,7 @@ tale
 talent
 talk
 tall
+tan
 tank
 tanker
 tap
@@ -4406,6 +4541,7 @@ tiny
 tip
 tire
 tissue
+titan
 title
 to
 toad
@@ -4421,6 +4557,7 @@ tolerance
 tomato
 tomorrow
 tone
+tongs
 tongue
 tonight
 too
@@ -4433,6 +4570,7 @@ topic
 torah
 torch
 tornado
+torpedo
 toss
 total
 toucan
@@ -4462,10 +4600,12 @@ tram
 trampoline
 transfer
 transform
+transistor
 translate
 transmitter
 transportation
 trap
+trapezoid
 trapper
 trauma
 travel
@@ -4473,6 +4613,7 @@ treasure
 treat
 treatment
 treaty
+treble
 tree
 tremendous
 trench
@@ -4490,6 +4631,7 @@ tripod
 trolley
 troop
 trouble
+trousers
 trout
 trowel
 truck
@@ -4501,6 +4643,7 @@ truth
 try
 tsunami
 tube
+tulip
 tuna
 tundra
 tune
@@ -4541,6 +4684,7 @@ union
 unique
 unit
 unite
+unity
 universal
 universe
 university
@@ -4598,6 +4742,7 @@ versus
 vertex
 very
 vessel
+vest
 veteran
 veterinarian
 via
@@ -4664,9 +4809,11 @@ waste
 watch
 water
 waterfall
+watermelon
 wave
 wavelet
 wax
+waxy
 way
 we
 weak
@@ -4693,6 +4840,7 @@ werewolf
 west
 western
 wet
+wetland
 whale
 what
 whatever
@@ -4711,6 +4859,7 @@ whisk
 whisper
 whistle
 white
+whiteboard
 who
 whole
 whom
@@ -4748,12 +4897,15 @@ wizard
 wolf
 woman
 wombat
+won
 wonder
 wood
 wooden
 woodpecker
 woodpile
+woodworking
 wool
+woolly
 word
 work
 worker
@@ -4785,6 +4937,7 @@ yeah
 year
 yell
 yellow
+yen
 yes
 yesterday
 yet
