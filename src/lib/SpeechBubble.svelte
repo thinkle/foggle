@@ -1,10 +1,10 @@
 <script>
-    let {position, maxWidth} = $props();
+    let {position, maxWidth, children} = $props();
   </script>
   
   <div class="speech-bubble" class:left={position === "left"} class:right={position === "right"}
   style:--max-width={maxWidth}>
-    <slot />
+    {@render children()}
   </div>
   
   <style>
