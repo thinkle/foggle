@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { CORRECT_L, CORRECT_R, PRESENT } from './../lib/types.ts';
     import GuessArea from '../lib/GuessArea.svelte';
 
 	import Tutorial from './../lib/Tutorial.svelte';
@@ -8,9 +9,10 @@
   
     import { getTheWord, isValid } from "$lib/words";
     import Word from '$lib/Word.svelte';    
-	import { minWordLength, resetFeedback } from '$lib/stores.svelte';
+	import { minWordLength, resetFeedback, letterFeedback} from '$lib/stores.svelte';
 	import { onMount } from 'svelte';
 	import SpeechBubble from '$lib/SpeechBubble.svelte';
+	import { CORRECT_B } from '$lib/types';
 
     const getExpression = () => {
         let expressions = ['Wow','Nailed it','Nice one','Amazing','Sweeeet',
@@ -25,7 +27,37 @@
     let nextGuess: string = $state('');
     let isInvalid: boolean = $state(false);
     let isRight = $derived(guesses[guesses.length - 1] === theWord);
+
+    let progress = $derived.by(
+        () => {
+            let knownLetters = 0;
+            for (let ltr in $letterFeedback) {
+                if ($letterFeedback[ltr] === CORRECT_B) {
+                    knownLetters++;
+                } else if ([CORRECT_L, CORRECT_R].includes($letterFeedback[ltr])) {
+                    knownLetters += 0.5;
+                } else if ($letterFeedback[ltr] === PRESENT) {
+                    knownLetters += .33;
+                }
+            };
+            console.log('Known letters:', knownLetters);
+            console.log('Word length:', theWord.length);
+            let percentageKnown = knownLetters / theWord.length;
+            return percentageKnown;
+        }
+    )
     
+    let titleFilter = $derived.by(
+        ()=>{
+            if (isRight || guesses.length == 0) {
+                return 'none';
+            } else {
+                let blur = 4 * (1 - progress);
+                return `blur(${blur}px)`;
+            }
+        }
+    )    
+
     $effect(
         () => {
             if (theWord) 
@@ -83,7 +115,7 @@
     <button class="tutorial-button" onclick={() => showTutorial = true} data-tooltip="Show Tutorial">?</button>
   {/if}
   <main>    
-    <h1>Fo<span class="g">g</span>gle</h1>
+    <h1 style:--title-filter={titleFilter}>Fo<span class="g">g</span>gle</h1>
     
     <GuessArea
         {theWord}
@@ -129,7 +161,7 @@
       {:else if isRight}
       
       <div class="victory">
-        <SpeechBubble>
+        <SpeechBubble position="left">
             <p>
                 The <em>fog</em> has <em>lifted</em>!
                 <br><span class="big">{"{"}{guesses.length==1 ? "Bingo!" : expression}{"}"}</span>
@@ -243,12 +275,13 @@ h1 {
         font-size: 2rem;
         font-stretch: 130%;
         font-weight: 100;
-        letter-spacing: 0px;
-        text-shadow: 3px 3px 1px rgba(4, 23, 12, 0.8);
-        -webkit-text-stroke: 1px rgb(218, 248, 231);
+        letter-spacing: -.1em;
+        /* Use text shadow to do an outline in addition to our shadow */
+        text-shadow: -1px -1px 0px rgba(4, 23, 12, .8), 1px 1px 0px rgba(4, 23, 12, .8), -1px 1px 0px rgba(4, 23, 12, .8), 1px -1px 0px rgba(4, 23, 12, 0.8),6px 6px 6px rgb(25, 78, 47);
+        filter: var(--title-filter);
     }
     .g {
-        letter-spacing: -4px;
+        letter-spacing: -0.3em;
     }
     @media (min-width: 1080px) {
         h1 {
