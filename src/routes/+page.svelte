@@ -14,7 +14,7 @@
 
     const getExpression = () => {
         let expressions = ['Wow','Nailed it','Nice one','Amazing','Sweeeet',
-            'Yowzers','Yikes','Kapow','Bazinga','Bingo','Shazam',
+            'Yowzers','Yikes','Kapow','Bazinga','Wowza','Shazam',
         ]
         return expressions[Math.floor(Math.random() * expressions.length)];
     }
@@ -105,6 +105,7 @@
     }}>Play Again</button>
     {/if}
     <!-- Input -->
+     {theWord}
      {#if !isRight && guesses.length < 6}     
     <Keyboard
       oninput={(ltr: string) => {
@@ -130,9 +131,21 @@
       
       <div class="victory">
         <SpeechBubble>
-            <h2>{"{"}{expression}{"}"}</h2>
-            <p>The fog has lifted!</p>
-            <button onclick={() => {
+            <p>
+                The <em>fog</em> has <em>lifted</em>!
+                <br><span class="big">{"{"}{guesses.length==1 ? "Bingo!" : expression}{"}"}</span>
+                
+                <br>
+                {#if guesses.length == 6}
+                    And <em>just in time!</em>
+                {:else if guesses.length == 1}
+                    You did it in <em>one</em>
+                {:else}
+                    You did it in <em>{['one','two','three','four','five'][guesses.length - 1]}</em> guesses
+                <br/>
+                {/if}
+            </p>
+            <br/><button onclick={() => {
                 console.log('Reset!')
                 resetFeedback();
                 theWord = getTheWord();            
@@ -214,12 +227,17 @@
         background: #222;
         border-radius: 50%;
     }
-h2 {
+    .victory {
+        font-feature-settings: "ss03" on, "ss06" on;  
+    }
+.victory em {
     font-variation-settings: 'EMPH' 125;
-  font-weight: 700;
-  font-stretch: 105%;
-  font-style: oblique 20deg;
-  font-feature-settings: "ss03" on;  
+  
+  font-stretch: 105%;    
+}
+.victory .big {
+    font-variation-settings: 'EMPH' 125;
+    font-weight: 700;
 }
 h1 {
         margin: 0;
