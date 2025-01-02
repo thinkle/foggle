@@ -130,7 +130,7 @@
           maxWidth={`min(85vw,${nletters * 3.5}rem)`}
           >            
             <GuessArea guesses={step.example.guesses} theWord={step.example.answer} isRight={!step.example.showGuess} isDemo={true} nextGuess='' isInvalid={false}
-            justify={step.example.justify} letterSize={step.example.size||2}/>            
+            justify={step.example.justify} letterSize={step.example.size||1.5}/>            
             {#if step.example.caption}
               <p>{step.example.caption}</p>
             {/if}                        

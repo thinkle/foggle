@@ -35,7 +35,10 @@ let maxGuessLength = $derived.by(
 )
 
 let sizeAdjust = $derived.by(
-    () => {             
+    () => {   
+        if (letterSize) {
+            return letterSize;
+        }
         if (maxGuessLength > 9) {
             return 1.5;
         } else if (maxGuessLength > 7) {
