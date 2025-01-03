@@ -24,6 +24,7 @@ abuse
 abyss
 academic
 academy
+acceleration
 accent
 accept
 acceptable
@@ -65,6 +66,7 @@ adapt
 adaptation
 add
 addict
+addiction
 addition
 additional
 address
@@ -86,6 +88,7 @@ adoption
 adoration
 adore
 adorn
+adrenaline
 adult
 adulthood
 advance
@@ -147,15 +150,18 @@ alien
 align
 alike
 alive
+alkali
 all
 allege
 allegory
+allele
 allergic
 allergy
 alley
 alliance
 allocate
 allow
+alloy
 allusion
 ally
 almanac
@@ -164,6 +170,7 @@ almond
 almost
 alone
 along
+alpha
 already
 also
 altar
@@ -183,6 +190,7 @@ ambition
 ambulance
 ambush
 amend
+amendment
 amends
 amethyst
 amid
@@ -194,6 +202,7 @@ amp
 amphibian
 ample
 amplifier
+amplitude
 amuse
 an
 anaconda
@@ -223,10 +232,15 @@ answer
 ant
 anteater
 anthem
+anthropology
 antibiotic
+antibody
 anticipate
 antidote
+antigen
+antihistamine
 antique
+antiviral
 antler
 anvil
 anxiety
@@ -320,8 +334,10 @@ assassin
 assault
 assemble
 assess
+assessment
 asset
 assign
+assignment
 assist
 assistant
 associate
@@ -362,6 +378,7 @@ aunt
 aurora
 author
 authority
+autoimmune
 automatic
 automation
 autumn
@@ -383,6 +400,7 @@ axe
 axiom
 axis
 axle
+axon
 azure
 babble
 baboon
@@ -509,6 +527,7 @@ beside
 besides
 best
 bet
+beta
 betray
 better
 between
@@ -516,6 +535,7 @@ beverage
 bewilder
 beyond
 bezel
+bias
 bible
 biceps
 bicycle
@@ -606,6 +626,7 @@ bolt
 bomb
 bond
 bondage
+bonding
 bone
 bonfire
 bonnet
@@ -717,6 +738,7 @@ bunting
 buoy
 burden
 bureau
+bureaucracy
 burger
 burglar
 burgundy
@@ -754,6 +776,7 @@ cage
 caiman
 cake
 calamity
+calcium
 calculate
 calculator
 calculus
@@ -791,9 +814,12 @@ canvas
 canyon
 cap
 capable
+capacitor
 capacity
 cape
+capillary
 capital
+capitalism
 capstone
 capsule
 captain
@@ -801,6 +827,7 @@ capture
 capybara
 car
 caravan
+carbohydrate
 carbon
 card
 cardboard
@@ -820,6 +847,7 @@ carriage
 carrot
 carry
 cart
+cartilage
 cartographer
 carve
 cascade
@@ -833,6 +861,7 @@ cassowary
 cast
 castle
 cat
+catalyst
 catamaran
 catapult
 catch
@@ -857,6 +886,7 @@ cellar
 cello
 cement
 cemetery
+censorship
 centaur
 center
 centerpiece
@@ -867,6 +897,7 @@ ceramics
 cereal
 ceremony
 certain
+certificate
 chaff
 chain
 chair
@@ -926,12 +957,13 @@ chimney
 chin
 chip
 chipmunk
-chips
 chirp
 chisel
 chivalry
 chive
 chlorine
+chlorophyll
+chloroplast
 chocolate
 choice
 choir
@@ -942,6 +974,7 @@ chop
 chopstick
 chord
 chrome
+chromosome
 chronic
 chronicle
 chrysanthemum
@@ -968,7 +1001,6 @@ clad
 claim
 clam
 clamp
-clams
 clan
 clang
 clap
@@ -981,6 +1013,7 @@ class
 classic
 classical
 classroom
+clavicle
 clay
 claymore
 clean
@@ -1050,12 +1083,14 @@ collarbone
 colleague
 collect
 college
+colonialism
 colony
 color
 column
 combat
 combination
 combine
+combustion
 come
 comedy
 comet
@@ -1074,6 +1109,7 @@ commitment
 committee
 common
 communicate
+communism
 community
 commute
 compact
@@ -1099,6 +1135,7 @@ compost
 compound
 comprehensive
 compress
+compression
 compromise
 computer
 comrade
@@ -1114,6 +1151,7 @@ condition
 conditioner
 condor
 conduct
+conduction
 conductor
 cone
 conference
@@ -1127,6 +1165,7 @@ congress
 conifer
 connect
 connection
+connective
 conqueror
 conquest
 conscience
@@ -1164,6 +1203,7 @@ contrast
 contribute
 control
 controversy
+convection
 convenience
 convention
 conversation
@@ -1191,6 +1231,7 @@ core
 cork
 corn
 cornbread
+cornea
 corner
 cornmeal
 coronation
@@ -1251,6 +1292,7 @@ creak
 cream
 crease
 create
+creativity
 creature
 credit
 creek
@@ -1309,6 +1351,7 @@ curl
 currant
 currency
 current
+curriculum
 curry
 curse
 curtain
@@ -1318,6 +1361,7 @@ cusp
 custom
 customer
 cut
+cuticle
 cutlass
 cyan
 cycle
@@ -1327,6 +1371,7 @@ cyclone
 cyclops
 cylinder
 cypress
+cytoplasm
 czar
 dad
 daffodil
@@ -1336,6 +1381,7 @@ daily
 daisy
 dam
 damage
+damper
 dance
 dancer
 dancing
@@ -1402,8 +1448,10 @@ delve
 demand
 democracy
 democrat
+demography
 demon
 demonstrate
+dendrite
 denial
 denim
 dense
@@ -1425,6 +1473,7 @@ deputy
 derby
 derivative
 derive
+dermis
 descend
 descendant
 describe
@@ -1462,6 +1511,7 @@ dialect
 dialectic
 dialogue
 diamond
+diaphragm
 diary
 dictate
 dictatorship
@@ -1470,6 +1520,8 @@ diet
 differ
 difference
 difficult
+diffraction
+diffusion
 dig
 digit
 digital
@@ -1487,6 +1539,7 @@ dingo
 dining
 dinner
 dip
+diploma
 diplomacy
 dire
 direct
@@ -1556,7 +1609,7 @@ domestic
 dominant
 dominate
 dominion
-dominoes
+domino
 donate
 donkey
 donor
@@ -1666,10 +1719,12 @@ efficient
 effort
 egg
 eggplant
+ego
 eight
 either
 elaborate
 elastic
+elasticity
 elbow
 elder
 elderly
@@ -1679,6 +1734,7 @@ electric
 electrical
 electrician
 electricity
+electrolysis
 electron
 electronic
 elegant
@@ -1695,6 +1751,7 @@ elm
 else
 elsewhere
 email
+embassy
 ember
 embrace
 emerald
@@ -1749,15 +1806,19 @@ entire
 entitle
 entity
 entrance
+entropy
 entry
 envelope
 environment
 environmental
 environmentalist
 envy
+enzyme
 epic
+epidermis
 episode
 epistemology
+epithelial
 epoch
 equal
 equality
@@ -1775,6 +1836,7 @@ error
 escalator
 escape
 escarpment
+esophagus
 espadrille
 especially
 espresso
@@ -1791,6 +1853,7 @@ eternity
 ethic
 ethics
 ethnic
+ethnicity
 euro
 evaluate
 even
@@ -1918,14 +1981,17 @@ fear
 feast
 feature
 federal
+federalism
 fee
 feed
 feel
 feeling
 fellow
 female
+femur
 fence
 fennel
+fermentation
 fern
 ferret
 ferry
@@ -1935,6 +2001,7 @@ feud
 fever
 few
 fiber
+fibula
 fiction
 fiddle
 fidelity
@@ -2025,6 +2092,7 @@ folder
 foliage
 folk
 folklore
+follicle
 follow
 folly
 food
@@ -2079,6 +2147,7 @@ freedom
 freeze
 freezer
 freighter
+frequency
 frequent
 fresh
 fret
@@ -2087,7 +2156,6 @@ fridge
 friend
 friendly
 friendship
-fries
 fringe
 frog
 from
@@ -2099,6 +2167,7 @@ frustrate
 fry
 fryer
 fuel
+fulcrum
 full
 fully
 fume
@@ -2122,10 +2191,12 @@ gain
 gaiter
 galaxy
 gale
+gallbladder
 gallery
 galosh
 game
 gaming
+gamma
 gang
 gap
 garage
@@ -2157,12 +2228,13 @@ generate
 generation
 generator
 generous
-genetics
 genius
+genome
 genre
 gentle
 gentleman
 genuine
+geography
 geologist
 geology
 geometry
@@ -2191,11 +2263,14 @@ glide
 glider
 glimpse
 global
+globalization
 gloom
 glossy
 glove
 glow
+glucose
 glue
+glycolysis
 gnat
 gnome
 go
@@ -2334,6 +2409,7 @@ head
 headline
 headquarters
 health
+healthcare
 healthy
 heap
 hear
@@ -2354,6 +2430,7 @@ hello
 helm
 helmet
 help
+hemoglobin
 hence
 her
 herd
@@ -2387,6 +2464,7 @@ hip
 hippo
 hire
 his
+histamine
 historian
 historic
 history
@@ -2402,6 +2480,8 @@ hollow
 holy
 home
 homeless
+homeostasis
+homework
 honest
 honesty
 honey
@@ -2441,7 +2521,9 @@ huge
 hum
 human
 humanism
+humanities
 humble
+humerus
 humidifier
 humility
 hummingbird
@@ -2463,7 +2545,9 @@ hut
 hutch
 hydra
 hydration
+hydraulics
 hydro
+hydrogen
 hydroplane
 hydrosphere
 hymn
@@ -2473,6 +2557,7 @@ ice
 iceberg
 icicle
 icon
+id
 idea
 ideal
 idealism
@@ -2482,6 +2567,7 @@ identity
 ideology
 if
 ignite
+ignition
 ignore
 iguana
 ill
@@ -2494,7 +2580,9 @@ imagination
 imagine
 immediate
 immigrant
+immune
 impact
+imperialism
 implement
 implication
 imply
@@ -2505,6 +2593,7 @@ impose
 impress
 impressionism
 improve
+impulse
 in
 incentive
 incident
@@ -2520,9 +2609,12 @@ index
 indicate
 indigo
 individual
+inductor
 industrial
+industrialization
 industry
 inequality
+inertia
 inevitable
 infant
 infect
@@ -2531,6 +2623,7 @@ inflation
 influence
 inform
 information
+infrared
 infrastructure
 ingredient
 initial
@@ -2556,10 +2649,13 @@ install
 instance
 instead
 instep
+instinct
 institution
 instruction
 instructor
 instrument
+insulator
+insulin
 insurance
 integer
 integral
@@ -2572,6 +2668,7 @@ intensity
 intention
 interaction
 interest
+interference
 interior
 internal
 international
@@ -2582,6 +2679,7 @@ intersection
 interval
 intervention
 interview
+intestine
 intimacy
 into
 introduce
@@ -2597,6 +2695,8 @@ investment
 investor
 invite
 involve
+iodine
+ion
 iris
 iron
 is
@@ -2621,6 +2721,7 @@ jail
 jam
 jar
 jasmine
+jaw
 jazz
 jealousy
 jeans
@@ -2643,6 +2744,7 @@ journey
 joy
 judge
 judgment
+judiciary
 juggler
 juice
 juicer
@@ -2674,8 +2776,10 @@ killer
 kin
 kind
 kindness
+kinetic
 king
 kingdom
+kinship
 kiss
 kitchen
 kite
@@ -2717,6 +2821,7 @@ lap
 large
 largely
 lark
+larynx
 laser
 last
 latch
@@ -2760,6 +2865,7 @@ legitimate
 lemon
 lemonade
 length
+lens
 less
 lesson
 let
@@ -2778,6 +2884,7 @@ life
 lifestyle
 lifetime
 lift
+ligament
 light
 lighthouse
 lightning
@@ -2800,10 +2907,12 @@ link
 linkage
 lion
 lip
+lipid
 liquid
 lira
 list
 listen
+literacy
 literally
 literary
 literature
@@ -2857,6 +2966,8 @@ lunch
 lung
 lure
 lute
+lymph
+lymphatic
 lynx
 lyric
 macaw
@@ -2865,7 +2976,9 @@ mad
 magazine
 magenta
 magic
+magnesium
 magnet
+magnetism
 magnolia
 mail
 main
@@ -2922,6 +3035,7 @@ material
 materialism
 materials
 math
+mathematics
 matrix
 matte
 matter
@@ -2957,6 +3071,7 @@ melon
 melt
 member
 membership
+membrane
 memory
 mental
 mention
@@ -2972,6 +3087,7 @@ mesa
 mesh
 mess
 message
+metabolism
 metal
 metaphor
 metaphysics
@@ -2990,6 +3106,7 @@ milk
 millennium
 million
 mind
+mindfulness
 mine
 miner
 mineral
@@ -3010,6 +3127,7 @@ missile
 mission
 mist
 mistake
+mitochondria
 mix
 mixer
 mixture
@@ -3026,7 +3144,9 @@ moist
 molecule
 mom
 moment
+momentum
 monarchy
+monetary
 money
 monitor
 monk
@@ -3068,6 +3188,7 @@ move
 movement
 movie
 much
+mucus
 mud
 muffin
 mulberry
@@ -3083,6 +3204,7 @@ musical
 musician
 muskrat
 mustard
+mutation
 mutual
 my
 myself
@@ -3127,6 +3249,9 @@ net
 nettle
 network
 neuron
+neurosis
+neurotransmitter
+neutrino
 neutron
 never
 nevertheless
@@ -3142,6 +3267,7 @@ night
 nightstand
 nine
 nirvana
+nitrogen
 no
 nobody
 nod
@@ -3170,8 +3296,10 @@ novel
 now
 nowhere
 nuclear
+nucleotide
 nucleus
 number
+numeracy
 numerous
 nun
 nurse
@@ -3190,6 +3318,7 @@ objective
 obligation
 observation
 observe
+obsession
 obtain
 obvious
 obviously
@@ -3256,6 +3385,9 @@ orchid
 oregano
 organ
 organism
+organization
+oscillation
+osmosis
 ostrich
 otter
 ottoman
@@ -3266,6 +3398,8 @@ over
 overcoat
 owl
 ox
+oxidation
+oxygen
 oyster
 pace
 pack
@@ -3284,6 +3418,7 @@ palette
 palm
 pan
 pancake
+pancreas
 panel
 panic
 pansy
@@ -3323,6 +3458,7 @@ pasta
 pastor
 pastry
 path
+pathogen
 patience
 patient
 pattern
@@ -3330,6 +3466,7 @@ pause
 pay
 pea
 peace
+peacekeeping
 peach
 peak
 peanut
@@ -3342,6 +3479,7 @@ pedal
 peel
 peeler
 pelican
+pelvis
 pen
 penalty
 pencil
@@ -3364,6 +3502,7 @@ perhaps
 period
 permanent
 permit
+perseverance
 person
 personal
 personality
@@ -3375,12 +3514,15 @@ pharmacist
 pharmacy
 phase
 philosophy
+phobia
 phoenix
 phone
+phosphorus
 photo
 photographer
 photography
 photon
+photosynthesis
 phrase
 physical
 physicist
@@ -3414,6 +3556,7 @@ pistol
 piston
 pitch
 pitcher
+pivot
 pizza
 place
 plain
@@ -3425,8 +3568,10 @@ plant
 plasma
 plaster
 plastic
+plasticity
 plate
 plateau
+platelet
 platform
 platinum
 platypus
@@ -3447,11 +3592,13 @@ plume
 plunge
 plunger
 plush
+pneumatics
 pocket
 poem
 poet
 poetry
 point
+polarization
 pole
 police
 policy
@@ -3477,6 +3624,7 @@ popular
 population
 porch
 porcupine
+pore
 pork
 porous
 port
@@ -3491,6 +3639,7 @@ possible
 post
 postulate
 pot
+potassium
 potato
 potential
 potion
@@ -3568,12 +3717,14 @@ program
 programmer
 progress
 project
+projectile
 projector
 prominent
 promise
 promote
 prompt
 proof
+propaganda
 propeller
 proper
 property
@@ -3596,11 +3747,13 @@ provision
 provoke
 pruner
 psalm
+psyche
 psychiatrist
 psychiatry
 psychological
 psychologist
 psychology
+psychosis
 public
 publication
 publish
@@ -3626,6 +3779,7 @@ qualify
 quality
 quantity
 quantum
+quark
 quarter
 quartz
 quasar
@@ -3639,6 +3793,7 @@ quinoa
 quit
 quite
 quiver
+quiz
 quote
 quotient
 rabbit
@@ -3650,6 +3805,7 @@ radar
 radiation
 radio
 radish
+radius
 raft
 rag
 rail
@@ -3695,6 +3851,7 @@ receive
 receiver
 recent
 reception
+receptor
 recession
 recipe
 reckon
@@ -3707,14 +3864,18 @@ recruit
 rectangle
 red
 reduce
+reduction
 redwood
 reed
 reef
 reel
 refer
 referee
+referendum
 reflect
+reflection
 reform
+refraction
 refrigerator
 refugee
 refuse
@@ -3769,14 +3930,17 @@ reserve
 reservoir
 reside
 resign
+resilience
 resin
 resist
 resistance
 resolution
 resolve
+resonance
 resort
 resource
 respect
+respiration
 respond
 response
 responsibility
@@ -3788,6 +3952,7 @@ restrict
 result
 resurrection
 retain
+retina
 retire
 retreat
 return
@@ -3801,6 +3966,8 @@ rhino
 rhombus
 rhythm
 rib
+ribcage
+ribosome
 rice
 rich
 rickshaw
@@ -3889,6 +4056,7 @@ salt
 salvation
 same
 sample
+sanction
 sand
 sandal
 sandbar
@@ -3912,9 +4080,11 @@ saxophone
 say
 scale
 scallop
+scalp
 scalpel
 scan
 scandal
+scapula
 scare
 scarf
 scarlet
@@ -3924,6 +4094,7 @@ scene
 schedule
 scheme
 scholar
+scholarship
 school
 science
 scientist
@@ -3974,6 +4145,7 @@ select
 self
 selflessness
 sell
+semiconductor
 senate
 send
 senior
@@ -4018,6 +4190,7 @@ sharpener
 shaver
 she
 sheaf
+shear
 shears
 sheath
 shed
@@ -4029,6 +4202,7 @@ shelter
 shield
 shift
 shilling
+shin
 shine
 shiny
 ship
@@ -4083,6 +4257,7 @@ singer
 singing
 single
 sink
+sinus
 sister
 sit
 site
@@ -4100,6 +4275,7 @@ skill
 skin
 skirt
 skis
+skull
 skunk
 sky
 skyscraper
@@ -4146,12 +4322,14 @@ soar
 sob
 soccer
 social
+socialism
 society
 sociology
 sock
 socket
 sod
 soda
+sodium
 sofa
 soft
 software
@@ -4161,8 +4339,10 @@ soldier
 sole
 solid
 solidarity
+solute
 solution
 solve
+solvent
 some
 somebody
 somehow
@@ -4186,11 +4366,13 @@ sound
 soup
 source
 south
+sovereignty
 soy
 space
 spaceship
 spade
 spare
+spark
 sparrow
 spatula
 speak
@@ -4215,6 +4397,7 @@ spiral
 spire
 spirit
 splash
+spleen
 splint
 split
 sponge
@@ -4255,6 +4438,7 @@ stand
 standard
 stapler
 star
+starch
 stare
 starfish
 stargazer
@@ -4278,6 +4462,7 @@ stepfather
 stepmother
 stepsister
 stereo
+sternum
 stethoscope
 stew
 stick
@@ -4335,6 +4520,7 @@ stuff
 stupid
 style
 stylist
+subconscious
 subject
 submarine
 submit
@@ -4353,6 +4539,7 @@ suggest
 suicide
 suit
 suitcase
+sulfur
 sum
 summary
 summer
@@ -4365,6 +4552,7 @@ sunrise
 sunset
 sunshine
 super
+superego
 supply
 support
 suppose
@@ -4397,12 +4585,14 @@ swing
 switch
 sword
 sycamore
+syllabus
 symbol
 symmetry
 sympathy
 symphony
 symptom
 synagogue
+synapse
 syringe
 syrup
 system
@@ -4428,6 +4618,7 @@ tap
 tape
 tapir
 target
+tariff
 task
 taste
 tavern
@@ -4460,6 +4651,7 @@ temporary
 ten
 tend
 tendency
+tendon
 tennis
 tension
 tent
@@ -4477,6 +4669,7 @@ testify
 testimony
 testing
 text
+textbook
 texture
 than
 thank
@@ -4494,6 +4687,8 @@ therapist
 therapy
 there
 therefore
+thermal
+thermodynamics
 thermometer
 thermostat
 these
@@ -4516,16 +4711,20 @@ threat
 threaten
 three
 threshold
+throat
 throne
 through
 throughout
 throw
 thrush
+thumb
 thunder
 thunderstorm
 thus
 thyme
+thyroid
 tiara
+tibia
 ticket
 tidal
 tide
@@ -4571,6 +4770,7 @@ torah
 torch
 tornado
 torpedo
+torque
 toss
 total
 toucan
@@ -4584,6 +4784,7 @@ tower
 town
 toy
 trace
+trachea
 track
 tractor
 trade
@@ -4596,10 +4797,12 @@ trailer
 train
 trainer
 trait
+trajectory
 tram
 trampoline
 transfer
 transform
+transformer
 transistor
 translate
 transmitter
@@ -4643,12 +4846,14 @@ truth
 try
 tsunami
 tube
+tuition
 tulip
 tuna
 tundra
 tune
 tunnel
 turbine
+turbulence
 turkey
 turmeric
 turn
@@ -4668,7 +4873,9 @@ two
 type
 typical
 ugly
+ulna
 ultimate
+ultraviolet
 umpire
 unable
 uncle
@@ -4698,6 +4905,7 @@ up
 upon
 upper
 urban
+urbanization
 urge
 urn
 us
@@ -4732,6 +4940,7 @@ vegetable
 vehicle
 veil
 vein
+velocity
 velvet
 velvety
 venture
@@ -4745,7 +4954,9 @@ vessel
 vest
 veteran
 veterinarian
+veto
 via
+vibration
 victim
 victory
 video
@@ -4762,6 +4973,7 @@ virtual
 virtue
 virus
 visa
+viscosity
 vise
 visible
 vision
@@ -4783,6 +4995,7 @@ vulnerable
 waffle
 wage
 wagon
+waist
 wait
 wake
 walk
@@ -4797,6 +5010,7 @@ war
 warbler
 wardrobe
 warehouse
+warfare
 warm
 warn
 warthog
@@ -4811,6 +5025,7 @@ water
 waterfall
 watermelon
 wave
+wavelength
 wavelet
 wax
 waxy
@@ -4952,6 +5167,7 @@ youth
 zebra
 zeppelin
 zigzag
+zinc
 zinnia
 zircon
 zodiac
