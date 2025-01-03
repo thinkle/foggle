@@ -54,11 +54,9 @@ function computeFeedback() {
                     ltr === letter &&
                     answer[idx] !== word[idx] && // Not matched from the left
                     answer[idx] !== word[word.length - (answer.length - idx)] // Not matched from the right
-                )).length;
-                console.log('There are ', countUnmatchedInAnswer, ' unmatched ',letter,'in answer');
+                )).length;                
                 if (countUnmatchedInAnswer > (presentPerLetter[letter] || 0)) {
-                    presentPerLetter[letter] = (presentPerLetter[letter] || 0) + 1;
-                    console.log('Going ahead and marking this one PRESENT');
+                    presentPerLetter[letter] = (presentPerLetter[letter] || 0) + 1;                    
                     if (!isDemo) registerFeedback(letter, PRESENT);
                     feedback.push(PRESENT);
                 } else {
