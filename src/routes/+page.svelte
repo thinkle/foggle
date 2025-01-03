@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { CORRECT_L, CORRECT_R, PRESENT } from './../lib/types.ts';
+	import { type SavedGame, setSavedGame, getSavedGame } from './../lib/gameInProgress';
+	import { CORRECT_L, CORRECT_R, PRESENT } from './../lib/types';
     import GuessArea from '../lib/GuessArea.svelte';
 
 	import Tutorial from './../lib/Tutorial.svelte';
@@ -13,6 +14,7 @@
 	import { onMount } from 'svelte';
 	import SpeechBubble from '$lib/SpeechBubble.svelte';
 	import { CORRECT_B } from '$lib/types';
+	import { get } from 'svelte/store';
 
     const getExpression = () => {
         let expressions = ['Wow','Nailed it','Nice one','Amazing','Sweeeet',
@@ -27,6 +29,31 @@
     let nextGuess: string = $state('');
     let isInvalid: boolean = $state(false);
     let isRight = $derived(guesses[guesses.length - 1] === theWord);
+    let initialized = $state(false);
+
+    onMount(() => {
+        console.log('Running onMount!');
+        const savedGame = getSavedGame();
+        if (savedGame) {
+            console.log('Loading saved game...');
+            theWord = savedGame.currentWord;
+            guesses = savedGame.guesses;
+        }
+        initialized = true;
+    })
+
+    $effect(
+        () => {
+            if (initialized) {
+                setSavedGame({
+                    currentWord: theWord,
+                    guesses: guesses,
+                    puzzleType: 'extra', // fix me
+                    puzzleId: 0, // fix me
+                });
+            }
+        }
+    )
 
     let progress = $derived.by(
         () => {

@@ -1,0 +1,5 @@
+- Implement daily puzzle
+  - 1. Build pre-processing step for wordlist:
+      - Use answerList to generate a sorted list of encoded words.
+      - Get our clue by going in order through answerList (daily) or randomly (infinite)
+      - Make build process maintain word order through current day but shuffle remaining words whenever the word list updates.
