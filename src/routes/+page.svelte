@@ -39,9 +39,7 @@
     } = $derived(feedback);
     $inspect('Updating letter feedback',letterFeedback)
     onMount(() => {
-        console.log('Running onMount!');
-        theWord = 'radar';
-        return;
+        console.log('Running onMount!');        
         const savedGame = getSavedGame();
         if (savedGame) {
             console.log('Loading saved game...');
