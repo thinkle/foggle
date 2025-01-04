@@ -4,9 +4,6 @@ import CurrentGuess from './CurrentGuess.svelte';
 
 import Word from '$lib/Word.svelte';
 import {
-    letterFeedback
-} from '$lib/stores.svelte';
-import {
     onMount
 } from 'svelte';
 import {

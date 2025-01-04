@@ -1,9 +1,6 @@
 <script lang="ts">
 	
-import {
-    minWordLength,
-    registerFeedback
-} from "./stores.svelte";
+
 import {
     CORRECT_L,
     CORRECT_R,
