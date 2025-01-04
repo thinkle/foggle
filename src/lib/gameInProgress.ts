@@ -1,4 +1,5 @@
 import { encode, decode, encodeClue, decodeClue } from "./encoder";
+import { getDailyWord } from "./words";
 
 export type PuzzleType = 'daily' | 'extra';
 
@@ -17,7 +18,8 @@ export interface GameResult {
     solved : boolean;
 }
 
-const STORAGE_KEY = 'savedGame';
+const SAVED_GAME_KEY = 'savedGame';
+const SAVED_DAILY_KEY = 'savedDaily';
 
 export function setSavedGame(game: SavedGame): void {
     const solved = game.guesses
@@ -34,19 +36,28 @@ export function setSavedGame(game: SavedGame): void {
             ...game,
             currentWord: encodedWord,
         };
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(storedGame));
+        // Check if it's daily or not...
+        if (game.puzzleType === 'daily') {
+            localStorage.setItem(SAVED_DAILY_KEY, JSON.stringify(storedGame));
+        } else {
+            localStorage.setItem(SAVED_GAME_KEY, JSON.stringify(storedGame));
+        }
     }
 }
 
-export function clearSavedGame(): void {
-    localStorage.removeItem(STORAGE_KEY);
+export function clearSavedGame(puzzleType : PuzzleType = 'extra'): void {
+    if (puzzleType === 'daily') {
+        localStorage.removeItem(SAVED_DAILY_KEY);
+    } else {
+        localStorage.removeItem(SAVED_GAME_KEY);
+    }
 }
 
 export function completeSavedGame (game : SavedGame) : void {
-    let gameHistory = getGameHistory();
+    const gameHistory = getGameHistory();
     gameHistory.push(game);
     localStorage.setItem('gameHistory', JSON.stringify(gameHistory));
-    clearSavedGame();
+    clearSavedGame(game.puzzleType);
 }
 
 export function getGameHistory() : SavedGame[] {
@@ -63,8 +74,26 @@ export function getGameHistory() : SavedGame[] {
     return gameHistory;
 }
 
-export function getSavedGame(): SavedGame | null {
-    const raw = localStorage.getItem(STORAGE_KEY);
+export function getSavedGame (): SavedGame | null {
+    const dailySaved = getSavedGameData('daily');
+    if (dailySaved) {
+        if (decode(dailySaved.currentWord) === getDailyWord()) {
+            return dailySaved;
+        } else {
+            // add to history if it's not the right word.
+            completeSavedGame(dailySaved);
+        }
+    }
+    // If we're still running, we didn't return a daily saved game...
+    return getSavedGameData('extra');    
+}
+
+export function getSavedGameData(puzzleType: PuzzleType = 'extra'): SavedGame | null {
+    let key = SAVED_GAME_KEY;
+    if (puzzleType === 'daily') {
+        key = SAVED_DAILY_KEY;
+    }    
+    const raw = localStorage.getItem(key);
     if (!raw) return null;
     try {
         const storedGame = JSON.parse(raw);
@@ -86,17 +115,8 @@ export function getGameResults(): GameResult[] {
             puzzleId: game.puzzleId,
             puzzleType: game.puzzleType,
             nguesses: game.guesses.length,
+            complete : !!game.solved || game.guesses.length === 6,
             solved: !!game.solved
         } as GameResult)
     );
-}
-for (const word of ['hello','illumination','ant','amazingness','buzzzz']) {
-    const encoded = encodeClue(word);
-    console.log('Encoding:->', {
-        word,
-        encoded : encoded,
-        rawEncoded: encode(word),
-        decoded: decodeClue(encoded),
-        decodedRaw: decode(encoded)
-    });
 }
