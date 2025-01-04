@@ -4,9 +4,8 @@
         CORRECT_R, 
         CORRECT_B,
         PRESENT,
-        INCORRECT } from "./types";
-    import type { FEEDBACK } from "./types";          
-	import { getTheWord } from "$lib/words";
+        INCORRECT } from "./types";    
+	
 	import { letterFeedback } from "./stores.svelte";
     let {ondelete,oninput, onsubmit, lastLetter} = $props();
 
@@ -33,8 +32,7 @@
                     class:correct-right={$letterFeedback[key] === CORRECT_R}
                     class:correct-left-and-right={$letterFeedback[key] === CORRECT_B}
                     class:incorrect={$letterFeedback[key] === INCORRECT}
-                    
-                        onclick={()=>oninput(key.toLowerCase())}>{key}</button>
+                    onclick={()=>oninput(key.toLowerCase())}>{key}</button>
                 {/if}
             {/each}
         </div>
