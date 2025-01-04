@@ -1,4 +1,5 @@
 <script lang="ts">
+	
 import {
     minWordLength,
     registerFeedback
@@ -18,101 +19,26 @@ const NOANSWER = '';
 let {
     word,
     answer,
-    isDemo = false
+    feedback
+} : {
+    word : string,
+    answer : string,
+    feedback : FEEDBACK[] | undefined
 } = $props();
 let letters = Array.from(word);
-let hasFeedback = !!answer;
-let feedback: FEEDBACK[] = $state([]);
-let presentPerLetter: {
-    [letter: string]: number
-} = {};
+let hasFeedback = !!feedback;
 
-function computeFeedback() {    
-    for (let i = 0; i < letters.length; i++) {
-        let letter = word[i];
-        let fromRight = letters.length - i;
-        let answerRightIndex = answer.length - fromRight;
-        if (!answer.includes(letter)) {
-            if (!isDemo) registerFeedback(letter, INCORRECT);
-            feedback.push(INCORRECT);
-        } else {
-            let correctFromLeft = answer && answer[i] === letter;
-            let correctFromRight = answer && answer[answerRightIndex] === letter;
-            if (correctFromLeft && correctFromRight) {
-                if (!isDemo) registerFeedback(letter, CORRECT_B);
-                feedback.push(CORRECT_B);
-            } else if (correctFromLeft) {
-                if (!isDemo) registerFeedback(letter, CORRECT_L);
-                feedback.push(CORRECT_L);
-            } else if (correctFromRight) {
-                if (!isDemo) registerFeedback(letter, CORRECT_R);
-                feedback.push(CORRECT_R);
-            } else {
-                // trickier logic here...
-                // there are three cases...
-                let countUnmatchedInAnswer = Array.from(answer).filter((ltr, idx) => (
-                    ltr === letter &&
-                    answer[idx] !== word[idx] && // Not matched from the left
-                    answer[idx] !== word[word.length - (answer.length - idx)] // Not matched from the right
-                )).length;                
-                if (countUnmatchedInAnswer > (presentPerLetter[letter] || 0)) {
-                    presentPerLetter[letter] = (presentPerLetter[letter] || 0) + 1;                    
-                    if (!isDemo) registerFeedback(letter, PRESENT);
-                    feedback.push(PRESENT);
-                } else {
-                    feedback.push(INCORRECT);
-                }
-            }
-        }
-    }
-    // Infer the minmum length based on feedback...
-    let usedIndices = new Set(); // Track matched indices in the answer
 
-    let nLetters = feedback.reduce((count, f, i) => {
-        if ([CORRECT_L, CORRECT_R, CORRECT_B, PRESENT].includes(f)) {
-            // Find the index of the letter in the answer
-            let letter = word[i];
-            let matchIndex = answer.indexOf(letter);
-
-            // Ensure we haven't already used this letter's match
-            while (usedIndices.has(matchIndex) && matchIndex !== -1) {
-                matchIndex = answer.indexOf(letter, matchIndex + 1); // Find next occurrence
-            }
-
-            if (matchIndex !== -1) {
-                usedIndices.add(matchIndex); // Mark this index as used
-                return count + 1; // Count the letter
-            }
-        }
-        return count; // Otherwise, don't increment the count
-    }, 0);
-    let leftmostRight = Math.max(feedback.indexOf(CORRECT_R), feedback.indexOf(CORRECT_B));
-    let rightmostLeft = Math.max(feedback.lastIndexOf(CORRECT_L), feedback.lastIndexOf(CORRECT_B));
-    if (leftmostRight > -1) {
-        nLetters = Math.max(nLetters, letters.length - leftmostRight);
-    }
-    if (rightmostLeft > -1) {
-        nLetters = Math.max(nLetters, rightmostLeft + 1);
-    }
-    if (nLetters > $minWordLength) {
-        if (!isDemo) $minWordLength = nLetters;
-    }
-}
-if (hasFeedback) {
-    computeFeedback();
-} else {
-    feedback = Array(letters.length).fill(NOANSWER);
-}
 </script>
 
-<div class="wordrow" class:no-feedback={!answer}>
+<div class="wordrow" class:no-feedback={!hasFeedback}>
     {#each letters as letter,i}
     <div class="letter"
-        class:present={feedback[i] === PRESENT}
-        class:correct-left={feedback[i] === CORRECT_L}
-        class:correct-right={feedback[i] === CORRECT_R}
-        class:correct-left-and-right={feedback[i] === CORRECT_B}
-        class:incorrect={feedback[i] === INCORRECT}
+        class:present={feedback && feedback[i] === PRESENT}
+        class:correct-left={feedback && feedback[i] === CORRECT_L}
+        class:correct-right={feedback && feedback[i] === CORRECT_R}
+        class:correct-left-and-right={feedback && feedback[i] === CORRECT_B}
+        class:incorrect={feedback && feedback[i] === INCORRECT}
         >{letter}</div>
     {/each}
 </div>
@@ -337,6 +263,105 @@ if (hasFeedback) {
 
 .letter:nth-child(20) {
     animation-delay: calc(20 * var(--letter-delay));
+}
+.letter:nth-child(21) {
+    animation-delay: calc(21 * var(--letter-delay));
+}
+
+.letter:nth-child(22) {
+    animation-delay: calc(22 * var(--letter-delay));
+}
+
+.letter:nth-child(23) {
+    animation-delay: calc(23 * var(--letter-delay));
+}
+
+.letter:nth-child(24) {
+    animation-delay: calc(24 * var(--letter-delay));
+}
+
+.letter:nth-child(25) {
+    animation-delay: calc(25 * var(--letter-delay));
+}
+
+.letter:nth-child(26) {
+    animation-delay: calc(26 * var(--letter-delay));
+}
+
+.letter:nth-child(27) {
+    animation-delay: calc(27 * var(--letter-delay));
+}
+
+.letter:nth-child(28) {
+    animation-delay: calc(28 * var(--letter-delay));
+}
+
+.letter:nth-child(29) {
+    animation-delay: calc(29 * var(--letter-delay));
+}
+
+.letter:nth-child(30) {
+    animation-delay: calc(30 * var(--letter-delay));
+}
+
+.letter:nth-child(31) {
+    animation-delay: calc(31 * var(--letter-delay));
+}
+
+.letter:nth-child(32) {
+    animation-delay: calc(32 * var(--letter-delay));
+}
+
+.letter:nth-child(33) {
+    animation-delay: calc(33 * var(--letter-delay));
+}
+
+.letter:nth-child(34) {
+    animation-delay: calc(34 * var(--letter-delay));
+}
+
+.letter:nth-child(35) {
+    animation-delay: calc(35 * var(--letter-delay));
+}
+
+.letter:nth-child(36) {
+    animation-delay: calc(36 * var(--letter-delay));
+}
+
+.letter:nth-child(37) {
+    animation-delay: calc(37 * var(--letter-delay));
+}
+
+.letter:nth-child(38) {
+    animation-delay: calc(38 * var(--letter-delay));
+}
+
+.letter:nth-child(39) {
+    animation-delay: calc(39 * var(--letter-delay));
+}
+
+.letter:nth-child(40) {
+    animation-delay: calc(40 * var(--letter-delay));
+}
+
+.letter:nth-child(41) {
+    animation-delay: calc(41 * var(--letter-delay));
+}
+
+.letter:nth-child(42) {
+    animation-delay: calc(42 * var(--letter-delay));
+}
+
+.letter:nth-child(43) {
+    animation-delay: calc(43 * var(--letter-delay));
+}
+
+.letter:nth-child(44) {
+    animation-delay: calc(44 * var(--letter-delay));
+}
+
+.letter:nth-child(45) {
+    animation-delay: calc(45 * var(--letter-delay));
 }
 .wordrow.no-feedback .letter {
     animation: none !important;

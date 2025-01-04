@@ -174,6 +174,7 @@
         place-content: start center;
         font-family: 'Indoor Kid Web';
         overflow-y: auto;
+        overflow-x: hidden;
     }
     .tutorial {
       display: flex;
@@ -183,7 +184,7 @@
       padding: 1rem;
       max-width: 40rem;      
       margin: 0 auto;      
-      position: relative;
+      position: relative;            
     }
   
     .step {      

@@ -1,18 +1,18 @@
 <script lang="ts">
-	import { minWordLength } from "./stores.svelte";
+	
 	import Word from "./Word.svelte";
     
-    let {word,invalid} = $props();
-    let tooShort = $derived(word.length < $minWordLength);
+    let {word,invalid,minWordLength} = $props();
+    let tooShort = $derived(word.length < minWordLength);
     
     let displayWord = $derived.by(
         () => {           
-            if (word.length >= $minWordLength) {
+            if (word.length >= minWordLength) {
                 return word;
             } else {
                 let effectiveWord = word;
-                while (effectiveWord.length < $minWordLength) {
-                    if (effectiveWord.length + 1 === $minWordLength) {
+                while (effectiveWord.length < minWordLength) {
+                    if (effectiveWord.length + 1 === minWordLength) {
                         effectiveWord += '…';
                     } else {
                         effectiveWord += ' ';
@@ -30,8 +30,8 @@
     class:too-short={tooShort}
     data-tooltip={tooShort ? 'Word is at least ${minWordLength} letters long.' : ''}
 >      
-    {#key word}<Word word={displayWord} answer={""} /> {/key}
-    {#if tooShort}<div class="hint">Word must be at least {$minWordLength} letters long!</div>{/if}
+    {#key word}<Word feedback={undefined} word={displayWord} answer={""} /> {/key}
+    {#if tooShort}<div class="hint">Word must be at least {minWordLength} letters long!</div>{/if}
 </div>
 
 <style>

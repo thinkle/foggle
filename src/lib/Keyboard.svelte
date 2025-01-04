@@ -1,18 +1,30 @@
 <script lang="ts">
+	
     import { 
         CORRECT_L, 
         CORRECT_R, 
         CORRECT_B,
         PRESENT,
-        INCORRECT } from "./types";    
+        INCORRECT, 
+		CORRECT_SPLIT,
+		type KEYBOARD_FEEDBACK} from "./types";    
 	
-	import { letterFeedback } from "./stores.svelte";
-    let {ondelete,oninput, onsubmit, lastLetter} = $props();
+	
+    let {ondelete,oninput, onsubmit, lastLetter,letterFeedback} : 
+        {
+            ondelete: () => void,
+            oninput: (ltr: string) => void,
+            onsubmit: () => void,
+            lastLetter: string,
+            letterFeedback: {[key: string]: KEYBOARD_FEEDBACK}
+        }
+    = $props();
+    console.log('KBD Got letter info',letterFeedback)
 
     let theKeyboard = [
-        ['Q','W','E','R','T','Y','U','I','O','P'],
-        ['A','S','D','F','G','H','J','K','L'],
-        ['ENT','Z','X','C','V','B','N','M','DEL']
+        ['q','w','e','r','t','y','u','i','o','p'],
+        ['a','s','d','f','g','h','j','k','l'],
+        ['ENT','z','x','c','v','b','n','m','DEL']
     ];
 </script>
 
@@ -27,11 +39,12 @@
                 {:else}
                 <button
                     class:just-typed={key.toLowerCase()==lastLetter}
-                    class:present={$letterFeedback[key] === PRESENT}
-                    class:correct-left={$letterFeedback[key] === CORRECT_L}
-                    class:correct-right={$letterFeedback[key] === CORRECT_R}
-                    class:correct-left-and-right={$letterFeedback[key] === CORRECT_B}
-                    class:incorrect={$letterFeedback[key] === INCORRECT}
+                    class:present={letterFeedback[key] === PRESENT}
+                    class:correct-left={letterFeedback[key] === CORRECT_L}
+                    class:correct-right={letterFeedback[key] === CORRECT_R}
+                    class:correct-left-and-right={letterFeedback[key] === CORRECT_B}
+                    class:correct-split={letterFeedback[key] == CORRECT_SPLIT}
+                    class:incorrect={letterFeedback[key] === INCORRECT}
                     onclick={()=>oninput(key.toLowerCase())}>{key}</button>
                 {/if}
             {/each}
@@ -92,6 +105,14 @@
 
     .correct-right {
         background: linear-gradient(to left, var(--correct) 40%, var(--white) 60%);
+    }
+
+    .correct-split {
+        background: linear-gradient(to right, 
+            var(--correct) 15%, /* Green from the left to 40% */
+            var(--white) 50%,   /* White in the center from 40% to 60% */
+            var(--correct) 85%  /* Green from 60% to the right */
+        );
     }
 
     .correct-left-and-right {

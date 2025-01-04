@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { ComputedFeedback } from './types.ts';
 import CurrentGuess from './CurrentGuess.svelte';
 
 import Word from '$lib/Word.svelte';
@@ -12,17 +13,38 @@ import {
     CORRECT_L,
     CORRECT_R
 } from '$lib/types';
+	import { computeFeedback } from './wordFeedback.js';
 
 let {
     theWord,
     guesses,
     nextGuess,
+    feedback,
     isRight,
     isInvalid,
     justify = undefined,
     isDemo = false,
     letterSize = undefined
+} : {
+    theWord: string,
+    guesses: string[],
+    nextGuess: string,
+    feedback: ComputedFeedback | undefined,
+    isRight: boolean,
+    isInvalid: boolean,
+    justify?: 'left' | 'right' | 'center',
+    isDemo?: boolean,
+    letterSize?: number
 } = $props();
+
+if (!feedback) {   
+    // Compute the feedback if it wasn't provided -- presumably in
+    // isDemo mode 
+    feedback = computeFeedback(guesses, theWord)
+    if (!isDemo) {
+        throw new Error('Feedback must be provided in non-demo mode');
+    }
+}
 
 let maxGuessLength = $derived.by(
     () => {
@@ -33,7 +55,6 @@ let maxGuessLength = $derived.by(
         return maxGuessLength;
     }
 )
-
 let sizeAdjust = $derived.by(
     () => {   
         if (letterSize) {
@@ -73,35 +94,35 @@ let stretch = $derived.by(
 
 let justifyMode: 'left' | 'right' | 'center' = $state(justify || 'center');
 let guessContainer: HTMLDivElement;
-// Handle keydown events
 
+// Adjust justification mode based on word info...
 $effect(
     () => {
-        let rightCount = 0;
-        let leftCount = 0;
-        for (let ltr in $letterFeedback) {
-            if ($letterFeedback[ltr] === CORRECT_R) {
-                rightCount++;
-            } else if ($letterFeedback[ltr] === CORRECT_L) {
-                leftCount++;
+        let push = 0;
+        feedback.letterKnowledge.forEach((lk, i) => {
+            if (lk === CORRECT_L) {
+                push--
+            } else if (lk === CORRECT_R) {
+                push++
             }
-        }
-        if (rightCount > leftCount) {
+        })
+        if (push > 0) {
             justifyMode = 'right';
-        } else if (leftCount > rightCount) {
+        } else if (push < 0) {
             justifyMode = 'left';
-        }
+        } 
     }
-)
-
+);
 $effect(
     () => {
-        if (guesses.length || nextGuess) {
-            guessContainer.scrollTop = guessContainer.scrollHeight;
+        // reset on new word
+        if (guesses.length === 0) {
+            justifyMode = 'center';
         }
     }
 )
 
+// Autoscroll on new guess
 $effect(
     () => {
         if (guesses.length || nextGuess) {
@@ -128,11 +149,13 @@ $effect(
             <span class="icon">→</span>
         </button>
     </div>
-    {#each guesses as guess}
-    <Word word={guess} answer={theWord} {isDemo}></Word>
+    {#each guesses as guess,i}
+    <Word word={guess} answer={theWord} 
+        feedback={feedback.guessFeedback[i]}
+    ></Word>
     {/each}
     {#if !isRight && guesses.length < 6}
-    <CurrentGuess word={nextGuess} invalid={isInvalid}></CurrentGuess>
+    <CurrentGuess word={nextGuess} invalid={isInvalid} minWordLength={feedback.minWordLength}></CurrentGuess>
     {/if}
 </div>
 

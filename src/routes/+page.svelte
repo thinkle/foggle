@@ -1,20 +1,16 @@
 <script lang="ts">
-	import { type SavedGame, setSavedGame, getSavedGame } from './../lib/gameInProgress';
-	import { CORRECT_L, CORRECT_R, PRESENT } from './../lib/types';
+	import { type SavedGame, setSavedGame, getSavedGame } from './../lib/gameInProgress';	
     import GuessArea from '../lib/GuessArea.svelte';
 
 	import Tutorial from './../lib/Tutorial.svelte';
-	
-    
+	    
     import Keyboard from '../lib/Keyboard.svelte';
-  
-    import { getTheWord, isValid } from "$lib/words";
-    import Word from '$lib/Word.svelte';    
-	import { minWordLength, resetFeedback, letterFeedback} from '$lib/stores.svelte';
+
+    import { getRandomWord, isValid } from "$lib/words";
+    import Word from '$lib/Word.svelte';    	
 	import { onMount } from 'svelte';
-	import SpeechBubble from '$lib/SpeechBubble.svelte';
-	import { CORRECT_B } from '$lib/types';
-	import { get } from 'svelte/store';
+	import SpeechBubble from '$lib/SpeechBubble.svelte';	
+	import { computeFeedback } from '$lib/wordFeedback';
 
     const getExpression = () => {
         let expressions = ['Wow','Nailed it','Nice one','Amazing','Sweeeet',
@@ -24,21 +20,34 @@
     }
 
     let expression = $state(getExpression());
-    let theWord: string = $state(getTheWord());
+    let theWord: string = $state(getRandomWord());
     let guesses: string[] = $state([]);
     let nextGuess: string = $state('');
     let isInvalid: boolean = $state(false);
     let isRight = $derived(guesses[guesses.length - 1] === theWord);
     let initialized = $state(false);
-
+    let playedDaily : boolean = $state(false);
+    let mode : 'daily' | 'extra' = $state('extra');
+    // feedback object
+    let feedback = $derived(computeFeedback(guesses,theWord));
+    // shorthand
+    let {
+        letterFeedback,
+        progress,
+        minWordLength,
+        letterKnowledge,
+    } = $derived(feedback);
+    $inspect('Updating letter feedback',letterFeedback)
     onMount(() => {
         console.log('Running onMount!');
+        theWord = 'radar';
+        return;
         const savedGame = getSavedGame();
         if (savedGame) {
             console.log('Loading saved game...');
             theWord = savedGame.currentWord;
             guesses = savedGame.guesses;
-        }
+        }        
         initialized = true;
     })
 
@@ -54,25 +63,7 @@
             }
         }
     )
-
-    let progress = $derived.by(
-        () => {
-            let knownLetters = 0;
-            for (let ltr in $letterFeedback) {
-                if ($letterFeedback[ltr] === CORRECT_B) {
-                    knownLetters++;
-                } else if ([CORRECT_L, CORRECT_R].includes($letterFeedback[ltr])) {
-                    knownLetters += 0.5;
-                } else if ($letterFeedback[ltr] === PRESENT) {
-                    knownLetters += .33;
-                }
-            };
-            console.log('Known letters:', knownLetters);
-            console.log('Word length:', theWord.length);
-            let percentageKnown = knownLetters / theWord.length;
-            return percentageKnown;
-        }
-    )
+    
     
     let titleFilter = $derived.by(
         ()=>{
@@ -88,7 +79,6 @@
     $effect(
         () => {
             if (theWord) 
-                resetFeedback();
                 expression = getExpression();
         }
     )
@@ -110,7 +100,7 @@
         isInvalid = false;
       } else if (key === 'enter') {
         // Handle submit
-        if (nextGuess.length >= $minWordLength) {
+        if (nextGuess.length >= minWordLength) {
             if (isValid(nextGuess)) {
             guesses = [...guesses, nextGuess];
             nextGuess = '';
@@ -150,6 +140,7 @@
         {isInvalid}
         {isRight}
         {nextGuess}
+        {feedback}
     ></GuessArea>
     {#if guesses.length == 6 && !isRight}
     <Word word={theWord} answer={theWord} isDemo={true}></Word>
@@ -157,8 +148,7 @@
     {#if !isRight && guesses.length >= 6}
     <button onclick={() => {
         console.log('Reset!')
-        resetFeedback();
-        theWord = getTheWord();            
+        theWord = getRandomWord();            
         guesses = [];
         nextGuess = '';
     }}>Play Again</button>
@@ -166,6 +156,7 @@
     <!-- Input -->     
      {#if !isRight && guesses.length < 6}     
     <Keyboard
+      letterFeedback = {letterFeedback}
       oninput={(ltr: string) => {
         nextGuess += ltr;
         isInvalid = false;
@@ -205,8 +196,7 @@
             </p>
             <br/><button onclick={() => {
                 console.log('Reset!')
-                resetFeedback();
-                theWord = getTheWord();            
+                theWord = getRandomWord();            
                 guesses = [];
                 nextGuess = '';
             }}>Play Again</button>
