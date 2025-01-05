@@ -249,7 +249,43 @@ describe('computeFeedback', () => {
 			}
 		)
 
-	})	    
+	});
+	
+	describe('Weird corner cases from playing', () => {
+		describe.only('Unusual shortest word hint?', ()=> {
+			it('Weird case from a screenshot', () => {				
+				const guesses = [
+					// P_P?L?RPPP???
+					// TRADITIONALLY
+					'traditionally',
+					// RRLP???
+					// INCOMES
+					'incomes',
+					// ?PPPRRP?
+					// POINTING
+					'pointing'
+				];
+				// SO FROM THE LEFT WE HAVE...				
+				// ??C?I??????
+				// and from the right we have...
+				//         IN?TI
+				// and the computer showed
+				// the hint as...
+				// ??CNITI??
+				// But we *shouldn't allow an "N"
+				// not next to an "I"...
+				// so we expect...
+				// ??CNITI??
+				// 
+				// ??C?IN?TI??			
+				const answer = 'vaccination';
+				const result = computeFeedback(guesses, answer);		
+				expect(result.template,
+					buildDebugMessage(guesses,answer,result)
+				).toBe('??c?in?ti??');
+			});
+		});
+	});
 });
 
 function buildDebugMessage (guesses, target, result) {

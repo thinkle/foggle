@@ -284,8 +284,7 @@ function calculateMinWordLength (guesses: string[], guessFeedback: FEEDBACK[][])
     while (forbiddenLengths.includes(smallestWordLength)) {
         smallestWord.push(FILL);
         smallestWordLength = smallestWord.length;
-    }
-
+    }        
     const finalSmallWord = finalizeWord(smallestWord).map((l)=>l||'?').join('');    
     return {
         template : finalSmallWord,
@@ -294,7 +293,7 @@ function calculateMinWordLength (guesses: string[], guessFeedback: FEEDBACK[][])
     
     // Then, check if we can fit our right based letters and if not
     // add letters to the right until we can
-    function finalizeWord (smallestWord : Array<string>) : Array<string> {
+    function finalizeWord (smallestWord : Array<string>) : Array<string> {        
         const possiblyFinalWord = smallestWord.slice();
         for (const constraint of rightBasedLetters) {
             if (!constraint) continue;
@@ -308,10 +307,10 @@ function calculateMinWordLength (guesses: string[], guessFeedback: FEEDBACK[][])
                 possiblyFinalWord[adjustedIndex] = letter;
             } else {
                 // conflict!                
-                // expand...
-                smallestWord[smallestWord.length] = FILL;
+                // expand...                
+                smallestWord[smallestWord.length] = FILL;                
                 // recurse!
-                finalizeWord(smallestWord);
+                return finalizeWord(smallestWord);
             }
         }
         // If we got all the right based letters in, let's make
@@ -327,9 +326,9 @@ function calculateMinWordLength (guesses: string[], guessFeedback: FEEDBACK[][])
             while (forbiddenLengths.includes(smallestWordLength)) {
                 smallestWord.push(FILL);
                 smallestWordLength = smallestWord.length;
-            }
+            }            
             return finalizeWord(smallestWord);
-        } else {
+        } else {            
             return possiblyFinalWord;
         }
     }   
