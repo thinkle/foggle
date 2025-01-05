@@ -153,6 +153,7 @@
             guesses={guesses}
             feedback={feedback}
             victory={isRight}
+			mode={mode}
             onPlayAgain={() => {				
                 theGame = gameManager.getNewGame();
 				guesses = [];

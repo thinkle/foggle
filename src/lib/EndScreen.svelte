@@ -3,17 +3,22 @@
 	import type { ComputedFeedback } from './types.ts';
 	import Word from './Word.svelte';
     import type {FEEDBACK} from './types.ts';
+	import { hasCompletedDaily, type PuzzleType } from './gameInProgress';
+	import { getDayIndex } from '../wordlists/magicNumber';
+    
 	const {
 		theWord,
 		guesses,
 		feedback,
 		victory,
-		onPlayAgain
+		onPlayAgain,
+        mode
 	}: {
 		theWord: string;
 		guesses: string[];
 		feedback: ComputedFeedback;
 		victory: boolean;
+        mode : PuzzleType
 		onPlayAgain: () => void;
 	} = $props();
 
@@ -72,7 +77,17 @@
 </script>
 
 {#snippet playAgain ()}    
-    <button onclick={onPlayAgain}>Play Again</button>    
+{#if mode === 'daily'}
+    <p>There will be a new daily puzzle tomorrow!</p>
+    <button onclick={onPlayAgain}>Play Unlimited Mode</button>    
+{:else}
+    {#if !hasCompletedDaily(getDayIndex())}
+        <p>You haven't played today's puzzle yet!!!</p>
+        <button onclick={onPlayAgain}>Play Daily Puzzle!</button>
+    {:else}
+        <button onclick={onPlayAgain}>Play Another?</button>
+    {/if}
+{/if}
 {/snippet}
 
 {#if victory}
