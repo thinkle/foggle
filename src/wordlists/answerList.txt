@@ -1436,6 +1436,8 @@ cut
 cuticle
 cutlass
 cyan
+cyber
+cyberspace
 cycle
 cycling
 cyclist
@@ -1729,6 +1731,7 @@ down
 downpour
 downtown
 dowry
+doze
 dozen
 draft
 drag
@@ -2871,6 +2874,7 @@ interference
 interior
 internal
 international
+internet
 interpret
 interpretation
 interrupt
@@ -3447,6 +3451,7 @@ nail
 naked
 name
 nanotechnology
+nap
 napkin
 narrative
 narrow
@@ -4623,8 +4628,10 @@ smoothie
 snail
 snake
 snap
+sneak
 sneaker
 sneeze
+snooze
 snore
 snow
 snowball
