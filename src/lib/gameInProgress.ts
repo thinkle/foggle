@@ -145,7 +145,7 @@ export function getGameHistory() : SavedGame[] {
 export function getSavedGame (): SavedGame | null {
     const dailySaved = getSavedGameData('daily');
     if (dailySaved) {
-        if (decode(dailySaved.currentWord) === getDailyWord()) {
+        if (dailySaved.currentWord === getDailyWord()) {
             return dailySaved;
         } else {
             // add to history if it's not the right word.
