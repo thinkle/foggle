@@ -31,16 +31,18 @@
 	{#if tooShort}<div class="hint-wrap">
 			<div class="hint">
 				<SpeechBubble position="left">
-					Word must be at least <b>{minWordLength}</b> letters long!
-					<br />
-					<br />
-					{#if showHint}
-						<span class="extra-hint">
-							(the shortest possible<br /> pattern is<br /><span class="template">{template}</span>)
-						</span>
-					{:else}
-						<span class="hint-cue">(click for hint)</span>
-					{/if}
+					Word must be at least <b>{minWordLength}</b> {#if minWordLength !== 1}letters{:else}letter{/if} long!
+                    {#if template}
+                        <br />
+                        <br />
+                        {#if showHint}
+                            <span class="extra-hint">
+                                (the shortest possible<br /> pattern is<br /><span class="template">{template}</span>)
+                            </span>
+                        {:else}
+                            <span class="hint-cue">(click for hint)</span>
+                        {/if}
+                    {/if}
 				</SpeechBubble>
 			</div>
 		</div>{/if}
