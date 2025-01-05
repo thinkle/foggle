@@ -55,9 +55,9 @@
 </div>
 
 <style>
-
-    
-
+    .keyboard {
+        touch-action: manipulation;
+    }    
     .row {
         display: flex;
         justify-content: center;
