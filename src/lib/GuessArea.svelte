@@ -152,7 +152,7 @@ $effect(
     ></Word>
     {/each}
     {#if !isRight && guesses.length < 6}
-    <CurrentGuess word={nextGuess} invalid={isInvalid} minWordLength={feedback.minWordLength}></CurrentGuess>
+    <CurrentGuess word={nextGuess} invalid={isInvalid} minWordLength={feedback.minWordLength} template={feedback.template}></CurrentGuess>
     {/if}
 </div>
 
