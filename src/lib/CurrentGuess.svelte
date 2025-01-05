@@ -1,113 +1,130 @@
 <script lang="ts">
-	
-	import Word from "./Word.svelte";
-    
-    let {word,invalid,minWordLength} = $props();
-    let tooShort = $derived(word.length < minWordLength);
-    
-    let displayWord = $derived.by(
-        () => {           
-            if (word.length >= minWordLength) {
-                return word;
-            } else {
-                let effectiveWord = word;
-                while (effectiveWord.length < minWordLength) {
-                    if (effectiveWord.length + 1 === minWordLength) {
-                        effectiveWord += '…';
-                    } else {
-                        effectiveWord += ' ';
-                    }                    
-                }
-                return effectiveWord;               
-            }
-        }
-    )
-    $inspect(displayWord);
+	import SpeechBubble from '$lib/SpeechBubble.svelte';
 
+	import Word from './Word.svelte';
+
+	let { word, invalid, minWordLength, template } = $props();
+	let tooShort = $derived(word.length < minWordLength);
+	// fill array with minWordLength spaces
+	// make last item the ellipsis character
+	// replace with content of word up to word length characters
+	let displayWord = $derived(
+		Array.from({ length: Math.max(minWordLength,word.length) }, (_, i) =>
+			i < word.length ? word[i] : i === minWordLength - 1 ? '…' : ' '
+		)
+	);
+	
+	$inspect(displayWord);
+	let showHint = $state(false);
 </script>
 
-<div class:invalid={invalid} class="current-guess"
-    class:too-short={tooShort}
-    data-tooltip={tooShort ? 'Word is at least ${minWordLength} letters long.' : ''}
->      
-    {#key word}<Word feedback={undefined} word={displayWord} answer={""} /> {/key}
-    {#if tooShort}<div class="hint">Word must be at least {minWordLength} letters long!</div>{/if}
+<div
+	class:invalid
+	class="current-guess"
+	onclick={() => (showHint = !showHint)}
+	onmouseleave={() => (showHint = false)}
+	class:too-short={tooShort}
+	data-tooltip={tooShort ? 'Word is at least ${minWordLength} letters long.' : ''}
+>
+	{#key word}{#key displayWord}<Word feedback={undefined} word={displayWord} answer={''} />{/key}
+	{/key}
+	{#if tooShort}<div class="hint-wrap">
+			<div class="hint">
+				<SpeechBubble position="left">
+					Word must be at least <b>{minWordLength}</b> letters long!
+					<br />
+					<br />
+					{#if showHint}
+						<span class="extra-hint">
+							(the shortest possible<br /> pattern is<br /><span class="template">{template}</span>)
+						</span>
+					{:else}
+						<span class="hint-cue">(click for hint)</span>
+					{/if}
+				</SpeechBubble>
+			</div>
+		</div>{/if}
 </div>
 
 <style>
-    .current-guess {
-        position: relative;
-    }
-    .hint {
-        position: absolute;
-        visibility: hidden;
-    }
-    .current-guess:hover .hint {
-    --triangle-size: 20px; /* Define the triangle size */
-    --triangle-offset: 20px; /* Horizontal offset for the triangle */
+	.template {
+		white-space: nowrap;
+		font-weight: bold;
+	}
+	.extra-hint {
+		font-size: 0.8em;
+	}
+	.extra-hint .template {
+		font-size: 1.2em;
+	}
+	.hint-cue {
+		font-size: 0.8em;
+	}
+	.current-guess {
+		position: relative;
+	}
+	.hint-wrap {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 75dvh;
+		pointer-events: none;
+	}
+	.hint {
+		position: absolute;
+		visibility: hidden;
+		pointer-events: none;
+		bottom: 1em;
+		left: 1em;
+		width: min(25em, 80vw);
+		transition: all 0.5s;
+		transform: translateX(-100vw);
+	}
+	.current-guess:hover .hint {
+		visibility: visible;
+		animation: blop-in 0.5s forwards;
+	}
 
-    visibility: visible;        
-    animation: fade-in 0.5s;        
-    position: fixed;
-    bottom: 30dvh;
-    left: 20vw;
-    font-size: 2rem;
-    width: 18rem;
-    background: #242;
-    color: #fff; /* Ensure text is readable */
-    padding: 1rem;
-    border-radius: 2rem 4rem 3rem 3rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow for pop */
-    transform: skewX(-15deg);
-    text-align: center;
-}
-
-.current-guess:hover .hint::after {
-    content: '';
-    position: absolute;
-    bottom: calc(var(--triangle-size) * -0.8); /* Place triangle just below bubble */
-    left: calc(var(--triangle-offset) * 1.5); /* Offset from left side */
-    width: 0;
-    height: 0;
-    border-left: var(--triangle-size) solid transparent;
-    border-right: var(--triangle-size) solid transparent;
-    border-top: var(--triangle-size) solid #242; /* Matches bubble background */
-    
-}
-
-    @keyframes fade-in {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
-    .current-guess {
-        min-height: var(--ltr-height,3rem);
-    }
-   /*  .current-guess.too-short :global(.wordrow::after) {
-        content: '...';
-        font-family: 'Indoor Kid Web';
-       font-size: var(--font-size, 2rem);
-       font-weight: bold;
-       padding: 8px;
-       border-radius: 8px;
-       display: grid;
-       place-content: center;
-       text-align: center;
-       width: var(--ltr-width);
-       height: var(--ltr-height);
-       background: radial-gradient(circle, var(--white) 70%, transparent 100%);
-       text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.644);
-       color: #224;
-       box-sizing: border-box;
-    } */
-    .invalid {
-        animation: shake 0.5s;        
-    }
-@keyframes shake {
-    0% { transform: translate(0, 0); }
-    10%, 20% { transform: translate(-10px, 0); }
-    30%, 50%, 70%, 90% { transform: translate(10px, 0); }
-    40%, 60%, 80% { transform: translate(-10px, 0); }
-    100% { transform: translate(0, 0); }
-}
+	@keyframes blop-in {
+		0% {
+			transform: translateX(-100vw) scaleX(0.5) skewX(-10deg);
+		}
+		90% {
+			transform: translateX(0) scaleX(1.2) skewX(10deg) skewY(-10deg);
+		}
+		100% {
+			transform: translateX(0) scaleX(1) skewX(0deg);
+		}
+	}
+	.current-guess {
+		min-height: var(--ltr-height, 3rem);
+	}
+	
+	.invalid {
+		animation: shake 0.5s;
+	}
+	@keyframes shake {
+		0% {
+			transform: translate(0, 0);
+		}
+		10%,
+		20% {
+			transform: translate(-10px, 0);
+		}
+		30%,
+		50%,
+		70%,
+		90% {
+			transform: translate(10px, 0);
+		}
+		40%,
+		60%,
+		80% {
+			transform: translate(-10px, 0);
+		}
+		100% {
+			transform: translate(0, 0);
+		}
+	}
 </style>
-
