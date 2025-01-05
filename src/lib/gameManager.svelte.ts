@@ -1,7 +1,7 @@
 /* Manage resuming game, getting new game, and daily vs. unlimited mode */
 
 import { getDayIndex } from "../wordlists/magicNumber";
-import { getSavedGame, hasCompletedDaily, hasCompletedExtra, type SavedGame } from "./gameInProgress"
+import { completeSavedGame, getSavedGame, hasCompletedDaily, hasCompletedExtra, type SavedGame } from "./gameInProgress"
 import type { Game } from "./types";
 import { getDailyWord, getRandomGame } from "./words";
 
@@ -20,7 +20,12 @@ type GameAndGuesses = Game & {
 }
 
 function loadInitialGame () : GameAndGuesses {
-    const savedGame = getSavedGame();
+    let savedGame = getSavedGame();
+    if (savedGame?.guesses.length === 6 || savedGame?.solved) {
+        console.log('Load game: Saved game is complete. Getting new game...');
+        completeSavedGame(savedGame);
+        savedGame = null;
+    }
     if (savedGame) {
         console.log('Load game: Resuming saved game...',savedGame.puzzleId,savedGame.puzzleType);
         return {
