@@ -64,7 +64,7 @@
         } else if (closeness > 0.3) {
             return 'were closing in on it!';
         } else if (closeness > 0.15) {
-            return 'getting there...';
+            return 'were getting there...';
         } else {
             return 'were not even close';
         }
