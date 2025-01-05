@@ -49,6 +49,8 @@ describe('computeFeedback', () => {
 			'unknown',
 			CORRECT_R
 		]);
+		expect(result.letterFeedback['a']).toBe(PRESENT);
+		expect(result.letterFeedback['e']).toBe(CORRECT_R);
 		expect(result.progress).toEqual((0.5 + 0.333)/6);
 	});
 

@@ -125,13 +125,17 @@ const keyboardFeedbackManager = () => {
 					keyboardFeedback[letter] = CORRECT_L;
 				}
 			}
-			if (feedback == CORRECT_R) {
+			else if (feedback == CORRECT_R) {
 				if (keyboardFeedback[letter] == CORRECT_L || keyboardFeedback[letter] == CORRECT_SPLIT) {
 					keyboardFeedback[letter] = CORRECT_SPLIT;
 				} else {
 					keyboardFeedback[letter] = CORRECT_R;
 				}
-			}
+			} else if (feedback == PRESENT) {
+                if (!keyboardFeedback[letter]) {
+                    keyboardFeedback[letter] = PRESENT;
+                }
+            }
 		}
 	};
 };
@@ -200,7 +204,7 @@ export const computeWordFeedback = (guess: string, answer: string): WordFeedback
                 )).length;
                 if (unmatchedInAnswer > (presentPerLetter[letter] || 0)) {
                     kbFdbManager.addLetterFeedback(letter, PRESENT);
-                    feedback.push(PRESENT);
+                    feedback.push(PRESENT);                    
                     presentPerLetter[letter] = (presentPerLetter[letter] || 0) + 1;
                 } else {
                     // no need to update keyboard here since we know this
