@@ -1,3 +1,5 @@
+import type { PuzzleType } from "./gameInProgress";
+
 export const CORRECT_L = 'correct-left-indexed';
 export const CORRECT_R = 'correct-right-indexed';
 export const CORRECT_SPLIT = 'correct-left-right-separately';
@@ -16,3 +18,8 @@ export type ComputedFeedback = {
     letterKnowledge : LetterInfo[],
 }
 export type LetterInfo = FEEDBACK | 'unknown';
+export type Game = {
+    id: number;
+    type: PuzzleType;
+    word: string;
+};

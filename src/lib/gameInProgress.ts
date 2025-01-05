@@ -20,8 +20,76 @@ export interface GameResult {
 
 const SAVED_GAME_KEY = 'savedGame';
 const SAVED_DAILY_KEY = 'savedDaily';
+const COMPLETED_DAILY_KEY = 'playedDailies';
+const COMPLETED_EXTRA_KEY = 'playedGames';
+
+const savedDailies = new Set();
+
+function getAttemptedDailies () : number[] {
+    const existingDailiesString = localStorage.getItem(COMPLETED_DAILY_KEY);
+    let dailies = [];
+    if (existingDailiesString) {        
+        try {
+            dailies = JSON.parse(existingDailiesString);
+        } catch (e) {
+            console.error('Failed to parse dailies:', e);
+        }
+    }
+    return dailies;
+}
+
+function getAttemptedExtras () : string[] {
+    const existingExtrasString = localStorage.getItem(COMPLETED_EXTRA_KEY);
+    let extras = [];
+    if (existingExtrasString) {
+        try {
+            extras = JSON.parse(existingExtrasString);
+        } catch (e) {
+            console.error('Failed to parse extras:', e);
+        }
+    }
+    return extras;
+}
+
+function saveDailyAttempt (puzzleId : number) : void {
+     // If it's a daily puzzle, we save it...
+     if (!savedDailies.has(puzzleId)) {        
+        const dailies = getAttemptedDailies();
+        if (!dailies.includes(puzzleId)) {
+            dailies.push(puzzleId);
+        }
+        localStorage.setItem(COMPLETED_DAILY_KEY, JSON.stringify(dailies));
+        savedDailies.add(puzzleId);
+    }
+}
+
+function saveExtraAttempt (word : string) : void {
+    const encodedWord = encodeClue(word);
+    const extras = getAttemptedExtras();
+    if (!extras.includes(encodedWord)) {
+        extras.push(encodedWord);
+    }
+    localStorage.setItem(COMPLETED_EXTRA_KEY, JSON.stringify(extras));
+}
+
+export function hasCompletedExtra (word : string) : boolean {
+    return getAttemptedExtras().includes(encodeClue(word));
+}
+
+export function hasCompletedDaily (puzzleId : number) : boolean {
+    return getAttemptedDailies().includes(puzzleId);
+}
 
 export function setSavedGame(game: SavedGame): void {
+    if (game.guesses.length === 0) {
+        // early exit on no guesses -- no need to save
+        return
+    }
+    if (game.puzzleType == 'daily') {
+        saveDailyAttempt(game.puzzleId);
+    } else {
+        saveExtraAttempt(game.currentWord);
+    }
     const solved = game.guesses
         .map((g)=>g.toLowerCase())
         .includes(game.currentWord.toLowerCase());

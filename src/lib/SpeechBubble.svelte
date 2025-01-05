@@ -1,5 +1,5 @@
 <script>
-    let {position, maxWidth, children} = $props();
+    let {position = 'center', maxWidth = 25, children} = $props();
   </script>
   
   <div class="speech-bubble" class:left={position === "left"} class:right={position === "right"}
