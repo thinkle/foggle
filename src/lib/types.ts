@@ -16,6 +16,7 @@ export type ComputedFeedback = {
     letterFeedback : { [letter: string]: KEYBOARD_FEEDBACK },
     progress : number,
     letterKnowledge : LetterInfo[],
+    template: string
 }
 export type LetterInfo = FEEDBACK | 'unknown';
 export type Game = {

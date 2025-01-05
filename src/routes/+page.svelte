@@ -40,8 +40,7 @@
 	onMount(() => {
 		if (localStorage.getItem('seenTutorial')) {
 			showTutorial = false;
-		}
-		console.log('Running onMount!');
+		}		
 		let gameAndGuesses = gameManager.loadInitialGame();
 		guesses = gameAndGuesses.guesses;
 		theGame = gameAndGuesses;
