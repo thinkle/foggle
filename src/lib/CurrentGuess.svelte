@@ -32,7 +32,7 @@
 			<div class="hint">
 				<SpeechBubble position="left">
 					Word must be at least <b>{minWordLength}</b> {#if minWordLength !== 1}letters{:else}letter{/if} long!
-                    {#if template}
+                    {#if template && template.search(/\w/)!==-1}
                         <br />
                         <br />
                         {#if showHint}
