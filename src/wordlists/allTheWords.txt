@@ -33536,6 +33536,7 @@ echinoderms
 echinoid
 echinus
 echo
+echocardiogram
 echoed
 echoer
 echoes
@@ -55664,6 +55665,7 @@ intrusted
 intrusting
 intrusts
 intubate
+intubation
 intuit
 intuitable
 intuited
@@ -77278,6 +77280,7 @@ phlebotomise
 phlebotomised
 phlebotomises
 phlebotomising
+phlebotomist
 phlebotomize
 phlebotomized
 phlebotomizes
@@ -89432,6 +89435,8 @@ rheumatically
 rheumatics
 rheumatism
 rheumatoid
+rheumatologist
+rheumatology
 rheumy
 rhigolene
 rhinal
