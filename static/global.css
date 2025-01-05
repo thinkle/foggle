@@ -1,0 +1,24 @@
+/* Apply to all elements globally */
+* {
+    scrollbar-width: thin; /* Firefox: Makes the scrollbar thinner */
+    scrollbar-color: rgba(255, 255, 255, 0.8) transparent; /* Firefox: Custom colors */
+}
+
+/* WebKit-based browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 3px; /* Width of the vertical scrollbar */
+    height: 3px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(234, 234, 234, 0.8); /* Thumb color */
+    border-radius: 3px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.933); /* Darker thumb color on hover */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Track color */
+}
