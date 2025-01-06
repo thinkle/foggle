@@ -252,7 +252,7 @@ describe('computeFeedback', () => {
 	});
 	
 	describe('Weird corner cases from playing', () => {
-		describe.only('Unusual shortest word hint?', ()=> {
+		describe('Unusual shortest word hint?', ()=> {
 			it('Weird case from a screenshot', () => {				
 				const guesses = [
 					// P_P?L?RPPP???
