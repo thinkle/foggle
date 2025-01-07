@@ -78,6 +78,7 @@
         width: min(calc((100vw - 3rem) / 10),4rem);
         height: 3.5rem;
         background: radial-gradient(circle, var(--white) 70%, transparent 100%);
+        color: black;
         border: 3px solid #222a;
         transition: border-color 0.3s;
         font-family: "Indoor Kid Web";
