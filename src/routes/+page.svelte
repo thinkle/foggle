@@ -67,6 +67,17 @@
 		}
 	});
 		
+	function submitGuess () {
+		// Should we allow guesses that aren't long enough
+		// even on the last guess?
+		//if (nextGuess.length >= minWordLength) {
+		if (isValid(nextGuess)) {
+			guesses = [...guesses, nextGuess];
+			nextGuess = '';
+		} else {
+			isInvalid = true;
+		}		
+	}
 
 	// Handle keydown events
 	function handleKeydown(event: KeyboardEvent) {
@@ -82,14 +93,7 @@
 			isInvalid = false;
 		} else if (key === 'enter') {
 			// Handle submit
-			if (nextGuess.length >= minWordLength) {
-				if (isValid(nextGuess)) {
-					guesses = [...guesses, nextGuess];
-					nextGuess = '';
-				} else {
-					isInvalid = true;
-				}
-			}
+			submitGuess();			
 			event.preventDefault();
 		}
 		
@@ -136,14 +140,7 @@
 				nextGuess = nextGuess.substring(0, nextGuess.length - 1);
 				isInvalid = false;
 			}}
-			onsubmit={() => {
-				if (isValid(nextGuess)) {
-					guesses = [...guesses, nextGuess];
-					nextGuess = '';
-				} else {
-					isInvalid = true;
-				}
-			}}
+			onsubmit={submitGuess}
 			lastLetter={nextGuess[nextGuess.length - 1]}
 		/>
     {:else}
