@@ -93,12 +93,10 @@ export function setSavedGame(game: SavedGame): void {
     const solved = game.guesses
         .map((g)=>g.toLowerCase())
         .includes(game.currentWord.toLowerCase());
-    if (solved) {
-        console.log('Saved game complete!');
+    if (solved) {        
         game.solved = true;
         completeSavedGame(game);
-    } else {
-        console.log('Saving game in progress...');
+    } else {        
         const encodedWord = encodeClue(game.currentWord);
         const storedGame = {
             ...game,

@@ -18,8 +18,7 @@
             lastLetter: string,
             letterFeedback: {[key: string]: KEYBOARD_FEEDBACK}
         }
-    = $props();
-    console.log('KBD Got letter info',letterFeedback)
+    = $props();    
 
     let theKeyboard = [
         ['q','w','e','r','t','y','u','i','o','p'],

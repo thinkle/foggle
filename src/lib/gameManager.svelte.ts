@@ -9,8 +9,7 @@ let completedDaily = $state(false);
 
 function loadGame () : SavedGame | void {
     const savedGame = getSavedGame();
-    if (savedGame && savedGame.guesses.length < 6) {
-        console.log('Load game: Resuming saved game...',savedGame.puzzleId,savedGame.puzzleType);
+    if (savedGame && savedGame.guesses.length < 6) {        
         return savedGame;
     }
 }
@@ -21,21 +20,18 @@ type GameAndGuesses = Game & {
 
 function loadInitialGame () : GameAndGuesses {
     let savedGame = getSavedGame();
-    if (savedGame?.guesses.length === 6 || savedGame?.solved) {
-        console.log('Load game: Saved game is complete. Getting new game...');
+    if (savedGame?.guesses.length === 6 || savedGame?.solved) {        
         completeSavedGame(savedGame);
         savedGame = null;
     }
-    if (savedGame) {
-        console.log('Load game: Resuming saved game...',savedGame.puzzleId,savedGame.puzzleType);
+    if (savedGame) {        
         return {
             id : savedGame.puzzleId,
             type : savedGame.puzzleType,
             word : savedGame.currentWord,
             guesses : savedGame.guesses,
         };
-    } else {
-        console.log('No saved game: getting new game!');
+    } else {        
         const game = getNewGame();
         return {
             ...game,
@@ -57,12 +53,10 @@ function getNewGame (level = 1) : Game {
     } else {
         completedDaily = true;
         const game = getRandomGame();
-        if (hasCompletedExtra(game.word)) {
-            console.log('Extra already completed, getting new game...');
+        if (hasCompletedExtra(game.word)) {            
             if (level < RECURSION_LIMIT) {
                 return getNewGame();
-            } else {
-                console.log('Forget it -- returning anyway');
+            } else {                
                 return game;
             }
         } else {

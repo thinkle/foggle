@@ -7,12 +7,9 @@ import { getConstraints, type Constraints } from "./wordFeedback";
 import { validWords } from "./words";
 
 export const getPossibleWords = (guesses : string[], answer : string) : string[] => {
-    const {constraints, letterCounts, letterExclusions} = getConstraints(guesses, answer);    
-    console.log('Got constraints',constraints, letterCounts, letterExclusions);
-    console.log('Beginning with ',validWords.length)
+    const {constraints, letterCounts, letterExclusions} = getConstraints(guesses, answer);            
     const filtered = validWords.filter(
-        word => applyConstraints(word, constraints, letterCounts,letterExclusions));
-    console.log('Filtered to ',filtered.length);
+        word => applyConstraints(word, constraints, letterCounts,letterExclusions));    
     return filtered;
 }
 
