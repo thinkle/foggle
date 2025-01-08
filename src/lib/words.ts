@@ -24,8 +24,7 @@ export const getDailyWord = (date = new Date()) => {
 }
 
 export const isValid = (word : string) => {
-    return words.indexOf(word) > -1; 
+    return word && words.indexOf(word) > -1; 
 }
-console.log('Got me words!',words)
 
 export const validWords = words;
