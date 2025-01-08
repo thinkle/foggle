@@ -11,6 +11,7 @@ import {
     CORRECT_R
 } from '$lib/types';
 	import { computeFeedback } from './wordFeedback.js';
+	import { getPossibleWords } from './foggleBot.js';
 
 let {
     theWord,
@@ -127,6 +128,7 @@ $effect(
         }
     }
 )
+
 </script>
 
 <div class="guesses"
@@ -150,10 +152,10 @@ $effect(
     <Word word={guess} answer={theWord} 
         feedback={feedback.guessFeedback[i]}
     ></Word>
-    {/each}
+    {/each}    
     {#if !isRight && guesses.length < 6}
     <CurrentGuess word={nextGuess} invalid={isInvalid} minWordLength={feedback.minWordLength} template={feedback.template}></CurrentGuess>
-    {/if}
+    {/if}    
 </div>
 
 <style>

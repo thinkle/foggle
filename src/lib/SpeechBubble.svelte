@@ -1,9 +1,11 @@
 <script>
-    let {position = 'center', maxWidth = 25, children} = $props();
+    let {position = 'center', maxWidth = 25, skew=undefined, children} = $props();    
+
   </script>
   
   <div class="speech-bubble" class:left={position === "left"} class:right={position === "right"}
-  style:--max-width={maxWidth}>
+  style:--max-width={maxWidth}
+  style:--skew={skew}>
     {@render children()}
   </div>
   

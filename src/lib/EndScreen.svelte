@@ -5,6 +5,7 @@
     import type {FEEDBACK} from './types.ts';
 	import { hasCompletedDaily, type PuzzleType } from './gameInProgress';
 	import { getDayIndex } from '../wordlists/magicNumber';
+	import Analysis from './Analysis.svelte';
     
 	const {
 		theWord,
@@ -71,10 +72,29 @@
     }
 
 	let expression = $derived(getExpression(theWord, victory));
-
-    
-        
+    let showAnalysis = $state(false);
+    let analysisDialog : HTMLDialogElement | undefined = $state();
+    $effect(
+        () => {
+            if (analysisDialog && showAnalysis) {
+                analysisDialog.showModal();
+            }
+        }
+    )
 </script>
+
+{#snippet analysis ()}
+  {#if guesses.length > 1} 
+    <a class="analysis-cta" onclick={() => showAnalysis = !showAnalysis}>
+        {showAnalysis ? 'Hide' : 'Show'} Analysis</a>
+    {#if showAnalysis}
+        <dialog bind:this={analysisDialog}>
+            <button class="close" onclick="{() => showAnalysis = false}">&times;</button>
+            <Analysis guesses={guesses} theWord={theWord} feedback={feedback} />
+        </dialog>
+    {/if}
+  {/if}
+{/snippet}
 
 {#snippet playAgain ()}    
 {#if mode === 'daily'}
@@ -89,6 +109,7 @@
     {/if}
 {/if}
 {/snippet}
+
 
 {#if victory}
 	<!-- Victory screen! -->
@@ -109,6 +130,7 @@
 					<br />
 				{/if}
 			</p>
+            {@render analysis()}
 			<br />{@render playAgain()}
 		</SpeechBubble>
 	</div>
@@ -127,7 +149,7 @@
                 <br/>the fog persists&hellip;
                 <br />
                 but you <em class="big">{getClosenessExpression(feedback.progress)}</em>
-                
+                {@render analysis()}
                 <br/>
                 {@render playAgain()}
             </p>
@@ -143,7 +165,6 @@
 	}
 	.end-screen em {
 		font-variation-settings: 'EMPH' 125;
-
 		font-stretch: 105%;
 	}
 	.end-screen .big {
@@ -225,5 +246,21 @@
     .end-screen :global(.wordrow) {
         justify-content: center;
     }
-
+    dialog::backdrop {
+        background: rgba(0, 0, 0, 0.8);
+    }
+    dialog {
+        background: transparent;
+    }
+    dialog .close {
+        position: fixed;
+        top: 8px;
+        right: 8px;
+        text-decoration: none;
+    }
+    .analysis-cta {
+        margin: 1rem auto;
+        display: block;
+        font-size: small;
+    }
 </style>

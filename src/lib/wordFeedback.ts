@@ -11,17 +11,27 @@ import {
     type LetterInfo
 } from './types';
 
-type WordFeedback = {
+export type WordFeedback = {
 	word: FEEDBACK[];
 	keyboard: { [letter: string]: KEYBOARD_FEEDBACK };
 };
+
+export const getConstraints = (guesses : string[], answer : string) => {
+    const wordsFeedback = guesses.map((word) => computeWordFeedback(word, answer));
+    const guessFeedback = wordsFeedback.map((wf) => wf.word);
+    const {letterCounts,letterExclusions} = calculateLetterCounts(guesses, guessFeedback);    
+    return {
+        constraints : calculateConstraints(guesses, guessFeedback),
+        letterCounts : letterCounts,
+        letterExclusions : letterExclusions
+    }
+}
 
 export const computeFeedback = (guesses: string[], answer: string): ComputedFeedback => {
     const wordsFeedback = guesses.map((word) => computeWordFeedback(word, answer));    
     const guessFeedback = wordsFeedback.map((wf) => wf.word);
     const letterFeedback = mergeKeyboardFeedback(wordsFeedback);
-    
-    
+        
     const letterKnowledge : LetterInfo[] = Array.from(answer).map(
         (letter, i) : LetterInfo => {    
             let status : LetterInfo;
@@ -210,20 +220,26 @@ export const computeWordFeedback = (guess: string, answer: string): WordFeedback
     }
 };
 
-function calculateMinWordLength (guesses: string[], guessFeedback: FEEDBACK[][]) : {
-    length: number,
-    template: string
-    } {        
-    const FILL = '?'; // placeholder for unknown letters that must be there
-    // use a constraint-based approach this time to collect info...
-    type Constraint = {
-        index : number,
-        letter : string,
-        side : 'left' | 'right'
-    }
+export type Constraint = {
+    index : number,
+    letter : string,
+    side : 'left' | 'right'
+}
+export type Constraints = {
+    leftBasedLetters : (Constraint|undefined)[],
+    rightBasedLetters : (Constraint|undefined)[],
+    forbiddenLengths : number[],
+    minSizeBasedOnRight : number,
+    leftBasedExclusions: (Constraint|undefined)[],
+    rightBasedExclusions : (Constraint|undefined)[]
+}
+
+function calculateConstraints (guesses : string[], guessFeedback : FEEDBACK[][]) : Constraints {
     const forbiddenLengths : number[] = [];
     const leftBasedLetters : (Constraint|undefined)[] = [];
     const rightBasedLetters : (Constraint|undefined)[] = [];
+    const leftBasedExclusions : (Constraint|undefined)[] = [];
+    const rightBasedExclusions : (Constraint|undefined)[] = [];    
     let minSizeBasedOnRight = 0;
     for (let i=0; i<guesses.length; i++) {
         const guess = guesses[i];
@@ -231,17 +247,23 @@ function calculateMinWordLength (guesses: string[], guessFeedback: FEEDBACK[][])
         const length = guess.length;
         let lengthBanned = false; // have we ruled out this length?
         for (let letterIndex=0; letterIndex<length; letterIndex++) {
+            const fromRightIndex = length - letterIndex;
             const letter = guess[letterIndex];
             const fb = feedback[letterIndex];
             if (fb === CORRECT_L || fb === CORRECT_B) {
                 leftBasedLetters[letterIndex] = {index:letterIndex, letter, side:'left'};
             }
-            if (fb === CORRECT_R || fb === CORRECT_B) {
-                const fromRightIndex = length - letterIndex;
+            if (fb === CORRECT_R || fb === CORRECT_B) {                
                 rightBasedLetters[fromRightIndex] = {index:fromRightIndex, letter, side:'right'};
                 if (fromRightIndex > minSizeBasedOnRight) {
                     minSizeBasedOnRight = fromRightIndex;
                 }
+            }
+            // Present letters would be green if they were in the right spot
+            // so we know they are not in the right spot
+            if (fb === PRESENT) {
+                rightBasedExclusions[fromRightIndex] = {index:fromRightIndex, letter, side:'right'};
+                leftBasedExclusions[letterIndex] = {index:letterIndex, letter, side:'left'};
             }
             if (!lengthBanned && (fb == CORRECT_R || fb == CORRECT_L)) {
                 // then we know the word is not the same length
@@ -249,9 +271,31 @@ function calculateMinWordLength (guesses: string[], guessFeedback: FEEDBACK[][])
                 lengthBanned = true;
                 forbiddenLengths.push(length);
             }
+            
         }
     }
-    const letterCounts : {[letter:string]:number} = calculateLetterCounts(guesses, guessFeedback);
+    return {
+        leftBasedLetters,
+        rightBasedLetters,
+        leftBasedExclusions,
+        rightBasedExclusions,
+        forbiddenLengths,
+        minSizeBasedOnRight
+    }
+}
+
+function calculateMinWordLength (guesses: string[], guessFeedback: FEEDBACK[][]) : {
+    length: number,
+    template: string
+    } {        
+    const FILL = '?'; // placeholder for unknown letters that must be there
+    // use a constraint-based approach this time to collect info...
+    const {leftBasedLetters, rightBasedLetters, forbiddenLengths, minSizeBasedOnRight} = calculateConstraints(
+        guesses,
+        guessFeedback
+    );
+    
+    const {letterCounts} = calculateLetterCounts(guesses, guessFeedback);
     const smallestWord : Array<string> = [];
     for (let ci=0; ci<Math.max(leftBasedLetters.length,minSizeBasedOnRight); ci++) {
         const constraint = leftBasedLetters[ci]; 
@@ -349,8 +393,11 @@ function calculateMinWordLength (guesses: string[], guessFeedback: FEEDBACK[][])
     }
 }
 
-function calculateLetterCounts(guesses: string[], guessFeedback: FEEDBACK[][]) {
+export function calculateLetterCounts(guesses: string[], guessFeedback: FEEDBACK[][]) {
+    // The number of letters we know the word must have (>=)
     const letterCounts: { [letter: string]: number; } = {};
+    // The number of letters we know the word must *not* have (>=)
+    const letterExclusions : { [letter: string]: number; } = {};
     guesses.forEach((guess, guessIndex) => {
         const thisFeedback = guessFeedback[guessIndex];
         // Update to track the actual guesses -- so we need to just keep 
@@ -382,6 +429,14 @@ function calculateLetterCounts(guesses: string[], guessFeedback: FEEDBACK[][]) {
             const pCount = letterFeedback.filter((fb) => fb === PRESENT).length;
             const lr = Math.max(lCount, rCount);
             guessLetterCounts[letter] = lr + pCount;
+            if (letterFeedback.includes(INCORRECT)) {
+                // we know this letter is not in the word as many times as it is in
+                // our guess...
+                const ceiling = lCount + rCount + pCount + 1;
+                if (!letterExclusions[letter] || letterExclusions[letter] < ceiling) {
+                    letterExclusions[letter] = ceiling;
+                }
+            }
         }
         Object.keys(guessLetterCounts).forEach((letter) => {
             if (!letterCounts[letter]) {
@@ -391,6 +446,6 @@ function calculateLetterCounts(guesses: string[], guessFeedback: FEEDBACK[][]) {
             }
         });
     });
-    return letterCounts;
+    return {letterCounts,letterExclusions};
 }
 

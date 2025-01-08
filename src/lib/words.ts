@@ -27,3 +27,5 @@ export const isValid = (word : string) => {
     return words.indexOf(word) > -1; 
 }
 console.log('Got me words!',words)
+
+export const validWords = words;
