@@ -1,11 +1,8 @@
 <script lang="ts">
 	import { setSavedGame } from './../lib/gameInProgress';
 	import GuessArea from '../lib/GuessArea.svelte';
-
 	import Tutorial from './../lib/Tutorial.svelte';
-
 	import Keyboard from '../lib/Keyboard.svelte';
-
 	import { isValid } from '$lib/words';
 	import { onMount } from 'svelte';
 	import { computeFeedback } from '$lib/wordFeedback';
