@@ -26,6 +26,7 @@
 	let guesses: string[] = $state([]);
 	let nextGuess: string = $state('');
 	let isInvalid: boolean = $state(false);
+	let offerNewGameAvailable : boolean = $state(false);
 	let isRight = $derived(guesses[guesses.length - 1] === theWord);
 	let initialized = $state(false);
 	let playedDaily: boolean = $state(false);	
@@ -38,7 +39,15 @@
 		if (localStorage.getItem('seenTutorial')) {
 			showTutorial = false;
 		}		
+		gameManager.setNewDailyCallback(
+			() => {
+				// If a daily is available we offer it...
+				playedDaily = false;
+				offerNewGameAvailable = true;
+			}
+		);
 		let gameAndGuesses = gameManager.loadInitialGame();
+		
 		guesses = gameAndGuesses.guesses;
 		theGame = gameAndGuesses;
 		initialized = true;		
@@ -114,46 +123,85 @@
 	>
 {/if}
 <main>
-	<span class="mode">
+	<span class="mode" >
 		{#if mode === 'daily'}
-			Daily Puzzle <b>#{puzzleId+1}</b>
+			<button id="daily-toggle" class="daily" onclick={() => {
+				gameManager.setMode('extra');
+				theGame = gameManager.getNewExtraGame();
+				guesses = theGame.guesses;
+				nextGuess = '';
+			}}>
+				{new Date().toLocaleDateString('en-US', { month: 'numeric', day: '2-digit' })}
+			</button>
+		{:else}
+			<button id="daily-toggle" class="infinite" 
+				onclick={
+					() => {
+						gameManager.setMode('daily');					
+						theGame = gameManager.getDailyGame();
+						guesses = theGame.guesses;
+						nextGuess = '';
+					}}>
+				∞
+			</button>
+		{/if}
+		{#if mode === 'daily'}
+			<label for="daily-toggle">Daily Puzzle</label> 
+			<b>#{puzzleId+1}</b>
 		{:else if mode === 'extra'}
 			<b>#{getWordIdentifier(theWord)}</b>
-			<br/><span class="detail">Unlimited Mode</span>
+			<br/>
+			<label class="detail" for="daily-toggle">
+				Unlimited Mode
+			</label>
+			
 		{/if}
 	</span>
-	<h1 style:--title-filter={titleFilter}>Fo<span class="g">g</span>gle</h1> 
-
-	<GuessArea {theWord} {guesses} {isInvalid} {isRight} {nextGuess} {feedback}></GuessArea>	
-	<!-- Input -->
-	{#if !isRight && guesses.length < 6}
-		<Keyboard
-			{letterFeedback}
-			oninput={(ltr: string) => {
-				nextGuess += ltr;
-				isInvalid = false;
-			}}
-			ondelete={() => {
-				nextGuess = nextGuess.substring(0, nextGuess.length - 1);
-				isInvalid = false;
-			}}
-			onsubmit={submitGuess}
-			lastLetter={nextGuess[nextGuess.length - 1]}
-		/>
-    {:else}
-        <EndScreen
-            theWord={theWord}
-            guesses={guesses}
-            feedback={feedback}
-            victory={isRight}
-			mode={mode}
-            onPlayAgain={() => {				
-                theGame = gameManager.getNewGame();
+	<div class="title-box">
+		<h1 style:--title-filter={titleFilter}>Fo<span class="g">g</span>gle</h1> 
+		{#if offerNewGameAvailable && mode !== 'daily'}			
+			<button class="cta" onclick={() => {
+				gameManager.setMode('daily');
+				theGame = gameManager.getDailyGame();
 				guesses = [];
 				nextGuess = '';
-            }}
-        />
-	{/if}
+				offerNewGameAvailable = false;
+			}}>New Daily Puzzle Available!</button>
+		{/if}
+	</div>
+	{#key theWord}
+		<GuessArea {theWord} {guesses} {isInvalid} {isRight} {nextGuess} {feedback}></GuessArea>	
+		<!-- Input -->
+		{#if !isRight && guesses.length < 6}
+			<Keyboard
+				{letterFeedback}
+				oninput={(ltr: string) => {
+					nextGuess += ltr;
+					isInvalid = false;
+				}}
+				ondelete={() => {
+					nextGuess = nextGuess.substring(0, nextGuess.length - 1);
+					isInvalid = false;
+				}}
+				onsubmit={submitGuess}
+				lastLetter={nextGuess[nextGuess.length - 1]}
+			/>
+		{:else}
+			<EndScreen
+				theWord={theWord}
+				guesses={guesses}
+				feedback={feedback}
+				victory={isRight}
+				mode={mode}
+				onPlayAgain={() => {
+					gameManager.setMode('extra');
+					const gameAndGuesses = gameManager.getNewExtraGame();
+					guesses = gameAndGuesses.guesses;				
+					theGame = gameAndGuesses;
+				}}
+			/>
+		{/if}
+	{/key}
 </main>
 <!-- Global Keydown Listener -->
 <svelte:window on:keydown={handleKeydown} />
@@ -256,5 +304,54 @@
 		main {
 			font-size: 13px;
 		}
+	}
+
+	#daily-toggle {
+		background: var(--white);
+		color: #222;
+		font-size: small;
+		display: inline-grid;
+		place-content: center;
+		border-radius: 50%;
+		width: 2rem;
+		height: 2rem;
+		text-decoration: none;
+		vertical-align: middle;
+	}
+	#daily-toggle:hover {
+		background: #222;
+		color: var(--white);
+		text-shadow: none;
+		filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+	}
+	.infinite:hover::after {
+		content: 'Back to Daily';
+	}
+	#daily-toggle.daily:hover::after {
+		content: 'Infinite Mode';
+	}
+	#daily-toggle {
+		position: relative;
+	}
+	#daily-toggle::after {	
+		position: absolute;
+		top: 2rem;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 0.5rem;
+		background: rgba(0, 0, 0, 0.8);
+		color: white;
+	}
+	.cta {
+		background: var(--white);
+		color: #222;
+		font-size: small;
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		text-decoration: none;
+	}
+	.cta:hover {
+		text-shadow: none;
+		filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
 	}
 </style>

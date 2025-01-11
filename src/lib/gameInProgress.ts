@@ -22,8 +22,22 @@ const SAVED_GAME_KEY = 'savedGame';
 const SAVED_DAILY_KEY = 'savedDaily';
 const COMPLETED_DAILY_KEY = 'playedDailies';
 const COMPLETED_EXTRA_KEY = 'playedGames';
+const SAVED_MODE_KEY = 'puzzleMode';
 
 const savedDailies = new Set();
+
+export function getSavedMode () : PuzzleType {
+    const mode = localStorage.getItem(SAVED_MODE_KEY) || 'daily';
+    if (mode === 'daily') {
+        return 'daily';
+    } else {
+        return 'extra';
+    }
+}
+
+export function setSavedMode (mode : PuzzleType) : void {
+    localStorage.setItem(SAVED_MODE_KEY, mode);
+}
 
 function getAttemptedDailies () : number[] {
     const existingDailiesString = localStorage.getItem(COMPLETED_DAILY_KEY);
@@ -119,7 +133,7 @@ export function clearSavedGame(puzzleType : PuzzleType = 'extra'): void {
     }
 }
 
-export function completeSavedGame (game : SavedGame) : void {
+export function completeSavedGame (game : SavedGame) : void {    
     const gameHistory = getGameHistory();
     gameHistory.push(game);
     localStorage.setItem('gameHistory', JSON.stringify(gameHistory));
@@ -140,7 +154,7 @@ export function getGameHistory() : SavedGame[] {
     return gameHistory;
 }
 
-export function getSavedGame (): SavedGame | null {
+export function getSavedGame (): SavedGame | null {    
     const dailySaved = getSavedGameData('daily');
     if (dailySaved) {
         if (dailySaved.currentWord === getDailyWord()) {
