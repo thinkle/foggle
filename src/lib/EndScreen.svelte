@@ -1,4 +1,6 @@
 <script lang="ts">
+  import StreakInfo from './StreakInfo.svelte';
+
 	import SpeechBubble from './SpeechBubble.svelte';
 	import type { ComputedFeedback } from './types.ts';
 	import Word from './Word.svelte';
@@ -77,6 +79,7 @@
     $effect(
         () => {
             if (analysisDialog && showAnalysis) {
+                console.log('showing analysis');
                 analysisDialog.showModal();
             }
         }
@@ -86,12 +89,21 @@
 {#snippet analysis ()}
   {#if guesses.length > 1} 
     <a class="analysis-cta" onclick={() => showAnalysis = !showAnalysis}>
-        {showAnalysis ? 'Hide' : 'Show'} Analysis</a>
-    {#if showAnalysis}
-        <dialog bind:this={analysisDialog}>
+        {showAnalysis ? 'Hide' : 'Show'} Analysis
+    </a>
+    {#if showAnalysis}        
+        <dialog bind:this={analysisDialog} onclose={() => showAnalysis = false}
+            onclick={
+                (e)=>{
+                    if (e.target === analysisDialog) {
+                        showAnalysis = false;
+                    }
+                }
+            }
+            >
             <button class="close" onclick="{() => showAnalysis = false}">&times;</button>
             <Analysis guesses={guesses} theWord={theWord} feedback={feedback} />
-        </dialog>
+        </dialog>        
     {/if}
   {/if}
 {/snippet}
@@ -131,6 +143,7 @@
 				{/if}
 			</p>
             {@render analysis()}
+            <StreakInfo {mode} victorious={victory} {theWord} ></StreakInfo>
 			<br />{@render playAgain()}
 		</SpeechBubble>
 	</div>
@@ -153,6 +166,7 @@
                 <br/>
                 {@render playAgain()}
             </p>
+            
         </SpeechBubble>
     </div>
 {/if}
@@ -262,5 +276,16 @@
         margin: 1rem auto;
         display: block;
         font-size: small;
+    }
+    .backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .backdrop :global(div) {
+        position: relative;
+        z-index: 99;
     }
 </style>
