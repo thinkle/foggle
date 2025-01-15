@@ -17,6 +17,15 @@ type GameAndGuesses = Game & {
 function loadInitialGame () : GameAndGuesses {
     const mode = getSavedMode();
     if (mode === 'daily') {
+        const saved = getSavedGame();
+        if (saved?.puzzleType === 'daily' && saved?.puzzleId === getDayIndex()) {
+            return {
+                id : saved.puzzleId,
+                type : saved.puzzleType,
+                word : saved.currentWord,
+                guesses : saved.guesses
+            }
+        }
         return getDailyGame();
     } else {
         const dailyIndex = getDayIndex();
@@ -28,7 +37,7 @@ function loadInitialGame () : GameAndGuesses {
 }
 
 function loadInitialGameOld () : GameAndGuesses {    
-    let savedGame = getSavedGame();
+    let savedGame = getSavedGame();    
     if (savedGame?.guesses.length === 6 || savedGame?.solved) {        
         completeSavedGame(savedGame);
         savedGame = null;
@@ -91,8 +100,7 @@ function getDailyGame () : GameAndGuesses {
 }
 
 function getNewExtraGame (level = 1) : GameAndGuesses {
-    // Check for saved game...
-    debugger;
+    // Check for saved game...    
     const savedExtra = getSavedGameData('extra');
     if (savedExtra && savedExtra.guesses.length < 6 && !savedExtra.solved) {
         console.log('Returning saved extra!',savedExtra);
