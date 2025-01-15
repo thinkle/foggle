@@ -22,8 +22,13 @@
                     streak.push(game);
                 } else if (game.puzzleId === lastId) {
                     // We're still on the first puzzle in the list
-                    // just add it...                    
-                    streak.push(game);                    
+                    // just add it...  
+                    if (streak.length === 0) {                 
+                        streak.push(game);                    
+                    } else {
+                        // ignore dups...
+                        console.log('Ignoring duplicate game in history',game);
+                    }
                 } else if (game.puzzleId == lastId - 1) {
                     // If it's a contiguous puzzle, we add it to the streak...
                     if (game.solved || game.guesses.length === 6) {
@@ -54,7 +59,7 @@
             }
         }
     );               
-    $inspect(streak);
+    $inspect("The streak is",streak,modeHistory);
 </script>
 
 <div class="streak">

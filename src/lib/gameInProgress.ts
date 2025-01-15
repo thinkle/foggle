@@ -133,9 +133,25 @@ export function clearSavedGame(puzzleType : PuzzleType = 'extra'): void {
     }
 }
 
+function sanitizeHistory (gameHistory : SavedGame[]) : SavedGame[] {
+    gameHistory.reverse();
+    let visitedGames = new Set();
+    gameHistory = gameHistory.filter((game) => {
+        if (visitedGames.has(game.puzzleId+game.puzzleType)) {
+            return false;
+        } else {
+            visitedGames.add(game.puzzleId+game.puzzleType);
+            return true;
+        }
+    });
+    gameHistory.reverse();
+    return gameHistory;
+}
+
 export function completeSavedGame (game : SavedGame) : void {    
-    const gameHistory = getGameHistory();
+    let gameHistory = getGameHistory();
     gameHistory.push(game);
+    gameHistory = sanitizeHistory(gameHistory);
     localStorage.setItem('gameHistory', JSON.stringify(gameHistory));
     clearSavedGame(game.puzzleType);
 }
