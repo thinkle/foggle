@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 
 import { computeFeedback } from './wordFeedback';
 import { CORRECT_B, CORRECT_L, CORRECT_R, PRESENT, INCORRECT, CORRECT_SPLIT } from './types';
+import { getDailyWord } from './words';
 
 describe('computeFeedback', () => {
 	it('should return correct feedback for correct guess', () => {
@@ -250,8 +251,59 @@ describe('computeFeedback', () => {
 		)
 
 	});
-	
+	describe('Present letters show up in template (odd numbered)', () => {
+		const guesses = ['apple'];
+		const answer = 'addle';
+		const template = 'a??le';
+		const result = computeFeedback(guesses, answer);
+		it('addle for apple', () => {
+			expect(result.template,
+				buildDebugMessage(guesses,answer,result)
+			).toBe(template);
+		});
+		const guessesCentered = 'upold';
+		const templateCentered = 'ppll';
+		const resultCentered = computeFeedback([guessesCentered], 'apple');
+		it('upold for apple', () => {
+			expect(resultCentered.template,
+				buildDebugMessage([guessesCentered],'apple',resultCentered)
+			).toBe(templateCentered);
+		});
+	});
+	describe('Present letters show up in template (even numbered)', () => {
+		const guesses = ['apples'];
+		const answer = 'addles';
+		const template = 'a??les';
+		const result = computeFeedback(guesses, answer);
+		it('outer letters right (even number)', () => {
+			expect(result.template,
+				buildDebugMessage(guesses,answer,result)
+			).toBe(template);
+		});
+		const guesses2 = ['mated'];
+		const answer2 = 'saver';
+		const template2 = 'aaee';
+		const result2 = computeFeedback(guesses, answer);
+		it('inner letters right (even number)', () => {
+			expect(result2.template,
+				buildDebugMessage(guesses2,answer2,result2)
+			).toBe(template2);
+		});
+	});
 	describe('Weird corner cases from playing', () => {
+		describe('Template should be reasonable', () => {
+			const guesses = ['handkerchief'];
+			const answer =   'cartographer'; //getDailyWord(new Date(2025,0,9));
+			//const template = '?a????r???e?'; 
+			const template = 'aa???rr??ee'; 
+			console.log('answer is ',answer);			
+			const result = computeFeedback(guesses, answer);
+			it('should have a reasonable template', () => {
+				expect(result.template,
+					buildDebugMessage(guesses,answer,result)
+				).toBe(template);
+			});
+		})
 		describe('Unusual shortest word hint?', ()=> {
 			it('Weird case from a screenshot', () => {				
 				const guesses = [
