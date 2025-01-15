@@ -13,8 +13,7 @@
 			i < word.length ? word[i] : i === minWordLength - 1 ? '…' : ' '
 		)
 	);
-	
-	$inspect(displayWord);
+		
 	let showHint = $state(false);
 </script>
 
