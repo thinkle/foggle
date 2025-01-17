@@ -71,6 +71,7 @@
 		width: 100vw;
 		height: 75dvh;
 		pointer-events: none;
+		z-index: 2;
 	}
 	.hint {
 		position: absolute;
