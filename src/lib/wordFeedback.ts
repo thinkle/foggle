@@ -261,6 +261,18 @@ function calculateConstraints(guesses: string[], guessFeedback: FEEDBACK[][]): C
 		const feedback = guessFeedback[i];
 		const length = guess.length;
 		let lengthBanned = false; // have we ruled out this length?
+
+		// For convenience, precompute which letters are “used elsewhere in the guess” with non-INCORRECT feedback.
+		// We'll use this to detect if INCORRECT actually means “not in *this* position” vs “not in the word at all.”
+		function letterHasNonIncorrectElsewhere(letter: string, index: number) {
+			return feedback.some(
+				(f, otherIndex) =>
+					otherIndex !== index &&
+					guess[otherIndex] === letter &&
+					[PRESENT, CORRECT_L, CORRECT_R, CORRECT_B].includes(f)
+			);
+		}
+
 		for (let letterIndex = 0; letterIndex < length; letterIndex++) {
 			const fromRightIndex = length - letterIndex;
 			const letter = guess[letterIndex];
@@ -274,12 +286,27 @@ function calculateConstraints(guesses: string[], guessFeedback: FEEDBACK[][]): C
 					minSizeBasedOnRight = fromRightIndex;
 				}
 			}
+			// CORRECT_L implies INCORRECT_R and vice versa
+			// so we can exclude the letter from the other side
+			if (fb === CORRECT_L) {
+				rightBasedExclusions[fromRightIndex] = { index: fromRightIndex, letter, side: 'right' };
+			}
+			if (fb === CORRECT_R) {
+				leftBasedExclusions[letterIndex] = { index: letterIndex, letter, side: 'left' };
+			}
 			// Present letters would be green if they were in the right spot
 			// so we know they are not in the right spot
 			if (fb === PRESENT) {
 				rightBasedExclusions[fromRightIndex] = { index: fromRightIndex, letter, side: 'right' };
 				leftBasedExclusions[letterIndex] = { index: letterIndex, letter, side: 'left' };
 			}
+			// Incorrect letters that are *also* marked PRESENT/CORRECT_L/CORRECT_B/CORRECT_R in another spot
+			// in the word also can't be in this spot
+			if (fb == INCORRECT && letterHasNonIncorrectElsewhere(letter, letterIndex)) {
+				rightBasedExclusions[fromRightIndex] = { index: fromRightIndex, letter, side: 'right' };
+				leftBasedExclusions[letterIndex] = { index: letterIndex, letter, side: 'left' };
+			}
+
 			if (!lengthBanned && (fb == CORRECT_R || fb == CORRECT_L)) {
 				// then we know the word is not the same length
 				// as this guess!

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import { computeFeedback } from './wordFeedback';
+import { computeFeedback, getConstraints, type Constraint } from './wordFeedback';
 import { CORRECT_B, CORRECT_L, CORRECT_R, PRESENT, INCORRECT, CORRECT_SPLIT } from './types';
 import { getDailyWord } from './words';
 
@@ -280,6 +280,67 @@ describe('computeFeedback', () => {
 				console.log('Feedback for bug was', result);
 				expect(result.template, buildDebugMessage(guesses, answer, result)).toBe('?e?e?a??');
 			});
+		});
+	});
+});
+
+describe('getConstraints', () => {
+	describe('We should calculate right-based exclusions based on non-matched positions', () => {
+		it('Should know that "s" can\'t be last', () => {
+			const guesses = ['parks'];
+			const answer = 'stage';
+			const feedback = getConstraints(guesses, answer);
+			const expectedFeedback = { index: 1, side: 'right', letter: 's' };
+			const foundExpectedFeedback: Constraint | undefined =
+				feedback.constraints.rightBasedExclusions.find((constraint) => {
+					return (
+						constraint &&
+						constraint.index == expectedFeedback.index &&
+						constraint.letter == expectedFeedback.letter
+					);
+				});
+			expect(foundExpectedFeedback).toEqual(expectedFeedback);
+		});
+		it('Should know that "s" can\'t be last when there are two "s"s', () => {
+			const guesses = ['parks'];
+			const answer = 'asset';
+			const feedback = getConstraints(guesses, answer);
+			const expectedFeedback = { index: 1, side: 'right', letter: 's' };
+			const foundExpectedFeedback: Constraint | undefined =
+				feedback.constraints.rightBasedExclusions.find((constraint) => {
+					return (
+						constraint &&
+						constraint.index == expectedFeedback.index &&
+						constraint.letter == expectedFeedback.letter
+					);
+				});
+			expect(foundExpectedFeedback, buildDebugMessage(guesses, '-', feedback)).toEqual(
+				expectedFeedback
+			);
+		});
+
+		it('Should know that "s" can\'t be last when there are two "s"s even if correct from left', () => {
+			const guesses = ['parks'];
+			const answer = 'sparse';
+			const feedback = getConstraints(guesses, answer);
+			const expectedFeedback = { index: 1, side: 'right', letter: 's' };
+			const foundExpectedFeedback: Constraint | undefined =
+				feedback.constraints.rightBasedExclusions.find((constraint) => {
+					return (
+						constraint &&
+						constraint.index == expectedFeedback.index &&
+						constraint.letter == expectedFeedback.letter
+					);
+				});
+			if (!foundExpectedFeedback) {
+				console.log(
+					'Feedback missing expected exclusion for final S:',
+					JSON.stringify(feedback, null, 2)
+				);
+			}
+			expect(foundExpectedFeedback, buildDebugMessage(guesses, '-', feedback)).toEqual(
+				expectedFeedback
+			);
 		});
 	});
 });
