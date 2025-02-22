@@ -10,47 +10,41 @@
 	import type { Game } from '$lib/types';
 	import { gameManager } from '$lib/gameManager.svelte';
 	import { getWordIdentifier } from '$lib/encoder';
-	
 
-	let theGame : Game = $state({
-		id : 9999999,
-		type : 'extra',
-		word : 'filler'
+	let theGame: Game = $state({
+		id: 9999999,
+		type: 'extra',
+		word: 'filler'
 	});
 
-	let {
-		id : puzzleId,		
-		word : theWord,
-		type : mode } = $derived(theGame);		
+	let { id: puzzleId, word: theWord, type: mode } = $derived(theGame);
 
 	let guesses: string[] = $state([]);
 	let nextGuess: string = $state('');
 	let isInvalid: boolean = $state(false);
-	let offerNewGameAvailable : boolean = $state(false);
+	let offerNewGameAvailable: boolean = $state(false);
 	let isRight = $derived(guesses[guesses.length - 1] === theWord);
 	let initialized = $state(false);
-	let playedDaily: boolean = $state(false);	
+	let playedDaily: boolean = $state(false);
 	// feedback object
 	let feedback = $derived(computeFeedback(guesses, theWord));
 	// shorthand
 	let { letterFeedback, progress, minWordLength, letterKnowledge } = $derived(feedback);
-	
+
 	onMount(() => {
 		if (localStorage.getItem('seenTutorial')) {
 			showTutorial = false;
-		}		
-		gameManager.setNewDailyCallback(
-			() => {
-				// If a daily is available we offer it...
-				playedDaily = false;
-				offerNewGameAvailable = true;
-			}
-		);
+		}
+		gameManager.setNewDailyCallback(() => {
+			// If a daily is available we offer it...
+			playedDaily = false;
+			offerNewGameAvailable = true;
+		});
 		let gameAndGuesses = gameManager.loadInitialGame();
-		
+
 		guesses = gameAndGuesses.guesses;
 		theGame = gameAndGuesses;
-		initialized = true;		
+		initialized = true;
 	});
 
 	$effect(() => {
@@ -72,8 +66,8 @@
 			return `blur(${blur}px)`;
 		}
 	});
-		
-	function submitGuess () {
+
+	function submitGuess() {
 		// Should we allow guesses that aren't long enough
 		// even on the last guess?
 		//if (nextGuess.length >= minWordLength) {
@@ -82,7 +76,7 @@
 			nextGuess = '';
 		} else {
 			isInvalid = true;
-		}		
+		}
 	}
 
 	// Handle keydown events
@@ -99,15 +93,12 @@
 			isInvalid = false;
 		} else if (key === 'enter') {
 			// Handle submit
-			submitGuess();			
+			submitGuess();
 			event.preventDefault();
 		}
-		
 	}
 
 	let showTutorial = $state(true);
-
-	
 </script>
 
 {#if showTutorial}
@@ -118,59 +109,67 @@
 		}}
 	/>
 {:else}
-	<button class="tutorial-button" onclick={() => (showTutorial = true)} data-tooltip="Show Tutorial"
-		>?</button
+	<button
+		class="tutorial-button"
+		onclick={() => (showTutorial = true)}
+		data-tooltip="Show Tutorial">?</button
 	>
 {/if}
 <main>
-	<span class="mode" >
+	<span class="mode">
 		{#if mode === 'daily'}
-			<button id="daily-toggle" class="daily" onclick={() => {
-				gameManager.setMode('extra');
-				theGame = gameManager.getNewExtraGame();
-				guesses = theGame.guesses;
-				nextGuess = '';
-			}}>
+			<button
+				id="daily-toggle"
+				class="daily"
+				onclick={() => {
+					gameManager.setMode('extra');
+					theGame = gameManager.getNewExtraGame();
+					guesses = theGame.guesses;
+					nextGuess = '';
+				}}
+			>
 				{new Date().toLocaleDateString('en-US', { month: 'numeric', day: '2-digit' })}
 			</button>
 		{:else}
-			<button id="daily-toggle" class="infinite" 
-				onclick={
-					() => {
-						gameManager.setMode('daily');					
-						theGame = gameManager.getDailyGame();
-						guesses = theGame.guesses;
-						nextGuess = '';
-					}}>
+			<button
+				id="daily-toggle"
+				class="infinite"
+				onclick={() => {
+					gameManager.setMode('daily');
+					theGame = gameManager.getDailyGame();
+					guesses = theGame.guesses;
+					nextGuess = '';
+				}}
+			>
 				∞
 			</button>
 		{/if}
 		{#if mode === 'daily'}
-			<label for="daily-toggle">Daily Puzzle</label> 
-			<b>#{puzzleId+1}</b>
+			<label for="daily-toggle">Daily Puzzle</label>
+			<b>#{puzzleId + 1}</b>
 		{:else if mode === 'extra'}
 			<b>#{getWordIdentifier(theWord)}</b>
-			<br/>
-			<label class="detail" for="daily-toggle">
-				Unlimited Mode
-			</label>
-			
+			<br />
+			<label class="detail" for="daily-toggle"> Unlimited Mode </label>
 		{/if}
 	</span>
 	<div class="title-box">
-		<h1 style:--title-filter={titleFilter}>Fo<span class="g">g</span>gle</h1> 
-		{#if offerNewGameAvailable && mode !== 'daily'}			
-			<button class="cta" onclick={() => {
-				gameManager.setMode('daily');
-				theGame = gameManager.getDailyGame();
-				guesses = [];
-				nextGuess = '';
-				offerNewGameAvailable = false;
-			}}>New Daily Puzzle Available!</button>
+		<h1 style:--title-filter={titleFilter}>Fo<span class="g">g</span>gle</h1>
+		{#if offerNewGameAvailable && mode !== 'daily'}
+			<button
+				class="cta"
+				onclick={() => {
+					gameManager.setMode('daily');
+					theGame = gameManager.getDailyGame();
+					guesses = [];
+					nextGuess = '';
+					offerNewGameAvailable = false;
+				}}>New Daily Puzzle Available!</button
+			>
 		{/if}
 	</div>
 	{#key theWord}
-		<GuessArea {theWord} {guesses} {isInvalid} {isRight} {nextGuess} {feedback}></GuessArea>	
+		<GuessArea {theWord} {guesses} {isInvalid} {isRight} {nextGuess} {feedback}></GuessArea>
 		<!-- Input -->
 		{#if !isRight && guesses.length < 6}
 			<Keyboard
@@ -188,15 +187,15 @@
 			/>
 		{:else}
 			<EndScreen
-				theWord={theWord}
-				guesses={guesses}
-				feedback={feedback}
+				{theWord}
+				{guesses}
+				{feedback}
 				victory={isRight}
-				mode={mode}
+				{mode}
 				onPlayAgain={() => {
 					gameManager.setMode('extra');
 					const gameAndGuesses = gameManager.getNewExtraGame();
-					guesses = gameAndGuesses.guesses;				
+					guesses = gameAndGuesses.guesses;
 					theGame = gameAndGuesses;
 				}}
 			/>
@@ -237,7 +236,7 @@
 		text-shadow: 2px 2px 3px rgba(10, 50, 26, 0.467);
 		color: rgb(238, 237, 246);
 	}
-	
+
 	.mode {
 		position: fixed;
 		top: 1rem;
@@ -265,7 +264,7 @@
 		background: #222;
 		border-radius: 50%;
 	}
-	
+
 	h1 {
 		margin: 0;
 		font-size: 2rem;
@@ -333,7 +332,7 @@
 	#daily-toggle {
 		position: relative;
 	}
-	#daily-toggle::after {	
+	#daily-toggle::after {
 		position: absolute;
 		top: 2rem;
 		left: 50%;

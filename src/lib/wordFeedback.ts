@@ -59,7 +59,9 @@ export const computeFeedback = (guesses: string[], answer: string): ComputedFeed
 		}
 		if (status) return status;
 		// now check presence...
-		const dupCount = Array.from(answer.substring(0, i)).filter((ltr, idx) => ltr == letter).length;
+		const dupCount = Array.from(answer.substring(0, i)).filter(
+			(ltr, idx) => ltr == letter
+		).length;
 		for (let guessIndex = 0; guessIndex < guesses.length; guessIndex++) {
 			const guess = guesses[guessIndex];
 			const fb = guessFeedback[guessIndex];
@@ -126,13 +128,19 @@ const keyboardFeedbackManager = () => {
 			} else if (feedback == CORRECT_L) {
 				// Now it gets a bit trickier -- we need to check if we already have feedback
 				// for this letter and if so, we need to update it.
-				if (keyboardFeedback[letter] == CORRECT_R || keyboardFeedback[letter] == CORRECT_SPLIT) {
+				if (
+					keyboardFeedback[letter] == CORRECT_R ||
+					keyboardFeedback[letter] == CORRECT_SPLIT
+				) {
 					keyboardFeedback[letter] = CORRECT_SPLIT;
 				} else {
 					keyboardFeedback[letter] = CORRECT_L;
 				}
 			} else if (feedback == CORRECT_R) {
-				if (keyboardFeedback[letter] == CORRECT_L || keyboardFeedback[letter] == CORRECT_SPLIT) {
+				if (
+					keyboardFeedback[letter] == CORRECT_L ||
+					keyboardFeedback[letter] == CORRECT_SPLIT
+				) {
 					keyboardFeedback[letter] = CORRECT_SPLIT;
 				} else {
 					keyboardFeedback[letter] = CORRECT_R;
@@ -281,7 +289,11 @@ function calculateConstraints(guesses: string[], guessFeedback: FEEDBACK[][]): C
 				leftBasedLetters[letterIndex] = { index: letterIndex, letter, side: 'left' };
 			}
 			if (fb === CORRECT_R || fb === CORRECT_B) {
-				rightBasedLetters[fromRightIndex] = { index: fromRightIndex, letter, side: 'right' };
+				rightBasedLetters[fromRightIndex] = {
+					index: fromRightIndex,
+					letter,
+					side: 'right'
+				};
 				if (fromRightIndex > minSizeBasedOnRight) {
 					minSizeBasedOnRight = fromRightIndex;
 				}
@@ -289,7 +301,11 @@ function calculateConstraints(guesses: string[], guessFeedback: FEEDBACK[][]): C
 			// CORRECT_L implies INCORRECT_R and vice versa
 			// so we can exclude the letter from the other side
 			if (fb === CORRECT_L) {
-				rightBasedExclusions[fromRightIndex] = { index: fromRightIndex, letter, side: 'right' };
+				rightBasedExclusions[fromRightIndex] = {
+					index: fromRightIndex,
+					letter,
+					side: 'right'
+				};
 			}
 			if (fb === CORRECT_R) {
 				leftBasedExclusions[letterIndex] = { index: letterIndex, letter, side: 'left' };
@@ -297,13 +313,21 @@ function calculateConstraints(guesses: string[], guessFeedback: FEEDBACK[][]): C
 			// Present letters would be green if they were in the right spot
 			// so we know they are not in the right spot
 			if (fb === PRESENT) {
-				rightBasedExclusions[fromRightIndex] = { index: fromRightIndex, letter, side: 'right' };
+				rightBasedExclusions[fromRightIndex] = {
+					index: fromRightIndex,
+					letter,
+					side: 'right'
+				};
 				leftBasedExclusions[letterIndex] = { index: letterIndex, letter, side: 'left' };
 			}
 			// Incorrect letters that are *also* marked PRESENT/CORRECT_L/CORRECT_B/CORRECT_R in another spot
 			// in the word also can't be in this spot
 			if (fb == INCORRECT && letterHasNonIncorrectElsewhere(letter, letterIndex)) {
-				rightBasedExclusions[fromRightIndex] = { index: fromRightIndex, letter, side: 'right' };
+				rightBasedExclusions[fromRightIndex] = {
+					index: fromRightIndex,
+					letter,
+					side: 'right'
+				};
 				leftBasedExclusions[letterIndex] = { index: letterIndex, letter, side: 'left' };
 			}
 
@@ -390,7 +414,10 @@ function calculateMinWordLength(
 			if (possiblyFinalWord[adjustedIndex] === letter) {
 				// already have this letter -- no need to do anything
 				continue;
-			} else if (possiblyFinalWord[adjustedIndex] === FILL || !possiblyFinalWord[adjustedIndex]) {
+			} else if (
+				possiblyFinalWord[adjustedIndex] === FILL ||
+				!possiblyFinalWord[adjustedIndex]
+			) {
 				// we have room -- add the letter
 				possiblyFinalWord[adjustedIndex] = letter;
 			} else {
@@ -472,8 +499,12 @@ export function calculateLetterCounts(guesses: string[], guessFeedback: FEEDBACK
 		const guessLetterCounts: { [letter: string]: number } = {};
 		for (const letter in guessLetterInfo) {
 			const letterFeedback = guessLetterInfo[letter];
-			const lCount = letterFeedback.filter((fb) => fb === CORRECT_L || fb == CORRECT_B).length;
-			const rCount = letterFeedback.filter((fb) => fb === CORRECT_R || fb == CORRECT_B).length;
+			const lCount = letterFeedback.filter(
+				(fb) => fb === CORRECT_L || fb == CORRECT_B
+			).length;
+			const rCount = letterFeedback.filter(
+				(fb) => fb === CORRECT_R || fb == CORRECT_B
+			).length;
 			const pCount = letterFeedback.filter((fb) => fb === PRESENT).length;
 			const lr = Math.max(lCount, rCount);
 			guessLetterCounts[letter] = lr + pCount;

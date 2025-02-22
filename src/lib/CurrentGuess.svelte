@@ -9,11 +9,11 @@
 	// make last item the ellipsis character
 	// replace with content of word up to word length characters
 	let displayWord = $derived(
-		Array.from({ length: Math.max(minWordLength,word.length) }, (_, i) =>
+		Array.from({ length: Math.max(minWordLength, word.length) }, (_, i) =>
 			i < word.length ? word[i] : i === minWordLength - 1 ? '…' : ' '
 		)
 	);
-		
+
 	let showHint = $state(false);
 </script>
 
@@ -30,18 +30,21 @@
 	{#if tooShort}<div class="hint-wrap">
 			<div class="hint">
 				<SpeechBubble position="left">
-					Word must be at least <b>{minWordLength}</b> {#if minWordLength !== 1}letters{:else}letter{/if} long!
-                    {#if template && template.search(/\w/)!==-1}
-                        <br />
-                        <br />
-                        {#if showHint}
-                            <span class="extra-hint">
-                                (the shortest possible<br /> pattern is<br /><span class="template">{template}</span>)
-                            </span>
-                        {:else}
-                            <span class="hint-cue">(click for hint)</span>
-                        {/if}
-                    {/if}
+					Word must be at least <b>{minWordLength}</b>
+					{#if minWordLength !== 1}letters{:else}letter{/if} long!
+					{#if template && template.search(/\w/) !== -1}
+						<br />
+						<br />
+						{#if showHint}
+							<span class="extra-hint">
+								(the shortest possible<br /> pattern is<br /><span class="template"
+									>{template}</span
+								>)
+							</span>
+						{:else}
+							<span class="hint-cue">(click for hint)</span>
+						{/if}
+					{/if}
 				</SpeechBubble>
 			</div>
 		</div>{/if}
@@ -102,7 +105,7 @@
 	.current-guess {
 		min-height: var(--ltr-height, 3rem);
 	}
-	
+
 	.invalid {
 		animation: shake 0.5s;
 	}

@@ -1,71 +1,72 @@
 /* Not really a bot, but inspired by the idea of e.g. WordleBot...
-*  This module will provide feedback based on the allowable guesses
-*  and the feedback a user has so far.
-*/
+ *  This module will provide feedback based on the allowable guesses
+ *  and the feedback a user has so far.
+ */
 
-import { getConstraints, type Constraints } from "./wordFeedback";
-import { validWords } from "./words";
+import { getConstraints, type Constraints } from './wordFeedback';
+import { validWords } from './words';
 
-export const getPossibleWords = (guesses : string[], answer : string) : string[] => {
-    const {constraints, letterCounts, letterExclusions} = getConstraints(guesses, answer);            
-    const filtered = validWords.filter(
-        word => applyConstraints(word, constraints, letterCounts,letterExclusions));    
-    return filtered;
-}
+export const getPossibleWords = (guesses: string[], answer: string): string[] => {
+	const { constraints, letterCounts, letterExclusions } = getConstraints(guesses, answer);
+	const filtered = validWords.filter((word) =>
+		applyConstraints(word, constraints, letterCounts, letterExclusions)
+	);
+	return filtered;
+};
 
-function applyConstraints (
-    word : string, 
-    constraints : Constraints, 
-    letterCounts : {[letter:string]:number},
-    letterExclusions : {[letter:string]:number},
-) : boolean {  
-    if (!word) return false;  
-    for (const forbiddenLength of constraints.forbiddenLengths) {
-        if (word.length === forbiddenLength) {
-            return false;
-        }
-    }
-    if (word.length < constraints.minSizeBasedOnRight) {
-        return false;
-    }
-    for (const constraint of constraints.leftBasedLetters) {
-        if (constraint) {
-            if (word[constraint.index] !== constraint.letter) {
-                return false;
-            }
-        }
-    }
-    for (const constraint of constraints.rightBasedLetters) {
-        if (constraint) {
-            if (word[word.length - constraint.index] !== constraint.letter) {
-                return false;
-            }
-        }
-    }
-    for (const constraint of constraints.leftBasedExclusions) {
-        if (constraint) {
-            if (word[constraint.index] === constraint.letter) {
-                return false;
-            }
-        }
-    }
-    for (const constraint of constraints.rightBasedExclusions) {
-        if (constraint) {
-            if (word[word.length - constraint.index] === constraint.letter) {                
-                return false;
-            }
-        }
-    }
-    for (const letter in letterCounts) {
-        if ((word.split(letter).length - 1) < letterCounts[letter]) {            
-            return false;
-        }
-    }    
-    for (const letter in letterExclusions) {
-        if ((word.split(letter).length - 1) >= letterExclusions[letter]) {
-            //console.log('Excluding',word,'because it has too many',letter)
-            return false;  
-        }
-    }
-    return true;
+function applyConstraints(
+	word: string,
+	constraints: Constraints,
+	letterCounts: { [letter: string]: number },
+	letterExclusions: { [letter: string]: number }
+): boolean {
+	if (!word) return false;
+	for (const forbiddenLength of constraints.forbiddenLengths) {
+		if (word.length === forbiddenLength) {
+			return false;
+		}
+	}
+	if (word.length < constraints.minSizeBasedOnRight) {
+		return false;
+	}
+	for (const constraint of constraints.leftBasedLetters) {
+		if (constraint) {
+			if (word[constraint.index] !== constraint.letter) {
+				return false;
+			}
+		}
+	}
+	for (const constraint of constraints.rightBasedLetters) {
+		if (constraint) {
+			if (word[word.length - constraint.index] !== constraint.letter) {
+				return false;
+			}
+		}
+	}
+	for (const constraint of constraints.leftBasedExclusions) {
+		if (constraint) {
+			if (word[constraint.index] === constraint.letter) {
+				return false;
+			}
+		}
+	}
+	for (const constraint of constraints.rightBasedExclusions) {
+		if (constraint) {
+			if (word[word.length - constraint.index] === constraint.letter) {
+				return false;
+			}
+		}
+	}
+	for (const letter in letterCounts) {
+		if (word.split(letter).length - 1 < letterCounts[letter]) {
+			return false;
+		}
+	}
+	for (const letter in letterExclusions) {
+		if (word.split(letter).length - 1 >= letterExclusions[letter]) {
+			//console.log('Excluding',word,'because it has too many',letter)
+			return false;
+		}
+	}
+	return true;
 }

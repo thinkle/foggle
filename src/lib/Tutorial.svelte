@@ -59,7 +59,8 @@
 				size: 1.5,
 				guesses: ['fetchingly', 'foggy'],
 				justify: 'left',
-				caption: 'You can use the left/right to shift the words and see how the letters line up!'
+				caption:
+					'You can use the left/right to shift the words and see how the letters line up!'
 			}
 		},
 		{
@@ -144,8 +145,13 @@
 					</SpeechBubble>
 				{/if}
 				{#if step.example}
-					{@const nletters = Math.max(...step.example.guesses.map((guess) => guess.length))}
-					<SpeechBubble position={step.position} maxWidth={`min(85vw,${nletters * 3.5}rem)`}>
+					{@const nletters = Math.max(
+						...step.example.guesses.map((guess) => guess.length)
+					)}
+					<SpeechBubble
+						position={step.position}
+						maxWidth={`min(85vw,${nletters * 3.5}rem)`}
+					>
 						<GuessArea
 							guesses={step.example.guesses}
 							theWord={step.example.answer}

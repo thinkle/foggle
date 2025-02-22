@@ -10,8 +10,16 @@ describe('computeFeedback', () => {
 		const answer = 'apple';
 		const result = computeFeedback(guesses, answer);
 		//console.log(result);
-		expect(result.guessFeedback).toEqual([[CORRECT_B, CORRECT_B, CORRECT_B, CORRECT_B, CORRECT_B]]);
-		expect(result.letterKnowledge).toEqual([CORRECT_B, CORRECT_B, CORRECT_B, CORRECT_B, CORRECT_B]);
+		expect(result.guessFeedback).toEqual([
+			[CORRECT_B, CORRECT_B, CORRECT_B, CORRECT_B, CORRECT_B]
+		]);
+		expect(result.letterKnowledge).toEqual([
+			CORRECT_B,
+			CORRECT_B,
+			CORRECT_B,
+			CORRECT_B,
+			CORRECT_B
+		]);
 		expect(result.progress).toBe(1);
 	});
 
@@ -95,7 +103,9 @@ describe('computeFeedback', () => {
 					const guesses = [guess];
 					const answer = 'apple';
 					const result = computeFeedback(guesses, answer);
-					expect(result.minWordLength, buildDebugMessage(guesses, answer, result)).toBe(5);
+					expect(result.minWordLength, buildDebugMessage(guesses, answer, result)).toBe(
+						5
+					);
 				});
 			}
 		});
@@ -162,7 +172,9 @@ describe('computeFeedback', () => {
 					const guesses = ['bring', 'piggy'];
 					const target = 'big';
 					const result = computeFeedback(guesses, target);
-					expect(result.minWordLength, buildDebugMessage(guesses, target, result)).toBe(3);
+					expect(result.minWordLength, buildDebugMessage(guesses, target, result)).toBe(
+						3
+					);
 				});
 			});
 		});
@@ -270,7 +282,9 @@ describe('computeFeedback', () => {
 				// ??C?IN?TI??
 				const answer = 'vaccination';
 				const result = computeFeedback(guesses, answer);
-				expect(result.template, buildDebugMessage(guesses, answer, result)).toBe('??c?in?ti??');
+				expect(result.template, buildDebugMessage(guesses, answer, result)).toBe(
+					'??c?in?ti??'
+				);
 			});
 
 			it('Bug found in the wild with wrong word length', () => {
@@ -278,7 +292,9 @@ describe('computeFeedback', () => {
 				const guesses = ['perseveration', 'venerate'];
 				const result = computeFeedback(guesses, answer);
 				console.log('Feedback for bug was', result);
-				expect(result.template, buildDebugMessage(guesses, answer, result)).toBe('?e?e?a??');
+				expect(result.template, buildDebugMessage(guesses, answer, result)).toBe(
+					'?e?e?a??'
+				);
 			});
 		});
 	});
