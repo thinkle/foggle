@@ -1,4 +1,6 @@
 <script lang="ts">
+	import SharePuzzle from './SharePuzzle.svelte';
+
 	import StreakInfo from './StreakInfo.svelte';
 
 	import SpeechBubble from './SpeechBubble.svelte';
@@ -86,9 +88,21 @@
 
 {#snippet analysis()}
 	{#if guesses.length > 1}
-		<a class="analysis-cta" onclick={() => (showAnalysis = !showAnalysis)}>
+		<button class="analysis-cta" onclick={() => (showAnalysis = !showAnalysis)}>
+			<svg
+				viewBox="0 0 24 24"
+				width="24"
+				height="24"
+				fill="currentColor"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<!-- Magnifying glass path -->
+				<path
+					d="M21.71 20.29l-3.388-3.388A7.425 7.425 0 0 0 19.5 12c0-4.136-3.364-7.5-7.5-7.5S4.5 7.864 4.5 12s3.364 7.5 7.5 7.5c1.583 0 3.023-.45 4.258-1.178l3.388 3.388c.195.195.451.29.707.29s.512-.095.707-.29c.39-.39.39-1.023 0-1.414zM12 17.5c-3.033 0-5.5-2.467-5.5-5.5S8.967 6.5 12 6.5s5.5 2.467 5.5 5.5-2.467 5.5-5.5 5.5z"
+				/>
+			</svg>
 			{showAnalysis ? 'Hide' : 'Show'} Analysis
-		</a>
+		</button>
 		{#if showAnalysis}
 			<dialog
 				bind:this={analysisDialog}
@@ -103,6 +117,12 @@
 				<Analysis {guesses} {theWord} {feedback} />
 			</dialog>
 		{/if}
+	{/if}
+{/snippet}
+
+{#snippet share()}
+	{#if mode == 'daily'}
+		<SharePuzzle {mode} {theWord} {guesses} {feedback} {victory} />
 	{/if}
 {/snippet}
 
@@ -141,7 +161,10 @@
 					<br />
 				{/if}
 			</p>
-			{@render analysis()}
+			<div class="button-group">
+				{@render analysis()}
+				{@render share()}
+			</div>
 			<StreakInfo {mode} victorious={victory} {theWord}></StreakInfo>
 			<br />{@render playAgain()}
 		</SpeechBubble>
@@ -158,7 +181,10 @@
 				<br />the fog persists&hellip;
 				<br />
 				but you <em class="big">{getClosenessExpression(feedback.progress)}</em>
-				{@render analysis()}
+				<span class="button-group">
+					{@render analysis()}
+					{@render share()}
+				</span>
 				<br />
 				{@render playAgain()}
 			</p>
@@ -241,15 +267,51 @@
 		}
 	}
 
-	button {
-		font-family: 'Indoor Kid Web';
-		background: transparent;
-		border: none;
-		text-decoration: wavy underline white;
-		color: white;
+	.button-group {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
 	}
-	button:hover {
-		text-shadow: 2px 2px 1px rgb(28, 53, 8);
+
+	button,
+	.button-group :global(button) {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		/* Use your comic-style font */
+		font-family: 'Indoor Kid Web', sans-serif;
+
+		/* Some color with partial transparency */
+		background: #0e6a23db;
+		color: white;
+
+		/* A thick black border for a hand-drawn vibe */
+		border: 3px solid black;
+		border-radius: 10px;
+
+		/* Slight box shadow for a "popped out" look */
+		box-shadow: 2px 2px 0 black;
+
+		/* Spacing around the button */
+		padding: 0.5rem 1rem;
+
+		/* Remove default underline or other styling */
+		text-decoration: none;
+		cursor: pointer;
+
+		/* Smooth transitions on hover */
+		transition:
+			transform 0.2s,
+			box-shadow 0.2s,
+			background 0.2s;
+	}
+	button:hover,
+	.button-group :global(button:hover) {
+		transform: translate(-2px, -2px);
+		box-shadow: 4px 4px 0 black; /* bigger shadow offset */
+		background: #0e6a23; /* slightly darker background */
 	}
 	.end-screen :global(.wordrow) {
 		justify-content: center;
@@ -266,11 +328,7 @@
 		right: 8px;
 		text-decoration: none;
 	}
-	.analysis-cta {
-		margin: 1rem auto;
-		display: block;
-		font-size: small;
-	}
+
 	.backdrop {
 		position: fixed;
 		top: 0;
