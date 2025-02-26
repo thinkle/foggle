@@ -13,7 +13,7 @@
 	let feedbackPerGuess = $derived(
 		guesses.map((g, i) => computeFeedback(guesses.slice(0, i + 1), theWord))
 	);
-	let ordinals = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
+	let ordinals = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Last'];
 	let final = 'Last';
 	let showAllWords = $state(Array(guesses.length).fill(false));
 </script>

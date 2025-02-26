@@ -59,6 +59,7 @@ function makeEmojiString(feedback: FEEDBACK[]) {
 	let hasWrong = false;
 	let hasCorrect = false;
 	let hasCorrectB = false;
+	let hasCorrectLR = false;
 	let isCorrect = true;
 	let alignment = 0; // positive = right, negative = left
 	for (let f of feedback) {
@@ -70,15 +71,22 @@ function makeEmojiString(feedback: FEEDBACK[]) {
 			isCorrect = false;
 		} else if (f === CORRECT_L) {
 			hasCorrect = true;
+			hasCorrectLR = true;
 			isCorrect = false;
 			alignment -= 1;
 		} else if (f === CORRECT_R) {
 			hasCorrect = true;
+			hasCorrectLR = true;
 			isCorrect = false;
 			alignment += 1;
 		} else if (f === CORRECT_B) {
 			hasCorrectB = true;
+			hasCorrect = true;
 		}
+	}
+	let rightLength = false;
+	if (hasCorrectB && !hasCorrectLR) {
+		rightLength = true;
 	}
 	if (isCorrect) {
 		return SOLID_GREEN + SOLID_GREEN + VICTORY + SOLID_GREEN + SOLID_GREEN;
@@ -94,16 +102,19 @@ function makeEmojiString(feedback: FEEDBACK[]) {
 	if (alignment === 0) {
 		// centered!
 		if (hasCorrect) {
-			let green = GREEN;
-			if (hasCorrectB) {
-				green = SOLID_GREEN;
+			console.log('has correct!');
+			let filler = UNKNOWN;
+			if (rightLength) {
+				filler = GREY;
 			}
 			if (emojiArray.length == 2) {
-				emojiArray = [emojiArray[0] + green + emojiArray[1]];
+				console.log('length of two!', emojiArray);
+				emojiArray = [emojiArray[0] + GREEN + emojiArray[1]];
 			} else {
-				emojiArray = [...emojiArray, green, ...emojiArray];
+				console.log('length of one!');
+				emojiArray = [...emojiArray, GREEN, ...emojiArray];
 			}
-			return UNKNOWN + emojiArray.join('') + UNKNOWN;
+			return filler + emojiArray.join('') + filler;
 		} else {
 			if (emojiArray.length == 2) {
 				return [UNKNOWN, emojiArray[1], ...emojiArray, UNKNOWN].join('');
