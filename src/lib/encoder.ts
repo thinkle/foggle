@@ -108,7 +108,7 @@ import SparkMD5 from 'spark-md5';
  * @returns A compact, unique Base16 identifier for the word.
  */
 export function getWordIdentifier(word: string): string {
-	const length = 4;
+	const length = 5;
 	// Hash the word using SparkMD5 (produces a hex string)
 	const hash = SparkMD5.hash(word);
 

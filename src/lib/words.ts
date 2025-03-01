@@ -14,6 +14,11 @@ export const getRandomGame = (): Game => {
 	return { id, word, type: 'extra' };
 };
 
+export const getAnswerWords = () => {
+	// wowza
+	return answers.map(decodeClue);
+};
+
 export const getDailyWord = (date = new Date()) => {
 	// don't allow future dates
 	if (date > new Date()) {

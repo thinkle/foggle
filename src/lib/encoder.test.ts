@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { decode, decodeClue, encode, encodeClue, getWordIdentifier } from './encoder';
+import { getAnswerWords, getDailyWord } from './words';
 
 describe('computeFeedback', () => {
 	it('Raw encoding and decoding should work for lower case words!', () => {
@@ -55,6 +56,25 @@ describe('computeFeedback', () => {
 		expect(unique.size).toBe(words.length);
 		for (let i = 0; i < words.length; i++) {
 			console.log(identifiers[i], '\t', words[i]);
+		}
+	});
+
+	it('We should *not* have repeat words?', () => {
+		const answers = getAnswerWords();
+		const hashes = answers.map(getWordIdentifier);
+		let uniqueHashes = new Set();
+		let errorMessage = '';
+		for (let i = 0; i < hashes.length; i++) {
+			let isUnique = true;
+			if (uniqueHashes.has(hashes[i])) {
+				isUnique = false;
+				console.log('Duplicate hash:', hashes[i]);
+				let otherIndex = hashes.indexOf(hashes[i]);
+				errorMessage = `Duplicate hash found for ${answers[i]} and ${answers[otherIndex]}`;
+			} else {
+				uniqueHashes.add(hashes[i]);
+			}
+			expect(isUnique, errorMessage).toBe(true);
 		}
 	});
 });
