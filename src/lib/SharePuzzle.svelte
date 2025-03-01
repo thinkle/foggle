@@ -36,7 +36,7 @@
 	if (mode === 'daily') {
 		// If we're in daily mode, we need to get the day index.
 		let dayIndex = getDayIndex();
-		shareTitle = `Foggle #${dayIndex} ${victory ? '✅' : '❌'}\n`;
+		shareTitle = `Foggle #${dayIndex + 1} ${victory ? '✅' : '❌'}\n`;
 	}
 	shareText += generateShareText(guesses, theWord);
 
