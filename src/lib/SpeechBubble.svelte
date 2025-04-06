@@ -26,7 +26,7 @@
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 		position: relative;
 		text-align: center;
-		transform: skewX(var(--skew, -15deg)); /* Optional skew */
+		transform: skewX(var(--skew, -8deg)); /* Optional skew */
 		margin: 0.5rem;
 	}
 
@@ -51,6 +51,6 @@
 	}
 
 	.speech-bubble.right {
-		transform: skewX(calc(var(--skew, -15deg) * -1)); /* Reverse skew for right */
+		transform: skewX(calc(var(--skew, -8deg) * -1)); /* Reverse skew for right */
 	}
 </style>

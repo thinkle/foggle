@@ -58,7 +58,7 @@
 				answer: 'foggy',
 				size: 1.5,
 				guesses: ['fetchingly', 'foggy'],
-				justify: 'left',
+				justify: 'alternate',
 				caption:
 					'You can use the left/right to shift the words and see how the letters line up!'
 			}
@@ -66,9 +66,11 @@
 		{
 			text: 'Usually a solid green means you have the right length, but not always!',
 			position: 'left',
+
 			example: {
 				answer: 'foggy',
 				guesses: ['high', 'foggy'],
+				justify: 'alternate',
 				caption:
 					"'G' is solid green because it's both the third from the left and the second from the right, even though the guess length is wrong."
 			}
@@ -80,6 +82,7 @@
 				answer: 'foggy',
 				size: 1.5,
 				guesses: ['farfalle', 'farflung', 'foggy'],
+				justify: 'alternate',
 				caption:
 					"'F' is green in two places because it matches as the first from the left and the fifth from the right. Click 'left' and 'right' to see the letters line up!"
 			}
@@ -91,34 +94,13 @@
 				answer: 'foggy',
 				size: 1.3,
 				guesses: ['frightful', 'regretfully', 'foggy'],
+				justify: 'alternate',
 				caption: "Click the 'left' and 'right' buttons to see how this works!"
 			}
 		},
 		{
 			text: 'Finally, the game will show you blank letters showing you how long you know the answer must be based on your guesses so far.',
 			position: 'left'
-		},
-		{
-			text: "Let's say the word is 'confusion' for example...",
-			position: 'right',
-			example: {
-				answer: 'confusion',
-				size: 1.5,
-				guesses: ['contagious'],
-				caption:
-					"After matching the 'i' and 'o' in the 7th and 8th positions, the game will show you 8 blank letters when you go to guess"
-			}
-		},
-		{
-			text: 'Sometimes the logic it a little convoluted...',
-			position: 'left',
-			example: {
-				answer: 'comfortable',
-				size: 1.5,
-				guesses: ['comfort'],
-				ncaption:
-					'Since *all* the letters in the guess are in the answer but *not* in the right position, we know the answer must be longer than the 7 letter guess...'
-			}
 		},
 		{
 			text: 'Just like regular wordle, you get six guesses to get the word.',
@@ -162,6 +144,7 @@
 							justify={step.example.justify}
 							letterSize={step.example.size || 1.5}
 						/>
+
 						{#if step.example.caption}
 							<p>{step.example.caption}</p>
 						{/if}
@@ -170,6 +153,19 @@
 			</div>
 		{/each}
 		<button on:click={onClose}>Now let's play!</button>
+
+		<SpeechBubble>
+			<p>
+				By <a target="_blank" href="https://www.tomhinkle.net">Tom Hinkle</a>. Font face is
+				the fabulous <b>Indoor Kid</b> by
+				<a target="_blank" href="https://djr.com">David Jonathan Ross.</a>
+				If you want another fun wordle variant, check out my game
+				<a target="_blank" href="https://www.nordle.us">Nordle</a>
+				where you can play any number of simultaneous wordles, or you can try my boggle-like
+				game in development,
+				<a href="https://word-fall.netlify.app" target="_blank">Word Fall</a>
+			</p>
+		</SpeechBubble>
 
 		<button class="close-btn" on:click={onClose}>&times;</button>
 	</div>
@@ -325,5 +321,16 @@
 			opacity: 0;
 			transform: translateX(-50vw);
 		}
+	}
+
+	a {
+		display: inline-block;
+		color: inherit;
+		text-decoration-style: wavy;
+		transition: transform 300ms;
+	}
+	a:hover {
+		transform: scale(1.05);
+		transform-origin: center;
 	}
 </style>

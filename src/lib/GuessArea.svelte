@@ -25,7 +25,7 @@
 		feedback: ComputedFeedback | undefined;
 		isRight: boolean;
 		isInvalid: boolean;
-		justify?: 'left' | 'right' | 'center';
+		justify?: 'left' | 'right' | 'center' | 'alternate';
 		isDemo?: boolean;
 		letterSize?: number;
 	} = $props();
@@ -108,6 +108,16 @@
 	$effect(() => {
 		if (guesses.length || nextGuess) {
 			guessContainer.scrollTop = guessContainer.scrollHeight;
+		}
+	});
+
+	let alternateShift = 'left';
+
+	$effect(() => {
+		if (justify === 'alternate') {
+			setInterval(() => {
+				justifyMode = justifyMode === 'left' ? 'right' : 'left';
+			}, 2000);
 		}
 	});
 </script>
