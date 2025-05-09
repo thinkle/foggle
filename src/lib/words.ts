@@ -4,8 +4,8 @@ import { decodeClue } from './encoder';
 import { getDayIndex } from '../wordlists/magicNumber';
 import type { Game } from './types';
 
-const words = allTheWords.split(/\s*\n\s*/g);
-const answers = answerList.split(/\s*\n\s*/g);
+const words = allTheWords.split(/\n/g);
+const answers = answerList.split(/\n/g);
 
 export const getRandomGame = (): Game => {
 	//return 'continue'
