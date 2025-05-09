@@ -1,6 +1,16 @@
 import { describe, it, expect } from 'vitest';
-import { getAnswerWords } from './words';
+import { getAnswerWords, isValid } from './words';
 import { decodeClue } from './encoder';
+
+describe('clues are real', () => {
+	it('Every word in the answer list should decode into a valid word', () => {
+		const words = getAnswerWords();
+		for (let i = 0; i < words.length; i++) {
+			const word = words[i];
+			expect(isValid(word), `Decoded clue ${word} #${i} is not a valid word`).toBe(true);
+		}
+	});
+});
 
 describe('getAnswerWords', () => {
 	it('should provide unique list of words', () => {
