@@ -108,29 +108,31 @@ import SparkMD5 from 'spark-md5';
  * @returns A compact, unique Base16 identifier for the word.
  */
 export function getWordIdentifier(word: string): string {
-	// Future note: 4 just is a cool looking number but doesn't let this
-	// be used to actually uniquely identify words.
-	// if we increase to 10 we should be able to uniquely identify words
-	// reliably (experimentally, 7 does it for now, but 10 would buy us
-	// some future proofing).
-	//
-	// That would be worth doing *if* we want to build a way to share
-	// an individual puzzle. However, we might have to look at how we
-	// handle current game storage etc. before doing that (i.e. what happens
-	// if you're halfway through a random game and someone sends you a puzzle
-	// or whatever...).
-	// My thought is I might eventually add a 10-digit identifier to the
-	// URL for sharing purposes and use that in the share ux but then only
-	// display the first 4 digits in the game itself.
-	const length = 4;
-	// Hash the word using SparkMD5 (produces a hex string)
+	// Create a character set of 256 distinct characters
+	const charSet = [
+		// ASCII printable characters (32-126)
+		...Array.from({ length: 95 }, (_, i) => String.fromCharCode(i + 32)),
+		// Extended Latin characters and symbols to reach 256
+		...Array.from({ length: 161 }, (_, i) => String.fromCharCode(i + 161))
+		// This gives us 95 + 161 = 256 characters
+	];
+
+	// Hash the word using SparkMD5
 	const hash = SparkMD5.hash(word);
 
-	// Ensure the length is valid
-	if (length <= 0 || length > hash.length) {
-		throw new Error(`Invalid length: ${length}. Must be between 1 and ${hash.length}.`);
+	// Use first 8 bytes of hash (16 hex chars)
+	// Each display char represents 2 bytes (4 hex chars)
+	const result = [];
+	for (let i = 0; i < 8; i += 2) {
+		// Convert 4 hex chars (2 bytes) into a single display character
+		const byte1 = parseInt(hash.substring(i * 2, i * 2 + 2), 16);
+		const byte2 = parseInt(hash.substring(i * 2 + 2, i * 2 + 4), 16);
+
+		// Combine bytes to pick character from our set
+		// This gives us a unique mapping in the range 0-255
+		const charIndex = (byte1 + byte2) % 256;
+		result.push(charSet[charIndex]);
 	}
 
-	// Return the first `length` characters of the hash
-	return hash.slice(0, length);
+	return result.join('');
 }
