@@ -26,7 +26,7 @@
 		navigator
 			.share({
 				//title: shareTitle,
-				text: shareTitle + '\n\n' + shareText,
+				text: shareTitle + '\n' + shareText,
 				url: shareUrl
 			})
 			.catch((e) => console.error('Share failed:', e));
