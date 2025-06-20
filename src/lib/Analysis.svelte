@@ -58,7 +58,12 @@
 						{ordinals[i]}
 					{/if}
 					guess was:
-					<Word word={guesses[i]} answer={theWord} feedback={feedback.guessFeedback[i]} />
+					<Word
+						word={guesses[i]}
+						answer={theWord}
+						feedback={feedback.guessFeedback[i]}
+						align="center"
+					/>
 					{#if feedbackPerGuess[i].template !== feedbackPerGuess[i - 1]?.template || possibleWordsPerGuess[i].length !== possibleWordsPerGuess[i - 1]?.length}
 						{#if i == 0}
 							<br />After that guess, you were down to {@render template(

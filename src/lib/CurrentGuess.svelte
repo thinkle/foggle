@@ -3,7 +3,7 @@
 
 	import Word from './Word.svelte';
 
-	let { word, invalid, minWordLength, template } = $props();
+	let { word, invalid, minWordLength, template, align } = $props();
 	let tooShort = $derived(word.length < minWordLength);
 	// fill array with minWordLength spaces
 	// make last item the ellipsis character
@@ -25,7 +25,12 @@
 	class:too-short={tooShort}
 	data-tooltip={tooShort ? 'Word is at least ${minWordLength} letters long.' : ''}
 >
-	{#key word}{#key displayWord}<Word feedback={undefined} word={displayWord} answer={''} />{/key}
+	{#key word}{#key displayWord}<Word
+				feedback={undefined}
+				word={displayWord}
+				answer={''}
+				{align}
+			/>{/key}
 	{/key}
 	{#if tooShort}<div class="hint-wrap">
 			<div class="hint">

@@ -78,7 +78,9 @@
 		}
 	});
 
-	let justifyMode: 'left' | 'right' | 'center' = $state(justify || 'center');
+	let justifyMode: 'left' | 'right' | 'center' = $state(
+		justify === 'left' || justify === 'right' || justify === 'center' ? justify : 'center'
+	);
 	let guessContainer: HTMLDivElement;
 
 	// Adjust justification mode based on word info...
@@ -144,7 +146,12 @@
 		</button>
 	</div>
 	{#each guesses as guess, i}
-		<Word word={guess} answer={theWord} feedback={feedback.guessFeedback[i]}></Word>
+		<Word
+			word={guess}
+			answer={theWord}
+			feedback={feedback.guessFeedback[i]}
+			align={justifyMode}
+		/>
 	{/each}
 	{#if !isRight && guesses.length < 6}
 		<CurrentGuess
@@ -152,6 +159,7 @@
 			invalid={isInvalid}
 			minWordLength={feedback.minWordLength}
 			template={feedback.template}
+			align={justifyMode}
 		></CurrentGuess>
 	{/if}
 </div>
@@ -177,7 +185,6 @@
 	.justify-buttons button:hover {
 		text-decoration: wavy underline white;
 	}
-
 	.guesses {
 		display: flex;
 		flex-direction: column;
@@ -187,31 +194,16 @@
 		flex-grow: 1;
 		min-width: min(100vw, 15rem);
 	}
-
 	.center {
 		align-items: center;
 	}
-
-	.center :global(.wordrow) {
-		justify-content: center;
-	}
-
 	.left {
 		align-items: flex-start;
-	}
-
-	.left :global(.wordrow) {
-		justify-content: start;
 	}
 
 	.right {
 		align-items: flex-end;
 	}
-
-	.right :global(.wordrow) {
-		justify-content: end;
-	}
-
 	:root {
 		--correct-aligned-filter: brightness(1.5) saturate(1.4)
 			drop-shadow(1px 16px 3px rgba(9, 152, 9, 0.645));
