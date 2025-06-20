@@ -5,7 +5,8 @@
 	import Word from './Word.svelte';
 	import { computeFeedback } from './wordFeedback';
 
-	let { guesses, theWord, feedback } = $props();
+	let { guesses, theWord, feedback: feedbackProp = null } = $props();
+	let feedback = $derived(feedbackProp ?? computeFeedback(guesses, theWord));
 	let step = $state(1);
 	let possibleWordsPerGuess = $derived(
 		guesses.map((g, i) => getPossibleWords(guesses.slice(0, i + 1), theWord))
@@ -18,7 +19,7 @@
 	let showAllWords = $state(Array(guesses.length).fill(false));
 </script>
 
-<div>
+<div class="analysis">
 	{#snippet template(word, expanded)}
 		{@const letters = word.length - (word.split('?').length - 1)}
 		{#if letters > 1}
@@ -77,7 +78,7 @@
 					{/if}
 				</div>
 				{#if possibleWordsPerGuess[i].length !== possibleWordsPerGuess[i - 1]?.length}
-					{#if nwords > 1 && nwords < 5}
+					{#if nwords > 1 && nwords <= 5}
 						{#each possibleWordsPerGuess[i] as word, j}
 							<span class="word">{word}</span
 							>{#if j == nwords - 2}&nbsp;and&nbsp;{:else if j < nwords - 1},
@@ -102,8 +103,17 @@
 </div>
 
 <style>
+	.analysis :global(.wordrow) {
+		justify-content: center;
+	}
 	.blurb {
 		max-width: 18em;
+		text-align: center;
+	}
+	.blurb,
+	.blurb span,
+	.blurb .word {
+		text-align: center;
 	}
 	div {
 		--font-size: 1rem;
@@ -122,6 +132,10 @@
 			'EMPH' 100,
 			'SLANT' 0;
 		font-style: normal;
+		display: inline-block;
+		white-space: normal;
+		word-break: break-word;
+		overflow-wrap: break-word;
 	}
 	button {
 		background: none;
@@ -145,5 +159,9 @@
 			'SLANT' 0;
 		font-style: normal;
 		text-decoration: underline;
+	}
+	div {
+		text-align: center;
+		margin: auto;
 	}
 </style>
