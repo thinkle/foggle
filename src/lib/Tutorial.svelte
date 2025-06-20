@@ -260,10 +260,6 @@
 	.close-btn:hover {
 		background: #242;
 	}
-	:global(.wordrow) {
-		justify-content: center;
-	}
-
 	@keyframes fade-in {
 		0% {
 			opacity: 0;

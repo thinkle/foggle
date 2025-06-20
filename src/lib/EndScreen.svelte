@@ -275,8 +275,7 @@
 		gap: 1rem;
 	}
 
-	button,
-	.button-group :global(button) {
+	button {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -307,14 +306,13 @@
 			box-shadow 0.2s,
 			background 0.2s;
 	}
-	button:hover,
-	.button-group :global(button:hover) {
+	button:hover {
 		transform: translate(-2px, -2px);
 		box-shadow: 4px 4px 0 black; /* bigger shadow offset */
 		background: #0e6a23; /* slightly darker background */
 	}
-	.end-screen :global(.wordrow) {
-		justify-content: center;
+	.end-screen {
+		/* .wordrow justification is now handled by align prop */
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.8);
@@ -335,9 +333,5 @@
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-	}
-	.backdrop :global(div) {
-		position: relative;
-		z-index: 99;
 	}
 </style>

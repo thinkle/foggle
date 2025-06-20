@@ -151,6 +151,7 @@
 			answer={theWord}
 			feedback={feedback.guessFeedback[i]}
 			align={justifyMode}
+			animate={i == guesses.length - 1}
 		/>
 	{/each}
 	{#if !isRight && guesses.length < 6}

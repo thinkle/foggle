@@ -108,9 +108,6 @@
 </div>
 
 <style>
-	.analysis :global(.wordrow) {
-		justify-content: center;
-	}
 	.blurb {
 		max-width: 18em;
 		text-align: center;

@@ -7,39 +7,57 @@
 		word,
 		answer,
 		feedback,
-		align = 'center'
+		align = 'center',
+		animate = false
 	}: {
 		word: string;
 		answer: string;
 		feedback: FEEDBACK[] | undefined;
 		align?: 'left' | 'right' | 'center';
+		animate?: boolean;
 	} = $props();
 
 	// For RTL, reverse the array for correct wrapping
 	let letters = $derived(align === 'right' ? Array.from(word).reverse() : Array.from(word));
 	let hasFeedback = !!feedback;
+
+	// Track if alignment has ever changed since mount
+	let prevAlign = $state(align);
+	let alignChangeCount = $state(0);
+	let mounted = $state(false);
+
+	$effect(() => {
+		if (mounted && align !== prevAlign) {
+			alignChangeCount++;
+			prevAlign = align;
+		}
+	});
+	$effect(() => {
+		mounted = true;
+	});
+	let alignmentEverChanged = $derived(alignChangeCount > 0);
+	let doAnimate = $derived(animate && !alignmentEverChanged);
 </script>
 
 <div
 	class="wordrow {align}"
+	class:animate
 	class:no-feedback={!hasFeedback}
+	data-change-count={alignChangeCount}
 	{...align === 'right' ? { dir: 'rtl' } : {}}
 >
-	{#each letters as letter, i (i)}
+	{#each letters as letter, i (align === 'right' ? word.length - 1 - i : i)}
+		{@const origIndex = align === 'right' ? word.length - 1 - i : i}
 		{@const letterNum = align === 'right' ? letters.length - i : i + 1}
 		<div
 			class="letter"
+			class:no-anim={!doAnimate}
 			style="--letter-num: {letterNum}"
-			class:present={feedback &&
-				feedback[align === 'right' ? feedback.length - 1 - i : i] === PRESENT}
-			class:correct-left={feedback &&
-				feedback[align === 'right' ? feedback.length - 1 - i : i] === CORRECT_L}
-			class:correct-right={feedback &&
-				feedback[align === 'right' ? feedback.length - 1 - i : i] === CORRECT_R}
-			class:correct-left-and-right={feedback &&
-				feedback[align === 'right' ? feedback.length - 1 - i : i] === CORRECT_B}
-			class:incorrect={feedback &&
-				feedback[align === 'right' ? feedback.length - 1 - i : i] === INCORRECT}
+			class:present={feedback && feedback[origIndex] === PRESENT}
+			class:correct-left={feedback && feedback[origIndex] === CORRECT_L}
+			class:correct-right={feedback && feedback[origIndex] === CORRECT_R}
+			class:correct-left-and-right={feedback && feedback[origIndex] === CORRECT_B}
+			class:incorrect={feedback && feedback[origIndex] === INCORRECT}
 		>
 			{letter}
 		</div>
@@ -117,6 +135,7 @@
 		animation-fill-mode: both, both;
 		animation-delay: calc(var(--letter-num, 1) * var(--letter-delay)),
 			calc(var(--letter-num, 1) * var(--letter-delay));
+		color: var(--white);
 	}
 
 	.incorrect {
@@ -133,6 +152,7 @@
 
 	.correct-left {
 		background: linear-gradient(to right, var(--correct) 40%, var(--incorrect) 60%);
+		color: var(--white);
 		animation-name: pop-in, fade-to-correct-left;
 		animation-duration: 300ms, 300ms;
 		animation-timing-function: ease-out, ease-out;
@@ -143,6 +163,7 @@
 
 	.correct-right {
 		background: linear-gradient(to left, var(--correct) 40%, var(--incorrect) 60%);
+		color: var(--white);
 		animation-name: pop-in, fade-to-correct-right;
 		animation-duration: 300ms, 300ms;
 		animation-timing-function: ease-out, ease-out;
@@ -223,5 +244,25 @@
 
 	.wordrow.no-feedback .letter {
 		animation: none !important;
+	}
+
+	.letter.no-anim {
+		animation: none !important;
+		animation-name: none !important;
+		/* Always apply feedback colors and text-shadow even if animation is off */
+		color: #224;
+		text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.644);
+	}
+
+	.letter.no-anim.present,
+	.letter.no-anim.correct-left,
+	.letter.no-anim.correct-right,
+	.letter.no-anim.correct-left-and-right {
+		color: var(--white);
+		text-shadow: 2px 2px 3px rgba(18, 54, 1, 0.644);
+	}
+	.letter.no-anim.incorrect {
+		color: #fff;
+		text-shadow: 2px 2px 3px rgba(18, 54, 1, 0.644);
 	}
 </style>
