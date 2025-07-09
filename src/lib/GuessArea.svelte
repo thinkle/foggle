@@ -39,6 +39,8 @@
 		}
 	}
 
+	let wasManuallyAligned = $state(false);
+
 	let maxGuessLength = $derived.by(() => {
 		let maxGuessLength = nextGuess.length;
 		for (let guess of guesses) {
@@ -94,14 +96,17 @@
 			}
 		});
 		if (push > 0) {
+			wasManuallyAligned = false;
 			justifyMode = 'right';
 		} else if (push < 0) {
+			wasManuallyAligned = false;
 			justifyMode = 'left';
 		}
 	});
 	$effect(() => {
 		// reset on new word
 		if (guesses.length === 0) {
+			wasManuallyAligned = false;
 			justifyMode = 'center';
 		}
 	});
@@ -134,13 +139,31 @@
 	style:--stretch={stretch}
 >
 	<div class="justify-buttons" class:visible={guesses.length}>
-		<button class:active={justifyMode == 'left'} onclick={() => (justifyMode = 'left')}>
-			<span class="icon">←</span> Left</button
+		<button
+			class:active={justifyMode == 'left'}
+			onclick={() => {
+				justifyMode = 'left';
+				wasManuallyAligned = true;
+			}}
 		>
-		<button class:active={justifyMode == 'center'} onclick={() => (justifyMode = 'center')}
-			>All</button
+			<span class="icon">←</span> Left
+		</button>
+		<button
+			class:active={justifyMode == 'center'}
+			onclick={() => {
+				justifyMode = 'center';
+				wasManuallyAligned = true;
+			}}
 		>
-		<button class:active={justifyMode == 'right'} onclick={() => (justifyMode = 'right')}>
+			All
+		</button>
+		<button
+			class:active={justifyMode == 'right'}
+			onclick={() => {
+				justifyMode = 'right';
+				wasManuallyAligned = true;
+			}}
+		>
 			Right
 			<span class="icon">→</span>
 		</button>
@@ -151,7 +174,7 @@
 			answer={theWord}
 			feedback={feedback.guessFeedback[i]}
 			align={justifyMode}
-			animate={i == guesses.length - 1}
+			animate={i == guesses.length - 1 && justify !== 'alternate' && !wasManuallyAligned}
 		/>
 	{/each}
 	{#if !isRight && guesses.length < 6}

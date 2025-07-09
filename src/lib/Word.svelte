@@ -20,30 +20,12 @@
 	// For RTL, reverse the array for correct wrapping
 	let letters = $derived(align === 'right' ? Array.from(word).reverse() : Array.from(word));
 	let hasFeedback = !!feedback;
-
-	// Track if alignment has ever changed since mount
-	let prevAlign = $state(align);
-	let alignChangeCount = $state(0);
-	let mounted = $state(false);
-
-	$effect(() => {
-		if (mounted && align !== prevAlign) {
-			alignChangeCount++;
-			prevAlign = align;
-		}
-	});
-	$effect(() => {
-		mounted = true;
-	});
-	let alignmentEverChanged = $derived(alignChangeCount > 0);
-	let doAnimate = $derived(animate && !alignmentEverChanged);
 </script>
 
 <div
 	class="wordrow {align}"
 	class:animate
 	class:no-feedback={!hasFeedback}
-	data-change-count={alignChangeCount}
 	{...align === 'right' ? { dir: 'rtl' } : {}}
 >
 	{#each letters as letter, i (align === 'right' ? word.length - 1 - i : i)}
@@ -51,7 +33,7 @@
 		{@const letterNum = align === 'right' ? letters.length - i : i + 1}
 		<div
 			class="letter"
-			class:no-anim={!doAnimate}
+			class:no-anim={!animate}
 			style="--letter-num: {letterNum}"
 			class:present={feedback && feedback[origIndex] === PRESENT}
 			class:correct-left={feedback && feedback[origIndex] === CORRECT_L}
