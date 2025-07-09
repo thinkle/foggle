@@ -22,14 +22,30 @@
 	} = $props();
 	const shareUrl = 'https://www.fogglegame.com';
 	// Handlers for sharing and copying.
+	let showShareText = $state(false);
+	let shareTextToShow = $state('');
+	let shareDialog: HTMLDialogElement | undefined = $state();
+	$effect(() => {
+		if (shareDialog && showShareText) {
+			shareDialog.showModal();
+		} else if (shareDialog && !showShareText) {
+			shareDialog.close();
+		}
+	});
 	function handleShare() {
-		navigator
-			.share({
-				//title: shareTitle,
-				text: shareTitle + '\n' + shareText,
-				url: shareUrl
-			})
-			.catch((e) => console.error('Share failed:', e));
+		const textToShare = shareTitle + '\n' + shareText + '\n' + shareUrl;
+		if (typeof navigator !== 'undefined' && navigator.share) {
+			navigator
+				.share({
+					//title: shareTitle,
+					text: textToShare,
+					url: shareUrl
+				})
+				.catch((e) => console.error('Share failed:', e));
+		} else {
+			shareTextToShow = textToShare;
+			showShareText = true;
+		}
 	}
 	let shareTitle = 'Foggle Result';
 	let shareText = '';
@@ -41,15 +57,37 @@
 	shareText += generateShareText(guesses, theWord);
 
 	function handleCopy() {
-		navigator.clipboard
-			.writeText(`${shareTitle}\n${shareText}\n${shareUrl}`)
-			.then(() => console.log('Copied to clipboard!'))
-			.catch((e) => console.error('Copy failed:', e));
+		console.log('Copy clicked');
+		const textToCopy = `${shareTitle}\n${shareText}\n${shareUrl}`;
+		if (
+			typeof navigator !== 'undefined' &&
+			navigator.clipboard &&
+			navigator.clipboard.writeText
+		) {
+			navigator.clipboard
+				.writeText(textToCopy)
+				.then(() => console.log('Copied to clipboard!'))
+				.catch((e) => {
+					console.error('Copy failed:', e);
+					shareTextToShow = textToCopy;
+					showShareText = true;
+				});
+		} else {
+			shareTextToShow = textToCopy;
+			showShareText = true;
+		}
 	}
 </script>
 
-<!-- Preview the share text (monospaced via <pre>) -->
-<!-- <pre style="font-family: monospace;">{shareText}</pre> -->
+{#if showShareText}
+	<dialog bind:this={shareDialog} onclose={() => (showShareText = false)}>
+		<button class="close" onclick={() => (showShareText = false)} aria-label="Close dialog"
+			>&times;</button
+		>
+		<h3>Copy and Share</h3>
+		<textarea readonly rows="12">{shareTextToShow}</textarea>
+	</dialog>
+{/if}
 
 <button class="icon-button share" onclick={handleShare} aria-label="Share Foggle results">
 	<!-- "Arrow out of a box" share icon -->
@@ -73,7 +111,50 @@
 </button>
 
 <style>
-	pre {
-		text-align: left;
+	dialog::backdrop {
+		background: rgba(0, 0, 0, 0.8);
+	}
+	dialog {
+		background: #222;
+		color: #fff;
+		border-radius: 1em;
+		box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
+		padding: 2em 2em 1em 2em;
+		max-width: 32em;
+		width: 90vw;
+		min-height: 60vh;
+		margin: 5vh auto 0 auto;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		max-height: 85vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	dialog textarea {
+		margin: 1em 0;
+		font-size: 1em;
+		border-radius: 0.5em;
+		border: 1px solid #ccc;
+		padding: 0.5em;
+		background: #111;
+		color: #fff;
+		width: 100%;
+		font-family: monospace;
+		resize: vertical;
+		min-height: 16em;
+	}
+	dialog .close {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		text-decoration: none;
+		background: none;
+		border: none;
+		font-size: 2em;
+		color: #fff;
+		cursor: pointer;
 	}
 </style>
