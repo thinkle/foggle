@@ -38,8 +38,8 @@
 			navigator
 				.share({
 					//title: shareTitle,
-					text: textToShare,
-					url: shareUrl
+					text: textToShare
+					// Don't pass url separately since it's already in the text
 				})
 				.catch((e) => console.error('Share failed:', e));
 		} else {

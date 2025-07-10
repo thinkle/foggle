@@ -107,11 +107,6 @@
 			<dialog
 				bind:this={analysisDialog}
 				onclose={() => (showAnalysis = false)}
-				onclick={(e) => {
-					if (e.target === analysisDialog) {
-						showAnalysis = false;
-					}
-				}}
 			>
 				<button class="close" onclick={() => (showAnalysis = false)}>&times;</button>
 				<Analysis {guesses} {theWord} {feedback} />
@@ -163,7 +158,9 @@
 			</p>
 			<div class="button-group">
 				{@render analysis()}
-				{@render share()}
+				<div class="action-buttons">
+					{@render share()}
+				</div>
 			</div>
 			<StreakInfo {mode} victorious={victory} {theWord}></StreakInfo>
 			<br />{@render playAgain()}
@@ -177,13 +174,15 @@
 				<em>{expression}</em>
 				<br />
 				The word was
-				<br /><Word word={theWord} feedback={feedback.letterKnowledge as FEEDBACK[]} />
+				<br /><Word word={theWord} answer={theWord} feedback={feedback.letterKnowledge as FEEDBACK[]} />
 				<br />the fog persists&hellip;
 				<br />
 				but you <em class="big">{getClosenessExpression(feedback.progress)}</em>
 				<span class="button-group">
 					{@render analysis()}
-					{@render share()}
+					<span class="action-buttons">
+						{@render share()}
+					</span>
 				</span>
 				<br />
 				{@render playAgain()}
@@ -275,8 +274,12 @@
 		gap: 1rem;
 	}
 
+	.action-buttons {
+		display: contents;
+	}
+
 	button,
-	:global(button) {
+	:global(.action-buttons button) {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -308,13 +311,10 @@
 			background 0.2s;
 	}
 	button:hover,
-	:global(button:hover) {
+	:global(.action-buttons button:hover) {
 		transform: translate(-2px, -2px);
 		box-shadow: 4px 4px 0 black; /* bigger shadow offset */
 		background: #0e6a23; /* slightly darker background */
-	}
-	.end-screen {
-		/* .wordrow justification is now handled by align prop */
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.8);
@@ -327,13 +327,5 @@
 		top: 8px;
 		right: 8px;
 		text-decoration: none;
-	}
-
-	.backdrop {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
 	}
 </style>
