@@ -71,4 +71,24 @@ describe('getPossibleWords', () => {
 		const resultsWithS = result.filter((word) => word[word.length - 1] == 's');
 		expect(resultsWithS).toEqual([]);
 	});
+	it('Should not have the number of candidate words go up after a guess', () => {
+		const answer = 'deride';
+		const guesses = ['stupefaction', 'bide', 'glide', 'deride'];
+		let lastWordsLeft = Infinity;
+		let lastWords = [];
+		for (let guessLength = 1; guessLength <= guesses.length; guessLength++) {
+			const currentGuesses = guesses.slice(0, guessLength);
+			const result = getPossibleWords(currentGuesses, answer);
+			try {
+				expect(result.length).toBeLessThanOrEqual(lastWordsLeft);
+			} catch (e) {
+				console.log('Guesses: ', currentGuesses);
+				console.log('Last words: ', lastWords);
+				console.log('Current words: ', result);
+				throw e;
+			}
+			lastWordsLeft = result.length;
+			lastWords = result;
+		}
+	});
 });
