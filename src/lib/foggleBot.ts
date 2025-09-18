@@ -7,11 +7,17 @@ import { getConstraints, type Constraints } from './wordFeedback';
 import { validWords } from './words';
 
 export const getPossibleWords = (guesses: string[], answer: string): string[] => {
-	const { constraints, letterCounts, letterExclusions } = getConstraints(guesses, answer);
-	const filtered = validWords.filter((word) =>
-		applyConstraints(word, constraints, letterCounts, letterExclusions)
-	);
-	return filtered;
+	let candidates = validWords;
+	for (let n = 0; n < guesses.length; n++) {
+		const { constraints, letterCounts, letterExclusions } = getConstraints(
+			guesses.slice(0, n + 1),
+			answer
+		);
+		candidates = candidates.filter((word) =>
+			applyConstraints(word, constraints, letterCounts, letterExclusions)
+		);
+	}
+	return candidates;
 };
 
 function applyConstraints(
