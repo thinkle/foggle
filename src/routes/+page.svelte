@@ -108,66 +108,70 @@
 			localStorage.setItem('seenTutorial', 'true');
 		}}
 	/>
-{:else}
-	<button
-		class="tutorial-button"
-		onclick={() => (showTutorial = true)}
-		data-tooltip="Show Tutorial">?</button
-	>
-{/if}
+{:else}{/if}
 <main>
-	<span class="mode">
-		{#if mode === 'daily'}
+	<div class="top">
+		<span class="mode">
+			{#if mode === 'daily'}
+				<button
+					id="daily-toggle"
+					class="daily"
+					onclick={() => {
+						gameManager.setMode('extra');
+						theGame = gameManager.getNewExtraGame();
+						guesses = theGame.guesses;
+						nextGuess = '';
+					}}
+				>
+					{new Date().toLocaleDateString('en-US', { month: 'numeric', day: '2-digit' })}
+				</button>
+			{:else}
+				<button
+					id="daily-toggle"
+					class="infinite"
+					onclick={() => {
+						gameManager.setMode('daily');
+						theGame = gameManager.getDailyGame();
+						guesses = theGame.guesses;
+						nextGuess = '';
+					}}
+				>
+					∞
+				</button>
+			{/if}
+			{#if mode === 'daily'}
+				<label for="daily-toggle">Daily Puzzle</label>
+				<b>#{puzzleId + 1}</b>
+			{:else if mode === 'extra'}
+				<b>#{getWordIdentifier(theWord)}</b>
+				<br />
+				<label class="detail" for="daily-toggle"> Unlimited Mode </label>
+			{/if}
+		</span>
+		<div class="title-box">
+			<h1 style:--title-filter={titleFilter}>Fo<span class="g">g</span>gle</h1>
+			{#if offerNewGameAvailable && mode !== 'daily'}
+				<button
+					class="cta"
+					onclick={() => {
+						gameManager.setMode('daily');
+						theGame = gameManager.getDailyGame();
+						guesses = [];
+						nextGuess = '';
+						offerNewGameAvailable = false;
+					}}>New Daily Puzzle Available!</button
+				>
+			{/if}
+		</div>
+		<div style="display: flex; justify-content: flex-end">
 			<button
-				id="daily-toggle"
-				class="daily"
-				onclick={() => {
-					gameManager.setMode('extra');
-					theGame = gameManager.getNewExtraGame();
-					guesses = theGame.guesses;
-					nextGuess = '';
-				}}
+				class="tutorial-button"
+				onclick={() => (showTutorial = true)}
+				data-tooltip="Show Tutorial">?</button
 			>
-				{new Date().toLocaleDateString('en-US', { month: 'numeric', day: '2-digit' })}
-			</button>
-		{:else}
-			<button
-				id="daily-toggle"
-				class="infinite"
-				onclick={() => {
-					gameManager.setMode('daily');
-					theGame = gameManager.getDailyGame();
-					guesses = theGame.guesses;
-					nextGuess = '';
-				}}
-			>
-				∞
-			</button>
-		{/if}
-		{#if mode === 'daily'}
-			<label for="daily-toggle">Daily Puzzle</label>
-			<b>#{puzzleId + 1}</b>
-		{:else if mode === 'extra'}
-			<b>#{getWordIdentifier(theWord)}</b>
-			<br />
-			<label class="detail" for="daily-toggle"> Unlimited Mode </label>
-		{/if}
-	</span>
-	<div class="title-box">
-		<h1 style:--title-filter={titleFilter}>Fo<span class="g">g</span>gle</h1>
-		{#if offerNewGameAvailable && mode !== 'daily'}
-			<button
-				class="cta"
-				onclick={() => {
-					gameManager.setMode('daily');
-					theGame = gameManager.getDailyGame();
-					guesses = [];
-					nextGuess = '';
-					offerNewGameAvailable = false;
-				}}>New Daily Puzzle Available!</button
-			>
-		{/if}
+		</div>
 	</div>
+
 	{#key theWord}
 		<GuessArea {theWord} {guesses} {isInvalid} {isRight} {nextGuess} {feedback}></GuessArea>
 		<!-- Input -->
@@ -254,7 +258,7 @@
 	}
 
 	.mode {
-		position: fixed;
+		/* position: fixed; */
 		top: 1rem;
 		left: 1rem;
 		text-shadow: 2px 2px #222;
@@ -263,7 +267,7 @@
 		font-size: 0.8em;
 	}
 	.tutorial-button {
-		position: fixed;
+		/* position: fixed; */
 		top: 1rem;
 		right: 1rem;
 		font-size: 2rem;
@@ -368,5 +372,19 @@
 	.cta:hover {
 		text-shadow: none;
 		filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+	}
+	.top {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		width: 100%;
+	}
+	.top :nth-child(1),
+	.top :nth-child(3) {
+		flex-basis: 30%;
+	}
+	.top :nth-child(2) {
+		flex-basis: 40%;
+		text-align: center;
 	}
 </style>
