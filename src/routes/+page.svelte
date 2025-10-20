@@ -229,9 +229,25 @@
 		left: 0;
 		padding: 1rem;
 		gap: 8px;
-		background-image: url('/bg-comic.png');
-		background-size: cover;
-		background-position: center;
+		--bg-one: rgb(58, 69, 61);
+		--bg-two: rgba(114, 106, 106, 0.3);
+		--bg-paper: rgba(238, 237, 246, 0.2);
+		background:
+			radial-gradient(circle, black, var(--bg-one)),
+			radial-gradient(circle, var(--bg-one) 20%, var(--bg-two) 75%) 0 0 / 80px 40px,
+			radial-gradient(circle, var(--bg-two) 15%, var(--bg-one) 80%) 3.2% 4.8% / 3px 4px,
+			radial-gradient(circle, var(--bg-one) 15%, var(--bg-two) 83%) 1.3% 2.6% / 18px 24px,
+			radial-gradient(circle, rgb(15, 15, 15), var(--bg-one));
+		/* radial-gradient(
+					circle,
+					var(--bg-one) 25%,
+					var(--bg-two) 65%,
+					var(--bg-paper) 70%
+				) -2.7% -1.9% /
+				19px 19px, */ /* url('bg-comic.png')
+			center / cover; */
+		background-blend-mode: multiply;
+
 		font-family: 'Indoor Kid Web';
 		text-shadow: 2px 2px 3px rgba(10, 50, 26, 0.467);
 		color: rgb(238, 237, 246);
@@ -312,8 +328,8 @@
 		display: inline-grid;
 		place-content: center;
 		border-radius: 50%;
-		width: 2rem;
-		height: 2rem;
+		width: 3rem;
+		height: 3rem;
 		text-decoration: none;
 		vertical-align: middle;
 	}
