@@ -67,6 +67,49 @@
 		}
 	});
 
+	function interpolateColor(start: number[], end: number[], factor: number): number[] {
+		let result = start.slice();
+		for (let i = 0; i < 3; i++) {
+			result[i] = Math.round(result[i] + factor * (end[i] - start[i]));
+		}
+		return result;
+	}
+
+	let backgroundAdjustments = $derived.by(() => {
+		if (guesses.length == 0) {
+			return '';
+		} else if (!isRight) {
+			// Otherwise, adjust based on progress
+			// Out baseline goes from...
+			// 3,10,38 -> 63,64,74 -> 181,184,183
+			// So we can do a linear interpolation between these
+			// three colors and
+			let startOne = [3, 10, 38];
+			let endOne = [3, 10, 85];
+			let startTwo = [63, 64, 74];
+			let endTwo = [14, 56, 190];
+			let startThree = [181, 184, 183];
+			let endThree = [56, 206, 235];
+			let progressPercentage = progress;
+			// So we move progressPercentage of the way from startOne to endOne, etc.
+			let stopOne = interpolateColor(startOne, endOne, progressPercentage);
+			let stopTwo = interpolateColor(startTwo, endTwo, progressPercentage);
+			let stopThree = interpolateColor(startThree, endThree, progressPercentage);
+			// Now build the gradient
+			let gradient = `linear-gradient(to bottom, rgb(${stopOne.join(',')}), rgb(${stopTwo.join(',')}), rgb(${stopThree.join(',')}))`;
+			let bg = `background-image: ${gradient}, url('fog.svg');`;
+			return bg;
+		} else if (isRight) {
+			// complete puzzle background is...
+			// clear blue sky linear gradient
+			let gradient = `linear-gradient(to bottom,  rgb(3, 10, 85), rgb(14, 56, 190), rgb(56, 206, 235))`;
+			let bg = `background-image: ${gradient}, url('fog.svg');`;
+
+			let positions = `background-position: center bottom, center ${window.innerHeight}px`; // animate fog off
+			return `${bg} ; ${positions} ; background-repeat: no-repeat;`;
+		}
+	});
+
 	function submitGuess() {
 		// Should we allow guesses that aren't long enough
 		// even on the last guess?
@@ -109,7 +152,7 @@
 		}}
 	/>
 {:else}{/if}
-<main>
+<main style={backgroundAdjustments}>
 	<div class="top">
 		<span class="mode">
 			{#if mode === 'daily'}
@@ -233,28 +276,25 @@
 		left: 0;
 		padding: 1rem;
 		gap: 8px;
-		--bg-one: rgb(58, 69, 61);
-		--bg-two: rgba(114, 106, 106, 0.3);
-		--bg-paper: rgba(238, 237, 246, 0.2);
-		background:
-			radial-gradient(circle, black, var(--bg-one)),
-			radial-gradient(circle, var(--bg-one) 20%, var(--bg-two) 75%) 0 0 / 80px 40px,
-			radial-gradient(circle, var(--bg-two) 15%, var(--bg-one) 80%) 3.2% 4.8% / 3px 4px,
-			radial-gradient(circle, var(--bg-one) 15%, var(--bg-two) 83%) 1.3% 2.6% / 18px 24px,
-			radial-gradient(circle, rgb(15, 15, 15), var(--bg-one));
-		/* radial-gradient(
-					circle,
-					var(--bg-one) 25%,
-					var(--bg-two) 65%,
-					var(--bg-paper) 70%
-				) -2.7% -1.9% /
-				19px 19px, */ /* url('bg-comic.png')
-			center / cover; */
+		--linear-gradient-stop-one: rgb(3, 10, 38);
+		--linear-gradient-stop-two: rgb(63, 64, 74);
+		--linear-gradient-stop-three: rgb(181, 184, 183);
+		--base: linear-gradient(
+			to bottom,
+			var(--linear-gradient-stop-one),
+			var(--linear-gradient-stop-two),
+			var(--linear-gradient-stop-three)
+		);
+		background: var(--base), url('fog.svg');
 		background-blend-mode: multiply;
-
+		background-size: cover;
+		background-position: center bottom;
 		font-family: 'Indoor Kid Web';
 		text-shadow: 2px 2px 3px rgba(10, 50, 26, 0.467);
 		color: rgb(238, 237, 246);
+		transition:
+			background-image 1s ease-in-out,
+			background-position 2s ease-in-out;
 	}
 
 	.mode {
