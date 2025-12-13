@@ -419,11 +419,12 @@
 		justify-content: space-between;
 		width: 100%;
 	}
-	.top :nth-child(1),
-	.top :nth-child(3) {
+	.top > :nth-child(1),
+	.top > :nth-child(3) {
 		flex-basis: 30%;
 	}
-	.top :nth-child(2) {
+
+	.top > :nth-child(2) {
 		flex-basis: 40%;
 		text-align: center;
 	}
