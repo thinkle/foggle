@@ -285,7 +285,7 @@
 			var(--linear-gradient-stop-two),
 			var(--linear-gradient-stop-three)
 		);
-		background: var(--base), url('fog.svg');
+		background: var(--base), url('/fog.svg');
 		background-blend-mode: multiply;
 		background-size: cover;
 		background-position: center bottom;
