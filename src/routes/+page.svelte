@@ -97,13 +97,13 @@
 			let stopThree = interpolateColor(startThree, endThree, progressPercentage);
 			// Now build the gradient
 			let gradient = `linear-gradient(to bottom, rgb(${stopOne.join(',')}), rgb(${stopTwo.join(',')}), rgb(${stopThree.join(',')}))`;
-			let bg = `background-image: ${gradient}, url('fog.svg');`;
+			let bg = `background-image: ${gradient}, url('/fog.svg');`;
 			return bg;
 		} else if (isRight) {
 			// complete puzzle background is...
 			// clear blue sky linear gradient
 			let gradient = `linear-gradient(to bottom,  rgb(3, 10, 85), rgb(14, 56, 190), rgb(56, 206, 235))`;
-			let bg = `background-image: ${gradient}, url('fog.svg');`;
+			let bg = `background-image: ${gradient}, url('/fog.svg');`;
 
 			let positions = `background-position: center bottom, center ${window.innerHeight}px`; // animate fog off
 			return `${bg} ; ${positions} ; background-repeat: no-repeat;`;
