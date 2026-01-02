@@ -32,4 +32,13 @@ export const isValid = (word: string) => {
 	return word && words.indexOf(word) > -1;
 };
 
+export const getPuzzleIdFromWord = (word: string): number => {
+	for (let i = 0; i < answers.length; i++) {
+		if (decodeClue(answers[i]) === word) {
+			return i;
+		}
+	}
+	return -1; // Word not found in answers
+};
+
 export const validWords = words;

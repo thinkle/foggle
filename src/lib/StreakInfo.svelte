@@ -1,9 +1,31 @@
 <script lang="ts">
+	import { getWordIdentifier } from './encoder';
 	import { getGameHistory, type GameResult, type SavedGame } from './gameInProgress';
+	import { getPuzzleIdFromWord } from './words';
 
 	let { theWord, victorious, mode } = $props();
 	let completeHistory = $derived(theWord ? getGameHistory() : []);
-	let modeHistory = $derived(completeHistory.filter((g) => g.puzzleType === mode).reverse());
+	let currentGame = $derived.by(() => {
+		if (victorious) {
+			return {
+				puzzleId: getPuzzleIdFromWord(theWord),
+				puzzleType: mode,
+				solved: true,
+				guesses: [theWord],
+				currentWord: theWord,
+				timestamp: Date.now()
+			};
+		}
+	});
+
+	let modeHistory = $derived.by(() => {
+		let hist = completeHistory.filter((g) => g.puzzleType === mode);
+		if (victorious && currentGame) {
+			hist.push(currentGame);
+		}
+		return hist.reverse();
+	});
+
 	let streak = $derived.by(() => {
 		// We're moving backwards through games here...
 		const streak: SavedGame[] = [];
