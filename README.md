@@ -6,7 +6,7 @@ A Wordle-inspired word-game, by Tom Hinkle. I wrote this because:
 (B) I wanted a simple fresh project to use to learn the new version of Svelte (Svelte 5).
 
 This project is currently live at:
-[https://foggle-game.netlify.app](https://foggle-game.netlify.app)
+[https://www.fogglegame.com](https://www.fogglegame.com)
 
 As I built the game, I realized the question of what is "right" is made
 trickier when you don't know how many letters you're guessing. For me, it's important to know if you got the _first_ letter, sure, but _also_ it matters if you have the _last_ letter pinned down.
