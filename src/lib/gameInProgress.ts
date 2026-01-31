@@ -1,4 +1,4 @@
-import { encode, decode, encodeClue, decodeClue } from './encoder';
+import { encode, decode, encodeClue, decodeClue, getWordIdentifier } from './encoder';
 import { getDailyWord } from './words';
 
 export type PuzzleType = 'daily' | 'extra';
@@ -52,9 +52,26 @@ function getAttemptedDailies(): number[] {
 	return dailies;
 }
 
+function normalizeExtraEntry(entry: unknown): string | null {
+	if (typeof entry !== 'string') {
+		return null;
+	}
+	// Legacy entries were encoded clues (long, padded). Migrate to deterministic identifiers.
+	if (entry.length > 8) {
+		try {
+			const word = decodeClue(entry);
+			return getWordIdentifier(word);
+		} catch (e) {
+			console.error('Failed to normalize extra entry:', e);
+			return null;
+		}
+	}
+	return entry;
+}
+
 function getAttemptedExtras(): string[] {
 	const existingExtrasString = localStorage.getItem(COMPLETED_EXTRA_KEY);
-	let extras = [];
+	let extras: unknown[] = [];
 	if (existingExtrasString) {
 		try {
 			extras = JSON.parse(existingExtrasString);
@@ -62,7 +79,12 @@ function getAttemptedExtras(): string[] {
 			console.error('Failed to parse extras:', e);
 		}
 	}
-	return extras;
+	const normalized = extras
+		.map((entry) => normalizeExtraEntry(entry))
+		.filter((entry): entry is string => !!entry);
+	// Persist normalized identifiers to avoid repeated migrations.
+	localStorage.setItem(COMPLETED_EXTRA_KEY, JSON.stringify(normalized));
+	return normalized;
 }
 
 function saveDailyAttempt(puzzleId: number): void {
@@ -78,7 +100,7 @@ function saveDailyAttempt(puzzleId: number): void {
 }
 
 function saveExtraAttempt(word: string): void {
-	const encodedWord = encodeClue(word);
+	const encodedWord = getWordIdentifier(word.toLowerCase());
 	const extras = getAttemptedExtras();
 	if (!extras.includes(encodedWord)) {
 		extras.push(encodedWord);
@@ -87,7 +109,7 @@ function saveExtraAttempt(word: string): void {
 }
 
 export function hasCompletedExtra(word: string): boolean {
-	return getAttemptedExtras().includes(encodeClue(word));
+	return getAttemptedExtras().includes(getWordIdentifier(word.toLowerCase()));
 }
 
 export function hasCompletedDaily(puzzleId: number): boolean {

@@ -3,7 +3,7 @@
 	import GuessArea from '../lib/GuessArea.svelte';
 	import Tutorial from './../lib/Tutorial.svelte';
 	import Keyboard from '../lib/Keyboard.svelte';
-	import { isValid } from '$lib/words';
+	import { getExtraGameByIdentifier, isValid } from '$lib/words';
 	import { onMount } from 'svelte';
 	import { computeFeedback } from '$lib/wordFeedback';
 	import EndScreen from '$lib/EndScreen.svelte';
@@ -26,6 +26,9 @@
 	let isRight = $derived(guesses[guesses.length - 1] === theWord);
 	let initialized = $state(false);
 	let playedDaily: boolean = $state(false);
+	let copiedShareLink = $state(false);
+	let copiedShareLinkTimeout: number | null = null;
+	const baseUrl = 'https://www.fogglegame.com';
 	// feedback object
 	let feedback = $derived(computeFeedback(guesses, theWord));
 	// shorthand
@@ -41,6 +44,16 @@
 			offerNewGameAvailable = true;
 		});
 		let gameAndGuesses = gameManager.loadInitialGame();
+		const shareIdentifier = new URL(window.location.href).searchParams.get('p');
+		if (shareIdentifier) {
+			const sharedGame = getExtraGameByIdentifier(shareIdentifier);
+			if (sharedGame) {
+				gameManager.setMode('extra');
+				gameAndGuesses = { ...sharedGame, guesses: [] };
+			} else {
+				console.warn('Shared puzzle not found for identifier:', shareIdentifier);
+			}
+		}
 
 		guesses = gameAndGuesses.guesses;
 		theGame = gameAndGuesses;
@@ -73,6 +86,33 @@
 			result[i] = Math.round(result[i] + factor * (end[i] - start[i]));
 		}
 		return result;
+	}
+
+	function buildPuzzleShareLink() {
+		const identifier = getWordIdentifier(theWord);
+		return `${baseUrl}/?p=${encodeURIComponent(identifier)}`;
+	}
+
+	async function copyPuzzleShareLink() {
+		const link = buildPuzzleShareLink();
+		try {
+			if (navigator?.clipboard?.writeText) {
+				await navigator.clipboard.writeText(link);
+			} else {
+				window.prompt('Copy this link:', link);
+			}
+			copiedShareLink = true;
+			if (copiedShareLinkTimeout) {
+				clearTimeout(copiedShareLinkTimeout);
+			}
+			copiedShareLinkTimeout = window.setTimeout(() => {
+				copiedShareLink = false;
+				copiedShareLinkTimeout = null;
+			}, 1500);
+		} catch (err) {
+			console.error('Failed to copy link:', err);
+			window.prompt('Copy this link:', link);
+		}
 	}
 
 	let backgroundAdjustments = $derived.by(() => {
@@ -186,7 +226,18 @@
 				<label for="daily-toggle">Daily Puzzle</label>
 				<b>#{puzzleId + 1}</b>
 			{:else if mode === 'extra'}
-				<b>#{getWordIdentifier(theWord)}</b>
+				<span class="puzzle-share-wrap" class:copied={copiedShareLink}>
+					<button
+						class="puzzle-share"
+						onclick={copyPuzzleShareLink}
+						aria-label="Copy puzzle link"
+					>
+						#{getWordIdentifier(theWord)}
+					</button>
+					<span class="puzzle-share-tooltip">
+						{copiedShareLink ? 'Copied' : 'Copy link to puzzle'}
+					</span>
+				</span>
 				<br />
 				<label class="detail" for="daily-toggle"> Unlimited Mode </label>
 			{/if}
@@ -239,6 +290,7 @@
 				{feedback}
 				victory={isRight}
 				{mode}
+				{puzzleId}
 				onPlayAgain={() => {
 					gameManager.setMode('extra');
 					const gameAndGuesses = gameManager.getNewExtraGame();
@@ -305,6 +357,39 @@
 	}
 	.mode .detail {
 		font-size: 0.8em;
+	}
+	.puzzle-share-wrap {
+		position: relative;
+		display: inline-block;
+	}
+	.puzzle-share {
+		font-weight: 700;
+		text-decoration: underline;
+	}
+	.puzzle-share:hover {
+		text-shadow: 2px 2px #222;
+	}
+	.puzzle-share-tooltip {
+		position: absolute;
+		top: 1.9rem;
+		left: 50%;
+		transform: translateX(-50%) translateY(-0.1rem);
+		background: rgba(0, 0, 0, 0.85);
+		color: #fff;
+		padding: 0.2rem 0.4rem;
+		border-radius: 0.4rem;
+		font-size: 0.6em;
+		white-space: nowrap;
+		opacity: 0;
+		pointer-events: none;
+		transition:
+			opacity 150ms ease,
+			transform 150ms ease;
+	}
+	.puzzle-share-wrap:hover .puzzle-share-tooltip,
+	.puzzle-share-wrap.copied .puzzle-share-tooltip {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
 	}
 	.tutorial-button {
 		/* position: fixed; */

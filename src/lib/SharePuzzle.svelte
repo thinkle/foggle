@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { getDayIndex } from '../wordlists/magicNumber.js';
+	import { getWordIdentifier } from './encoder';
 	import type { PuzzleType } from './gameInProgress.ts';
 	import type { ComputedFeedback, FEEDBACK } from './types.ts';
 	import { getPossibleWords } from './foggleBot';
@@ -12,15 +13,18 @@
 		guesses,
 		feedback,
 		victory,
-		mode
+		mode,
+		puzzleId
 	}: {
 		theWord: string;
 		guesses: string[];
 		feedback: ComputedFeedback;
 		victory: boolean;
 		mode: PuzzleType;
+		puzzleId?: number;
 	} = $props();
-	const shareUrl = 'https://www.fogglegame.com';
+	const baseUrl = 'https://www.fogglegame.com';
+	let shareUrl = baseUrl;
 	// Handlers for sharing and copying.
 	let showShareText = $state(false);
 	let shareTextToShow = $state('');
@@ -50,9 +54,13 @@
 	let shareTitle = 'Foggle Result';
 	let shareText = '';
 	if (mode === 'daily') {
-		// If we're in daily mode, we need to get the day index.
-		let dayIndex = getDayIndex();
+		// Prefer the puzzle id from the saved game; fall back to today's index.
+		let dayIndex = typeof puzzleId === 'number' ? puzzleId : getDayIndex();
 		shareTitle = `Foggle #${dayIndex + 1} ${victory ? '✅' : '❌'}\n`;
+	} else if (mode === 'extra') {
+		const identifier = getWordIdentifier(theWord);
+		shareUrl = `${baseUrl}/?p=${encodeURIComponent(identifier)}`;
+		shareTitle = `Foggle ∞ #${identifier} ${victory ? '✅' : '❌'}\n`;
 	}
 	shareText += generateShareText(guesses, theWord);
 

@@ -17,7 +17,8 @@
 		feedback,
 		victory,
 		onPlayAgain,
-		mode
+		mode,
+		puzzleId
 	}: {
 		theWord: string;
 		guesses: string[];
@@ -25,6 +26,7 @@
 		victory: boolean;
 		mode: PuzzleType;
 		onPlayAgain: () => void;
+		puzzleId?: number;
 	} = $props();
 
 	const getExpression = (theWord, positive) => {
@@ -116,9 +118,7 @@
 {/snippet}
 
 {#snippet share()}
-	{#if mode == 'daily'}
-		<SharePuzzle {mode} {theWord} {guesses} {feedback} {victory} />
-	{/if}
+	<SharePuzzle {mode} {theWord} {guesses} {feedback} {victory} {puzzleId} />
 {/snippet}
 
 {#snippet playAgain()}

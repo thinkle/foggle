@@ -21,7 +21,10 @@
 	let modeHistory = $derived.by(() => {
 		let hist = completeHistory.filter((g) => g.puzzleType === mode);
 		if (victorious && currentGame) {
-			hist.push(currentGame);
+			const last = hist[hist.length - 1];
+			if (!last || last.puzzleId !== currentGame.puzzleId) {
+				hist.push(currentGame);
+			}
 		}
 		return hist.reverse();
 	});
