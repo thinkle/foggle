@@ -301,34 +301,34 @@ function calculateConstraints(guesses: string[], guessFeedback: FEEDBACK[][]): C
 			// CORRECT_L implies INCORRECT_R and vice versa
 			// so we can exclude the letter from the other side
 			if (fb === CORRECT_L) {
-				rightBasedExclusions[fromRightIndex] = {
+				rightBasedExclusions.push({
 					index: fromRightIndex,
 					letter,
 					side: 'right'
-				};
+				});
 			}
 			if (fb === CORRECT_R) {
-				leftBasedExclusions[letterIndex] = { index: letterIndex, letter, side: 'left' };
+				leftBasedExclusions.push({ index: letterIndex, letter, side: 'left' });
 			}
 			// Present letters would be green if they were in the right spot
 			// so we know they are not in the right spot
 			if (fb === PRESENT) {
-				rightBasedExclusions[fromRightIndex] = {
+				rightBasedExclusions.push({
 					index: fromRightIndex,
 					letter,
 					side: 'right'
-				};
-				leftBasedExclusions[letterIndex] = { index: letterIndex, letter, side: 'left' };
+				});
+				leftBasedExclusions.push({ index: letterIndex, letter, side: 'left' });
 			}
 			// Incorrect letters that are *also* marked PRESENT/CORRECT_L/CORRECT_B/CORRECT_R in another spot
 			// in the word also can't be in this spot
 			if (fb == INCORRECT && letterHasNonIncorrectElsewhere(letter, letterIndex)) {
-				rightBasedExclusions[fromRightIndex] = {
+				rightBasedExclusions.push({
 					index: fromRightIndex,
 					letter,
 					side: 'right'
-				};
-				leftBasedExclusions[letterIndex] = { index: letterIndex, letter, side: 'left' };
+				});
+				leftBasedExclusions.push({ index: letterIndex, letter, side: 'left' });
 			}
 
 			if (!lengthBanned && (fb == CORRECT_R || fb == CORRECT_L)) {
@@ -357,115 +357,89 @@ function calculateMinWordLength(
 	template: string;
 } {
 	const FILL = '?'; // placeholder for unknown letters that must be there
-	// use a constraint-based approach this time to collect info...
-	const { leftBasedLetters, rightBasedLetters, forbiddenLengths, minSizeBasedOnRight } =
-		calculateConstraints(guesses, guessFeedback);
-
+	const MAX_LENGTH = 64;
+	const {
+		leftBasedLetters,
+		rightBasedLetters,
+		leftBasedExclusions,
+		rightBasedExclusions,
+		forbiddenLengths,
+		minSizeBasedOnRight
+	} = calculateConstraints(guesses, guessFeedback);
 	const { letterCounts } = calculateLetterCounts(guesses, guessFeedback);
-	const smallestWord: Array<string> = [];
-	for (let ci = 0; ci < Math.max(leftBasedLetters.length, minSizeBasedOnRight); ci++) {
-		const constraint = leftBasedLetters[ci];
-		if (!constraint) {
-			smallestWord[ci] = FILL;
-		} else {
-			if (constraint.index !== ci) {
-				console.error('WTF???');
-				throw 'oops';
-			}
-			smallestWord[constraint.index] = constraint.letter;
-		}
+
+	// Try each length from the smallest that fits our green letters upward,
+	// and return the first one where everything we know can be satisfied.
+	const start = Math.max(leftBasedLetters.length, minSizeBasedOnRight, 1);
+	for (let length = start; length <= MAX_LENGTH; length++) {
+		if (forbiddenLengths.includes(length)) continue;
+		const template = tryLength(length);
+		if (template) return { template: template.join(''), length };
 	}
-	let smallestWordLength = smallestWord.length;
+	// Shouldn't happen with consistent feedback, but don't crash the UI.
+	return { template: FILL.repeat(start), length: start };
 
-	// Now make sure there is enough room for our letters
-	// based on letterCounts and if not ADD letters to the right
-	const additionalLetterCount = calculateAdditionalLetterCount();
-	const openLetters = smallestWord.filter((ltr) => ltr === FILL || !ltr).length;
-	if (openLetters < additionalLetterCount) {
-		// we need to add more room to the right
-		// to fit all the letters
-		const extraRoom = additionalLetterCount - openLetters;
-		smallestWordLength = smallestWordLength + extraRoom;
-		while (smallestWord.length < smallestWordLength) {
-			smallestWord.push(FILL);
+	// Can a word of this length satisfy everything we know? If so, return
+	// its template (known letters + FILL), otherwise null.
+	function tryLength(length: number): string[] | null {
+		const slots: (string | null)[] = Array(length).fill(null);
+		for (const c of leftBasedLetters) {
+			if (!c) continue;
+			if (slots[c.index] && slots[c.index] !== c.letter) return null;
+			slots[c.index] = c.letter;
 		}
-	}
-	// Now check if we are a forbidden length...
-	while (forbiddenLengths.includes(smallestWordLength)) {
-		smallestWord.push(FILL);
-		smallestWordLength = smallestWord.length;
-	}
-	const finalSmallWord = finalizeWord(smallestWord)
-		.map((l) => l || '?')
-		.join('');
-	return {
-		template: finalSmallWord,
-		length: finalSmallWord.length
-	};
-
-	// Then, check if we can fit our right based letters and if not
-	// add letters to the right until we can
-	function finalizeWord(smallestWord: Array<string>): Array<string> {
-		const possiblyFinalWord = smallestWord.slice();
-		for (const constraint of rightBasedLetters) {
-			if (!constraint) continue;
-			const { index, letter } = constraint; // right letters are 1-indexed already
-			const adjustedIndex = possiblyFinalWord.length - index;
-			if (possiblyFinalWord[adjustedIndex] === letter) {
-				// already have this letter -- no need to do anything
-				continue;
-			} else if (
-				possiblyFinalWord[adjustedIndex] === FILL ||
-				!possiblyFinalWord[adjustedIndex]
-			) {
-				// we have room -- add the letter
-				possiblyFinalWord[adjustedIndex] = letter;
-			} else {
-				// conflict!
-				// expand...
-				smallestWord[smallestWord.length] = FILL;
-				// recurse!
-				return finalizeWord(smallestWord);
-			}
+		for (const c of rightBasedLetters) {
+			if (!c) continue;
+			const pos = length - c.index; // right indexes are 1-based
+			if (pos < 0) return null;
+			if (slots[pos] && slots[pos] !== c.letter) return null;
+			slots[pos] = c.letter;
 		}
-		// If we got all the right based letters in, let's make
-		// sure we can still fit the unknowns...
-		const openLetters = possiblyFinalWord.filter((ltr) => ltr === FILL || !ltr).length;
-		const additionalLetterCount = calculateAdditionalLetterCount(possiblyFinalWord);
-		if (openLetters < additionalLetterCount) {
-			// we need to add more room to the right
-			// to fit all the letters
 
-			/* Note: we can only by one. You might think we could grow by 
-            openLetters - additionalLetterCount, but that will miss cases
-            where we duplicated letters that were correct from left and right
-            when we applied our left/right logic separately */
-			smallestWordLength = smallestWordLength + 1; // grow by one
+		const excluded = (pos: number, letter: string) =>
+			leftBasedExclusions.some((c) => c && c.index === pos && c.letter === letter) ||
+			rightBasedExclusions.some((c) => c && length - c.index === pos && c.letter === letter);
 
-			smallestWord[smallestWordLength - 1] = FILL;
-			while (forbiddenLengths.includes(smallestWordLength)) {
-				smallestWord.push(FILL);
-				smallestWordLength = smallestWord.length;
-			}
-			return finalizeWord(smallestWord);
-		} else {
-			return possiblyFinalWord;
+		// Known letters must not sit in a spot we know they can't be in.
+		for (let pos = 0; pos < length; pos++) {
+			if (slots[pos] && excluded(pos, slots[pos]!)) return null;
 		}
-	}
 
-	function calculateAdditionalLetterCount(word = smallestWord) {
-		let additionalLetterCount = 0;
+		// Letters we know are in the word but haven't placed yet must each
+		// fit into an open slot they aren't excluded from.
+		const needed: string[] = [];
 		for (const letter in letterCounts) {
-			const minCount = letterCounts[letter];
-			const currentCount = word.filter((ltr) => ltr == letter).length;
-			if (currentCount < minCount) {
-				// we need to add letters to the right
-				// until we have enough room
-				additionalLetterCount += minCount - currentCount;
+			const placed = slots.filter((l) => l === letter).length;
+			for (let n = placed; n < letterCounts[letter]; n++) needed.push(letter);
+		}
+		const open = slots.map((l, pos) => (l ? -1 : pos)).filter((pos) => pos >= 0);
+		if (needed.length > open.length) return null;
+		if (!canAssign(needed, open, excluded)) return null;
+
+		return slots.map((l) => l || FILL);
+	}
+}
+
+// Bipartite matching (Kuhn's algorithm): can every needed letter get its
+// own open slot without landing on a slot it's excluded from?
+function canAssign(
+	needed: string[],
+	open: number[],
+	excluded: (pos: number, letter: string) => boolean
+): boolean {
+	const slotOwner: number[] = Array(open.length).fill(-1);
+	const tryPlace = (li: number, seen: boolean[]): boolean => {
+		for (let si = 0; si < open.length; si++) {
+			if (seen[si] || excluded(open[si], needed[li])) continue;
+			seen[si] = true;
+			if (slotOwner[si] === -1 || tryPlace(slotOwner[si], seen)) {
+				slotOwner[si] = li;
+				return true;
 			}
 		}
-		return additionalLetterCount;
-	}
+		return false;
+	};
+	return needed.every((_, li) => tryPlace(li, Array(open.length).fill(false)));
 }
 
 export function calculateLetterCounts(guesses: string[], guessFeedback: FEEDBACK[][]) {

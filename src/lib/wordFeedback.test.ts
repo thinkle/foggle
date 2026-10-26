@@ -121,7 +121,7 @@ describe('computeFeedback', () => {
 			for (const [target, guess, minWordLength] of [
 				['apple', 'xxxxpxlxxxxxxaxxxxx', 3],
 				['apple', 'pleop', 4],
-				['apple', 'eeav', 2],
+				['apple', 'eeav', 3], // e can't be 1st or 2nd
 				['apple', 'plape', 5],
 				['apple', 'plaepplaep', 5]
 			]) {
@@ -155,11 +155,11 @@ describe('computeFeedback', () => {
 			// be 3 letters long!
 			//
 			// because the "i" is second...
-			// but it could be xigxt, right? -- like digit?
-			// so it *must* be at least 5 letters
+			// and 5 is NIGHT's own length, which the greens rule out.
+			// so it *must* be at least 6 letters: ?igg?t
 			let result = computeFeedback([guess], target);
 			it('night=>biggot should infer 6 letters through fanciness', () => {
-				expect(result.minWordLength, buildDebugMessage([guess], target, result)).toBe(5);
+				expect(result.minWordLength, buildDebugMessage([guess], target, result)).toBe(6);
 			});
 			it('night => bagger: Should be just three without the other letters though', () => {
 				target = 'bagger';
@@ -285,6 +285,24 @@ describe('computeFeedback', () => {
 				expect(result.template, buildDebugMessage(guesses, answer, result)).toBe(
 					'??c?in?ti??'
 				);
+			});
+
+			it('Template respects positions a letter is known NOT to be in', () => {
+				// FRENCH puts N present at index 3; VOLUNTARILY puts N present at index 4;
+				// SNEAKING tells us N is 2nd from the right. So N can't be at
+				// index 3 (length 5) or index 4 (length 6), and 6 is ruled out anyway.
+				const answer = 'element';
+				const guesses = ['french', 'sneaking', 'voluntarily'];
+				const result = computeFeedback(guesses, answer);
+				expect(result.template, buildDebugMessage(guesses, answer, result)).toBe('??e??n?');
+				expect(result.minWordLength).toBe(7);
+			});
+
+			it('Exclusions from multiple guesses at the same position are all kept', () => {
+				// c and d are each present but not first -- both facts should survive
+				const { constraints } = getConstraints(['cxxxx', 'dxxxx'], 'abcde');
+				const leftAt0 = constraints.leftBasedExclusions.filter((c) => c && c.index === 0);
+				expect(leftAt0.map((c) => c!.letter).sort()).toEqual(['c', 'd']);
 			});
 
 			it('Bug found in the wild with wrong word length', () => {
