@@ -283,6 +283,7 @@
 						clearGuessFeedback();
 					}}
 				/>
+				<span class="hard-mode-check" aria-hidden="true"></span>
 				Hard mode
 			</label>
 			<button
@@ -428,7 +429,38 @@
 		cursor: pointer;
 	}
 	.hard-mode input {
+		position: absolute;
+		width: 1.15rem;
+		height: 1.15rem;
 		margin: 0;
+		opacity: 0;
+	}
+	.hard-mode-check {
+		pointer-events: none;
+		display: grid;
+		place-items: center;
+		box-sizing: border-box;
+		width: 1.15rem;
+		height: 1.15rem;
+		border: 2px solid currentColor;
+		border-radius: 0.3rem 0.2rem 0.25rem 0.2rem;
+		transform: rotate(-5deg);
+	}
+	.hard-mode input:checked + .hard-mode-check {
+		background: #242;
+	}
+	.hard-mode input:checked + .hard-mode-check::after {
+		content: '';
+		width: 0.34rem;
+		height: 0.62rem;
+		border: solid currentColor;
+		border-width: 0 0.17rem 0.17rem 0;
+		border-radius: 0 0 0.09rem;
+		transform: translateY(-0.08rem) rotate(39deg);
+	}
+	.hard-mode input:focus-visible + .hard-mode-check {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
 	}
 
 	.tutorial-button {

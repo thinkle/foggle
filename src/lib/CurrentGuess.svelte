@@ -109,6 +109,7 @@
 	}
 	.current-guess {
 		min-height: var(--ltr-height, 3rem);
+		flex-shrink: 0;
 	}
 
 	.invalid {

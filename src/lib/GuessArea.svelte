@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { getGuessConflicts } from './hardMode';
 	import type { ComputedFeedback } from './types.ts';
-	import ClueRing from './ClueRing.svelte';
+	import SpeechBubble from './SpeechBubble.svelte';
+	import ClueBorder from './ClueBorder.svelte';
 	import CurrentGuess from './CurrentGuess.svelte';
 
 	import Word from '$lib/Word.svelte';
@@ -192,36 +193,45 @@
 		></CurrentGuess>
 		<div class="guess-status" role="status">
 			{#if guessConflicts}
-				{#each ['needs', 'bans'] as kind}
-					{@const rules = guessConflicts.rules.filter((rule) => rule.kind === kind)}
-					{#if rules.length}
-						<div class="rule-group">
-							<strong>{kind === 'needs' ? 'Needs' : 'Can’t have'}</strong>
-							<ul>
-								{#each rules.filter((rule) => rule.plain) as rule}
-									<li class="plain">
-										<span class="rule-mark"
-											><ClueRing mark={rule.mark} />{rule.label}</span
-										>
-									</li>
-								{/each}
-								{#each rules.filter((rule) => !rule.plain) as rule}
-									<li>
-										{#if rule.mark === 'present' || rule.mark === 'absent'}
-											<span class="rule-mark" aria-hidden="true"
-												><ClueRing mark={rule.mark} /></span
-											>{rule.label}
-										{:else}
-											<span class="rule-mark"
-												><ClueRing mark={rule.mark} />{rule.label[0]}</span
-											>{rule.label.slice(1)}
-										{/if}
-									</li>
-								{/each}
-							</ul>
-						</div>
-					{/if}
-				{/each}
+				<SpeechBubble compact skew="-3deg">
+					<div class="rule-groups">
+						{#each ['needs', 'bans'] as kind}
+							{@const rules = guessConflicts.rules.filter(
+								(rule) => rule.kind === kind
+							)}
+							{#if rules.length}
+								<div class="rule-group">
+									<strong>{kind === 'needs' ? 'Needs' : 'Can’t have'}</strong>
+									<ul>
+										{#each rules.filter((rule) => rule.plain) as rule}
+											<li class="plain">
+												<span class="rule-mark"
+													><ClueBorder
+														mark={rule.mark}
+													/>{rule.label}</span
+												>
+											</li>
+										{/each}
+										{#each rules.filter((rule) => !rule.plain) as rule}
+											<li>
+												{#if rule.mark === 'present' || rule.mark === 'absent'}
+													<span class="rule-mark" aria-hidden="true"
+														><ClueBorder mark={rule.mark} /></span
+													>{rule.label}
+												{:else}
+													<span class="rule-mark"
+														><ClueBorder mark={rule.mark} />{rule
+															.label[0]}</span
+													>{rule.label.slice(1)}
+												{/if}
+											</li>
+										{/each}
+									</ul>
+								</div>
+							{/if}
+						{/each}
+					</div>
+				</SpeechBubble>
 			{/if}
 		</div>
 	{/if}
@@ -230,23 +240,24 @@
 <style>
 	.guess-status {
 		align-self: center;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem 1.5rem;
-		max-width: min(100%, 34rem);
-		box-sizing: border-box;
+		max-width: 100%;
 	}
 	.guess-status:empty {
 		margin-top: -0.5rem;
 	}
-	.guess-status:not(:empty) {
-		padding: 0.5rem 0.75rem;
-		border-radius: 0.5rem;
-		background: #24202d;
-		color: white;
+	.rule-groups {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 0.7rem;
+		transform: skewX(3deg);
 		font:
-			0.875rem system-ui,
+			0.875rem/1.25 system-ui,
 			sans-serif;
+	}
+	.rule-group strong {
+		font-family: 'Indoor Kid Web', sans-serif;
+		font-size: 1.05rem;
+		font-weight: 800;
 	}
 	.rule-group ul {
 		list-style: none;
@@ -260,10 +271,22 @@
 		display: inline-grid;
 		place-items: center;
 		position: relative;
-		width: 1.65rem;
-		height: 1.65rem;
-		margin-right: 0.2rem;
+		width: 1.45rem;
+		height: 1.45rem;
+		margin: 0.08rem 0.3rem 0.08rem 0;
+		border-radius: 0.32rem;
+		background: var(--white);
+		color: #224;
+		text-shadow: none;
+		font-family: 'Indoor Kid Web', sans-serif;
+		font-size: 1rem;
+		font-weight: 800;
 		vertical-align: middle;
+	}
+	@media (max-width: 350px) {
+		.rule-groups {
+			font-size: 0.8rem;
+		}
 	}
 	button {
 		font-family: 'Indoor Kid Web';

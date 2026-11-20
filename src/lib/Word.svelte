@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { CORRECT_L, CORRECT_R, CORRECT_B, PRESENT, INCORRECT } from './types';
-	import ClueRing from './ClueRing.svelte';
+	import ClueBorder from './ClueBorder.svelte';
 	import type { ClueMark } from './hardMode';
 	import type { FEEDBACK } from './types';
 
@@ -48,7 +48,7 @@
 		>
 			{letter}
 			{#each clueMarks?.[origIndex] ?? [] as mark}
-				<ClueRing {mark} />
+				<ClueBorder {mark} />
 			{/each}
 		</div>
 	{/each}
