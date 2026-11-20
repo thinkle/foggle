@@ -8,13 +8,15 @@
 		answer,
 		feedback,
 		align = 'center',
-		animate = false
+		animate = false,
+		conflictingTile = undefined
 	}: {
 		word: string;
 		answer: string;
 		feedback: FEEDBACK[] | undefined;
 		align?: 'left' | 'right' | 'center';
 		animate?: boolean;
+		conflictingTile?: number;
 	} = $props();
 
 	// For RTL, reverse the array for correct wrapping
@@ -34,6 +36,7 @@
 		<div
 			class="letter"
 			class:no-anim={!animate}
+			class:conflicting={origIndex === conflictingTile}
 			style="--letter-num: {letterNum}"
 			class:present={feedback && feedback[origIndex] === PRESENT}
 			class:correct-left={feedback && feedback[origIndex] === CORRECT_L}
@@ -105,6 +108,11 @@
 		animation-timing-function: ease-out;
 		animation-fill-mode: both;
 		animation-delay: calc(var(--letter-num, 1) * var(--letter-delay));
+	}
+
+	.letter.conflicting {
+		outline: 3px solid #ffcf8a;
+		outline-offset: -3px;
 	}
 
 	/* Feedback Styles */

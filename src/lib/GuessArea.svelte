@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { getGuessConflict } from './hardMode';
 	import type { ComputedFeedback } from './types.ts';
 	import CurrentGuess from './CurrentGuess.svelte';
 
@@ -15,6 +16,7 @@
 		feedback,
 		isRight,
 		isInvalid,
+		guessConflict = null,
 		justify = undefined,
 		isDemo = false,
 		letterSize = undefined
@@ -25,6 +27,7 @@
 		feedback: ComputedFeedback | undefined;
 		isRight: boolean;
 		isInvalid: boolean;
+		guessConflict?: ReturnType<typeof getGuessConflict>;
 		justify?: 'left' | 'right' | 'center' | 'alternate';
 		isDemo?: boolean;
 		letterSize?: number;
@@ -113,7 +116,7 @@
 
 	// Autoscroll on new guess
 	$effect(() => {
-		if (guesses.length || nextGuess) {
+		if (guessConflict || guesses.length || nextGuess) {
 			guessContainer.scrollTop = guessContainer.scrollHeight;
 		}
 	});
@@ -173,6 +176,7 @@
 			word={guess}
 			answer={theWord}
 			feedback={feedback.guessFeedback[i]}
+			conflictingTile={guessConflict?.row === i ? guessConflict.tile : undefined}
 			align={justifyMode}
 			animate={i == guesses.length - 1 && justify !== 'alternate' && !wasManuallyAligned}
 		/>
@@ -185,10 +189,36 @@
 			template={feedback.template}
 			align={justifyMode}
 		></CurrentGuess>
+		<div class="guess-status" role="status">
+			{#if guessConflict}
+				<p>
+					<strong>Clue from {guesses[guessConflict.row].toUpperCase()}.</strong>
+					{guessConflict.reason}
+				</p>
+			{/if}
+		</div>
 	{/if}
 </div>
 
 <style>
+	.guess-status {
+		align-self: center;
+	}
+	.guess-status:empty {
+		margin-top: -0.5rem;
+	}
+	.guess-status p {
+		max-width: 30rem;
+		margin: 0;
+		padding: 0.4rem 0.65rem;
+		border: 1px solid #ffcf8a;
+		border-radius: 0.5rem;
+		background: #24202d;
+		color: white;
+		font-family: system-ui, sans-serif;
+		font-size: 0.875rem;
+	}
+
 	button {
 		font-family: 'Indoor Kid Web';
 		background: transparent;
