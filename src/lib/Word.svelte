@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { CORRECT_L, CORRECT_R, CORRECT_B, PRESENT, INCORRECT } from './types';
+	import ClueBorder from './ClueBorder.svelte';
+	import type { ClueMark } from './hardMode';
 	import type { FEEDBACK } from './types';
 
 	const NOANSWER = '';
@@ -8,13 +10,15 @@
 		answer,
 		feedback,
 		align = 'center',
-		animate = false
+		animate = false,
+		clueMarks = undefined
 	}: {
 		word: string;
 		answer: string;
 		feedback: FEEDBACK[] | undefined;
 		align?: 'left' | 'right' | 'center';
 		animate?: boolean;
+		clueMarks?: ClueMark[][];
 	} = $props();
 
 	// For RTL, reverse the array for correct wrapping
@@ -34,6 +38,7 @@
 		<div
 			class="letter"
 			class:no-anim={!animate}
+			class:conflicting={!!clueMarks?.[origIndex]?.length}
 			style="--letter-num: {letterNum}"
 			class:present={feedback && feedback[origIndex] === PRESENT}
 			class:correct-left={feedback && feedback[origIndex] === CORRECT_L}
@@ -42,6 +47,9 @@
 			class:incorrect={feedback && feedback[origIndex] === INCORRECT}
 		>
 			{letter}
+			{#each clueMarks?.[origIndex] ?? [] as mark}
+				<ClueBorder {mark} />
+			{/each}
 		</div>
 	{/each}
 </div>
@@ -105,6 +113,10 @@
 		animation-timing-function: ease-out;
 		animation-fill-mode: both;
 		animation-delay: calc(var(--letter-num, 1) * var(--letter-delay));
+	}
+
+	.letter.conflicting {
+		position: relative;
 	}
 
 	/* Feedback Styles */

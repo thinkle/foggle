@@ -5,6 +5,7 @@
 	import Keyboard from '../lib/Keyboard.svelte';
 	import { getExtraGameByIdentifier, isValid } from '$lib/words';
 	import { onMount } from 'svelte';
+	import { getGuessConflicts } from '$lib/hardMode';
 	import { computeFeedback } from '$lib/wordFeedback';
 	import EndScreen from '$lib/EndScreen.svelte';
 	import type { Game } from '$lib/types';
@@ -22,12 +23,15 @@
 	let guesses: string[] = $state([]);
 	let nextGuess: string = $state('');
 	let isInvalid: boolean = $state(false);
+	let hardMode = $state(false);
+	let guessConflicts = $state<ReturnType<typeof getGuessConflicts>>(null);
 	let offerNewGameAvailable: boolean = $state(false);
 	let isRight = $derived(guesses[guesses.length - 1] === theWord);
 	let initialized = $state(false);
 	let playedDaily: boolean = $state(false);
 	let copiedShareLink = $state(false);
 	let copiedShareLinkTimeout: number | null = null;
+	const HARD_MODE_KEY = 'hardMode';
 	const baseUrl = 'https://www.fogglegame.com';
 	// feedback object
 	let feedback = $derived(computeFeedback(guesses, theWord));
@@ -35,6 +39,7 @@
 	let { letterFeedback, progress, minWordLength, letterKnowledge } = $derived(feedback);
 
 	onMount(() => {
+		hardMode = localStorage.getItem(HARD_MODE_KEY) === 'true';
 		if (localStorage.getItem('seenTutorial')) {
 			showTutorial = false;
 		}
@@ -150,30 +155,48 @@
 		}
 	});
 
+	function clearGuessFeedback() {
+		isInvalid = false;
+		guessConflicts = null;
+	}
+
+	function setHardMode(enabled: boolean) {
+		hardMode = enabled;
+		localStorage.setItem(HARD_MODE_KEY, String(enabled));
+		clearGuessFeedback();
+	}
+
+	function editGuess(word: string) {
+		nextGuess = word;
+		clearGuessFeedback();
+	}
+
 	function submitGuess() {
-		// Should we allow guesses that aren't long enough
-		// even on the last guess?
-		//if (nextGuess.length >= minWordLength) {
-		if (isValid(nextGuess)) {
-			guesses = [...guesses, nextGuess];
-			nextGuess = '';
-		} else {
+		if (!initialized || showTutorial || isRight || guesses.length >= 6) return;
+		clearGuessFeedback();
+		if (!isValid(nextGuess)) {
 			isInvalid = true;
+			return;
 		}
+		if (hardMode) {
+			guessConflicts = getGuessConflicts(nextGuess, guesses, feedback.guessFeedback);
+			if (guessConflicts) return;
+		}
+		guesses = [...guesses, nextGuess];
+		editGuess('');
 	}
 
 	// Handle keydown events
 	function handleKeydown(event: KeyboardEvent) {
+		if (showTutorial || isRight || guesses.length >= 6) return;
 		const key = event.key.toLowerCase();
 
 		if (/^[a-z]$/.test(key)) {
 			// If the key is a letter, add it to the guess
-			nextGuess += key;
-			isInvalid = false;
+			editGuess(nextGuess + key);
 		} else if (key === 'backspace' || key === 'delete') {
 			// Handle backspace or delete
-			nextGuess = nextGuess.substring(0, nextGuess.length - 1);
-			isInvalid = false;
+			editGuess(nextGuess.slice(0, -1));
 		} else if (key === 'enter') {
 			// Handle submit
 			submitGuess();
@@ -203,7 +226,7 @@
 						gameManager.setMode('extra');
 						theGame = gameManager.getNewExtraGame();
 						guesses = theGame.guesses;
-						nextGuess = '';
+						editGuess('');
 					}}
 				>
 					{new Date().toLocaleDateString('en-US', { month: 'numeric', day: '2-digit' })}
@@ -216,7 +239,7 @@
 						gameManager.setMode('daily');
 						theGame = gameManager.getDailyGame();
 						guesses = theGame.guesses;
-						nextGuess = '';
+						editGuess('');
 					}}
 				>
 					∞
@@ -251,13 +274,23 @@
 						gameManager.setMode('daily');
 						theGame = gameManager.getDailyGame();
 						guesses = [];
-						nextGuess = '';
+						editGuess('');
 						offerNewGameAvailable = false;
 					}}>New Daily Puzzle Available!</button
 				>
 			{/if}
 		</div>
-		<div style="display: flex; justify-content: flex-end">
+		<div class="controls">
+			<label class="hard-mode">
+				<input
+					type="checkbox"
+					checked={hardMode}
+					disabled={!initialized}
+					onchange={(event) => setHardMode(event.currentTarget.checked)}
+				/>
+				<span class="hard-mode-check" aria-hidden="true"></span>
+				Hard mode
+			</label>
 			<button
 				class="tutorial-button"
 				onclick={() => (showTutorial = true)}
@@ -267,19 +300,14 @@
 	</div>
 
 	{#key theWord}
-		<GuessArea {theWord} {guesses} {isInvalid} {isRight} {nextGuess} {feedback}></GuessArea>
+		<GuessArea {theWord} {guesses} {isInvalid} {isRight} {nextGuess} {feedback} {guessConflicts}
+		></GuessArea>
 		<!-- Input -->
 		{#if !isRight && guesses.length < 6}
 			<Keyboard
 				{letterFeedback}
-				oninput={(ltr: string) => {
-					nextGuess += ltr;
-					isInvalid = false;
-				}}
-				ondelete={() => {
-					nextGuess = nextGuess.substring(0, nextGuess.length - 1);
-					isInvalid = false;
-				}}
+				oninput={(ltr: string) => editGuess(nextGuess + ltr)}
+				ondelete={() => editGuess(nextGuess.slice(0, -1))}
 				onsubmit={submitGuess}
 				lastLetter={nextGuess[nextGuess.length - 1]}
 			/>
@@ -296,6 +324,7 @@
 					const gameAndGuesses = gameManager.getNewExtraGame();
 					guesses = gameAndGuesses.guesses;
 					theGame = gameAndGuesses;
+					editGuess('');
 				}}
 			/>
 		{/if}
@@ -391,6 +420,54 @@
 		opacity: 1;
 		transform: translateX(-50%) translateY(0);
 	}
+	.controls {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		justify-content: flex-end;
+		align-items: center;
+	}
+	.hard-mode {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		white-space: nowrap;
+		cursor: pointer;
+	}
+	.hard-mode input {
+		position: absolute;
+		width: 1.15rem;
+		height: 1.15rem;
+		margin: 0;
+		opacity: 0;
+	}
+	.hard-mode-check {
+		pointer-events: none;
+		display: grid;
+		place-items: center;
+		box-sizing: border-box;
+		width: 1.15rem;
+		height: 1.15rem;
+		border: 2px solid currentColor;
+		border-radius: 0.3rem 0.2rem 0.25rem 0.2rem;
+		transform: rotate(-5deg);
+	}
+	.hard-mode input:checked + .hard-mode-check {
+		background: #242;
+	}
+	.hard-mode input:checked + .hard-mode-check::after {
+		content: '';
+		width: 0.34rem;
+		height: 0.62rem;
+		border: solid currentColor;
+		border-width: 0 0.17rem 0.17rem 0;
+		border-radius: 0 0 0.09rem;
+		transform: translateY(-0.08rem) rotate(39deg);
+	}
+	.hard-mode input:focus-visible + .hard-mode-check {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
+	}
+
 	.tutorial-button {
 		/* position: fixed; */
 		top: 1rem;
