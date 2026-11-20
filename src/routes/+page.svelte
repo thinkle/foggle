@@ -31,6 +31,7 @@
 	let playedDaily: boolean = $state(false);
 	let copiedShareLink = $state(false);
 	let copiedShareLinkTimeout: number | null = null;
+	const HARD_MODE_KEY = 'hardMode';
 	const baseUrl = 'https://www.fogglegame.com';
 	// feedback object
 	let feedback = $derived(computeFeedback(guesses, theWord));
@@ -38,7 +39,7 @@
 	let { letterFeedback, progress, minWordLength, letterKnowledge } = $derived(feedback);
 
 	onMount(() => {
-		hardMode = localStorage.getItem('hardMode') === 'true';
+		hardMode = localStorage.getItem(HARD_MODE_KEY) === 'true';
 		if (localStorage.getItem('seenTutorial')) {
 			showTutorial = false;
 		}
@@ -159,6 +160,12 @@
 		guessConflicts = null;
 	}
 
+	function setHardMode(enabled: boolean) {
+		hardMode = enabled;
+		localStorage.setItem(HARD_MODE_KEY, String(enabled));
+		clearGuessFeedback();
+	}
+
 	function editGuess(word: string) {
 		nextGuess = word;
 		clearGuessFeedback();
@@ -277,11 +284,9 @@
 			<label class="hard-mode">
 				<input
 					type="checkbox"
-					bind:checked={hardMode}
-					onchange={(event) => {
-						localStorage.setItem('hardMode', String(event.currentTarget.checked));
-						clearGuessFeedback();
-					}}
+					checked={hardMode}
+					disabled={!initialized}
+					onchange={(event) => setHardMode(event.currentTarget.checked)}
 				/>
 				<span class="hard-mode-check" aria-hidden="true"></span>
 				Hard mode
