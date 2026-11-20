@@ -1,6 +1,7 @@
 <script lang="ts">
-	import type { getGuessConflict } from './hardMode';
+	import type { getGuessConflicts } from './hardMode';
 	import type { ComputedFeedback } from './types.ts';
+	import ClueRing from './ClueRing.svelte';
 	import CurrentGuess from './CurrentGuess.svelte';
 
 	import Word from '$lib/Word.svelte';
@@ -16,7 +17,7 @@
 		feedback,
 		isRight,
 		isInvalid,
-		guessConflict = null,
+		guessConflicts = null,
 		justify = undefined,
 		isDemo = false,
 		letterSize = undefined
@@ -27,7 +28,7 @@
 		feedback: ComputedFeedback | undefined;
 		isRight: boolean;
 		isInvalid: boolean;
-		guessConflict?: ReturnType<typeof getGuessConflict>;
+		guessConflicts?: ReturnType<typeof getGuessConflicts>;
 		justify?: 'left' | 'right' | 'center' | 'alternate';
 		isDemo?: boolean;
 		letterSize?: number;
@@ -116,7 +117,7 @@
 
 	// Autoscroll on new guess
 	$effect(() => {
-		if (guessConflict || guesses.length || nextGuess) {
+		if (guessConflicts || guesses.length || nextGuess) {
 			guessContainer.scrollTop = guessContainer.scrollHeight;
 		}
 	});
@@ -176,7 +177,7 @@
 			word={guess}
 			answer={theWord}
 			feedback={feedback.guessFeedback[i]}
-			conflictingTile={guessConflict?.row === i ? guessConflict.tile : undefined}
+			clueMarks={guessConflicts?.tiles[i]}
 			align={justifyMode}
 			animate={i == guesses.length - 1 && justify !== 'alternate' && !wasManuallyAligned}
 		/>
@@ -190,11 +191,37 @@
 			align={justifyMode}
 		></CurrentGuess>
 		<div class="guess-status" role="status">
-			{#if guessConflict}
-				<p>
-					<strong>Clue from {guesses[guessConflict.row].toUpperCase()}.</strong>
-					{guessConflict.reason}
-				</p>
+			{#if guessConflicts}
+				{#each ['needs', 'bans'] as kind}
+					{@const rules = guessConflicts.rules.filter((rule) => rule.kind === kind)}
+					{#if rules.length}
+						<div class="rule-group">
+							<strong>{kind === 'needs' ? 'Needs' : 'Can’t have'}</strong>
+							<ul>
+								{#each rules.filter((rule) => rule.plain) as rule}
+									<li class="plain">
+										<span class="rule-mark"
+											><ClueRing mark={rule.mark} />{rule.label}</span
+										>
+									</li>
+								{/each}
+								{#each rules.filter((rule) => !rule.plain) as rule}
+									<li>
+										{#if rule.mark === 'present' || rule.mark === 'absent'}
+											<span class="rule-mark" aria-hidden="true"
+												><ClueRing mark={rule.mark} /></span
+											>{rule.label}
+										{:else}
+											<span class="rule-mark"
+												><ClueRing mark={rule.mark} />{rule.label[0]}</span
+											>{rule.label.slice(1)}
+										{/if}
+									</li>
+								{/each}
+							</ul>
+						</div>
+					{/if}
+				{/each}
 			{/if}
 		</div>
 	{/if}
@@ -203,22 +230,41 @@
 <style>
 	.guess-status {
 		align-self: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.5rem;
+		max-width: min(100%, 34rem);
+		box-sizing: border-box;
 	}
 	.guess-status:empty {
 		margin-top: -0.5rem;
 	}
-	.guess-status p {
-		max-width: 30rem;
-		margin: 0;
-		padding: 0.4rem 0.65rem;
-		border: 1px solid #ffcf8a;
+	.guess-status:not(:empty) {
+		padding: 0.5rem 0.75rem;
 		border-radius: 0.5rem;
 		background: #24202d;
 		color: white;
-		font-family: system-ui, sans-serif;
-		font-size: 0.875rem;
+		font:
+			0.875rem system-ui,
+			sans-serif;
 	}
-
+	.rule-group ul {
+		list-style: none;
+		padding: 0;
+		margin: 0.25rem 0 0;
+	}
+	.rule-group .plain {
+		display: inline-block;
+	}
+	.rule-mark {
+		display: inline-grid;
+		place-items: center;
+		position: relative;
+		width: 1.65rem;
+		height: 1.65rem;
+		margin-right: 0.2rem;
+		vertical-align: middle;
+	}
 	button {
 		font-family: 'Indoor Kid Web';
 		background: transparent;

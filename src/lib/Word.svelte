@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { CORRECT_L, CORRECT_R, CORRECT_B, PRESENT, INCORRECT } from './types';
+	import ClueRing from './ClueRing.svelte';
+	import type { ClueMark } from './hardMode';
 	import type { FEEDBACK } from './types';
 
 	const NOANSWER = '';
@@ -9,14 +11,14 @@
 		feedback,
 		align = 'center',
 		animate = false,
-		conflictingTile = undefined
+		clueMarks = undefined
 	}: {
 		word: string;
 		answer: string;
 		feedback: FEEDBACK[] | undefined;
 		align?: 'left' | 'right' | 'center';
 		animate?: boolean;
-		conflictingTile?: number;
+		clueMarks?: ClueMark[][];
 	} = $props();
 
 	// For RTL, reverse the array for correct wrapping
@@ -36,7 +38,7 @@
 		<div
 			class="letter"
 			class:no-anim={!animate}
-			class:conflicting={origIndex === conflictingTile}
+			class:conflicting={!!clueMarks?.[origIndex]?.length}
 			style="--letter-num: {letterNum}"
 			class:present={feedback && feedback[origIndex] === PRESENT}
 			class:correct-left={feedback && feedback[origIndex] === CORRECT_L}
@@ -45,6 +47,9 @@
 			class:incorrect={feedback && feedback[origIndex] === INCORRECT}
 		>
 			{letter}
+			{#each clueMarks?.[origIndex] ?? [] as mark}
+				<ClueRing {mark} />
+			{/each}
 		</div>
 	{/each}
 </div>
@@ -111,8 +116,7 @@
 	}
 
 	.letter.conflicting {
-		outline: 3px solid #ffcf8a;
-		outline-offset: -3px;
+		position: relative;
 	}
 
 	/* Feedback Styles */

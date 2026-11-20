@@ -5,7 +5,7 @@
 	import Keyboard from '../lib/Keyboard.svelte';
 	import { getExtraGameByIdentifier, isValid } from '$lib/words';
 	import { onMount } from 'svelte';
-	import { getGuessConflict } from '$lib/hardMode';
+	import { getGuessConflicts } from '$lib/hardMode';
 	import { computeFeedback } from '$lib/wordFeedback';
 	import EndScreen from '$lib/EndScreen.svelte';
 	import type { Game } from '$lib/types';
@@ -24,7 +24,7 @@
 	let nextGuess: string = $state('');
 	let isInvalid: boolean = $state(false);
 	let hardMode = $state(false);
-	let guessConflict = $state<ReturnType<typeof getGuessConflict>>(null);
+	let guessConflicts = $state<ReturnType<typeof getGuessConflicts>>(null);
 	let offerNewGameAvailable: boolean = $state(false);
 	let isRight = $derived(guesses[guesses.length - 1] === theWord);
 	let initialized = $state(false);
@@ -156,7 +156,7 @@
 
 	function clearGuessFeedback() {
 		isInvalid = false;
-		guessConflict = null;
+		guessConflicts = null;
 	}
 
 	function editGuess(word: string) {
@@ -172,8 +172,8 @@
 			return;
 		}
 		if (hardMode) {
-			guessConflict = getGuessConflict(nextGuess, guesses, feedback.guessFeedback);
-			if (guessConflict) return;
+			guessConflicts = getGuessConflicts(nextGuess, guesses, feedback.guessFeedback);
+			if (guessConflicts) return;
 		}
 		guesses = [...guesses, nextGuess];
 		editGuess('');
@@ -294,7 +294,7 @@
 	</div>
 
 	{#key theWord}
-		<GuessArea {theWord} {guesses} {isInvalid} {isRight} {nextGuess} {feedback} {guessConflict}
+		<GuessArea {theWord} {guesses} {isInvalid} {isRight} {nextGuess} {feedback} {guessConflicts}
 		></GuessArea>
 		<!-- Input -->
 		{#if !isRight && guesses.length < 6}
