@@ -16,6 +16,7 @@
 		guesses,
 		feedback,
 		victory,
+		hardModeWin = false,
 		onPlayAgain,
 		mode,
 		puzzleId
@@ -24,6 +25,7 @@
 		guesses: string[];
 		feedback: ComputedFeedback;
 		victory: boolean;
+		hardModeWin?: boolean;
 		mode: PuzzleType;
 		onPlayAgain: () => void;
 		puzzleId?: number;
@@ -118,7 +120,7 @@
 {/snippet}
 
 {#snippet share()}
-	<SharePuzzle {mode} {theWord} {guesses} {feedback} {victory} {puzzleId} />
+	<SharePuzzle {mode} {theWord} {guesses} {feedback} {victory} {hardModeWin} {puzzleId} />
 {/snippet}
 
 {#snippet playAgain()}
@@ -138,7 +140,7 @@
 	<div class="victory end-screen">
 		<SpeechBubble position="left">
 			<p>
-				The <em>fog</em> has <em>lifted</em>!
+				The <em>fog</em> has <em>lifted</em>!{#if hardModeWin}<span class="hard-asterisk" title="Won in hard mode">*</span>{/if}
 				<br /><span class="big"
 					>{'{'}{guesses.length == 1 ? 'Bingo!' : expression}{'}'}</span
 				>

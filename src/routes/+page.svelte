@@ -24,6 +24,8 @@
 	let nextGuess: string = $state('');
 	let isInvalid: boolean = $state(false);
 	let hardMode = $state(false);
+	// True while hard mode has been on for every guess so far and was never switched off mid-game.
+	let hardModeWhole = $state(true);
 	let guessConflicts = $state<ReturnType<typeof getGuessConflicts>>(null);
 	let offerNewGameAvailable: boolean = $state(false);
 	let isRight = $derived(guesses[guesses.length - 1] === theWord);
@@ -54,13 +56,14 @@
 			const sharedGame = getExtraGameByIdentifier(shareIdentifier);
 			if (sharedGame) {
 				gameManager.setMode('extra');
-				gameAndGuesses = { ...sharedGame, guesses: [] };
+				gameAndGuesses = { ...sharedGame, guesses: [], hardModeWhole: true };
 			} else {
 				console.warn('Shared puzzle not found for identifier:', shareIdentifier);
 			}
 		}
 
 		guesses = gameAndGuesses.guesses;
+		hardModeWhole = gameAndGuesses.hardModeWhole;
 		theGame = gameAndGuesses;
 		initialized = true;
 	});
@@ -71,7 +74,8 @@
 				currentWord: theWord,
 				guesses: guesses,
 				puzzleType: mode,
-				puzzleId: puzzleId
+				puzzleId: puzzleId,
+				hardModeWhole
 			});
 		}
 	});
@@ -161,6 +165,10 @@
 	}
 
 	function setHardMode(enabled: boolean) {
+		// Turning hard mode off after the first guess of an unfinished game forfeits the asterisk.
+		if (!enabled && guesses.length > 0 && !isRight && guesses.length < 6) {
+			hardModeWhole = false;
+		}
 		hardMode = enabled;
 		localStorage.setItem(HARD_MODE_KEY, String(enabled));
 		clearGuessFeedback();
@@ -182,6 +190,8 @@
 			guessConflicts = getGuessConflicts(nextGuess, guesses, feedback.guessFeedback);
 			if (guessConflicts) return;
 		}
+		// A guess made in normal mode forfeits the asterisk for good (turning hard mode on later doesn't restore it).
+		if (!hardMode) hardModeWhole = false;
 		guesses = [...guesses, nextGuess];
 		editGuess('');
 	}
@@ -224,8 +234,10 @@
 					class="daily"
 					onclick={() => {
 						gameManager.setMode('extra');
-						theGame = gameManager.getNewExtraGame();
-						guesses = theGame.guesses;
+						const g = gameManager.getNewExtraGame();
+						theGame = g;
+						guesses = g.guesses;
+						hardModeWhole = g.hardModeWhole;
 						editGuess('');
 					}}
 				>
@@ -237,8 +249,10 @@
 					class="infinite"
 					onclick={() => {
 						gameManager.setMode('daily');
-						theGame = gameManager.getDailyGame();
-						guesses = theGame.guesses;
+						const g = gameManager.getDailyGame();
+						theGame = g;
+						guesses = g.guesses;
+						hardModeWhole = g.hardModeWhole;
 						editGuess('');
 					}}
 				>
@@ -274,6 +288,7 @@
 						gameManager.setMode('daily');
 						theGame = gameManager.getDailyGame();
 						guesses = [];
+						hardModeWhole = true;
 						editGuess('');
 						offerNewGameAvailable = false;
 					}}>New Daily Puzzle Available!</button
@@ -317,12 +332,14 @@
 				{guesses}
 				{feedback}
 				victory={isRight}
+				hardModeWin={isRight && hardModeWhole}
 				{mode}
 				{puzzleId}
 				onPlayAgain={() => {
 					gameManager.setMode('extra');
 					const gameAndGuesses = gameManager.getNewExtraGame();
 					guesses = gameAndGuesses.guesses;
+					hardModeWhole = gameAndGuesses.hardModeWhole;
 					theGame = gameAndGuesses;
 					editGuess('');
 				}}

@@ -13,6 +13,7 @@
 		guesses,
 		feedback,
 		victory,
+		hardModeWin = false,
 		mode,
 		puzzleId
 	}: {
@@ -20,6 +21,7 @@
 		guesses: string[];
 		feedback: ComputedFeedback;
 		victory: boolean;
+		hardModeWin?: boolean;
 		mode: PuzzleType;
 		puzzleId?: number;
 	} = $props();
@@ -56,11 +58,11 @@
 	if (mode === 'daily') {
 		// Prefer the puzzle id from the saved game; fall back to today's index.
 		let dayIndex = typeof puzzleId === 'number' ? puzzleId : getDayIndex();
-		shareTitle = `Foggle #${dayIndex + 1} ${victory ? '✅' : '❌'}\n`;
+		shareTitle = `Foggle #${dayIndex + 1} ${victory ? '✅' : '❌'}${victory && hardModeWin ? '*' : ''}\n`;
 	} else if (mode === 'extra') {
 		const identifier = getWordIdentifier(theWord);
 		shareUrl = `${baseUrl}/?p=${encodeURIComponent(identifier)}`;
-		shareTitle = `Foggle ∞ #${identifier} ${victory ? '✅' : '❌'}\n`;
+		shareTitle = `Foggle ∞ #${identifier} ${victory ? '✅' : '❌'}${victory && hardModeWin ? '*' : ''}\n`;
 	}
 	shareText += generateShareText(guesses, theWord);
 
