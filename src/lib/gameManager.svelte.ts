@@ -9,8 +9,7 @@ import {
 	getSavedMode,
 	hasCompletedDaily,
 	hasCompletedExtra,
-	setSavedMode,
-	type SavedGame
+	setSavedMode
 } from './gameInProgress';
 import type { Game } from './types';
 import { getDailyWord, getRandomGame } from './words';
@@ -21,14 +20,7 @@ const callbacks: (() => void)[] = [];
 
 type GameAndGuesses = Game & {
 	guesses: string[];
-	/** Hard mode has been on for the whole game so far (always true before the first guess). */
-	hardModeWhole: boolean;
 };
-
-// Legacy saves have no flag; treat an in-progress legacy game as not whole-game hard.
-function wholeFlag(saved: SavedGame): boolean {
-	return saved.hardModeWhole ?? saved.guesses.length === 0;
-}
 
 function loadInitialGame(): GameAndGuesses {
 	const mode = getSavedMode();
@@ -39,8 +31,7 @@ function loadInitialGame(): GameAndGuesses {
 				id: saved.puzzleId,
 				type: saved.puzzleType,
 				word: saved.currentWord,
-				guesses: saved.guesses,
-				hardModeWhole: wholeFlag(saved)
+				guesses: saved.guesses
 			};
 		}
 		return getDailyGame();
@@ -71,8 +62,7 @@ function loadInitialGameOld(): GameAndGuesses {
 			id: savedGame.puzzleId,
 			type: savedGame.puzzleType,
 			word: savedGame.currentWord,
-			guesses: savedGame.guesses,
-			hardModeWhole: wholeFlag(savedGame)
+				guesses: savedGame.guesses
 		};
 	} else {
 		return getDailyGame();
@@ -90,8 +80,7 @@ function getDailyGame(): GameAndGuesses {
 			id: todaysPuzzle,
 			type: 'daily',
 			word: getDailyWord(),
-			guesses: [],
-			hardModeWhole: true
+			guesses: []
 		};
 	} else {
 		// get saved daily...
@@ -106,8 +95,7 @@ function getDailyGame(): GameAndGuesses {
 				id: todaysPuzzle,
 				type: 'daily',
 				word: getDailyWord(),
-				guesses: [],
-				hardModeWhole: true
+				guesses: []
 			};
 		} else {
 			// we just return the saved puzzle
@@ -115,8 +103,7 @@ function getDailyGame(): GameAndGuesses {
 				id: todaysPuzzle,
 				type: 'daily',
 				word: completedDaily.currentWord,
-				guesses: completedDaily.guesses,
-				hardModeWhole: wholeFlag(completedDaily)
+				guesses: completedDaily.guesses
 			};
 		}
 	}
@@ -131,8 +118,7 @@ function getNewExtraGame(level = 1): GameAndGuesses {
 			id: savedExtra.puzzleId,
 			type: 'extra',
 			word: savedExtra.currentWord,
-			guesses: savedExtra.guesses,
-			hardModeWhole: wholeFlag(savedExtra)
+				guesses: savedExtra.guesses
 		};
 	}
 	const RECURSION_LIMIT = 50;
@@ -152,10 +138,10 @@ function getNewExtraGame(level = 1): GameAndGuesses {
 		if (level < RECURSION_LIMIT) {
 			return getNewExtraGame(level + 1);
 		} else {
-			return { ...game, guesses: [], hardModeWhole: true };
+			return { ...game, guesses: [] };
 		}
 	} else {
-		return { ...game, guesses: [], hardModeWhole: true };
+		return { ...game, guesses: [] };
 	}
 }
 

@@ -9,8 +9,6 @@ export interface SavedGame {
 	puzzleType: PuzzleType;
 	puzzleId: number;
 	solved?: boolean;
-	/** True only if hard mode was on for every guess of this game and never turned off mid-game. */
-	hardModeWhole?: boolean;
 }
 
 export interface GameResult {
@@ -18,7 +16,6 @@ export interface GameResult {
 	puzzleType: PuzzleType;
 	nguesses: number;
 	solved: boolean;
-	hardModeWhole?: boolean;
 }
 
 const SAVED_GAME_KEY = 'savedGame';
@@ -238,8 +235,7 @@ export function getGameResults(): GameResult[] {
 				puzzleType: game.puzzleType,
 				nguesses: game.guesses.length,
 				complete: !!game.solved || game.guesses.length === 6,
-				solved: !!game.solved,
-				hardModeWhole: !!game.solved && !!game.hardModeWhole
+				solved: !!game.solved
 			}) as GameResult
 	);
 }

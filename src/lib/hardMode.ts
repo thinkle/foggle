@@ -90,3 +90,19 @@ function ordinal(position: number) {
 	const lastTwo = position % 100;
 	return `${position}${lastTwo >= 11 && lastTwo <= 13 ? 'th' : (endings[position % 10] ?? 'th')}`;
 }
+
+/**
+ * True when every guess in this game obeys the hard-mode rules — that is, each
+ * guess was consistent with all the clues that were available when it was made.
+ *
+ * This is derived from the guesses themselves rather than from a stored flag, so
+ * it is deterministic, works for games played before hard mode existed, and
+ * can't be lost by a stale or legacy save.
+ */
+export function playedWholeGameHard(guesses: string[], answer: string): boolean {
+	if (!answer) return false;
+	const guessFeedback = guesses.map((guess) => computeWordFeedback(guess, answer).word);
+	return guesses.every(
+		(guess, i) => !getGuessConflicts(guess, guesses.slice(0, i), guessFeedback.slice(0, i))
+	);
+}

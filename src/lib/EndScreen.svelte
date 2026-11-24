@@ -199,6 +199,12 @@
 			'ss03' on,
 			'ss06' on;
 	}
+	.hard-asterisk {
+		font-size: 0.7em;
+		vertical-align: super;
+		line-height: 0;
+		cursor: help;
+	}
 	.end-screen em {
 		font-variation-settings: 'EMPH' 125;
 		font-stretch: 105%;
