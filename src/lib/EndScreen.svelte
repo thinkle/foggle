@@ -7,7 +7,7 @@
 	import type { ComputedFeedback } from './types.ts';
 	import Word from './Word.svelte';
 	import type { FEEDBACK } from './types.ts';
-	import { hasCompletedDaily, type PuzzleType } from './gameInProgress';
+	import { hasAttemptedDaily, type PuzzleType } from './gameInProgress';
 	import { getDayIndex } from '../wordlists/magicNumber';
 	import Analysis from './Analysis.svelte';
 
@@ -127,7 +127,7 @@
 	{#if mode === 'daily'}
 		<p>There will be a new daily puzzle tomorrow!</p>
 		<button onclick={onPlayAgain}>Play Unlimited Mode</button>
-	{:else if !hasCompletedDaily(getDayIndex())}
+	{:else if !hasAttemptedDaily(getDayIndex())}
 		<p>You haven't played today's puzzle yet!!!</p>
 		<button onclick={onPlayAgain}>Play Daily Puzzle!</button>
 	{:else}

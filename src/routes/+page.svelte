@@ -286,9 +286,10 @@
 					class="cta"
 					onclick={() => {
 						gameManager.setMode('daily');
-						theGame = gameManager.getDailyGame();
-						guesses = [];
-						hardModeWhole = true;
+						const g = gameManager.getDailyGame();
+						theGame = g;
+						guesses = g.guesses;
+						hardModeWhole = g.hardModeWhole;
 						editGuess('');
 						offerNewGameAvailable = false;
 					}}>New Daily Puzzle Available!</button

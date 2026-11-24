@@ -3,11 +3,11 @@
 import { getDayIndex } from '../wordlists/magicNumber';
 import {
 	completeSavedGame,
-	getGameHistory,
+	getCompletedDaily,
 	getSavedGame,
 	getSavedGameData,
 	getSavedMode,
-	hasCompletedDaily,
+	hasAttemptedDaily,
 	hasCompletedExtra,
 	setSavedMode,
 	type SavedGame
@@ -46,7 +46,7 @@ function loadInitialGame(): GameAndGuesses {
 		return getDailyGame();
 	} else {
 		const dailyIndex = getDayIndex();
-		if (!hasCompletedDaily(dailyIndex)) {
+		if (!hasAttemptedDaily(dailyIndex)) {
 			markDailyAvailable();
 		}
 		return getNewExtraGame();
@@ -63,7 +63,7 @@ function loadInitialGameOld(): GameAndGuesses {
 		if (savedGame.puzzleType !== 'daily') {
 			const daily = getDayIndex();
 			console.log('Daily #', daily);
-			if (!hasCompletedDaily(daily)) {
+			if (!hasAttemptedDaily(daily)) {
 				markDailyAvailable();
 			}
 		}
@@ -81,45 +81,53 @@ function loadInitialGameOld(): GameAndGuesses {
 
 function getDailyGame(): GameAndGuesses {
 	const todaysPuzzle = getDayIndex();
-	if (!hasCompletedDaily(todaysPuzzle)) {
-		completedDaily = false; // not completed daily
-		if (dailyCheckerInterval) {
-			clearInterval(dailyCheckerInterval);
+	const todaysWord = getDailyWord();
+	// Returning to daily mode means the player is looking at today's daily again, so
+	// stop watching for a new one to become available.
+	completedDaily = false;
+	if (dailyCheckerInterval) {
+		clearInterval(dailyCheckerInterval);
+		dailyCheckerInterval = null;
+	}
+
+	const savedDaily = getSavedGameData('daily');
+	if (savedDaily) {
+		if (savedDaily.puzzleId === todaysPuzzle && savedDaily.currentWord === todaysWord) {
+			// Today's daily is still in progress (solved games get moved to the history, so
+			// anything left here is unfinished or out of guesses) -- resume it rather than
+			// handing back a blank board.
+			return {
+				id: savedDaily.puzzleId,
+				type: 'daily',
+				word: savedDaily.currentWord,
+				guesses: savedDaily.guesses,
+				hardModeWhole: wholeFlag(savedDaily)
+			};
 		}
+		// A leftover daily from a previous day: archive it so it stops shadowing today's.
+		completeSavedGame(savedDaily);
+	}
+
+	const finishedDaily = getCompletedDaily(todaysPuzzle);
+	if (finishedDaily) {
+		// Already played to the end today -- show it again, end screen and all.
 		return {
 			id: todaysPuzzle,
 			type: 'daily',
-			word: getDailyWord(),
-			guesses: [],
-			hardModeWhole: true
+			word: finishedDaily.currentWord,
+			guesses: finishedDaily.guesses,
+			hardModeWhole: wholeFlag(finishedDaily)
 		};
-	} else {
-		// get saved daily...
-		const history = getGameHistory();
-		const completedDaily = history.find(
-			(game) => game.puzzleType === 'daily' && game.puzzleId === todaysPuzzle
-		);
-		if (!completedDaily) {
-			// This should never happen but just in case...
-			console.error('Completed daily not found in history');
-			return {
-				id: todaysPuzzle,
-				type: 'daily',
-				word: getDailyWord(),
-				guesses: [],
-				hardModeWhole: true
-			};
-		} else {
-			// we just return the saved puzzle
-			return {
-				id: todaysPuzzle,
-				type: 'daily',
-				word: completedDaily.currentWord,
-				guesses: completedDaily.guesses,
-				hardModeWhole: wholeFlag(completedDaily)
-			};
-		}
 	}
+
+	// Today's daily hasn't been started yet.
+	return {
+		id: todaysPuzzle,
+		type: 'daily',
+		word: todaysWord,
+		guesses: [],
+		hardModeWhole: true
+	};
 }
 
 function getNewExtraGame(level = 1): GameAndGuesses {
@@ -139,7 +147,7 @@ function getNewExtraGame(level = 1): GameAndGuesses {
 	completedDaily = true;
 	if (!dailyCheckerInterval) {
 		dailyCheckerInterval = window.setInterval(() => {
-			if (!hasCompletedDaily(getDayIndex())) {
+			if (!hasAttemptedDaily(getDayIndex())) {
 				markDailyAvailable();
 				clearInterval(dailyCheckerInterval as number);
 				dailyCheckerInterval = null;
