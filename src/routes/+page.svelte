@@ -277,8 +277,9 @@
 					class="cta"
 					onclick={() => {
 						gameManager.setMode('daily');
-						theGame = gameManager.getDailyGame();
-						guesses = [];
+						const g = gameManager.getDailyGame();
+						theGame = g;
+						guesses = g.guesses;
 						editGuess('');
 						offerNewGameAvailable = false;
 					}}>New Daily Puzzle Available!</button

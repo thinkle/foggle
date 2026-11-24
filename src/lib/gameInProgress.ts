@@ -112,8 +112,26 @@ export function hasCompletedExtra(word: string): boolean {
 	return getAttemptedExtras().includes(getWordIdentifier(word.toLowerCase()));
 }
 
-export function hasCompletedDaily(puzzleId: number): boolean {
+/**
+ * True once the player has made at least one guess on this daily, whether or not
+ * they finished it. Used for the "a new daily is available" rollover offer and for
+ * the end screen's "you haven't played today's puzzle yet" prompt -- NOT a test of
+ * whether the daily is over (see getCompletedDaily for that).
+ */
+export function hasAttemptedDaily(puzzleId: number): boolean {
 	return getAttemptedDailies().includes(puzzleId);
+}
+
+/**
+ * The finished daily for this puzzle id, if the player actually played it to the end
+ * (solved it, or used all six guesses). Finished games live in the history; a daily
+ * that is still in progress does not appear here.
+ */
+export function getCompletedDaily(puzzleId: number): SavedGame | null {
+	const match = getGameHistory().find(
+		(game) => game.puzzleType === 'daily' && game.puzzleId === puzzleId
+	);
+	return match ?? null;
 }
 
 export function setSavedGame(game: SavedGame): void {
