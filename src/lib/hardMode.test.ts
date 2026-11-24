@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getGuessConflicts } from './hardMode';
+import { getGuessConflicts, playedWholeGameHard } from './hardMode';
 import { computeWordFeedback } from './wordFeedback';
 
 function check(candidate: string, history: string[], answer: string) {
@@ -71,5 +71,44 @@ describe('hard mode', () => {
 				}
 			}
 		}
+	});
+});
+
+describe('playedWholeGameHard', () => {
+	it('is true for a game with no guesses yet', () => {
+		expect(playedWholeGameHard([], 'orange')).toBe(true);
+	});
+
+	it('is true when every guess respects the clues so far', () => {
+		// Each guess is checked against the clues from the ones before it.
+		const guesses = ['scary', 'orange'];
+		expect(check(guesses[1], [guesses[0]], 'orange')).toBe(null);
+		expect(playedWholeGameHard(guesses, 'orange')).toBe(true);
+	});
+
+	it('is false when any guess ignores a clue', () => {
+		// 'apple' tells you the answer has no P; 'paper' uses one anyway.
+		expect(check('paper', ['apple'], 'orange')).not.toBe(null);
+		expect(playedWholeGameHard(['apple', 'paper', 'orange'], 'orange')).toBe(false);
+	});
+
+	it('earns the asterisk for a legal game that started from a bad guess', () => {
+		// 'apple' shares almost nothing with the answer, but a first guess can't
+		// break a rule, and the follow-up respects every clue it gave.
+		expect(playedWholeGameHard(['apple', 'orange'], 'orange')).toBe(true);
+	});
+
+	it('stays false once a rule is broken, however the game ends', () => {
+		expect(playedWholeGameHard(['apple', 'paper', 'scary', 'orange'], 'orange')).toBe(false);
+	});
+
+	it('only judges a guess against the clues available when it was made', () => {
+		// 'apple' is the first guess, so it cannot break a rule, even though
+		// later clues rule it out.
+		expect(playedWholeGameHard(['apple'], 'orange')).toBe(true);
+	});
+
+	it('is false with no answer to check against', () => {
+		expect(playedWholeGameHard(['apple'], '')).toBe(false);
 	});
 });
