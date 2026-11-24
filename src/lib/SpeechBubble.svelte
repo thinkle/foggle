@@ -1,9 +1,16 @@
 <script>
-	let { position = 'center', maxWidth = 25, skew = undefined, children } = $props();
+	let {
+		position = 'center',
+		maxWidth = 25,
+		skew = undefined,
+		compact = false,
+		children
+	} = $props();
 </script>
 
 <div
 	class="speech-bubble"
+	class:compact
 	class:left={position === 'left'}
 	class:right={position === 'right'}
 	style:--max-width={maxWidth}
@@ -28,6 +35,25 @@
 		text-align: center;
 		transform: skewX(var(--skew, -8deg)); /* Optional skew */
 		margin: 0.5rem;
+	}
+
+	.speech-bubble.compact {
+		max-width: 34rem;
+		font-size: inherit;
+		margin: 0.25rem 0.4rem 0.5rem;
+		padding: 0.55rem 0.9rem 0.65rem;
+		border-radius: 0.9rem 1.35rem 1.1rem 0.8rem;
+		text-align: left;
+	}
+	.speech-bubble.compact::before {
+		content: '';
+		position: absolute;
+		top: -0.4rem;
+		left: 1.6rem;
+		width: 0.8rem;
+		height: 0.5rem;
+		background: #242;
+		clip-path: polygon(12% 0, 100% 100%, 0 100%);
 	}
 
 	.speech-bubble.left::after,
