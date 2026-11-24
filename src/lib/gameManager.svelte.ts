@@ -21,7 +21,14 @@ const callbacks: (() => void)[] = [];
 
 type GameAndGuesses = Game & {
 	guesses: string[];
+	/** Hard mode has been on for the whole game so far (always true before the first guess). */
+	hardModeWhole: boolean;
 };
+
+// Legacy saves have no flag; treat an in-progress legacy game as not whole-game hard.
+function wholeFlag(saved: SavedGame): boolean {
+	return saved.hardModeWhole ?? saved.guesses.length === 0;
+}
 
 function loadInitialGame(): GameAndGuesses {
 	const mode = getSavedMode();
@@ -32,7 +39,8 @@ function loadInitialGame(): GameAndGuesses {
 				id: saved.puzzleId,
 				type: saved.puzzleType,
 				word: saved.currentWord,
-				guesses: saved.guesses
+				guesses: saved.guesses,
+				hardModeWhole: wholeFlag(saved)
 			};
 		}
 		return getDailyGame();
@@ -63,7 +71,8 @@ function loadInitialGameOld(): GameAndGuesses {
 			id: savedGame.puzzleId,
 			type: savedGame.puzzleType,
 			word: savedGame.currentWord,
-			guesses: savedGame.guesses
+			guesses: savedGame.guesses,
+			hardModeWhole: wholeFlag(savedGame)
 		};
 	} else {
 		return getDailyGame();
@@ -81,7 +90,8 @@ function getDailyGame(): GameAndGuesses {
 			id: todaysPuzzle,
 			type: 'daily',
 			word: getDailyWord(),
-			guesses: []
+			guesses: [],
+			hardModeWhole: true
 		};
 	} else {
 		// get saved daily...
@@ -96,7 +106,8 @@ function getDailyGame(): GameAndGuesses {
 				id: todaysPuzzle,
 				type: 'daily',
 				word: getDailyWord(),
-				guesses: []
+				guesses: [],
+				hardModeWhole: true
 			};
 		} else {
 			// we just return the saved puzzle
@@ -104,7 +115,8 @@ function getDailyGame(): GameAndGuesses {
 				id: todaysPuzzle,
 				type: 'daily',
 				word: completedDaily.currentWord,
-				guesses: completedDaily.guesses
+				guesses: completedDaily.guesses,
+				hardModeWhole: wholeFlag(completedDaily)
 			};
 		}
 	}
@@ -119,7 +131,8 @@ function getNewExtraGame(level = 1): GameAndGuesses {
 			id: savedExtra.puzzleId,
 			type: 'extra',
 			word: savedExtra.currentWord,
-			guesses: savedExtra.guesses
+			guesses: savedExtra.guesses,
+			hardModeWhole: wholeFlag(savedExtra)
 		};
 	}
 	const RECURSION_LIMIT = 50;
@@ -139,10 +152,10 @@ function getNewExtraGame(level = 1): GameAndGuesses {
 		if (level < RECURSION_LIMIT) {
 			return getNewExtraGame(level + 1);
 		} else {
-			return { ...game, guesses: [] };
+			return { ...game, guesses: [], hardModeWhole: true };
 		}
 	} else {
-		return { ...game, guesses: [] };
+		return { ...game, guesses: [], hardModeWhole: true };
 	}
 }
 
