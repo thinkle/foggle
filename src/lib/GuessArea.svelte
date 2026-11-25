@@ -108,6 +108,18 @@
 			justifyMode = 'left';
 		}
 	});
+	// When hard mode rejects a guess, line the words up on whichever side
+	// most of the positional reasons count from, so you can see the problem.
+	$effect(() => {
+		if (!guessConflicts) return;
+		let push = 0;
+		for (const rule of guessConflicts.rules) {
+			if (rule.mark.endsWith('-left')) push--;
+			else if (rule.mark.endsWith('-right')) push++;
+		}
+		if (push > 0) justifyMode = 'right';
+		else if (push < 0) justifyMode = 'left';
+	});
 	$effect(() => {
 		// reset on new word
 		if (guesses.length === 0) {
