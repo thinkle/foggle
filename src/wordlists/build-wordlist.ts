@@ -47,8 +47,12 @@ const existingListDecoded = existingListEncoded.map(decodeClue);
 const todaysIndex = getDayIndex();
 console.log("Today's index is: ", todaysIndex);
 
-// Keep up to today's index in the output list
-let outputList = existingListDecoded.slice(0, todaysIndex + 1);
+// Keep up to today's index in the output list, plus a buffer of days so that
+// (a) a build that isn't deployed until a few days later doesn't change days
+// people already played on the old build, and (b) players in time zones ahead
+// of the build machine don't see their "today" change.
+const FREEZE_BUFFER_DAYS = 14;
+let outputList = existingListDecoded.slice(0, todaysIndex + 1 + FREEZE_BUFFER_DAYS);
 const frozenHistory = new Set(outputList);
 console.log('Keeping output list of ', outputList.length, 'words.');
 const answersToAdd = rawAnswerList.filter((word) => !frozenHistory.has(word));

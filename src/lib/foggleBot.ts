@@ -4,10 +4,11 @@
  */
 
 import { getConstraints, type Constraints } from './wordFeedback';
-import { validWords } from './words';
+import { displayableWords } from './words';
 
 export const getPossibleWords = (guesses: string[], answer: string): string[] => {
-	let candidates = validWords;
+	// only words we're happy to show: offensive guesses never appear in the analysis
+	let candidates = displayableWords;
 	for (let n = 0; n < guesses.length; n++) {
 		const { constraints, letterCounts, letterExclusions } = getConstraints(
 			guesses.slice(0, n + 1),

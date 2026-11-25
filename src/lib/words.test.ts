@@ -40,3 +40,33 @@ describe('getAnswerWords', () => {
 		}
 	});
 });
+
+import rejectedList from '../wordlists/rejected.txt?raw';
+
+describe('blocked words', () => {
+	it('words marked "blocked" in rejected.txt are not valid guesses', () => {
+		const blocked = rejectedList
+			.split('\n')
+			.map((line) => line.split('\t'))
+			.filter(([, reason]) => reason?.startsWith('blocked'))
+			.map(([word]) => word);
+		expect(blocked.length).toBeGreaterThan(0);
+		expect(blocked.filter((w) => isValid(w))).toEqual([]);
+	});
+});
+
+import { displayableWords } from './words';
+
+describe('displayable words', () => {
+	it('hides offensive words from lists shown to players, but keeps them as guesses', () => {
+		const offensive = rejectedList
+			.split('\n')
+			.map((line) => line.split('\t'))
+			.filter(([, reason]) => reason === 'offensive')
+			.map(([word]) => word)
+			.filter((w) => isValid(w));
+		expect(offensive.length).toBeGreaterThan(0);
+		const shown = new Set(displayableWords);
+		expect(offensive.filter((w) => shown.has(w))).toEqual([]);
+	});
+});

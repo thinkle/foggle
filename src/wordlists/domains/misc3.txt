@@ -1,0 +1,8 @@
+units: ounce pound ton gram kilogram milligram kilometer kilo meter centimeter millimeter inch foot yard mile acre hectare liter milliliter gallon quart pint cup teaspoon tablespoon carat volt watt kilowatt megawatt amp ohm horsepower calorie decibel degree celsius fahrenheit knot fathom league furlong cubit
+greek: alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu nu xi omicron pi rho sigma tau upsilon phi chi psi omega
+crimes: blackmail burglary bribery embezzlement larceny theft robbery fraud forgery perjury arson extortion kidnapping smuggling piracy treason sedition espionage vandalism trespass trespassing homicide manslaughter murder assault battery mugging shoplifting racketeering counterfeit heist
+muscles: biceps triceps quadriceps hamstring pectoral abdominal deltoid glute calf abs
+shore: seaside seashore lakeside riverside beachfront coast coastline shoreline waterfront boardwalk pier jetty dock wharf marina harbor lighthouse dune sandbar tidepool
+gobetweens: mediator interpreter translator emissary envoy ambassador diplomat delegate liaison intermediary matchmaker arbitrator referee umpire negotiator spokesperson
+intruders: intruder trespasser prowler interloper burglar invader infiltrator spy snoop eavesdropper stalker
+land: homestead farmstead hacienda ranch estate manor plantation farmland hinterland backwoods boondocks outback frontier wilderness countryside heartland

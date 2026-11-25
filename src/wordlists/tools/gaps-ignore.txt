@@ -1,0 +1,26 @@
+# WordNet concepts the gaps command should skip: reviewed and judged noise
+# (too technical, offensive, or abstract -ness/-ship nouns). One per line.
+position
+sexual activity
+amino acid
+steroid hormone
+homosexual
+inability
+reproductive organ
+aliphatic compound
+group
+bacteria
+eubacteria
+moneran
+growth
+oxide
+pervert
+reprobate
+sensualist
+Asian
+simple protein
+conductor
+consonant
+grammatical relation
+increase
+decrease

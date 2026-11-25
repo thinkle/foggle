@@ -12179,6 +12179,7 @@ bouillon
 bouillons
 boulder
 bouldered
+bouldering
 boulders
 boule
 boules
@@ -22909,11 +22910,9 @@ cools
 coolth
 coom
 coomb
-coon
 cooncan
 coonhound
 coonhounds
-coons
 coonskin
 coonskins
 coontie
@@ -23892,6 +23891,7 @@ countersubject
 countersunk
 countertenor
 countertenors
+countertop
 countertype
 countervail
 countervailed
@@ -26042,10 +26042,7 @@ dagger
 daggerboard
 daggers
 daglock
-dago
 dagoba
-dagoes
-dagos
 dags
 daguerreotype
 daguerreotyped
@@ -26272,8 +26269,6 @@ darkening
 darkens
 darker
 darkest
-darkie
-darkies
 darkish
 darkle
 darkling
@@ -31660,6 +31655,7 @@ dodecahedron
 dodecahedrons
 dodecasyllable
 dodge
+dodgeball
 dodged
 dodgem
 dodgems
@@ -31935,6 +31931,7 @@ doodlers
 doodles
 doodlesack
 doodling
+doofus
 doohickey
 doohickeys
 doolally
@@ -33218,9 +33215,7 @@ dyestuffs
 dyewood
 dyewoods
 dying
-dyke
 dyked
-dykes
 dyking
 dynameter
 dynamic
@@ -38499,17 +38494,13 @@ faff
 faffed
 faffing
 faffs
-fag
 fagaceous
 fagged
 fagging
-faggot
 faggoting
-faggots
 fagot
 fagoting
 fagots
-fags
 fahlband
 faience
 fail
@@ -44439,6 +44430,7 @@ ghastliness
 ghastly
 ghat
 ghats
+ghazal
 ghazi
 ghee
 ghees
@@ -45520,8 +45512,6 @@ googol
 googolplex
 gooier
 gooiest
-gook
-gooks
 goon
 goons
 goop
@@ -50089,7 +50079,6 @@ honkie
 honkies
 honking
 honks
-honky
 honor
 honorable
 honorableness
@@ -56806,8 +56795,6 @@ jiffies
 jiffs
 jiffy
 jig
-jigaboo
-jigaboos
 jigged
 jigger
 jiggered
@@ -57809,8 +57796,6 @@ kieselguhr
 kieselguhrs
 kieserite
 kif
-kike
-kikes
 kilderkin
 kilderkins
 kill
@@ -58300,8 +58285,6 @@ krafts
 krait
 kraits
 kraken
-kraut
-krauts
 kremlin
 kremlins
 kreplach
@@ -64875,10 +64858,8 @@ mice
 micellae
 micelle
 micelles
-mick
 mickey
 mickeys
-micks
 micra
 micro
 microaggression
@@ -66654,8 +66635,6 @@ mongo
 mongoes
 mongol
 mongolism
-mongoloid
-mongoloids
 mongols
 mongoose
 mongooses
@@ -69326,16 +69305,12 @@ niftier
 niftiest
 niftily
 nifty
-nigga
 niggard
 niggardliness
 niggardly
 niggards
-niggas
 niggaz
-nigger
 niggerhead
-niggers
 niggle
 niggled
 niggler
@@ -74593,6 +74568,7 @@ pantomiming
 pantomimist
 pantomimists
 pantos
+pantoum
 pantries
 pantry
 pants
@@ -77745,7 +77721,6 @@ pickabacked
 pickabacking
 pickabacks
 pickaninnies
-pickaninny
 pickax
 pickaxe
 pickaxed
@@ -77770,6 +77745,7 @@ pickiness
 picking
 pickings
 pickle
+pickleball
 pickled
 pickles
 pickling
@@ -78458,6 +78434,7 @@ placekickers
 placekicking
 placekicks
 placeman
+placemat
 placemen
 placement
 placements
@@ -79794,8 +79771,6 @@ poods
 pooed
 poof
 poofs
-poofter
-poofters
 pooh
 poohed
 poohing
@@ -86430,8 +86405,6 @@ redshank
 redshanks
 redshift
 redshifts
-redskin
-redskins
 redstart
 redstarts
 redtop
@@ -91351,7 +91324,6 @@ sambaing
 sambar
 sambars
 sambas
-sambo
 same
 samekh
 samekhs
@@ -95091,6 +95063,7 @@ shotgun
 shotgunned
 shotgunning
 shotguns
+shotput
 shots
 shotten
 should
@@ -98337,6 +98310,7 @@ spacings
 spacious
 spaciously
 spaciousness
+spackle
 spacy
 spade
 spaded
@@ -98806,7 +98780,6 @@ sphygmograph
 sphygmoid
 sphygmomanometer
 sphygmomanometers
-spic
 spica
 spicate
 spiccato
@@ -98825,7 +98798,6 @@ spiciness
 spicing
 spick
 spicks
-spics
 spicula
 spiculate
 spicule
@@ -99575,14 +99547,12 @@ squatter
 squatters
 squattest
 squatting
-squaw
 squawk
 squawked
 squawker
 squawkers
 squawking
 squawks
-squaws
 squeak
 squeaked
 squeaker
@@ -102263,6 +102233,7 @@ sudd
 sudden
 suddenly
 suddenness
+sudoku
 sudor
 sudoriferous
 sudorific
@@ -107851,6 +107822,7 @@ tracking
 trackings
 trackless
 trackman
+trackpad
 tracks
 tracksuit
 tracksuits
@@ -107946,6 +107918,7 @@ trailblazing
 trailed
 trailer
 trailers
+trailhead
 trailing
 trails
 train
@@ -116362,8 +116335,6 @@ westward
 westwardly
 westwards
 wet
-wetback
-wetbacks
 wether
 wethers
 wetland
@@ -117625,8 +117596,6 @@ wooziest
 woozily
 wooziness
 woozy
-wop
-wops
 word
 wordage
 wordbook
@@ -118240,8 +118209,6 @@ yeti
 yetis
 yew
 yews
-yid
-yids
 yield
 yielded
 yielding

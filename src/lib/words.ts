@@ -1,5 +1,6 @@
 import allTheWords from '../wordlists/allTheWords.txt?raw';
 import answerList from '../wordlists/answerList.encoded.txt?raw';
+import rejectedList from '../wordlists/rejected.txt?raw';
 import { decodeClue, getWordIdentifier } from './encoder';
 import { getDayIndex } from '../wordlists/magicNumber';
 import type { Game } from './types';
@@ -67,3 +68,16 @@ export const getExtraGameByIdentifier = (identifier: string): Game | null => {
 };
 
 export const validWords = words;
+
+// Words that may be typed as guesses but shouldn't be *shown* to players, e.g.
+// in the analysis tab's "words that could still fit" list: anything tagged
+// offensive (or never-an-answer for comfort) in rejected.txt.
+const HIDDEN_REASONS = ['offensive', 'blocked', 'fine as a guess, not as an answer'];
+const hiddenWords = new Set(
+	rejectedList
+		.split('\n')
+		.map((line) => line.split('\t'))
+		.filter(([, reason]) => reason && HIDDEN_REASONS.some((r) => reason.startsWith(r)))
+		.map(([word]) => word)
+);
+export const displayableWords = words.filter((w) => !hiddenWords.has(w));
