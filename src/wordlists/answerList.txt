@@ -52,11 +52,13 @@ acclaimed
 accolade
 accommodate
 accommodation
+accompanist
 accompany
 accomplish
 accomplishment
 accord
 accordance
+accordion
 account
 accountability
 accountable
@@ -674,6 +676,7 @@ bag
 bagel
 baggage
 baggy
+bagpipe
 baguette
 bail
 bait
@@ -718,6 +721,7 @@ bard
 bare
 bargain
 barge
+baritone
 bark
 barley
 barn
@@ -746,6 +750,8 @@ basket
 basketball
 bass
 basset
+bassist
+bassoon
 baste
 baster
 bastion
@@ -789,6 +795,7 @@ beat
 beautiful
 beauty
 beaver
+bebop
 because
 bechamel
 beckon
@@ -966,6 +973,7 @@ blue
 bluebell
 blueberry
 bluebird
+bluegrass
 bluejay
 blueprint
 blues
@@ -1007,6 +1015,7 @@ bondage
 bonding
 bone
 bonfire
+bongo
 bonnet
 bonsai
 bonus
@@ -1158,6 +1167,7 @@ budget
 buffalo
 bug
 buggy
+bugle
 build
 builder
 building
@@ -1207,6 +1217,7 @@ bushing
 bushwhack
 business
 businessman
+busker
 bust
 bustier
 busy
@@ -1265,6 +1276,7 @@ calico
 caliper
 call
 calligraphy
+calliope
 callous
 calm
 calorie
@@ -1301,6 +1313,7 @@ canola
 canon
 canopy
 cantaloupe
+cantata
 canteen
 canvas
 canyon
@@ -1315,6 +1328,7 @@ capital
 capitalism
 capitol
 capitulate
+capo
 cappuccino
 capricious
 capstone
@@ -1379,6 +1393,7 @@ casserole
 cassette
 cassowary
 cast
+castanets
 castle
 casual
 cat
@@ -1418,6 +1433,7 @@ celery
 celestial
 cell
 cellar
+cellist
 cello
 cellular
 cellulose
@@ -1555,10 +1571,12 @@ chop
 chopstick
 chord
 chore
+chorister
 chorizo
 chorus
 chowder
 chroma
+chromatic
 chrome
 chromosome
 chronic
@@ -1837,6 +1855,8 @@ concentration
 concept
 concern
 concert
+concertina
+concerto
 conch
 concise
 conclude
@@ -2239,6 +2259,7 @@ cyclist
 cyclone
 cyclops
 cylinder
+cymbal
 cypress
 cyst
 cytoplasm
@@ -2488,6 +2509,7 @@ diamond
 diaphanous
 diaphragm
 diary
+diatonic
 diatribe
 dice
 dichotomy
@@ -2552,6 +2574,7 @@ discharge
 discipline
 disclose
 disclosure
+disco
 discombobulated
 discordant
 discount
@@ -2715,6 +2738,7 @@ dropout
 drought
 drug
 drum
+drummer
 drumstick
 drunk
 dry
@@ -2726,7 +2750,9 @@ duck
 duckling
 dude
 due
+duet
 dugout
+dulcimer
 dull
 dumb
 dump
@@ -2762,6 +2788,7 @@ early
 earn
 earnest
 earnings
+earphone
 earring
 earth
 earthquake
@@ -2944,6 +2971,7 @@ enrapture
 enroll
 enrollment
 ensconce
+ensemble
 ensure
 enter
 enterprise
@@ -3029,9 +3057,11 @@ ethics
 ethnic
 ethnicity
 ethos
+etude
 eucalyptus
 eulogy
 euphemism
+euphonium
 euphoria
 euphoric
 euro
@@ -3276,6 +3306,7 @@ fiddle
 fidelity
 field
 fierce
+fife
 fifteen
 fifth
 fifty
@@ -3379,6 +3410,7 @@ fluff
 fluffy
 fluid
 flute
+flutist
 flutter
 fly
 flywheel
@@ -3435,6 +3467,7 @@ formidable
 formula
 fort
 forth
+fortissimo
 fortitude
 fortnight
 fortress
@@ -3509,6 +3542,7 @@ fryer
 fuchsia
 fudge
 fuel
+fugue
 fulcrum
 fulfill
 full
@@ -3525,6 +3559,7 @@ funding
 funeral
 fungi
 fungus
+funk
 funnel
 funny
 fur
@@ -3656,11 +3691,13 @@ glide
 glider
 glimmer
 glimpse
+glissando
 glisten
 glitch
 global
 globalization
 globe
+glockenspiel
 gloom
 glorious
 glory
@@ -3688,6 +3725,7 @@ goldenrod
 goldfish
 golf
 gondola
+gong
 good
 goodbye
 goodness
@@ -3799,6 +3837,7 @@ guild
 guilt
 guilty
 guitar
+guitarist
 gulch
 gulf
 gull
@@ -3879,10 +3918,13 @@ hardy
 harebrained
 harm
 harmful
+harmonica
 harmonious
 harmony
 harness
 harp
+harpist
+harpsichord
 harpy
 harsh
 harvest
@@ -3915,6 +3957,7 @@ headboard
 header
 headlight
 headline
+headphone
 headphones
 headquarters
 headset
@@ -4538,6 +4581,7 @@ kangaroo
 karate
 karma
 kayak
+kazoo
 kebab
 keel
 keen
@@ -4748,6 +4792,7 @@ library
 lice
 license
 lichen
+lick
 licorice
 lid
 lie
@@ -4858,6 +4903,7 @@ lotion
 lottery
 lotus
 loud
+loudspeaker
 lounge
 louse
 love
@@ -4874,6 +4920,7 @@ luck
 lucky
 luge
 luggage
+lullaby
 lumber
 lumberjack
 lumpectomy
@@ -4890,6 +4937,7 @@ luxury
 lymph
 lymphatic
 lynx
+lyre
 lyric
 macadamia
 macaw
@@ -4899,6 +4947,7 @@ mackerel
 mad
 madness
 madrigal
+maestro
 mafia
 magazine
 magenta
@@ -4944,6 +4993,7 @@ malleable
 mallet
 malt
 mamba
+mambo
 mammal
 mammogram
 mammoth
@@ -4954,6 +5004,7 @@ manager
 manatee
 mandate
 mandatory
+mandolin
 mandrake
 mandrill
 mane
@@ -4985,6 +5036,7 @@ margarine
 margarita
 margin
 marigold
+marimba
 marina
 marinade
 marinara
@@ -5134,9 +5186,11 @@ meticulous
 metonymy
 metric
 metro
+metronome
 metropolitan
 mice
 microbe
+microphone
 microscope
 microwave
 middle
@@ -5180,6 +5234,7 @@ mink
 minnow
 minor
 minority
+minstrel
 mint
 minus
 minute
@@ -5331,6 +5386,7 @@ must
 mustard
 mutable
 mutation
+mute
 mutt
 mutton
 mutual
@@ -5450,6 +5506,7 @@ no
 noble
 nobody
 nocturnal
+nocturne
 nod
 node
 noise
@@ -5525,6 +5582,7 @@ objective
 obligation
 oblige
 oblique
+oboe
 obscure
 obscurity
 observation
@@ -5535,6 +5593,7 @@ obstetrician
 obtain
 obvious
 obviously
+ocarina
 occasion
 occasional
 occasionally
@@ -5605,6 +5664,7 @@ operation
 operational
 operative
 operator
+operetta
 ophthalmologist
 opinion
 opossum
@@ -5630,6 +5690,7 @@ orange
 orangutan
 oration
 orator
+oratorio
 oratory
 orbit
 orca
@@ -5643,6 +5704,7 @@ oregano
 organ
 organic
 organism
+organist
 organization
 organizational
 organize
@@ -5698,6 +5760,7 @@ oversight
 oversimplified
 overt
 overtime
+overture
 overview
 overwhelming
 owe
@@ -5940,7 +6003,10 @@ physician
 physicist
 physics
 physiology
+pianissimo
+pianist
 piano
+piccolo
 pick
 pickaxe
 pickle
@@ -5983,6 +6049,7 @@ pitcher
 pity
 pivot
 pizza
+pizzicato
 place
 placemat
 placement
@@ -6019,6 +6086,7 @@ pleasant
 please
 pleasure
 pleat
+plectrum
 pledge
 plenty
 pliable
@@ -6390,6 +6458,7 @@ quince
 quinoa
 quintessence
 quintessential
+quintet
 quirk
 quirky
 quit
@@ -6429,6 +6498,7 @@ rafter
 rag
 rage
 ragged
+ragtime
 raid
 rail
 railroad
@@ -6533,6 +6603,7 @@ reconfiguration
 reconsideration
 reconstruction
 record
+recorder
 recourse
 recover
 recovery
@@ -6579,6 +6650,7 @@ regal
 regard
 regardless
 regatta
+reggae
 regime
 regimen
 regiment
@@ -6768,6 +6840,7 @@ ride
 rider
 ridge
 ridiculous
+riff
 rifle
 rift
 rig
@@ -6831,6 +6904,7 @@ rose
 rosebud
 rosemary
 rosewood
+rosin
 roster
 rotation
 rotisserie
@@ -6859,6 +6933,7 @@ rugby
 ruin
 rule
 ruler
+rumba
 ruminate
 rummage
 rump
@@ -6908,6 +6983,7 @@ salubrious
 salvage
 salvation
 salvia
+samba
 same
 sample
 sampler
@@ -6958,6 +7034,7 @@ savings
 savor
 saw
 sawdust
+sax
 saxophone
 say
 scale
@@ -7094,6 +7171,7 @@ sequence
 sequin
 sequoia
 seraphim
+serenade
 serendipitous
 serendipity
 serene
@@ -7262,6 +7340,7 @@ sir
 sirloin
 sister
 sit
+sitar
 site
 situation
 six
@@ -7389,6 +7468,7 @@ solidarity
 soliloquy
 solitary
 solo
+soloist
 solstice
 solute
 solution
@@ -7407,6 +7487,7 @@ sometimes
 somewhat
 somewhere
 son
+sonata
 song
 songbird
 songwriter
@@ -7416,6 +7497,7 @@ sonorous
 soon
 sophisticated
 sophistication
+soprano
 sorbet
 sorcery
 sordid
@@ -7434,6 +7516,7 @@ soup
 sour
 source
 sourdough
+sousaphone
 south
 southeast
 southern
@@ -7580,6 +7663,7 @@ statistics
 statue
 status
 statute
+stave
 stay
 steadfast
 steady
@@ -7848,10 +7932,12 @@ symptom
 synagogue
 synapse
 sync
+syncopation
 syndrome
 synecdoche
 synergy
 synthesis
+synthesizer
 synthetic
 syringe
 syrup
@@ -7889,11 +7975,13 @@ talk
 tall
 talon
 tamarind
+tambourine
 tan
 tandem
 tangent
 tangerine
 tangible
+tango
 tank
 tanker
 tantalizing
@@ -7939,6 +8027,7 @@ teaspoon
 technical
 technician
 technique
+techno
 technological
 technology
 teddy
@@ -8107,6 +8196,7 @@ timely
 timeout
 timer
 timorous
+timpani
 tin
 tint
 tiny
@@ -8250,6 +8340,7 @@ tree
 trek
 trellis
 tremendous
+tremolo
 trench
 trend
 trial
@@ -8275,6 +8366,7 @@ trio
 trip
 tripe
 triple
+triplet
 tripod
 triptych
 triumph
@@ -8284,9 +8376,11 @@ trochaic
 troche
 trochee
 trolley
+trombone
 troop
 trophy
 tropical
+troubadour
 trouble
 trousers
 trout
@@ -8295,6 +8389,7 @@ truck
 true
 truffle
 trumpet
+trumpeter
 truncate
 trunk
 truss
@@ -8304,6 +8399,7 @@ truth
 try
 tsunami
 tub
+tuba
 tube
 tubeless
 tuber
@@ -8318,6 +8414,7 @@ tumult
 tuna
 tundra
 tune
+tuner
 tunic
 tunnel
 turban
@@ -8352,6 +8449,7 @@ tyrannosaurus
 tyranny
 ubiquitous
 ugly
+ukulele
 ulcer
 ulna
 ulterior
@@ -8577,8 +8675,10 @@ via
 viable
 vibe
 vibrant
+vibraphone
 vibrate
 vibration
+vibrato
 vice
 vicinity
 vicious
@@ -8597,12 +8697,14 @@ vinegar
 vineyard
 vintage
 vinyl
+viola
 violate
 violation
 violence
 violent
 violet
 violin
+violinist
 viper
 viral
 virgin
@@ -8632,6 +8734,7 @@ vitamin
 vivid
 vocabulary
 vocal
+vocalist
 vocation
 vodka
 voice
@@ -8853,6 +8956,7 @@ woodcock
 wooden
 woodpecker
 woodpile
+woodwind
 woodworking
 wool
 woolly
@@ -8894,6 +8998,7 @@ wry
 xenolith
 xenon
 xenophobia
+xylophone
 yacht
 yak
 yam
@@ -8952,6 +9057,7 @@ zinnia
 zip
 zipper
 zircon
+zither
 zodiac
 zombie
 zone

@@ -87,6 +87,19 @@ $W spray --min 2.5 --max 3.5 --category noun.food noun.animal noun.artifact
 Categories include `noun.artifact`, `noun.food`, `noun.animal`, `noun.plant`,
 `noun.body`, `noun.substance` and `noun.object`.
 
+### Finding gaps
+
+The most useful question is "what whole areas are missing?" `gaps` files every
+reasonably common noun under its WordNet parent and grandparent concept, then
+ranks the concepts by how little of them the answer list covers:
+
+```bash
+$W gaps --limit 60                  # e.g. "0% covered, 8 missing  guard: lookout sentinel bouncer sentry..."
+$W family "musical instrument"      # every word under one concept: missing / rejected / answers
+```
+
+A thin concept is a prompt for a domain brainstorm (that's how `domains/music.txt` happened).
+
 ### Compounds
 
 A closed compound counts as a word once the closed spelling wins in print:

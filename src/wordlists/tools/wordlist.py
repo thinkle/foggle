@@ -313,6 +313,66 @@ def cmd_spray(a):
 		print(f'{cat} [{len(ws)}]: ' + ' '.join(ws[:a.limit]))
 
 
+def _wordnet():
+	try:
+		import wn
+		return wn.Wordnet('oewn:2024')
+	except Exception:
+		sys.exit("Needs WordNet data:  python -c \"import wn; wn.download('oewn:2024')\"")
+
+
+def cmd_gaps(a):
+	"""Find thin areas: WordNet groups where few of the known words are answers.
+
+	Each reasonably common noun is filed under its parent and grandparent concept
+	(for its most common sense). Groups are ranked by how little of them the
+	answer list covers, so whole missing domains (instruments, shops...) float up.
+	"""
+	en = _wordnet()
+	valid = set(read_words(ALL_WORDS))
+	answers = set(read_words(ANSWERS))
+	rejected = set(read_words(REJECTED))
+	members = collections.defaultdict(set)
+	for w in valid:
+		if len(w) < 3 or z(w) < a.min or looks_inflected(w, valid):
+			continue
+		ss = en.synsets(w, pos='n')
+		if not ss or w not in [l.lower() for l in ss[0].lemmas()]:
+			continue
+		for path in ss[0].hypernym_paths():  # path[0] is the parent, path[-1] the root
+			for i in (0, 1):
+				if len(path) - i >= 5:  # skip abstract groups near the root
+					members[path[i]].add(w)
+	rows = []
+	for syn, ws in members.items():
+		missing = sorted(ws - answers - rejected, key=lambda w: -z(w))
+		if len(ws) >= a.min_size and len(missing) >= 5:
+			rows.append((len(ws & answers) / len(ws), -len(missing), syn.lemmas()[0], missing))
+	rows.sort()
+	for cov, neg, name, missing in rows[:a.limit]:
+		print(f'{cov:4.0%} covered, {-neg:3} missing  {name:26} {" ".join(missing[:12])}')
+
+
+def cmd_family(a):
+	"""Every word under a concept, e.g. 'musical instrument', split into have/missing."""
+	en = _wordnet()
+	valid = set(read_words(ALL_WORDS))
+	answers = set(read_words(ANSWERS))
+	rejected = set(read_words(REJECTED))
+	ss = en.synsets(a.concept, pos='n')
+	if not ss:
+		sys.exit(f'No WordNet noun for {a.concept!r}')
+	words = set()
+	for s in ss[:a.senses]:
+		for h in [s] + s.closure('hyponym'):
+			words |= {l.lower() for l in h.lemmas() if l.lower() in valid}
+	words = sorted((w for w in words if z(w) >= a.min), key=lambda w: -z(w))
+	for label, group in (('missing', [w for w in words if w not in answers and w not in rejected]),
+	                     ('rejected', [w for w in words if w in rejected]),
+	                     ('answers', [w for w in words if w in answers])):
+		print(f'{label} [{len(group)}]: {" ".join(group)}')
+
+
 def ngram_series(phrases: list[str], start: int, end: int) -> dict[str, list[float]]:
 	"""Google Books Ngram (unofficial JSON endpoint), case-insensitive."""
 	import json
@@ -435,6 +495,16 @@ def main():
 	sp.add_argument('--limit', type=int, default=400, help='max words shown per category')
 	sp.add_argument('--category', nargs='*', help='e.g. noun.food noun.animal noun.artifact')
 	sp.set_defaults(fn=cmd_spray)
+	gp = sub.add_parser('gaps', help='WordNet groups the answer list barely covers')
+	gp.add_argument('--min', type=float, default=2.3, help='ignore words rarer than this zipf')
+	gp.add_argument('--min-size', type=int, default=6)
+	gp.add_argument('--limit', type=int, default=60)
+	gp.set_defaults(fn=cmd_gaps)
+	fa = sub.add_parser('family', help="all words under a concept, e.g. 'musical instrument'")
+	fa.add_argument('concept')
+	fa.add_argument('--min', type=float, default=2.0)
+	fa.add_argument('--senses', type=int, default=1, help='how many senses of the concept to include')
+	fa.set_defaults(fn=cmd_family)
 	co = sub.add_parser('compound', help='Google Books Ngram: closed vs open/hyphenated spelling')
 	co.add_argument('file', help="file of words, or '-' for stdin")
 	co.add_argument('--start', type=int, default=1980)
