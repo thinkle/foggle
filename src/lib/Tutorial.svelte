@@ -124,12 +124,11 @@
 			text: 'Sometimes the reason will surprise you!',
 			position: 'right',
 			example: {
-				answer: 'tacit',
-				size: 1.5,
-				guesses: ['surprising'],
-				hardModeGuess: 'activate',
+				answer: 'foggy',
+				guesses: ['astonish'],
+				hardModeGuess: 'boggle',
 				caption:
-					"The first 'I' in SURPRISING is 5th from the right, and so is the 'I' in ACTIVATE. Since that 'I' was orange, not green, the answer can't have an 'I' there."
+					"The 'O' in ASTONISH is 5th from the right, and so is the 'O' in BOGGLE. Since that 'O' was orange, not green, the answer can't have an 'O' there."
 			}
 		},
 		{
