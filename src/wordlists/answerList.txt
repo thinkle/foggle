@@ -145,6 +145,7 @@ advocacy
 advocate
 aerate
 aerial
+aerobics
 aerodynamics
 aerospace
 aesthetic
@@ -251,6 +252,7 @@ alto
 altogether
 altruism
 aluminum
+alumni
 always
 am
 amalgamation
@@ -337,6 +339,7 @@ ant
 antacid
 antagonist
 anteater
+antennae
 anthem
 anthropology
 antibiotic
@@ -511,6 +514,7 @@ asymmetry
 at
 athlete
 athletic
+athletics
 atlas
 atmosphere
 atom
@@ -652,6 +656,7 @@ barley
 barn
 barnacle
 barrack
+barracks
 barrage
 barrel
 barren
@@ -735,6 +740,7 @@ belligerent
 bellows
 belly
 belong
+belongings
 beloved
 below
 belt
@@ -780,6 +786,7 @@ bike
 bilge
 bill
 billboard
+billiards
 billion
 billow
 bind
@@ -929,6 +936,7 @@ boy
 boyfriend
 brace
 bracelet
+braces
 bracket
 braid
 brain
@@ -956,6 +964,7 @@ breath
 breathe
 breed
 breeze
+brethren
 brevity
 brew
 briar
@@ -1064,11 +1073,13 @@ cabbage
 cabin
 cabinet
 cable
+cacti
 cactus
 cadence
 cadet
 cafe
 cage
+cahoots
 caiman
 cairn
 cake
@@ -1089,6 +1100,7 @@ callous
 calm
 calorie
 calories
+calves
 calyx
 camel
 cameo
@@ -1289,6 +1301,7 @@ chicken
 chief
 child
 childhood
+children
 chili
 chill
 chime
@@ -1392,6 +1405,7 @@ clinic
 clinical
 clip
 clipboard
+clippers
 clique
 cloak
 cloakroom
@@ -1404,6 +1418,7 @@ closeness
 closet
 closure
 cloth
+clothes
 clothing
 cloud
 cloudburst
@@ -1556,12 +1571,14 @@ concert
 conch
 concise
 conclude
+conclusion
 concrete
 concur
 concussion
 condense
 condition
 conditioner
+condolences
 condor
 conduct
 conduction
@@ -1669,6 +1686,7 @@ conundrum
 convection
 convene
 convenience
+convenient
 convention
 conventional
 converge
@@ -1796,6 +1814,7 @@ credence
 credibility
 credit
 creek
+creepy
 crescendo
 crescent
 crest
@@ -1807,7 +1826,9 @@ crime
 criminal
 crimson
 cringe
+crises
 crisis
+criteria
 criterion
 critic
 critical
@@ -2105,11 +2126,13 @@ diamond
 diaphanous
 diaphragm
 diary
+dice
 dichotomy
 dictate
 dictatorship
 dictionary
 die
+diesel
 diet
 dietitian
 differ
@@ -2235,6 +2258,7 @@ documentation
 doe
 dog
 dogwood
+doldrums
 doll
 dollar
 dollhouse
@@ -2283,6 +2307,7 @@ draw
 drawing
 dream
 dreary
+dregs
 dress
 dresser
 dribble
@@ -2337,6 +2362,7 @@ earl
 early
 earn
 earnest
+earnings
 earring
 earth
 earthquake
@@ -2429,6 +2455,7 @@ eloquent
 else
 elsewhere
 elucidate
+elves
 emaciated
 email
 emanate
@@ -2617,6 +2644,7 @@ excellence
 excellent
 except
 exception
+exceptional
 excess
 exchange
 excite
@@ -2765,6 +2793,7 @@ feed
 feedback
 feel
 feeling
+feet
 feign
 feline
 fellow
@@ -2827,6 +2856,7 @@ firefly
 firetruck
 firewall
 firewood
+fireworks
 firm
 first
 fiscal
@@ -2935,6 +2965,7 @@ forum
 forward
 fossil
 foster
+foul
 found
 foundation
 founder
@@ -2995,6 +3026,7 @@ fund
 fundamental
 funding
 funeral
+fungi
 fungus
 funnel
 funny
@@ -3015,6 +3047,7 @@ gale
 gallbladder
 gallery
 gallop
+gallows
 galvanize
 gambit
 game
@@ -3048,6 +3081,7 @@ gazebo
 gear
 gearbox
 gecko
+geese
 gem
 gender
 gene
@@ -3090,6 +3124,7 @@ glade
 glance
 glare
 glass
+glasses
 gleam
 glean
 glen
@@ -3216,14 +3251,17 @@ gun
 gurney
 gust
 gut
+guts
 guy
 guzzle
 gym
 gymnast
+gymnastics
 gynecologist
 haberdashery
 habit
 habitat
+hack
 hackle
 hackneyed
 haggard
@@ -3238,12 +3276,14 @@ hall
 hallucination
 hallway
 halo
+halves
 ham
 hamlet
 hammer
 hammock
 hamper
 hand
+handcuffs
 handful
 handle
 handsome
@@ -3399,6 +3439,7 @@ honor
 hood
 hoodie
 hook
+hooves
 hop
 hope
 hopeful
@@ -3473,6 +3514,7 @@ hypertension
 hypochondriac
 hypothesis
 hysterectomy
+hysterics
 i
 ice
 iceberg
@@ -3496,6 +3538,7 @@ if
 ignite
 ignition
 ignorance
+ignorant
 ignore
 iguana
 ill
@@ -3618,6 +3661,7 @@ injury
 ink
 inlet
 inn
+innards
 innate
 inner
 innocent
@@ -3770,6 +3814,7 @@ jiffy
 jigsaw
 jingle
 jinx
+jitters
 job
 join
 joint
@@ -3853,6 +3898,7 @@ knights
 knit
 knitter
 knitting
+knives
 knob
 knock
 knot
@@ -3896,6 +3942,7 @@ laptop
 large
 largely
 lark
+larvae
 larynx
 laser
 last
@@ -3933,18 +3980,21 @@ lease
 least
 leather
 leave
+leaves
 lecture
 lecturer
 ledge
 ledger
 leech
 left
+leftovers
 leg
 legacy
 legal
 legato
 legend
 legendary
+leggings
 legislation
 legislative
 legislature
@@ -3971,6 +4021,7 @@ liberal
 liberty
 librarian
 library
+lice
 license
 lichen
 lie
@@ -4003,6 +4054,7 @@ linear
 linen
 lineup
 lingo
+linguistics
 link
 linkage
 lion
@@ -4022,11 +4074,13 @@ little
 live
 livelihood
 liver
+lives
 living
 llama
 load
 loafer
 loan
+loaves
 lobby
 lobster
 local
@@ -4133,6 +4187,7 @@ mango
 maniac
 manifold
 manner
+manners
 mansion
 mantra
 manual
@@ -4144,6 +4199,7 @@ map
 maple
 marathon
 marble
+marbles
 margin
 marigold
 marinate
@@ -4202,6 +4258,7 @@ meaning
 meaningful
 meantime
 meanwhile
+measles
 measure
 meat
 mechanic
@@ -4216,6 +4273,7 @@ mediate
 medical
 medication
 medicine
+medieval
 meditation
 medium
 meerkat
@@ -4229,12 +4287,14 @@ membership
 membrane
 memorial
 memory
+men
 meningitis
 mental
 mention
 menu
 meow
 merchant
+mercury
 mercy
 mere
 merely
@@ -4257,6 +4317,7 @@ methodology
 meticulous
 metro
 metropolitan
+mice
 microscope
 microwave
 middle
@@ -4387,6 +4448,7 @@ mulberry
 mule
 multidimensional
 multiple
+mumps
 municipal
 murder
 murmur
@@ -4535,6 +4597,7 @@ nowhere
 noxious
 nuance
 nuclear
+nuclei
 nucleotide
 nucleus
 nuisance
@@ -4542,6 +4605,7 @@ number
 numeracy
 numerous
 nun
+nuptials
 nurse
 nurture
 nut
@@ -4553,6 +4617,7 @@ nymph
 oak
 oasis
 oatmeal
+oats
 obelisk
 obfuscate
 object
@@ -4684,11 +4749,13 @@ outlook
 output
 outrageous
 outside
+outskirts
 outstanding
 oval
 oven
 over
 overall
+overalls
 overcoat
 overcome
 overnight
@@ -4702,6 +4769,7 @@ owl
 own
 ownership
 ox
+oxen
 oxidation
 oxygen
 oyster
@@ -4720,6 +4788,7 @@ paint
 paintbrush
 painting
 pair
+pajamas
 palace
 pale
 palette
@@ -4873,6 +4942,7 @@ pharmacist
 pharmacology
 pharmacy
 phase
+phenomena
 phenomenal
 phenomenon
 philosophy
@@ -5060,6 +5130,7 @@ preliminary
 prelude
 premier
 premiere
+premises
 premium
 preoccupation
 preparation
@@ -5260,6 +5331,7 @@ quotient
 rabbit
 rabble
 rabid
+rabies
 raccoon
 race
 racial
@@ -5271,6 +5343,7 @@ radiant
 radiate
 radiation
 radical
+radii
 radio
 radiologist
 radiology
@@ -5432,6 +5505,7 @@ relinquish
 relish
 rely
 remain
+remains
 remark
 remarkable
 remedy
@@ -5546,6 +5620,7 @@ ribcage
 ribosome
 rice
 rich
+riches
 rickshaw
 rid
 riddle
@@ -5686,8 +5761,10 @@ sauce
 saunter
 sausage
 saute
+savage
 savanna
 save
+savings
 savor
 saw
 saxophone
@@ -5702,6 +5779,7 @@ scapula
 scare
 scarf
 scarlet
+scarves
 scary
 scatter
 scavenge
@@ -5826,6 +5904,7 @@ sewing
 sex
 sexual
 shack
+shackles
 shade
 shadow
 shaft
@@ -5852,6 +5931,8 @@ sheet
 shelf
 shell
 shelter
+shelves
+shenanigans
 sheriff
 shield
 shift
@@ -5872,6 +5953,7 @@ shore
 shoreline
 short
 shortbread
+shorts
 shot
 should
 shoulder
@@ -5979,6 +6061,7 @@ smartphone
 smash
 smell
 smile
+smithereens
 smoke
 smolder
 smooth
@@ -6082,6 +6165,7 @@ specialist
 species
 specific
 specification
+spectacles
 spectacular
 specter
 spectrum
@@ -6149,6 +6233,7 @@ stag
 stage
 stagnant
 stair
+stairs
 stake
 stalk
 stallion
@@ -6203,6 +6288,7 @@ stiff
 stiletto
 still
 stimulate
+stimuli
 stimulus
 stipulate
 stir
@@ -6257,6 +6343,7 @@ student
 studio
 study
 stuff
+stunning
 stupendous
 stupid
 sty
@@ -6288,6 +6375,7 @@ succinct
 succumb
 such
 sudden
+suds
 suffer
 sufficient
 suffuse
@@ -6340,6 +6428,7 @@ surreal
 surrender
 surreptitious
 surround
+surroundings
 surveillance
 survey
 survival
@@ -6349,6 +6438,7 @@ sushi
 suspect
 suspend
 suspension
+suspicious
 sustain
 sustainability
 sustainable
@@ -6359,6 +6449,7 @@ swear
 sweat
 sweater
 sweep
+sweepstakes
 sweet
 swelter
 swift
@@ -6449,6 +6540,7 @@ teenage
 teenager
 teeth
 telecommunication
+telegraph
 telephone
 telescope
 television
@@ -6493,6 +6585,7 @@ textual
 texture
 than
 thank
+thanks
 that
 thaw
 the
@@ -6521,6 +6614,7 @@ thesis
 they
 thick
 thicket
+thieves
 thin
 thing
 think
@@ -6561,6 +6655,7 @@ tide
 tie
 tiger
 tight
+tights
 tile
 till
 timber
@@ -6742,6 +6837,7 @@ turtle
 turtleneck
 tusk
 tutor
+tweezers
 twelve
 twenty
 twice
@@ -6876,6 +6972,7 @@ validate
 valise
 valley
 valuable
+valuables
 value
 values
 valve
@@ -6921,6 +7018,7 @@ versatile
 verse
 version
 versus
+vertebrae
 vertex
 vertical
 very
@@ -6956,6 +7054,8 @@ violence
 violent
 violet
 violin
+viral
+virgin
 virology
 virtual
 virtue
@@ -7000,6 +7100,7 @@ vulnerable
 waffle
 waft
 wage
+wages
 waging
 wagon
 waist
@@ -7093,6 +7194,7 @@ wheelchair
 when
 whenever
 where
+whereabouts
 whereas
 wherever
 whether
@@ -7150,10 +7252,13 @@ wither
 within
 without
 witness
+wives
 wizard
 wolf
+wolves
 woman
 wombat
+women
 won
 wonder
 wonderful
@@ -7169,6 +7274,7 @@ word
 work
 worker
 workout
+workplace
 workshop
 world
 worldwide
@@ -7186,6 +7292,7 @@ wreath
 wrench
 wrestle
 wrestler
+wrestling
 wrist
 write
 writer

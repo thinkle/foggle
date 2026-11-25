@@ -254,6 +254,35 @@ def cmd_remove(a):
 	print('Now run: npm run build-wordlist')
 
 
+def cmd_review(a):
+	"""Markdown summary of answerList.txt changes vs a git ref (spoils added words)."""
+	old_text = subprocess.run(['git', '-C', str(LISTS), 'show', f'{a.ref}:./{ANSWERS.name}'],
+	                          capture_output=True, text=True, check=True).stdout
+	old = {l.strip() for l in old_text.split('\n') if l.strip()}
+	new = set(read_words(ANSWERS))
+	added, removed = sorted(new - old), sorted(old - new)
+
+	def section(title, words):
+		lines = [f'## {title} ({len(words)})', '']
+		by_letter = collections.defaultdict(list)
+		for w in words:
+			by_letter[w[0]].append(w)
+		for letter in sorted(by_letter):
+			lines.append(f'**{letter.upper()}** · ' + ', '.join(by_letter[letter]))
+			lines.append('')
+		return lines
+
+	out = [f'# Word list changes vs `{a.ref}`', '',
+	       f'{len(old)} → {len(new)} answers (+{len(added)}, −{len(removed)}).', '']
+	out += section('Added', added) + section('Removed', removed)
+	text = '\n'.join(out)
+	if a.out:
+		Path(a.out).write_text(text)
+		print(f'Wrote {a.out}')
+	else:
+		print(text)
+
+
 def main():
 	p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 	sub = p.add_subparsers(dest='cmd', required=True)
@@ -273,6 +302,10 @@ def main():
 	w.add_argument('--max', type=float, default=2.5)
 	w.add_argument('--inflected', action='store_true', help='also include inflected-looking forms')
 	w.set_defaults(fn=cmd_weak)
+	r = sub.add_parser('review', help='markdown list of added/removed answers vs a git ref')
+	r.add_argument('--ref', default='main')
+	r.add_argument('--out', help='write to this file instead of stdout')
+	r.set_defaults(fn=cmd_review)
 	a = p.parse_args()
 	a.fn(a)
 

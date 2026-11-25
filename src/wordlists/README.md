@@ -53,7 +53,12 @@ spoilers, and an AI can review them in batches of a few hundred. The
 `rejected.txt` ledger keeps the next session from reviewing the same words
 again. The usual criteria: base forms rather than plurals or past tenses,
 American spelling, no proper nouns, brands, abbreviations, slang or
-profanity, and a word a typical adult would recognise.
+profanity, and a word a typical adult would recognise. Irregular plurals
+(*geese*, *criteria*) and plural-only words (*scissors*, *pajamas*) are welcome.
+Mild words like *virgin* or *drunk* are fine; vulgar words and slurs aren't.
+
+Before opening a PR, `$W review --out changes.md` lists every added and removed
+answer compared with `main`, so you can check what went in.
 
 To prune obscure **upcoming** answers, `$W weak --max 2.3` lists them. That
 list is a spoiler, so leave it to the AI. `$W remove FILE` then drops them

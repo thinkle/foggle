@@ -109,7 +109,6 @@ characteristics
 characterized
 charlie
 charlotte
-children
 chile
 china
 chose
@@ -121,7 +120,6 @@ circumstantiate
 cited
 citizens
 classified
-clothes
 cock
 coke
 cole
@@ -139,7 +137,6 @@ complicated
 composed
 con
 concluded
-conclusion
 confused
 confusing
 congrats
@@ -149,7 +146,6 @@ considerably
 consists
 constellate
 constructed
-convenient
 convicted
 cooper
 corp
@@ -158,9 +154,7 @@ cos
 costa
 craftsperson
 crap
-creepy
 cried
-criteria
 criticized
 critics
 cum
@@ -191,7 +185,6 @@ devoted
 diagnosed
 dick
 did
-diesel
 dimensional
 disabled
 disappointed
@@ -244,7 +237,6 @@ et
 etc
 eve
 ex
-exceptional
 excessive
 excited
 executed
@@ -254,7 +246,6 @@ fallen
 favour
 favourite
 fed
-feet
 fell
 felt
 feminist
@@ -268,7 +259,6 @@ forgot
 forgotten
 forty
 fought
-foul
 franklin
 fraud
 french
@@ -301,7 +291,6 @@ grown
 guidelines
 guinea
 ha
-hack
 had
 happier
 harper
@@ -319,7 +308,6 @@ huh
 hung
 hydrosphere
 identified
-ignorant
 illustrated
 immediately
 immigrants
@@ -401,13 +389,9 @@ max
 meant
 measurement
 mechanics
-medieval
 mega
-men
-mercury
 met
 metres
-mice
 micro
 mid
 mike
@@ -519,7 +503,6 @@ said
 sang
 sat
 satisfied
-savage
 scared
 sec
 seemingly
@@ -561,7 +544,6 @@ spoke
 spoken
 spurs
 sri
-stairs
 stats
 stole
 stolen
@@ -569,7 +551,6 @@ stood
 struck
 stuck
 studied
-stunning
 sub
 subscribe
 subscribers
@@ -582,13 +563,11 @@ supposed
 surrounded
 surrounding
 suspended
-suspicious
 symptoms
 tactics
 taken
 taught
 tech
-telegraph
 terry
 thanksgiving
 theatre
@@ -631,8 +610,6 @@ victor
 victoria
 viewers
 villa
-viral
-virgin
 visitors
 vitalize
 vol
@@ -644,19 +621,15 @@ welsh
 went
 were
 whilst
-wives
+whore
 woke
-wolves
-women
 wont
 wore
 workers
-workplace
 worn
 worse
 worst
 wow
-wrestling
 wright
 written
 wrote
