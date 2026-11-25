@@ -343,8 +343,13 @@ def cmd_gaps(a):
 			for i in (0, 1):
 				if len(path) - i >= 5:  # skip abstract groups near the root
 					members[path[i]].add(w)
+	ignore_file = HERE / 'gaps-ignore.txt'
+	ignore = {l.strip() for l in ignore_file.read_text().split('\n')
+	          if l.strip() and not l.startswith('#')} if ignore_file.exists() else set()
 	rows = []
 	for syn, ws in members.items():
+		if syn.lemmas()[0] in ignore:
+			continue
 		missing = sorted(ws - answers - rejected, key=lambda w: -z(w))
 		if len(ws) >= a.min_size and len(missing) >= 5:
 			rows.append((len(ws & answers) / len(ws), -len(missing), syn.lemmas()[0], missing))

@@ -1,0 +1,2 @@
+drugs: opium morphine codeine heroin cocaine fentanyl methadone ibuprofen acetaminophen aspirin penicillin insulin antibiotic antidepressant antihistamine sedative steroid stimulant narcotic opiate painkiller tranquilizer amphetamine caffeine nicotine alcohol marijuana cannabis hashish ecstasy vaccine vitamin supplement placebo
+body: testosterone estrogen adrenaline endorphin dopamine serotonin melatonin oxytocin cortisol hormone cholesterol protein collagen keratin enzyme antibody hemoglobin plasma platelet glucose sugar carbohydrate calorie

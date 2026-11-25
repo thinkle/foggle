@@ -13,7 +13,6 @@ admin
 administered
 adonis
 adopted
-advertising
 adviser
 adz
 affairs
@@ -28,7 +27,6 @@ allegations
 alleged
 allocated
 alright
-amazed
 amazon
 amongst
 ana
@@ -40,8 +38,6 @@ animated
 ann
 anna
 announced
-annoyed
-annoying
 anti
 anticipated
 apparently
@@ -135,7 +131,6 @@ bro
 broke
 brought
 bruin
-bubbly
 built
 bullshit
 buried
@@ -150,7 +145,6 @@ cam
 came
 campion
 candida
-cannabis
 cannot
 cant
 caper
@@ -192,9 +186,7 @@ cited
 citizens
 clary
 classified
-cling
 clostridium
-cocaine
 cock
 cocker
 coco
@@ -215,7 +207,6 @@ compared
 compelling
 competitors
 compiled
-complicated
 complications
 composed
 con
@@ -224,7 +215,6 @@ concluded
 concoction
 coney
 confined
-confused
 confusing
 congrats
 congressional
@@ -280,7 +270,6 @@ denied
 depending
 depends
 deployed
-depressed
 depressing
 der
 derived
@@ -288,14 +277,12 @@ described
 descry
 designated
 details
-devoted
 diagnosed
 diagram
 dick
 did
 dimensional
 disabled
-disappointed
 disappointing
 discovered
 dislike
@@ -327,7 +314,6 @@ drosophila
 drove
 duff
 dug
-duke
 dumplings
 dutch
 dying
@@ -344,8 +330,6 @@ elected
 elevated
 elves
 em
-embarrassed
-embarrassing
 embedded
 embryo
 emissions
@@ -366,10 +350,8 @@ estimated
 et
 etc
 eve
-everlasting
 ex
 excessive
-excited
 executed
 expectations
 exposed
@@ -399,12 +381,10 @@ forty
 fossa
 fought
 franklin
-fraud
 freeman
 french
 fried
 frozen
-frustrated
 frustrating
 fuck
 fuzz
@@ -597,7 +577,6 @@ march
 marge
 marguerite
 maria
-marijuana
 marmite
 matt
 mavis
@@ -659,7 +638,6 @@ notified
 nova
 nude
 observed
-obsessed
 occupied
 oct
 offence
@@ -786,7 +764,6 @@ rick
 rickey
 risen
 rob
-robbery
 rode
 roebuck
 roger
@@ -805,7 +782,6 @@ sang
 sat
 satisfied
 scape
-scared
 scarves
 scattered
 sci
@@ -863,7 +839,6 @@ spelt
 spencer
 spent
 sperm
-spite
 spitz
 spoke
 spoken
@@ -910,7 +885,6 @@ tech
 tee
 tel
 terribly
-terrified
 terrifying
 terry
 testa
@@ -933,7 +907,6 @@ tiebreaker
 tiffin
 til
 timothy
-tired
 tits
 toddy
 told
