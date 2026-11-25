@@ -2947,6 +2947,7 @@ donnybrook
 donor
 donut
 doodad
+doofus
 doohickey
 doom
 door
