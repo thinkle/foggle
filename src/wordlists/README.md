@@ -32,6 +32,7 @@ Setup, once:
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r src/wordlists/tools/requirements.txt
+.venv/bin/python -c "import wn; wn.download('oewn:2024')"   # WordNet, only for `spray`
 ```
 
 Then:
@@ -69,7 +70,35 @@ in a file and run:
 $W check domain.txt --new-out new.txt   # splits into new / already answers / rejected / invalid, with Zipf
 ```
 
-Then `accept` the good ones from `new.txt`.
+Then `accept` the good ones from `new.txt`. Brainstorms done so far live in
+`domains/` (house, cooking, bikes, sports, outdoors, zoo, painting, poetry,
+fashion), so it's easy to see what's been covered.
+
+### Category sprays
+
+Somewhere between the two: take a frequency band and group the unreviewed
+words by WordNet category, which turns up the "mortise and tenon" words that
+are well known but rare in text:
+
+```bash
+$W spray --min 2.5 --max 3.5 --category noun.food noun.animal noun.artifact
+```
+
+Categories include `noun.artifact`, `noun.food`, `noun.animal`, `noun.plant`,
+`noun.body`, `noun.substance` and `noun.object`.
+
+### Compounds
+
+A closed compound counts as a word once the closed spelling wins in print:
+
+```bash
+$W compound words.txt   # Google Books Ngram: countertop vs counter top vs counter-top
+```
+
+It reports the closed spelling's share for the latest year (60% or more means
+it's a word; 40 to 60% is contested). It can't tell a noun from a verb phrase,
+so *breakaway* and *dugout* lose to *break away* and *dug out*; use judgment
+there. Google rate-limits the endpoint, so the command waits between lookups.
 
 ### Before a PR
 

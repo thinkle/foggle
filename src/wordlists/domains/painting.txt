@@ -1,0 +1,5 @@
+media: paint oil acrylic watercolor gouache tempera fresco encaustic pastel charcoal graphite ink crayon chalk enamel lacquer varnish glaze medium linseed turpentine solvent pigment binder gesso primer
+tools: brush palette easel canvas stretcher linen panel sketchbook palette knife spatula sponge rag mahlstick fan filbert flat round rigger sable bristle
+technique: sketch study draft underpainting wash glaze scumble impasto stipple hatching crosshatch blend gradient wet layering sgraffito dry brushwork stroke grisaille chiaroscuro sfumato perspective foreshortening composition vanishing point
+color: hue tint shade tone value saturation chroma complementary primary secondary tertiary warm cool neutral monochrome ochre umber sienna vermilion cerulean ultramarine cobalt cadmium crimson magenta indigo viridian
+art: portrait landscape seascape still life abstract realism impressionism expressionism cubism surrealism pointillism minimalism baroque rococo renaissance mural fresco triptych diptych masterpiece forgery gallery museum curator exhibition studio atelier patron

@@ -279,6 +279,93 @@ def cmd_check(a):
 		Path(a.new_out).write_text('\n'.join(groups['new']) + '\n')
 
 
+def cmd_spray(a):
+	"""Unreviewed candidates in a frequency band, grouped by WordNet category (noun.food, ...)."""
+	try:
+		import wn
+		en = wn.Wordnet('oewn:2024')
+	except Exception:
+		sys.exit("Needs WordNet data:  python -c \"import wn; wn.download('oewn:2024')\"")
+	valid = set(read_words(ALL_WORDS))
+	exclude = set(read_words(ANSWERS)) | set(schedule()) | set(read_words(REJECTED))
+	groups = collections.defaultdict(list)
+	for w in valid - exclude:
+		if len(w) < a.min_len or not a.min <= z(w) < a.max or looks_inflected(w, valid):
+			continue
+		ss = en.synsets(w)
+		# use the first (most common) sense, and only if w is itself a lemma of it
+		if not ss or w not in [l.lower() for l in ss[0].lemmas()]:
+			continue
+		cat = ss[0].lexfile()
+		if not a.category or cat in a.category:
+			groups[cat].append(w)
+	for cat in sorted(groups, key=lambda c: -len(groups[c])):
+		ws = sorted(groups[cat], key=lambda w: -z(w))
+		print(f'{cat} [{len(ws)}]: ' + ' '.join(ws[:a.limit]))
+
+
+def ngram_series(phrases: list[str], start: int, end: int) -> dict[str, list[float]]:
+	"""Google Books Ngram (unofficial JSON endpoint), case-insensitive."""
+	import json
+	import urllib.parse
+	import urllib.error
+	import urllib.request
+	q = urllib.parse.urlencode({'content': ','.join(phrases), 'year_start': start, 'year_end': end,
+	                            'corpus': 'en', 'smoothing': 0, 'case_insensitive': 'true'})
+	import time
+	for attempt in range(6):
+		time.sleep(2)  # be polite: Google rate-limits this endpoint aggressively
+		try:
+			with urllib.request.urlopen(f'https://books.google.com/ngrams/json?{q}', timeout=60) as r:
+				data = json.load(r)
+			break
+		except urllib.error.HTTPError as e:
+			if e.code != 429 or attempt == 5:
+				raise
+			time.sleep(15 * 2 ** attempt)
+	out: dict[str, list[float]] = {}
+	for s in data:
+		# case-insensitive results come back as "word (All)" aggregates plus per-case rows
+		name = s['ngram'].replace(' (All)', '').lower().replace(' - ', '-')
+		if s['ngram'].endswith('(All)') or name not in out:
+			out[name] = s['timeseries']
+	return out
+
+
+def splits(w: str, valid: set[str]) -> list[tuple[str, str]]:
+	return [(w[:i], w[i:]) for i in range(2, len(w) - 1) if w[:i] in valid and w[i:] in valid]
+
+
+def cmd_compound(a):
+	"""Is a closed compound (countertop) more common than its open/hyphenated spellings?"""
+	valid = set(read_words(ALL_WORDS))
+	words = list(dict.fromkeys(words_from(a.file)))
+	print(f'Share of the closed spelling in Google Books, {a.start}-{a.end}:')
+	for w in words:
+		sp = splits(w, valid)
+		if not sp:
+			print(f'  {w:16} (no two-word split found)')
+			continue
+		# pick the split whose open form is most common
+		phrases = [w] + [f'{x} {y}' for x, y in sp] + [f'{x}-{y}' for x, y in sp]
+		try:
+			series = ngram_series(phrases, a.start, a.end)
+		except Exception as e:  # network, rate limit...
+			print(f'  {w:16} ngram lookup failed: {e}')
+			continue
+		total = {p: series.get(p, [0])[-1] for p in phrases}
+		closed = total[w]
+		rivals = sum(v for p, v in total.items() if p != w)
+		first = [s for s in (series.get(w),) if s]
+		share = closed / (closed + rivals) if closed + rivals else 0
+		early = (series.get(w, [0])[0], sum(series.get(p, [0])[0] for p in phrases if p != w))
+		early_share = early[0] / sum(early) if sum(early) else 0
+		best = max((p for p in phrases if p != w), key=lambda p: total[p])
+		verdict = 'word' if share >= 0.6 else 'contested' if share >= 0.4 else 'two words'
+		print(f'  {w:16} {share:5.0%} closed in {a.end} ({early_share:4.0%} in {a.start}); '
+		      f'main rival "{best}" -> {verdict}')
+
+
 def cmd_review(a):
 	"""Markdown summary of answerList.txt changes vs a git ref (spoils added words)."""
 	old_text = subprocess.run(['git', '-C', str(LISTS), 'show', f'{a.ref}:./{ANSWERS.name}'],
@@ -331,6 +418,18 @@ def main():
 	ch.add_argument('file', help="file of words, or '-' for stdin")
 	ch.add_argument('--new-out', help='write just the new words to this file')
 	ch.set_defaults(fn=cmd_check)
+	sp = sub.add_parser('spray', help='candidates in a frequency band, grouped by WordNet category')
+	sp.add_argument('--min', type=float, default=2.5)
+	sp.add_argument('--max', type=float, default=3.5)
+	sp.add_argument('--min-len', type=int, default=4)
+	sp.add_argument('--limit', type=int, default=400, help='max words shown per category')
+	sp.add_argument('--category', nargs='*', help='e.g. noun.food noun.animal noun.artifact')
+	sp.set_defaults(fn=cmd_spray)
+	co = sub.add_parser('compound', help='Google Books Ngram: closed vs open/hyphenated spelling')
+	co.add_argument('file', help="file of words, or '-' for stdin")
+	co.add_argument('--start', type=int, default=1980)
+	co.add_argument('--end', type=int, default=2022)
+	co.set_defaults(fn=cmd_compound)
 	r = sub.add_parser('review', help='markdown list of added/removed answers vs a git ref')
 	r.add_argument('--ref', default='main')
 	r.add_argument('--out', help='write to this file instead of stdout')
