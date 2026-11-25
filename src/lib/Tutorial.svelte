@@ -124,11 +124,12 @@
 			text: 'Sometimes the reason will surprise you!',
 			position: 'right',
 			example: {
-				answer: 'foggy',
-				guesses: ['high'],
-				hardModeGuess: 'angle',
+				answer: 'tacit',
+				size: 1.5,
+				guesses: ['surprising'],
+				hardModeGuess: 'activate',
 				caption:
-					"ANGLE has its 'G' 3rd from the left, but a solid green 'G' means it must also be 2nd from the right."
+					"The first 'I' in SURPRISING is 5th from the right, and so is the 'I' in ACTIVATE. Since that 'I' was orange, not green, the answer can't have an 'I' there."
 			}
 		},
 		{
