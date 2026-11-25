@@ -175,7 +175,9 @@ cum	offensive
 cunt	offensive
 cuppa	british spelling
 da	slang, abbreviation or fragment
-dago	offensive
+dago	blocked: slur, not even a valid guess
+dagoes	blocked: slur, not even a valid guess
+dagos	blocked: slur, not even a valid guess
 dahl	obscure or niche
 darkie	blocked: slur, not even a valid guess
 darkies	blocked: slur, not even a valid guess
@@ -319,7 +321,7 @@ hmm	slang, abbreviation or fragment
 holocaust	sensitive (your call)
 hon	slang, abbreviation or fragment
 hong	proper noun or brand
-honky	offensive
+honky	blocked: slur, not even a valid guess
 honour	british spelling
 hooves	plural ending in s (irregular)
 huh	slang, abbreviation or fragment
@@ -376,7 +378,8 @@ kikes	blocked: slur, not even a valid guess
 kilometers	inflected form
 kinda	slang, abbreviation or fragment
 knives	plural ending in s (irregular)
-kraut	offensive
+kraut	blocked: slur, not even a valid guess
+krauts	blocked: slur, not even a valid guess
 kyle	proper noun or brand
 la	slang, abbreviation or fragment
 labour	british spelling
@@ -424,8 +427,9 @@ medicare	proper noun or brand
 mega	slang, abbreviation or fragment
 merle	obscure or niche
 metres	inflected form
-mick	proper noun or brand
+mick	blocked: slur, not even a valid guess
 mickey	proper noun or brand
+micks	blocked: slur, not even a valid guess
 micro	slang, abbreviation or fragment
 mid	slang, abbreviation or fragment
 midget	offensive
@@ -441,7 +445,8 @@ modified	inflected form
 mollie	proper noun or brand
 molly	inflected form
 mon	slang, abbreviation or fragment
-mongoloid	offensive
+mongoloid	blocked: slur, not even a valid guess
+mongoloids	blocked: slur, not even a valid guess
 morello	obscure or niche
 morris	proper noun or brand
 motivated	inflected form
@@ -504,7 +509,8 @@ politicians	inflected form
 pollard	obscure or niche
 ponderosa	obscure or niche
 poof	offensive
-poofter	offensive
+poofter	blocked: slur, not even a valid guess
+poofters	blocked: slur, not even a valid guess
 poon	offensive
 porn	offensive
 prep	slang, abbreviation or fragment
@@ -533,7 +539,8 @@ re	slang, abbreviation or fragment
 realise	british spelling
 received	inflected form
 recognise	british spelling
-redskin	offensive
+redskin	blocked: slur, not even a valid guess
+redskins	blocked: slur, not even a valid guess
 reeve	obscure or niche
 ref	slang, abbreviation or fragment
 refined	inflected form
@@ -608,7 +615,8 @@ spic	blocked: slur, not even a valid guess
 spics	blocked: slur, not even a valid guess
 spitz	obscure or niche
 spurs	inflected form
-squaw	offensive
+squaw	blocked: slur, not even a valid guess
+squaws	blocked: slur, not even a valid guess
 sri	slang, abbreviation or fragment
 staph	obscure or niche
 staphylococcus	obscure or niche
@@ -693,13 +701,15 @@ wives	inflected form
 wolves	plural ending in s (irregular)
 wont	slang, abbreviation or fragment
 woodruff	obscure or niche
-wop	offensive
+wop	blocked: slur, not even a valid guess
+wops	blocked: slur, not even a valid guess
 workers	inflected form
 wort	obscure or niche
 wright	proper noun or brand
 yang	obscure or niche
 yep	slang, abbreviation or fragment
-yid	offensive
+yid	blocked: slur, not even a valid guess
+yids	blocked: slur, not even a valid guess
 yoghurt	british spelling
 york	proper noun or brand
 yup	slang, abbreviation or fragment

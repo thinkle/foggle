@@ -38,6 +38,11 @@ The worst slurs are tagged `blocked: ...` and are also taken out of
 `allTheWords.txt`, so they aren't accepted as guesses at all. `add-valid`
 refuses them, and a test fails if one comes back.
 
+Anything tagged `offensive` (or `fine as a guess, not as an answer`) can
+still be typed, but it's left out of `displayableWords` in `src/lib/words.ts`.
+The analysis tab uses that list, so it never says "you were down to two
+words: ___ and fathom" with an offensive word in the blank.
+
 ## Growing the list (with an AI or by hand)
 
 Setup, once:

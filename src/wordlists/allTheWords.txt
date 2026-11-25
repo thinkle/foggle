@@ -26042,10 +26042,7 @@ dagger
 daggerboard
 daggers
 daglock
-dago
 dagoba
-dagoes
-dagos
 dags
 daguerreotype
 daguerreotyped
@@ -50082,7 +50079,6 @@ honkie
 honkies
 honking
 honks
-honky
 honor
 honorable
 honorableness
@@ -58289,8 +58285,6 @@ krafts
 krait
 kraits
 kraken
-kraut
-krauts
 kremlin
 kremlins
 kreplach
@@ -64864,10 +64858,8 @@ mice
 micellae
 micelle
 micelles
-mick
 mickey
 mickeys
-micks
 micra
 micro
 microaggression
@@ -66643,8 +66635,6 @@ mongo
 mongoes
 mongol
 mongolism
-mongoloid
-mongoloids
 mongols
 mongoose
 mongooses
@@ -79781,8 +79771,6 @@ poods
 pooed
 poof
 poofs
-poofter
-poofters
 pooh
 poohed
 poohing
@@ -86417,8 +86405,6 @@ redshank
 redshanks
 redshift
 redshifts
-redskin
-redskins
 redstart
 redstarts
 redtop
@@ -99561,14 +99547,12 @@ squatter
 squatters
 squattest
 squatting
-squaw
 squawk
 squawked
 squawker
 squawkers
 squawking
 squawks
-squaws
 squeak
 squeaked
 squeaker
@@ -117612,8 +117596,6 @@ wooziest
 woozily
 wooziness
 woozy
-wop
-wops
 word
 wordage
 wordbook
@@ -118227,8 +118209,6 @@ yeti
 yetis
 yew
 yews
-yid
-yids
 yield
 yielded
 yielding
