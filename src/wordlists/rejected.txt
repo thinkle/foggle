@@ -519,6 +519,9 @@ mart	slang, abbreviation or fragment
 masking	inflected form
 matt	proper noun or brand
 mattock	obscure or niche
+matza	variant spelling (matzo is the answer)
+matzah	variant spelling (matzo is the answer)
+matzoh	variant spelling (matzo is the answer)
 mavis	proper noun or brand
 max	proper noun or brand
 maya	proper noun or brand
@@ -529,6 +532,7 @@ merle	obscure or niche
 meth	slang, abbreviation or fragment
 metres	inflected form
 meze	variant spelling (mezze is the answer)
+mezze	obscure or niche
 mick	blocked: slur, not even a valid guess
 mickey	proper noun or brand
 micks	blocked: slur, not even a valid guess
@@ -747,6 +751,7 @@ snitch	slang, abbreviation or fragment
 snood	obscure or niche
 socks	inflected form
 soffit	obscure or niche
+soju	obscure or niche
 soldering	inflected form
 soundbar	removed from upcoming (obscure)
 sounds	inflected form
@@ -814,6 +819,7 @@ thru	slang, abbreviation or fragment
 thymus	obscure or niche
 tiebreaker	removed from upcoming (obscure)
 tiffin	obscure or niche
+tikka	slang, abbreviation or fragment
 til	slang, abbreviation or fragment
 timothy	proper noun or brand
 tits	inflected form
