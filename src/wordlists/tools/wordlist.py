@@ -100,15 +100,22 @@ def base_forms(w: str) -> list[str]:
 		out += [w[:-3], w[:-3] + 'e', w[:-4]]
 	if w.endswith('ly'):
 		out += [w[:-2], w[:-3] + 'e', w[:-3] + 'y' if w.endswith('ily') else w[:-2]]
-	if w.endswith('er') or w.endswith('est'):
-		stem = w[:-2] if w.endswith('er') else w[:-3]
-		out += [stem, stem + 'e', stem[:-1]]
+	# (no -er/-est: it hid too many real nouns like shower, speaker, drawer)
 	return out
+
+
+def looks_comparative(w: str, valid: set[str]) -> bool:
+	"""higher/highest, bigger/biggest: an -er word only counts if its -est twin exists."""
+	if w.endswith('er') and len(w) > 4:
+		return w[:-2] + 'est' in valid
+	if w.endswith('est') and len(w) > 5:
+		return w[:-3] + 'er' in valid
+	return False
 
 
 def looks_inflected(w: str, valid: set[str]) -> bool:
 	f = z(w)
-	return any(b in valid and z(b) >= f - 0.3 for b in base_forms(w))
+	return looks_comparative(w, valid) or any(b in valid and z(b) >= f - 0.3 for b in base_forms(w))
 
 
 def bucket(f: float) -> str:
@@ -254,6 +261,24 @@ def cmd_remove(a):
 	print('Now run: npm run build-wordlist')
 
 
+def cmd_check(a):
+	"""Sort a brainstormed list (e.g. one domain) into new / already answers / rejected / invalid."""
+	valid = set(read_words(ALL_WORDS))
+	answers = set(read_words(ANSWERS))
+	rejected = set(read_words(REJECTED))
+	groups = collections.defaultdict(list)
+	for w in dict.fromkeys(words_from(a.file)):
+		key = ('answer' if w in answers else 'rejected' if w in rejected
+		       else 'invalid' if w not in valid else 'new')
+		groups[key].append(w)
+	for key in ('new', 'answer', 'rejected', 'invalid'):
+		ws = sorted(groups[key], key=lambda w: -z(w)) if key == 'new' else sorted(groups[key])
+		shown = ' '.join(f'{w}({z(w):.1f})' for w in ws) if key == 'new' else ' '.join(ws)
+		print(f'{key} [{len(ws)}]: {shown}')
+	if a.new_out:
+		Path(a.new_out).write_text('\n'.join(groups['new']) + '\n')
+
+
 def cmd_review(a):
 	"""Markdown summary of answerList.txt changes vs a git ref (spoils added words)."""
 	old_text = subprocess.run(['git', '-C', str(LISTS), 'show', f'{a.ref}:./{ANSWERS.name}'],
@@ -302,6 +327,10 @@ def main():
 	w.add_argument('--max', type=float, default=2.5)
 	w.add_argument('--inflected', action='store_true', help='also include inflected-looking forms')
 	w.set_defaults(fn=cmd_weak)
+	ch = sub.add_parser('check', help='classify a brainstormed word list: new/answer/rejected/invalid')
+	ch.add_argument('file', help="file of words, or '-' for stdin")
+	ch.add_argument('--new-out', help='write just the new words to this file')
+	ch.set_defaults(fn=cmd_check)
 	r = sub.add_parser('review', help='markdown list of added/removed answers vs a git ref')
 	r.add_argument('--ref', default='main')
 	r.add_argument('--out', help='write to this file instead of stdout')

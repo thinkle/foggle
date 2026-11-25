@@ -54,8 +54,24 @@ spoilers, and an AI can review them in batches of a few hundred. The
 again. The usual criteria: base forms rather than plurals or past tenses,
 American spelling, no proper nouns, brands, abbreviations, slang or
 profanity, and a word a typical adult would recognise. Irregular plurals
-(*geese*, *criteria*) and plural-only words (*scissors*, *pajamas*) are welcome.
+that don't end in s (*geese*, *criteria*, *cherubim*) and plural-only words
+(*scissors*, *pajamas*) are welcome, but *knives*/*indices* style plurals aren't.
 Mild words like *virgin* or *drunk* are fine; vulgar words and slurs aren't.
+
+### Domain brainstorms
+
+Frequency sweeps miss everyday concrete nouns (*trivet*, *joist*, *downspout*
+are rare in text but everyone knows them). So also brainstorm by domain, like
+room by room through a house or "pretty common medical words". Put the words
+in a file and run:
+
+```bash
+$W check domain.txt --new-out new.txt   # splits into new / already answers / rejected / invalid, with Zipf
+```
+
+Then `accept` the good ones from `new.txt`.
+
+### Before a PR
 
 Before opening a PR, `$W review --out changes.md` lists every added and removed
 answer compared with `main`, so you can check what went in.
