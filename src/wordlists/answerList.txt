@@ -307,6 +307,7 @@ amateur
 amaze
 amazed
 amazing
+amazon
 ambassador
 amber
 ambience
@@ -744,6 +745,7 @@ backwoods
 backyard
 bacon
 bacteria
+bacteriophage
 bacterium
 bad
 badge
@@ -1773,6 +1775,7 @@ chimney
 chimp
 chimpanzee
 chin
+china
 chinos
 chip
 chipmunk
@@ -2279,6 +2282,7 @@ cooktop
 cool
 cooler
 coop
+cooper
 cooperate
 cooperation
 cooperative
@@ -2583,6 +2587,7 @@ dainty
 dairy
 dais
 daisy
+dale
 dam
 damage
 damask
@@ -3106,6 +3111,7 @@ drone
 drop
 droplet
 dropout
+drosophila
 drought
 drove
 drug
@@ -4485,6 +4491,7 @@ harpsichord
 harpy
 harrow
 harsh
+hart
 harvest
 hashish
 hashtag
@@ -5176,6 +5183,7 @@ jar
 jargon
 jasmine
 jaundice
+java
 javelin
 jaw
 jay
@@ -5200,6 +5208,7 @@ jewelry
 jiffy
 jig
 jigsaw
+jimmy
 jingle
 jinx
 jitterbug
@@ -5568,6 +5577,7 @@ liquor
 lira
 list
 listen
+listeria
 lit
 liter
 literacy
@@ -6672,6 +6682,7 @@ palm
 palmetto
 pamphlet
 pan
+panama
 pancake
 pancreas
 panda
@@ -6875,6 +6886,7 @@ petticoat
 petty
 petunia
 pew
+phallus
 pharaoh
 pharmaceutical
 pharmacist
@@ -6905,6 +6917,7 @@ physician
 physicist
 physics
 physiology
+phytoplankton
 pi
 pianissimo
 pianist
@@ -8012,6 +8025,7 @@ saleswoman
 salient
 salinity
 salmon
+salmonella
 salon
 saloon
 salsa
@@ -9468,6 +9482,7 @@ told
 tolerance
 tolerate
 toll
+tom
 tomahawk
 tomato
 tomb
@@ -9658,6 +9673,7 @@ trucker
 true
 truffle
 truly
+trump
 trumpet
 trumpeter
 truncate
@@ -10307,6 +10323,7 @@ wondrous
 wonton
 woo
 wood
+woodbine
 woodcock
 wooden
 woodpecker
@@ -10367,6 +10384,7 @@ xenon
 xenophobia
 xylophone
 yacht
+yahoo
 yak
 yam
 yard

@@ -19,7 +19,6 @@ al	slang, abbreviation or fragment
 allegations	inflected form
 alleged	inflected form
 allocated	inflected form
-amazon	proper noun or brand
 amongst	slang, abbreviation or fragment
 ana	proper noun or brand
 ancestors	inflected form
@@ -112,8 +111,8 @@ charlotte	proper noun or brand
 chi	obscure or niche
 chile	proper noun or brand
 chilli	british spelling
-china	proper noun or brand
 chine	obscure or niche
+chink	offensive
 choc	slang, abbreviation or fragment
 christian	proper noun or brand
 chub	obscure or niche
@@ -158,7 +157,7 @@ consolidated	inflected form
 constellate	removed from upcoming (obscure)
 constructed	inflected form
 convicted	inflected form
-cooper	proper noun or brand
+coon	offensive
 corolla	obscure or niche
 corp	slang, abbreviation or fragment
 corresponding	inflected form
@@ -175,8 +174,9 @@ cum	offensive
 cunt	offensive
 cuppa	british spelling
 da	slang, abbreviation or fragment
+dago	offensive
 dahl	obscure or niche
-dale	proper noun or brand
+darkie	offensive
 de	slang, abbreviation or fragment
 dec	slang, abbreviation or fragment
 decided	inflected form
@@ -219,11 +219,11 @@ don	obscure or niche
 donna	proper noun or brand
 draught	british spelling
 dried	inflected form
-drosophila	obscure or niche
 duff	obscure or niche
 dumplings	inflected form
 dutch	proper noun or brand
 dying	inflected form
+dyke	offensive
 earlier	inflected form
 earliest	inflected form
 easier	inflected form
@@ -256,6 +256,8 @@ ex	slang, abbreviation or fragment
 executed	inflected form
 expectations	inflected form
 exposed	inflected form
+fag	offensive
+faggot	offensive
 farina	obscure or niche
 favour	british spelling
 favourite	british spelling
@@ -286,28 +288,33 @@ goldeneye	obscure or niche
 goldilocks	obscure or niche
 gonna	slang, abbreviation or fragment
 google	proper noun or brand
+gook	offensive
 gotta	slang, abbreviation or fragment
 gov	slang, abbreviation or fragment
 governing	inflected form
 graham	proper noun or brand
 greenbrier	obscure or niche
 grey	british spelling
+gringo	offensive
 grisaille	removed from upcoming (obscure)
 guan	obscure or niche
 guidelines	inflected form
+gyp	offensive
+gypsy	offensive
 ha	slang, abbreviation or fragment
+halfbreed	offensive
 halves	inflected form
 happier	inflected form
 harbour	british spelling
 harper	proper noun or brand
 harry	proper noun or brand
-hart	proper noun or brand
 has	inflected form
 henry	proper noun or brand
 hmm	slang, abbreviation or fragment
 holocaust	sensitive (your call)
 hon	slang, abbreviation or fragment
 hong	proper noun or brand
+honky	offensive
 honour	british spelling
 hooves	plural ending in s (irregular)
 huh	slang, abbreviation or fragment
@@ -344,11 +351,10 @@ isolated	inflected form
 jaeger	proper noun or brand
 jane	proper noun or brand
 japan	proper noun or brand
-java	proper noun or brand
 jenny	proper noun or brand
 jerry	proper noun or brand
 jew	sensitive (your call)
-jimmy	proper noun or brand
+jigaboo	offensive
 john	proper noun or brand
 johnny	proper noun or brand
 josh	proper noun or brand
@@ -359,9 +365,11 @@ kelly	proper noun or brand
 kent	proper noun or brand
 khan	proper noun or brand
 kidnapped	inflected form
+kike	offensive
 kilometers	inflected form
 kinda	slang, abbreviation or fragment
 knives	plural ending in s (irregular)
+kraut	offensive
 kyle	proper noun or brand
 la	slang, abbreviation or fragment
 labour	british spelling
@@ -379,7 +387,6 @@ lewis	proper noun or brand
 liana	obscure or niche
 licence	british spelling
 limitations	inflected form
-listeria	obscure or niche
 lives	inflected form
 loaves	plural ending in s (irregular)
 located	inflected form
@@ -415,6 +422,7 @@ mick	proper noun or brand
 mickey	proper noun or brand
 micro	slang, abbreviation or fragment
 mid	slang, abbreviation or fragment
+midget	offensive
 mike	proper noun or brand
 miles	inflected form
 milt	obscure or niche
@@ -427,6 +435,7 @@ modified	inflected form
 mollie	proper noun or brand
 molly	inflected form
 mon	slang, abbreviation or fragment
+mongoloid	offensive
 morello	obscure or niche
 morris	proper noun or brand
 motivated	inflected form
@@ -438,9 +447,12 @@ murphy	proper noun or brand
 nah	slang, abbreviation or fragment
 nancy	proper noun or brand
 negotiations	inflected form
+negro	offensive
 neighbourhood	british spelling
 nelson	proper noun or brand
 newton	proper noun or brand
+nigga	offensive
+nigger	offensive
 nominated	inflected form
 non	slang, abbreviation or fragment
 nope	slang, abbreviation or fragment
@@ -462,7 +474,6 @@ outta	slang, abbreviation or fragment
 overwhelmed	inflected form
 oxford	proper noun or brand
 palmer	proper noun or brand
-panama	proper noun or brand
 papillon	obscure or niche
 para	slang, abbreviation or fragment
 parameters	inflected form
@@ -474,17 +485,18 @@ perry	proper noun or brand
 peter	proper noun or brand
 peyote	obscure or niche
 phage	obscure or niche
-phallus	obscure or niche
 phil	proper noun or brand
-phytoplankton	obscure or niche
 pic	slang, abbreviation or fragment
 pica	obscure or niche
+pickaninny	offensive
 pika	obscure or niche
 piss	offensive
 pneumatics	removed from upcoming (obscure)
 politicians	inflected form
 pollard	obscure or niche
 ponderosa	obscure or niche
+poof	offensive
+poofter	offensive
 poon	offensive
 porn	offensive
 prep	slang, abbreviation or fragment
@@ -513,6 +525,7 @@ re	slang, abbreviation or fragment
 realise	british spelling
 received	inflected form
 recognise	british spelling
+redskin	offensive
 reeve	obscure or niche
 ref	slang, abbreviation or fragment
 refined	inflected form
@@ -530,6 +543,8 @@ researchers	inflected form
 resources	inflected form
 restricted	inflected form
 restrictions	inflected form
+retard	offensive
+retarded	offensive
 retired	inflected form
 rev	slang, abbreviation or fragment
 rhesus	obscure or niche
@@ -543,7 +558,7 @@ rudd	obscure or niche
 rusk	obscure or niche
 ruth	proper noun or brand
 sally	inflected form
-salmonella	obscure or niche
+sambo	offensive
 sanctions	inflected form
 sanders	inflected form
 satisfied	inflected form
@@ -581,8 +596,10 @@ specialized	inflected form
 specified	inflected form
 spelt	british spelling
 spencer	proper noun or brand
+spic	offensive
 spitz	obscure or niche
 spurs	inflected form
+squaw	offensive
 sri	slang, abbreviation or fragment
 staph	obscure or niche
 staphylococcus	obscure or niche
@@ -624,7 +641,6 @@ tiffin	obscure or niche
 til	slang, abbreviation or fragment
 timothy	proper noun or brand
 tits	inflected form
-tom	proper noun or brand
 tony	proper noun or brand
 towards	inflected form
 trans	slang, abbreviation or fragment
@@ -633,7 +649,6 @@ tried	inflected form
 troops	inflected form
 trotter	obscure or niche
 troy	proper noun or brand
-trump	proper noun or brand
 turner	proper noun or brand
 twitter	proper noun or brand
 ugh	slang, abbreviation or fragment
@@ -659,6 +674,7 @@ wanna	slang, abbreviation or fragment
 weenie	slang, abbreviation or fragment
 wellington	proper noun or brand
 welsh	proper noun or brand
+wetback	offensive
 wether	obscure or niche
 whilst	slang, abbreviation or fragment
 whore	offensive
@@ -667,14 +683,14 @@ winkle	obscure or niche
 wives	inflected form
 wolves	plural ending in s (irregular)
 wont	slang, abbreviation or fragment
-woodbine	obscure or niche
 woodruff	obscure or niche
+wop	offensive
 workers	inflected form
 wort	obscure or niche
 wright	proper noun or brand
-yahoo	proper noun or brand
 yang	obscure or niche
 yep	slang, abbreviation or fragment
+yid	offensive
 yoghurt	british spelling
 york	proper noun or brand
 yup	slang, abbreviation or fragment
