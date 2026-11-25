@@ -1,5 +1,6 @@
 abandoned	inflected form
 abortion	fine as a guess, not as an answer
+absorber	slang, abbreviation or fragment
 accessories	inflected form
 accompanied	inflected form
 according	inflected form
@@ -25,6 +26,7 @@ amongst	slang, abbreviation or fragment
 ana	proper noun or brand
 ancestors	inflected form
 angelica	obscure or niche
+animals	inflected form
 animated	inflected form
 ann	proper noun or brand
 anna	proper noun or brand
@@ -61,6 +63,7 @@ bandsaw	obscure or niche
 baptist	proper noun or brand
 barbeque	british spelling
 based	inflected form
+basking	inflected form
 basswood	obscure or niche
 bastard	offensive
 basting	inflected form
@@ -79,6 +82,7 @@ billy	proper noun or brand
 binky	slang, abbreviation or fragment
 bio	slang, abbreviation or fragment
 birdfeeder	two words in print (valid guess, not an answer)
+birds	inflected form
 bitch	offensive
 bitcoin	proper noun or brand
 blackface	offensive
@@ -88,6 +92,7 @@ bleeding	inflected form
 blini	obscure or niche
 blocks	inflected form
 blogger	obscure or niche
+boarding	inflected form
 bobby	proper noun or brand
 bock	obscure or niche
 bodkin	obscure or niche
@@ -109,6 +114,7 @@ buried	inflected form
 burke	proper noun or brand
 buttoning	inflected form
 bye	slang, abbreviation or fragment
+cables	inflected form
 cabochon	obscure or niche
 cabriole	obscure or niche
 cal	proper noun or brand
@@ -128,6 +134,7 @@ cassia	obscure or niche
 castor	variant spelling (caster is the answer)
 casualties	inflected form
 catalogue	british spelling
+catalytic	slang, abbreviation or fragment
 cayman	obscure or niche
 celeriac	obscure or niche
 centre	british spelling
@@ -147,6 +154,7 @@ chink	offensive
 choc	slang, abbreviation or fragment
 christian	proper noun or brand
 chub	obscure or niche
+cichlid	obscure or niche
 cinderblock	two words in print (valid guess, not an answer)
 circumstances	inflected form
 circumstantiate	removed from upcoming (obscure)
@@ -193,6 +201,7 @@ consists	inflected form
 consolidated	inflected form
 constellate	removed from upcoming (obscure)
 constructed	inflected form
+conure	obscure or niche
 convicted	inflected form
 coon	blocked: slur, not even a valid guess
 coons	blocked: slur, not even a valid guess
@@ -214,11 +223,13 @@ cum	offensive
 cunt	offensive
 cuppa	british spelling
 cutting	inflected form
+cuttlebone	obscure or niche
 da	slang, abbreviation or fragment
 dago	blocked: slur, not even a valid guess
 dagoes	blocked: slur, not even a valid guess
 dagos	blocked: slur, not even a valid guess
 dahl	obscure or niche
+danio	obscure or niche
 darkie	blocked: slur, not even a valid guess
 darkies	blocked: slur, not even a valid guess
 dauber	obscure or niche
@@ -272,6 +283,7 @@ douche	offensive
 draught	british spelling
 dried	inflected form
 drinks	inflected form
+driving	inflected form
 duff	obscure or niche
 dumplings	inflected form
 dustbin	british spelling
@@ -506,7 +518,9 @@ liana	obscure or niche
 licence	british spelling
 lightbulb	two words in print (valid guess, not an answer)
 limitations	inflected form
+limo	slang, abbreviation or fragment
 lives	inflected form
+loach	obscure or niche
 loaves	plural ending in s (irregular)
 located	inflected form
 logan	proper noun or brand
@@ -545,6 +559,7 @@ matzoh	variant spelling (matzo is the answer)
 mavis	proper noun or brand
 max	proper noun or brand
 maya	proper noun or brand
+mealworm	obscure or niche
 medicare	proper noun or brand
 meetings	inflected form
 mega	slang, abbreviation or fragment
@@ -583,6 +598,7 @@ moustache	british spelling
 mouton	obscure or niche
 moving	inflected form
 mph	slang, abbreviation or fragment
+mudflap	obscure or niche
 multi	slang, abbreviation or fragment
 multimeter	obscure or niche
 mum	british spelling
@@ -631,6 +647,7 @@ papillon	obscure or niche
 para	slang, abbreviation or fragment
 parameters	inflected form
 parents	inflected form
+parking	inflected form
 parquetry	obscure or niche
 participants	inflected form
 parts	inflected form
@@ -649,6 +666,7 @@ pika	obscure or niche
 pinecone	two words in print (valid guess, not an answer)
 pinking	inflected form
 piss	offensive
+platy	obscure or niche
 playdough	proper noun or brand
 plexiglass	proper noun or brand
 pneumatics	removed from upcoming (obscure)
@@ -705,6 +723,7 @@ remarks	inflected form
 renewed	inflected form
 rep	slang, abbreviation or fragment
 replied	inflected form
+reptiles	inflected form
 requirements	inflected form
 researchers	inflected form
 resources	inflected form
@@ -741,6 +760,7 @@ scattered	inflected form
 schist	obscure or niche
 sci	slang, abbreviation or fragment
 sciences	inflected form
+scratcher	obscure or niche
 sculpting	inflected form
 seating	inflected form
 sec	slang, abbreviation or fragment
@@ -757,8 +777,10 @@ shad	obscure or niche
 shadowbox	obscure or niche
 shanghai	proper noun or brand
 shareholders	inflected form
+shavings	inflected form
 shaw	proper noun or brand
 sheathing	obscure or niche
+shedding	inflected form
 sheetrock	proper noun or brand
 shelves	inflected form
 shit	offensive
@@ -785,6 +807,7 @@ soya	british spelling
 spanner	british spelling
 specialized	inflected form
 specified	inflected form
+speeding	inflected form
 spelt	british spelling
 spencer	proper noun or brand
 spic	blocked: slur, not even a valid guess
@@ -825,6 +848,7 @@ suspended	inflected form
 swag	slang, abbreviation or fragment
 symptoms	inflected form
 tactics	inflected form
+tailgating	inflected form
 takeaway	british spelling
 takin	obscure or niche
 tatting	inflected form
@@ -849,6 +873,7 @@ tiebreaker	removed from upcoming (obscure)
 tiffin	obscure or niche
 tikka	slang, abbreviation or fragment
 til	slang, abbreviation or fragment
+timing	inflected form
 timothy	proper noun or brand
 tits	inflected form
 toile	obscure or niche
@@ -869,6 +894,7 @@ tufting	inflected form
 turnbuckle	obscure or niche
 turner	proper noun or brand
 twitter	proper noun or brand
+tyre	british spelling
 ugh	slang, abbreviation or fragment
 ultra	slang, abbreviation or fragment
 un	slang, abbreviation or fragment
@@ -885,6 +911,7 @@ villa	obscure or niche
 vino	slang, abbreviation or fragment
 visitors	inflected form
 vitalize	removed from upcoming (obscure)
+vivarium	obscure or niche
 voile	obscure or niche
 vol	slang, abbreviation or fragment
 voters	inflected form

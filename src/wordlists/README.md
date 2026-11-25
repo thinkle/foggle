@@ -89,7 +89,23 @@ $W check domain.txt --new-out new.txt   # splits into new / already answers / re
 
 Then `accept` the good ones from `new.txt`. Brainstorms done so far live in
 `domains/` (house, cooking, bikes, sports, outdoors, zoo, painting, poetry,
-fashion), so it's easy to see what's been covered.
+fashion, and more), so it's easy to see what's been covered. "Store walks"
+work well: picture walking the aisles of a craft store, hardware store,
+grocery (including the international aisle), toy store, furniture store, auto
+parts store or pet store and name everything you see (`crafts.txt`,
+`hardware.txt`, `grocery.txt`, `international.txt`, `toys.txt`,
+`furniture.txt`, `cars.txt`, `pets.txt`). A college course catalog
+(`courses.txt`) works the same way.
+
+A walk often turns up familiar words that aren't valid guesses yet (*udon*,
+*frisbee*, *backsplash*). `check` lists them as invalid. Run compounds
+through `compound` first, then `add-valid` the real words and `accept` them.
+Brands, fragments (*sippy*, *tikka*) and compounds still written as two
+words in print (*lightbulb*, *firepit*) can be valid guesses without being
+answers. Log those with `reject --reason "two words in print (valid guess,
+not an answer)"` or similar. A mildly uncomfortable word that's fine to show
+in the analysis tab (*noose*) gets a reason starting with `sensitive`,
+not `offensive`.
 
 ### Category sprays
 

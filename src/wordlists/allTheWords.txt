@@ -89667,6 +89667,7 @@ riderless
 riders
 ridership
 rides
+rideshare
 ridge
 ridged
 ridgeling
