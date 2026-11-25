@@ -262,8 +262,8 @@ executed	inflected form
 expectations	inflected form
 exposed	inflected form
 fag	blocked: slur, not even a valid guess
-faggot	blocked: slur, not even a valid guess
-faggots	blocked: slur, not even a valid guess
+faggot	offensive
+faggots	offensive
 fags	blocked: slur, not even a valid guess
 farina	obscure or niche
 favour	british spelling
@@ -462,8 +462,8 @@ negro	offensive
 neighbourhood	british spelling
 nelson	proper noun or brand
 newton	proper noun or brand
-nigga	blocked: slur, not even a valid guess
-niggas	blocked: slur, not even a valid guess
+nigga	offensive
+niggas	offensive
 nigger	blocked: slur, not even a valid guess
 niggers	blocked: slur, not even a valid guess
 nominated	inflected form
@@ -501,7 +501,7 @@ phage	obscure or niche
 phil	proper noun or brand
 pic	slang, abbreviation or fragment
 pica	obscure or niche
-pickaninny	blocked: slur, not even a valid guess
+pickaninny	offensive
 pika	obscure or niche
 piss	offensive
 pneumatics	removed from upcoming (obscure)
@@ -573,7 +573,7 @@ rudd	obscure or niche
 rusk	obscure or niche
 ruth	proper noun or brand
 sally	inflected form
-sambo	blocked: slur, not even a valid guess
+sambo	offensive
 sanctions	inflected form
 sanders	inflected form
 satisfied	inflected form
