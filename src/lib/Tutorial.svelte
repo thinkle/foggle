@@ -14,8 +14,16 @@
 			position: 'right'
 		},
 		{
+			text: "Hard mode works like it does in wordle, where you're only allowed to guess a word that can fit.",
+			position: 'left'
+		},
+		{
+			text: "Hard mode can double as 'learn how the game works' mode. When you enter a guess that won't fit, you'll learn why...",
+			position: 'right'
+		},
+		{
 			text: 'The basics are familiar: guess letters right, and they turn green...',
-			position: 'right',
+			position: 'left',
 			example: {
 				answer: 'foggy',
 				guesses: ['funky', 'fools', 'foggy'],
