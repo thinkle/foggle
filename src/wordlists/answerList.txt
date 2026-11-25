@@ -537,6 +537,7 @@ arm
 armada
 armadillo
 armament
+armature
 armchair
 armed
 armistice
@@ -796,6 +797,7 @@ ballpark
 ballroom
 balmy
 baloney
+balsa
 balsam
 bamboo
 bamboozle
@@ -889,6 +891,7 @@ battle
 battlefield
 battlement
 battleship
+bauble
 bawl
 bay
 bayonet
@@ -1036,6 +1039,7 @@ bin
 binary
 bind
 binder
+binding
 binge
 bingo
 binoculars
@@ -1465,6 +1469,7 @@ buy
 buyer
 buzz
 buzzard
+buzzer
 by
 bypass
 byte
@@ -1798,6 +1803,7 @@ chemical
 chemist
 chemistry
 chemotherapy
+chenille
 cherish
 cherry
 cherubim
@@ -1829,6 +1835,7 @@ chimpanzee
 chin
 china
 chinos
+chintz
 chip
 chipmunk
 chipper
@@ -2366,6 +2373,7 @@ core
 corgi
 coriander
 cork
+corkboard
 corkscrew
 corn
 cornbread
@@ -2375,6 +2383,7 @@ cornerstone
 cornet
 cornmeal
 cornstarch
+cornucopia
 corona
 coronary
 coronation
@@ -2457,6 +2466,7 @@ cowboy
 cower
 cowhand
 cowhide
+cowl
 cox
 coy
 coyote
@@ -2519,6 +2529,7 @@ cribbage
 cricket
 crime
 criminal
+crimp
 crimson
 cringe
 crisis
@@ -2628,6 +2639,7 @@ cuticle
 cutlass
 cutlery
 cutlet
+cutter
 cuttlefish
 cyan
 cyber
@@ -2723,6 +2735,7 @@ decade
 decadence
 decadent
 decaf
+decal
 decathlon
 decay
 deceased
@@ -2746,6 +2759,7 @@ decontamination
 decor
 decorate
 decoration
+decoupage
 decoy
 decrease
 decree
@@ -3173,6 +3187,7 @@ drawstring
 dream
 dreary
 dregs
+dreidel
 dress
 dresser
 dressmaker
@@ -3510,6 +3525,7 @@ epitaph
 epithelial
 epitome
 epoch
+epoxy
 epsilon
 equal
 equality
@@ -3847,6 +3863,7 @@ fig
 fight
 fighter
 figure
+figurine
 filbert
 file
 filet
@@ -3953,6 +3970,7 @@ floodlight
 floodplain
 floor
 floorboard
+floral
 florid
 florist
 floss
@@ -3976,6 +3994,7 @@ flutter
 fly
 flywheel
 foal
+foam
 focaccia
 focus
 fodder
@@ -4068,6 +4087,7 @@ fowl
 fox
 foxhole
 foxtrot
+foyer
 fracas
 fraction
 fractious
@@ -4319,6 +4339,7 @@ glimpse
 glissando
 glisten
 glitch
+glitter
 global
 globalization
 globe
@@ -4333,6 +4354,7 @@ glow
 glucose
 glue
 gluttony
+glycerin
 glycolysis
 gnat
 gnocchi
@@ -4378,6 +4400,7 @@ goth
 gotten
 gouache
 goulash
+gourd
 gout
 govern
 governance
@@ -4406,6 +4429,7 @@ grandparent
 grandparents
 grandson
 granite
+granny
 granola
 grant
 granule
@@ -4807,6 +4831,7 @@ holiday
 holistic
 hollow
 holly
+holster
 holy
 home
 homecoming
@@ -4841,6 +4866,7 @@ hooey
 hoof
 hook
 hooligan
+hoop
 hootenanny
 hop
 hope
@@ -4944,6 +4970,7 @@ hut
 hutch
 hybrid
 hydra
+hydrangea
 hydration
 hydraulics
 hydro
@@ -5140,6 +5167,7 @@ infrastructure
 infuse
 ingenious
 ingredient
+inhaler
 inherent
 initial
 initially
@@ -5306,6 +5334,7 @@ jackal
 jacket
 jackpot
 jacks
+jacquard
 jade
 jaded
 jagged
@@ -5444,6 +5473,7 @@ kidnapping
 kidney
 kill
 killer
+kiln
 kilo
 kilobyte
 kilogram
@@ -5535,6 +5565,7 @@ landscape
 lane
 language
 lantern
+lanyard
 lap
 lapel
 lapse
@@ -5706,6 +5737,7 @@ line
 lineage
 linear
 linen
+liner
 lineup
 lingerie
 lingo
@@ -5847,6 +5879,7 @@ machine
 machinery
 machinist
 mackerel
+macrame
 mad
 made
 madness
@@ -6089,6 +6122,7 @@ memorial
 memory
 men
 meningitis
+menorah
 mental
 mention
 mentor
@@ -6257,6 +6291,7 @@ moist
 moisture
 molasses
 mold
+molding
 mole
 molecular
 molecule
@@ -6442,6 +6477,7 @@ necrosis
 nectar
 need
 needle
+needlepoint
 needy
 negative
 negotiate
@@ -6739,6 +6775,7 @@ orienteering
 origami
 origin
 original
+ornament
 ornamental
 ornate
 ornithology
@@ -6944,6 +6981,7 @@ pasture
 pasty
 pat
 patch
+patchwork
 pate
 patent
 path
@@ -7138,6 +7176,7 @@ pillowcase
 pilot
 pimple
 pin
+pinata
 pinball
 pincushion
 pine
@@ -7148,6 +7187,7 @@ pinto
 pioneer
 pipe
 pipeline
+piping
 pippin
 pique
 piracy
@@ -7186,6 +7226,7 @@ plankton
 plant
 plantain
 plantation
+planter
 plasma
 plaster
 plasterer
@@ -7281,6 +7322,7 @@ polyester
 polygon
 polymer
 pomegranate
+pompom
 pompous
 poncho
 pond
@@ -7578,6 +7620,7 @@ purchase
 pure
 puree
 purgatory
+purl
 purple
 purpose
 purse
@@ -7637,6 +7680,7 @@ quick
 quiescent
 quiet
 quilt
+quilting
 quince
 quinoa
 quintessence
@@ -7681,6 +7725,7 @@ radiologist
 radiology
 radish
 radius
+raffia
 raffle
 raft
 rafter
@@ -8144,6 +8189,7 @@ rosemary
 rosewood
 rosin
 roster
+rotary
 rotation
 rotisserie
 rotor
@@ -8195,6 +8241,7 @@ sabbath
 saber
 sable
 sabotage
+sachet
 sack
 sacrament
 sacred
@@ -8303,6 +8350,7 @@ saw
 sawdust
 sawhorse
 sawmill
+sawtooth
 sax
 saxophone
 say
@@ -8684,6 +8732,7 @@ sinus
 sinusitis
 sir
 sirloin
+sisal
 sister
 sit
 sitar
@@ -8700,6 +8749,7 @@ skateboard
 skater
 skating
 skedaddle
+skein
 skeptic
 skepticism
 sketch
@@ -8755,6 +8805,7 @@ slide
 slight
 slightly
 slim
+slime
 sling
 slingshot
 slip
@@ -9011,6 +9062,7 @@ spring
 springboard
 springbok
 springtime
+sprinkle
 sprinkler
 sprint
 sprinter
@@ -9104,6 +9156,7 @@ steep
 steeple
 steer
 stem
+stencil
 stentorian
 step
 stepbrother
@@ -9123,6 +9176,7 @@ stetson
 stew
 steward
 stick
+sticker
 sticky
 stiff
 stifle
@@ -9179,6 +9233,7 @@ straw
 strawberry
 streak
 stream
+streamer
 street
 streetlight
 strength
@@ -9213,6 +9268,7 @@ student
 studio
 study
 stuff
+stuffing
 stump
 stunning
 stunt
@@ -9466,6 +9522,7 @@ tantalizing
 tantamount
 tap
 tape
+taper
 tapestry
 tapeworm
 tapioca
@@ -9482,6 +9539,7 @@ tarragon
 tart
 tartan
 task
+tassel
 taste
 tasty
 tater
@@ -9530,6 +9588,7 @@ temper
 tempera
 temperate
 temperature
+template
 temple
 tempo
 temporal
@@ -9710,6 +9769,7 @@ timorous
 timpani
 tin
 tincture
+tinsel
 tint
 tiny
 tip
@@ -9855,6 +9915,7 @@ transplant
 transport
 transportation
 trap
+trapeze
 trapezoid
 trapper
 trash
@@ -9998,6 +10059,7 @@ twig
 twilight
 twill
 twin
+twine
 twist
 twister
 two
@@ -10215,10 +10277,12 @@ veggie
 vehicle
 veil
 vein
+vellum
 velocity
 velodrome
 velour
 velvet
+velveteen
 velvety
 vendetta
 vendor
@@ -10531,6 +10595,7 @@ whopper
 whopping
 whose
 why
+wick
 wicked
 wicker
 wicket
@@ -10670,6 +10735,7 @@ yahoo
 yak
 yam
 yard
+yardage
 yardstick
 yarn
 yarrow
