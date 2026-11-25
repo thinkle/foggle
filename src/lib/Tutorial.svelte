@@ -128,7 +128,17 @@
 				guesses: ['astonish'],
 				hardModeGuess: 'boggle',
 				caption:
-					"The 'O' in ASTONISH is 5th from the right, and so is the 'O' in BOGGLE. Since that 'O' was orange, not green, the answer can't have an 'O' there."
+					"The 'O' in BOGGLE is 5th from the right, just like the 'O' in ASTONISH. Since the 'O' was not green on the right, BOGGLE can't fit."
+			}
+		},
+		{
+			position: 'left',
+			example: {
+				answer: 'foggy',
+				guesses: ['astonish'],
+				hardModeGuess: 'befog',
+				caption:
+					"The 'O' in BEFOG is 4th from the left, just like the 'O' in ASTONISH. Since the 'O' was not green on the left, BEFOG can't fit either."
 			}
 		},
 		{
