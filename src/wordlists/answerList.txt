@@ -686,7 +686,6 @@ bald
 balderdash
 ball
 ballad
-ballade
 ballet
 ballistic
 balloon
@@ -2055,6 +2054,7 @@ count
 counter
 counteract
 counterproductive
+countertop
 countless
 country
 countryside
@@ -2108,7 +2108,6 @@ crave
 craw
 crawfish
 crawl
-crawlspace
 crayfish
 crayon
 crazy
@@ -2633,6 +2632,7 @@ document
 documentary
 documentation
 dodge
+dodgeball
 doe
 dog
 dogwood
@@ -2901,7 +2901,6 @@ enact
 enamel
 encapsulation
 encase
-encaustic
 enchant
 enchilada
 enclave
@@ -3766,7 +3765,6 @@ grill
 grin
 grind
 grip
-grisaille
 grit
 gritty
 grizzly
@@ -4208,7 +4206,6 @@ impala
 impartial
 impartiality
 impasse
-impasto
 impeccable
 impede
 imperial
@@ -5947,6 +5944,7 @@ piano
 pick
 pickaxe
 pickle
+pickleball
 pickup
 picnic
 picture
@@ -5978,6 +5976,7 @@ pirate
 pistachio
 pistol
 piston
+pit
 pita
 pitch
 pitcher
@@ -5985,6 +5984,7 @@ pity
 pivot
 pizza
 place
+placemat
 placement
 placket
 plagiarism
@@ -7127,8 +7127,6 @@ sew
 sewing
 sex
 sexual
-sfumato
-sgraffito
 shack
 shackles
 shade
@@ -7431,7 +7429,6 @@ souffle
 soul
 soulmate
 sound
-soundbar
 soundtrack
 soup
 sour
@@ -8096,7 +8093,6 @@ tidal
 tidbit
 tide
 tie
-tiebreaker
 tier
 tiger
 tight
@@ -8203,6 +8199,7 @@ tragedy
 tragic
 trail
 trailer
+trailhead
 train
 trainer
 trait

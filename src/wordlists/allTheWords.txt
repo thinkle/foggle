@@ -12179,6 +12179,7 @@ bouillon
 bouillons
 boulder
 bouldered
+bouldering
 boulders
 boule
 boules
@@ -23892,6 +23893,7 @@ countersubject
 countersunk
 countertenor
 countertenors
+countertop
 countertype
 countervail
 countervailed
@@ -31660,6 +31662,7 @@ dodecahedron
 dodecahedrons
 dodecasyllable
 dodge
+dodgeball
 dodged
 dodgem
 dodgems
@@ -44439,6 +44442,7 @@ ghastliness
 ghastly
 ghat
 ghats
+ghazal
 ghazi
 ghee
 ghees
@@ -74593,6 +74597,7 @@ pantomiming
 pantomimist
 pantomimists
 pantos
+pantoum
 pantries
 pantry
 pants
@@ -77770,6 +77775,7 @@ pickiness
 picking
 pickings
 pickle
+pickleball
 pickled
 pickles
 pickling
@@ -78458,6 +78464,7 @@ placekickers
 placekicking
 placekicks
 placeman
+placemat
 placemen
 placement
 placements
@@ -95091,6 +95098,7 @@ shotgun
 shotgunned
 shotgunning
 shotguns
+shotput
 shots
 shotten
 should
@@ -107947,6 +107955,7 @@ trailblazing
 trailed
 trailer
 trailers
+trailhead
 trailing
 trails
 train

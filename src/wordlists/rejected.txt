@@ -78,6 +78,7 @@ aye
 babe
 bacillus
 bailey
+ballade
 banger
 baptist
 barbeque
@@ -248,6 +249,7 @@ costa
 cox
 craftsperson
 crap
+crawlspace
 cried
 crises
 criticized
@@ -353,6 +355,7 @@ emmet
 employed
 employees
 en
+encaustic
 english
 enrolled
 entitled
@@ -441,6 +444,7 @@ grew
 grey
 greyhound
 grinder
+grisaille
 grist
 grog
 groundhog
@@ -485,6 +489,7 @@ identified
 illustrated
 immediately
 immigrants
+impasto
 implications
 implied
 impressed
@@ -712,7 +717,6 @@ pika
 pinto
 pippin
 piss
-pit
 placenta
 pneumatics
 politicians
@@ -822,6 +826,8 @@ sepia
 sept
 sexuality
 sexy
+sfumato
+sgraffito
 shad
 shanghai
 shareholders
@@ -851,6 +857,7 @@ socialist
 socks
 sold
 sought
+soundbar
 soviet
 sox
 soya
@@ -928,6 +935,7 @@ thrown
 thru
 thy
 thymus
+tiebreaker
 tiffin
 til
 tiller

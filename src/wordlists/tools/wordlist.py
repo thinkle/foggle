@@ -228,6 +228,15 @@ def cmd_accept(a):
 	print('Now run: npm run build-wordlist')
 
 
+def cmd_add_valid(a):
+	"""Add words to allTheWords.txt (valid guesses), keeping it sorted."""
+	words = set(words_from(a.file))
+	valid = set(read_words(ALL_WORDS))
+	new = sorted(words - valid)
+	ALL_WORDS.write_text('\n'.join(sorted(valid | words)) + '\n')
+	print(f'Added {len(new)} valid guess(es): {" ".join(new)}')
+
+
 def cmd_reject(a):
 	answers = set(read_words(ANSWERS))
 	words = [w for w in words_from(a.file) if w not in answers]
@@ -406,7 +415,8 @@ def main():
 	c.add_argument('--min-len', type=int, default=2)
 	c.add_argument('--inflected', action='store_true')
 	c.set_defaults(fn=cmd_candidates)
-	for name, fn in (('accept', cmd_accept), ('reject', cmd_reject), ('remove', cmd_remove)):
+	for name, fn in (('accept', cmd_accept), ('reject', cmd_reject), ('remove', cmd_remove),
+	                 ('add-valid', cmd_add_valid)):
 		s = sub.add_parser(name)
 		s.add_argument('file', help="file of words (any whitespace), or '-' for stdin")
 		s.set_defaults(fn=fn)
