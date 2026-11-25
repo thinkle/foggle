@@ -74,7 +74,32 @@ def decode_clue(cipher: str) -> str:
 def read_words(path: Path) -> list[str]:
 	if not path.exists():
 		return []
-	return [l.strip() for l in path.read_text().split('\n') if l.strip()]
+	# first token only: rejected.txt lines may carry a reason after a tab
+	return [l.split()[0] for l in path.read_text().split('\n') if l.strip()]
+
+
+def read_rejected() -> dict[str, str]:
+	"""rejected.txt: one word per line, optionally followed by a tab and a reason."""
+	out = {}
+	if REJECTED.exists():
+		for l in REJECTED.read_text().split('\n'):
+			if l.strip():
+				word, _, reason = l.strip().partition('\t')
+				out[word.strip()] = reason.strip()
+	return out
+
+
+def write_rejected(entries: dict[str, str]) -> None:
+	REJECTED.write_text(''.join(f'{w}\t{r}\n' if r else f'{w}\n' for w, r in sorted(entries.items())))
+
+
+def add_rejected(words, reason: str = '') -> list[str]:
+	entries = read_rejected()
+	new = [w for w in dict.fromkeys(words) if w not in entries]
+	for w in new:
+		entries[w] = reason
+	write_rejected(entries)
+	return new
 
 
 def schedule(text: str | None = None) -> list[str]:
@@ -221,7 +246,7 @@ def cmd_accept(a):
 	rej = set(read_words(REJECTED))
 	if clash := [w for w in words if w in rej]:
 		print(f'Note: un-rejecting {len(clash)} word(s)')
-		REJECTED.write_text('\n'.join(w for w in read_words(REJECTED) if w not in clash) + '\n')
+		write_rejected({w: r for w, r in read_rejected().items() if w not in clash})
 	new = append_unique(ANSWERS, words)
 	ANSWERS.write_text('\n'.join(sorted(set(read_words(ANSWERS)))) + '\n')
 	print(f'Added {len(new)} new answer(s) to {ANSWERS.name} (no words printed, to avoid spoilers).')
@@ -240,8 +265,7 @@ def cmd_add_valid(a):
 def cmd_reject(a):
 	answers = set(read_words(ANSWERS))
 	words = [w for w in words_from(a.file) if w not in answers]
-	new = append_unique(REJECTED, words)
-	REJECTED.write_text('\n'.join(sorted(set(read_words(REJECTED)))) + '\n')
+	new = add_rejected(words, a.reason)
 	print(f'Recorded {len(new)} rejected word(s) in {REJECTED.name}.')
 
 
@@ -264,8 +288,7 @@ def cmd_remove(a):
 	raw = read_words(ANSWERS)
 	keep = [w for w in raw if w not in words]
 	ANSWERS.write_text('\n'.join(keep) + '\n')
-	append_unique(REJECTED, sorted(words))
-	REJECTED.write_text('\n'.join(sorted(set(read_words(REJECTED)))) + '\n')
+	add_rejected(sorted(words), a.reason or 'removed')
 	print(f'Removed {len(raw) - len(keep)} upcoming answer(s); recorded in {REJECTED.name}.')
 	print('Now run: npm run build-wordlist')
 
@@ -484,6 +507,7 @@ def main():
 	                 ('add-valid', cmd_add_valid)):
 		s = sub.add_parser(name)
 		s.add_argument('file', help="file of words (any whitespace), or '-' for stdin")
+		s.add_argument('--reason', default='', help='reject/remove: why (inflected, proper, british, slang, offensive, obscure...)')
 		s.set_defaults(fn=fn)
 	w = sub.add_parser('weak')
 	w.add_argument('--max', type=float, default=2.5)
