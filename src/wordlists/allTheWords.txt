@@ -8618,6 +8618,7 @@ barrooms
 barrow
 barrows
 bars
+barstool
 bartender
 bartenders
 barter
@@ -50541,6 +50542,7 @@ hounded
 hounder
 hounding
 hounds
+houndstooth
 houppelande
 hour
 hourglass

@@ -564,6 +564,7 @@ armature
 armchair
 armed
 armistice
+armoire
 armor
 armrest
 army
@@ -854,6 +855,7 @@ banker
 bankruptcy
 banner
 banquet
+banquette
 banshee
 bantam
 banter
@@ -888,6 +890,7 @@ barren
 barricade
 barrier
 barrister
+barstool
 bartender
 barter
 basalt
@@ -1558,6 +1561,7 @@ cackle
 cacti
 cactus
 caddie
+caddy
 cadence
 cadet
 cadmium
@@ -1614,6 +1618,7 @@ canal
 canary
 cancel
 cancer
+candelabra
 candid
 candidate
 candle
@@ -1726,6 +1731,7 @@ cassowary
 cast
 castanets
 castaway
+caster
 castle
 casual
 cat
@@ -1814,6 +1820,7 @@ chainsaw
 chair
 chairlift
 chairman
+chaise
 chalice
 chalk
 chalkboard
@@ -2032,6 +2039,7 @@ classification
 classroom
 clause
 clavicle
+claw
 clay
 claymore
 clean
@@ -2493,6 +2501,7 @@ corner
 cornerback
 cornerstone
 cornet
+cornice
 cornmeal
 cornstarch
 cornucopia
@@ -2570,6 +2579,7 @@ couturier
 covenant
 cover
 coverage
+coverlet
 covert
 covet
 cow
@@ -2626,6 +2636,7 @@ creativity
 creator
 creature
 credence
+credenza
 credibility
 credit
 creditor
@@ -2730,6 +2741,7 @@ curb
 curd
 cure
 curfew
+curio
 curiosity
 curious
 curl
@@ -2824,8 +2836,10 @@ daughter
 daunt
 dauntless
 dauphin
+davenport
 dawn
 day
+daybed
 daydream
 daylight
 daze
@@ -3216,6 +3230,7 @@ diverse
 diversity
 divide
 dividend
+divider
 divine
 diving
 divinity
@@ -3316,6 +3331,7 @@ dramatically
 dramatist
 drank
 drape
+drapery
 drastic
 draw
 drawbridge
@@ -3441,6 +3457,7 @@ eaten
 eatery
 eavesdropper
 ebb
+ebony
 ebullient
 eccentric
 eccentricity
@@ -4062,6 +4079,7 @@ finesse
 finger
 fingernail
 fingerprint
+finial
 finicky
 finish
 finite
@@ -4494,7 +4512,9 @@ gig
 gigabyte
 giggle
 gilded
+gilding
 gill
+gilt
 gimlet
 gin
 ginger
@@ -4982,6 +5002,7 @@ heron
 herpes
 herpetology
 herring
+herringbone
 herself
 hesitant
 hesitate
@@ -5133,6 +5154,7 @@ hot
 hotdog
 hotel
 hound
+houndstooth
 hour
 hourglass
 house
@@ -5422,6 +5444,7 @@ injera
 injury
 ink
 inland
+inlay
 inlet
 inn
 innards
@@ -5633,6 +5656,7 @@ jitters
 job
 joey
 join
+joinery
 joint
 joist
 joke
@@ -5896,6 +5920,7 @@ least
 leather
 leave
 leaven
+lectern
 lecture
 lecturer
 led
@@ -6399,6 +6424,7 @@ meeting
 megabyte
 megaphone
 megawatt
+melamine
 melancholy
 melanoma
 melatonin
@@ -6473,6 +6499,7 @@ mice
 microbe
 microbiology
 microeconomics
+microfiber
 microphone
 microscope
 microwave
@@ -6525,6 +6552,7 @@ mini
 miniature
 minimal
 minimalism
+minimalist
 minimum
 miniskirt
 minister
@@ -7340,6 +7368,7 @@ pathogen
 pathos
 patience
 patient
+patina
 patio
 patisserie
 patriarch
@@ -7378,9 +7407,11 @@ peculiar
 pedagogy
 pedal
 peddler
+pedestal
 pediatrician
 pediatrics
 pedicure
+pediment
 pee
 peekaboo
 peel
@@ -7466,6 +7497,7 @@ petticoat
 petty
 petunia
 pew
+pewter
 phallus
 phantom
 pharaoh
@@ -7634,6 +7666,7 @@ pledge
 plenty
 pliable
 pliers
+plinth
 plop
 plot
 plough
@@ -7771,6 +7804,7 @@ potter
 pottery
 potty
 pouch
+pouf
 pound
 pour
 poverty
@@ -8658,6 +8692,7 @@ runway
 rupee
 rural
 rush
+rustic
 rutabaga
 rye
 sabbath
@@ -8896,6 +8931,7 @@ secret
 secretariat
 secretary
 section
+sectional
 sector
 secular
 secure
@@ -8986,6 +9022,7 @@ session
 sestet
 sestina
 set
+settee
 setting
 settle
 settlement
@@ -9010,10 +9047,12 @@ shade
 shadow
 shaft
 shake
+shaker
 shale
 shall
 shallot
 shallow
+sham
 shaman
 shamanism
 shame
@@ -9120,6 +9159,7 @@ shrink
 shrub
 shrug
 shut
+shutter
 shuttle
 shy
 shyness
@@ -9236,6 +9276,7 @@ slander
 slang
 slap
 slapstick
+slat
 slate
 slaughter
 slaughterhouse
@@ -9499,6 +9540,7 @@ spiritual
 spit
 spite
 splash
+splat
 spleen
 splendid
 splint
@@ -10415,6 +10457,7 @@ transgender
 transistor
 transit
 transition
+transitional
 translate
 translation
 translator
@@ -10457,6 +10500,7 @@ trench
 trend
 trespass
 trespasser
+trestle
 trial
 triangle
 triathlon
@@ -10517,6 +10561,7 @@ trump
 trumpet
 trumpeter
 truncate
+trundle
 trunk
 truss
 trust
@@ -10755,6 +10800,7 @@ vagina
 vagrant
 vague
 vain
+valance
 valedictorian
 valerian
 valet
@@ -11119,6 +11165,7 @@ white
 whiteboard
 whitefish
 whiteout
+whitewash
 who
 whoa
 whoever
@@ -11168,6 +11215,7 @@ windshield
 wine
 winery
 wing
+wingback
 wingding
 winner
 winter
