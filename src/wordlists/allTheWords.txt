@@ -5698,6 +5698,7 @@ areole
 areologies
 areology
 areometer
+arepa
 ares
 arete
 aretes
@@ -8321,6 +8322,7 @@ banyan
 banyans
 banzai
 banzais
+bao
 baobab
 baobabs
 bap
@@ -8726,6 +8728,7 @@ baskets
 basketwork
 basking
 basks
+basmati
 basophil
 basophils
 basque
@@ -10037,6 +10040,7 @@ bibb
 bibber
 bibcock
 bibelot
+bibimbap
 bibl
 bible
 bibles
@@ -10605,7 +10609,9 @@ birthstone
 birthstones
 birthwort
 birthworts
+biryani
 bis
+biscotti
 biscuit
 biscuits
 bise
@@ -13252,6 +13258,7 @@ brunets
 brunette
 brunettes
 brunt
+bruschetta
 brush
 brushed
 brushes
@@ -13503,6 +13510,7 @@ bulgiest
 bulginess
 bulginesses
 bulging
+bulgogi
 bulgur
 bulgurs
 bulgy
@@ -16875,6 +16883,7 @@ cetaceous
 cetane
 ceteris
 cetology
+ceviche
 cha
 chabazite
 chacma
@@ -16913,6 +16922,7 @@ chagrining
 chagrinned
 chagrinning
 chagrins
+chai
 chain
 chained
 chaining
@@ -17811,6 +17821,7 @@ chimerical
 chimerically
 chimers
 chimes
+chimichurri
 chiming
 chimney
 chimneypiece
@@ -17873,6 +17884,7 @@ chipmunk
 chipmunks
 chipolata
 chipolatas
+chipotle
 chipped
 chipper
 chippers
@@ -18430,6 +18442,7 @@ churr
 churred
 churrigueresque
 churring
+churro
 churrs
 chute
 chutes
@@ -21777,6 +21790,7 @@ congealed
 congealing
 congealment
 congeals
+congee
 congelable
 congelation
 congener
@@ -26095,6 +26109,7 @@ daisies
 daisy
 dak
 daks
+dal
 dalasi
 dalasis
 dale
@@ -31807,6 +31822,7 @@ dolloping
 dollops
 dolls
 dolly
+dolma
 dolman
 dolmans
 dolmen
@@ -47084,6 +47100,7 @@ gyniatrics
 gynoecium
 gynoeciums
 gynophore
+gyoza
 gyp
 gypped
 gypper
@@ -47141,6 +47158,7 @@ ha
 haaf
 haar
 habanera
+habanero
 haberdasher
 haberdasheries
 haberdashers
@@ -47537,6 +47555,7 @@ halting
 haltingly
 halts
 halutz
+halva
 halvah
 halve
 halved
@@ -47884,6 +47903,7 @@ hares
 haricot
 haricots
 haring
+harissa
 hark
 harked
 harken
@@ -49718,6 +49738,7 @@ hoicked
 hoicking
 hoicks
 hoiden
+hoisin
 hoist
 hoisted
 hoister
@@ -50247,6 +50268,7 @@ horah
 horal
 horary
 horas
+horchata
 horde
 horded
 hordein
@@ -54294,6 +54316,7 @@ injections
 injector
 injectors
 injects
+injera
 injudicious
 injudiciously
 injudiciousness
@@ -59051,6 +59074,7 @@ lashings
 lasing
 lass
 lasses
+lassi
 lassie
 lassies
 lassitude
@@ -63258,11 +63282,13 @@ marvelousness
 marvels
 marzipan
 mas
+masala
 masc
 mascara
 mascaraed
 mascaraing
 mascaras
+mascarpone
 mascle
 mascon
 mascot
@@ -63407,6 +63433,7 @@ mat
 matador
 matadors
 match
+matcha
 matchable
 matchboard
 matchboards
@@ -64836,6 +64863,7 @@ mewling
 mewls
 mews
 mezcaline
+meze
 mezereon
 mezereons
 mezereum
@@ -64846,6 +64874,7 @@ mezuzot
 mezuzoth
 mezzanine
 mezzanines
+mezze
 mezzo
 mezzos
 mezzotint
@@ -66289,6 +66318,7 @@ moccasin
 moccasins
 mocha
 mochas
+mochi
 mock
 mocked
 mocker
@@ -70257,6 +70287,7 @@ noradrenalin
 noradrenaline
 norepinephrine
 norepinephrines
+nori
 noria
 norias
 norite
@@ -71813,6 +71844,7 @@ oological
 oologically
 oologist
 oology
+oolong
 oomph
 oomphs
 oophorectomies
@@ -74185,6 +74217,7 @@ paisley
 paisleys
 pajama
 pajamas
+pakora
 pal
 palace
 palaces
@@ -74443,6 +74476,7 @@ pancake
 pancaked
 pancakes
 pancaking
+pancetta
 panchromatic
 pancratium
 pancreas
@@ -74478,6 +74512,7 @@ pandurate
 pandybat
 pane
 paned
+paneer
 panegyric
 panegyrical
 panegyrically
@@ -74527,9 +74562,11 @@ panics
 paniculate
 panier
 paniers
+panini
 panjandra
 panjandrum
 panjandrums
+panko
 panlogism
 panne
 panned
@@ -77853,6 +77890,7 @@ pierces
 piercing
 piercingly
 piercings
+pierogi
 piers
 pies
 piet
@@ -79172,6 +79210,7 @@ poachers
 poaches
 poaching
 poachy
+poblano
 pochard
 pochards
 pock
@@ -84101,6 +84140,7 @@ querying
 ques
 quesadilla
 quesadillas
+queso
 quest
 quested
 quester
@@ -84429,6 +84469,7 @@ rackets
 rackety
 racking
 racks
+raclette
 racon
 racons
 raconteur
@@ -90352,6 +90393,7 @@ rote
 rotenone
 rotenones
 rotgut
+roti
 rotifer
 rotifers
 rotisserie
@@ -91677,6 +91719,7 @@ sashayed
 sashaying
 sashays
 sashes
+sashimi
 sasin
 saskatoon
 saskatoons
@@ -94549,6 +94592,7 @@ shaves
 shaving
 shavings
 shaw
+shawarma
 shawl
 shawls
 shawm
@@ -97688,6 +97732,7 @@ sojourner
 sojourners
 sojourning
 sojourns
+soju
 soke
 sol
 sola
@@ -98274,6 +98319,7 @@ southwestwardly
 southwestwards
 souvenir
 souvenirs
+souvlaki
 sovereign
 sovereignly
 sovereigns
@@ -98377,6 +98423,7 @@ spammers
 spamming
 spams
 span
+spanakopita
 spancel
 spandex
 spandrel
@@ -101343,6 +101390,7 @@ strollers
 strolling
 strolls
 stromatolites
+stromboli
 strong
 strongbox
 strongboxes
@@ -104239,6 +104287,7 @@ tagged
 tagger
 taggers
 tagging
+tagine
 tagliatelle
 tagline
 taglines
@@ -106729,6 +106778,7 @@ tigresses
 tike
 tikes
 tiki
+tikka
 til
 tilapia
 tilbury
@@ -107600,6 +107650,7 @@ tosspot
 tossup
 tossups
 tost
+tostada
 tot
 total
 totaled
@@ -110044,6 +110095,7 @@ udder
 udders
 udo
 udometer
+udon
 ufologist
 ufologists
 ufology
@@ -114641,6 +114693,7 @@ vinaigrette
 vinasse
 vincible
 vinculum
+vindaloo
 vindaloos
 vindicable
 vindicate
@@ -115413,6 +115466,7 @@ wagons
 wags
 wagtail
 wagtails
+wagyu
 wahine
 wahoo
 wahoos
@@ -118079,6 +118133,7 @@ yah
 yahoo
 yahoos
 yak
+yakitori
 yakka
 yakked
 yakking

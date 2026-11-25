@@ -1,0 +1,10 @@
+japanese: udon soba ramen sushi sashimi tempura teriyaki miso tofu edamame wasabi nori seaweed sake mochi matcha panko dashi bonito yakitori gyoza tonkatsu katsu wagyu ponzu furikake natto unagi
+chinese: wonton dumpling bao dimsum chowmein lomein hoisin bokchoy tofu congee szechuan kungpao lychee jasmine oolong
+korean: kimchi bulgogi bibimbap gochujang soju japchae
+southeast asian: pho banh satay sriracha lemongrass galangal tamarind pad curry laksa sambal tempeh rendang
+indian: curry masala tikka tandoori samosa pakora chutney naan roti chapati paratha dal lentil biryani korma vindaloo paneer ghee chai lassi raita turmeric cardamom cumin coriander garam saffron basmati papadum
+middle eastern: hummus falafel tahini pita shawarma kebab kabob tabbouleh baba ganoush meze mezze mazza halva halvah baklava couscous tagine harissa sumac zaatar labneh bulgur freekeh dolma fattoush date pistachio rosewater
+mediterranean: feta gyro tzatziki moussaka spanakopita souvlaki orzo olive caper anchovy prosciutto pancetta risotto polenta gnocchi pesto ricotta mascarpone tiramisu biscotti panini bruschetta antipasto calzone stromboli focaccia ciabatta gelato espresso cappuccino latte
+european: paella chorizo tapas gazpacho churro sangria crepe croissant quiche brioche fondue raclette schnitzel strudel sauerkraut pretzel bratwurst pierogi borscht goulash blini kielbasa stroganoff haggis
+latin american: taco burrito enchilada tamale quesadilla tortilla salsa guacamole mole chipotle jalapeno habanero poblano chimichurri empanada arepa ceviche plantain yucca cassava horchata dulce churro flan elote tostada fajita nacho chorizo queso cotija
+african and caribbean: jollof fufu injera berbere harissa jerk callaloo plantain okra yam

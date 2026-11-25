@@ -37,6 +37,7 @@ apposite	removed from upcoming (obscure)
 approved	inflected form
 arranged	inflected form
 arrived	inflected form
+arts	inflected form
 aspergillus	obscure or niche
 aspirator	obscure or niche
 assembled	inflected form
@@ -50,6 +51,7 @@ aug	slang, abbreviation or fragment
 authorized	inflected form
 automated	inflected form
 ave	slang, abbreviation or fragment
+baba	slang, abbreviation or fragment
 bacillus	obscure or niche
 backing	inflected form
 bailey	proper noun or brand
@@ -83,6 +85,7 @@ blackface	offensive
 blackfish	obscure or niche
 blah	slang, abbreviation or fragment
 bleeding	inflected form
+blini	obscure or niche
 blocks	inflected form
 blogger	obscure or niche
 bobby	proper noun or brand
@@ -272,6 +275,7 @@ earlier	inflected form
 earliest	inflected form
 earplugs	inflected form
 easier	inflected form
+econometrics	obscure or niche
 ed	slang, abbreviation or fragment
 edger	obscure or niche
 educated	inflected form
@@ -299,6 +303,7 @@ established	inflected form
 estimated	inflected form
 et	slang, abbreviation or fragment
 etc	slang, abbreviation or fragment
+ethnography	obscure or niche
 ex	slang, abbreviation or fragment
 executed	inflected form
 expectations	inflected form
@@ -334,6 +339,7 @@ french	proper noun or brand
 fried	inflected form
 frying	inflected form
 fuck	offensive
+galangal	obscure or niche
 games	inflected form
 ganja	obscure or niche
 gemma	obscure or niche
@@ -369,6 +375,7 @@ gyp	offensive
 gypsy	offensive
 ha	slang, abbreviation or fragment
 halfbreed	offensive
+halvah	variant spelling
 halves	inflected form
 hank	proper noun or brand
 happier	inflected form
@@ -378,8 +385,10 @@ harper	proper noun or brand
 harry	proper noun or brand
 has	inflected form
 hasp	obscure or niche
+heatwave	two words in print (valid guess, not an answer)
 henry	proper noun or brand
 highchair	obscure or niche
+historiography	obscure or niche
 hmm	slang, abbreviation or fragment
 holocaust	sensitive (your call)
 hon	slang, abbreviation or fragment
@@ -442,6 +451,7 @@ judgement	british spelling
 jumprope	two words in print (valid guess, not an answer)
 jun	slang, abbreviation or fragment
 justified	inflected form
+kabob	variant spelling
 kelly	proper noun or brand
 kent	proper noun or brand
 khan	proper noun or brand
@@ -518,6 +528,7 @@ mega	slang, abbreviation or fragment
 merle	obscure or niche
 meth	slang, abbreviation or fragment
 metres	inflected form
+meze	variant spelling (mezze is the answer)
 mick	blocked: slur, not even a valid guess
 mickey	proper noun or brand
 micks	blocked: slur, not even a valid guess
@@ -702,6 +713,7 @@ scarves	plural ending in s (irregular)
 scattered	inflected form
 schist	obscure or niche
 sci	slang, abbreviation or fragment
+sciences	inflected form
 sculpting	inflected form
 sec	slang, abbreviation or fragment
 selvage	obscure or niche
@@ -873,6 +885,7 @@ wont	slang, abbreviation or fragment
 woodruff	obscure or niche
 wop	blocked: slur, not even a valid guess
 wops	blocked: slur, not even a valid guess
+words	inflected form
 workers	inflected form
 worsted	obscure or niche
 wort	obscure or niche

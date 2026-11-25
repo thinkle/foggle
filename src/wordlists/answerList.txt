@@ -133,6 +133,7 @@ adjacent
 adjective
 adjoin
 adjourn
+adjunct
 adjust
 adjustment
 administration
@@ -312,7 +313,9 @@ alto
 altogether
 altruism
 aluminum
+alumna
 alumni
+alumnus
 always
 am
 amalgamation
@@ -441,6 +444,7 @@ antidote
 antifreeze
 antigen
 antihistamine
+antipasto
 antique
 antiseptic
 antithesis
@@ -544,12 +548,14 @@ arduous
 are
 area
 arena
+arepa
 arguably
 argue
 argument
 arid
 arise
 aristocrat
+arithmetic
 arm
 armada
 armadillo
@@ -806,6 +812,7 @@ bake
 baker
 bakery
 baking
+baklava
 balance
 balcony
 bald
@@ -851,6 +858,7 @@ banshee
 bantam
 banter
 banyan
+bao
 baptism
 bar
 barbecue
@@ -897,6 +905,7 @@ basis
 bask
 basket
 basketball
+basmati
 bass
 basset
 bassinet
@@ -1051,6 +1060,7 @@ bezel
 bias
 biathlon
 bib
+bibimbap
 bible
 biblical
 bibliography
@@ -1102,6 +1112,8 @@ birdwatching
 birth
 birthday
 birthmark
+biryani
+biscotti
 biscuit
 bisect
 bishop
@@ -1267,6 +1279,7 @@ born
 borough
 borrow
 borrower
+borscht
 boss
 bossy
 botanist
@@ -1415,6 +1428,7 @@ browser
 bruise
 brunch
 brunette
+bruschetta
 brush
 brushwork
 brutal
@@ -1441,6 +1455,8 @@ building
 built
 bulb
 bulge
+bulgogi
+bulgur
 bulimia
 bulk
 bull
@@ -1487,6 +1503,7 @@ burnt
 burp
 burrito
 burrow
+bursar
 burst
 bury
 bus
@@ -1576,6 +1593,7 @@ calm
 calorie
 calories
 calyx
+calzone
 came
 camel
 camellia
@@ -1701,6 +1719,7 @@ cashmere
 casing
 casino
 casket
+cassava
 casserole
 cassette
 cassowary
@@ -1786,8 +1805,10 @@ certificate
 certification
 certitude
 cerulean
+ceviche
 chad
 chaff
+chai
 chain
 chainsaw
 chair
@@ -1816,6 +1837,7 @@ chandler
 change
 channel
 chaos
+chapati
 chapel
 chaperone
 chaplain
@@ -1893,6 +1915,7 @@ chill
 chills
 chime
 chimera
+chimichurri
 chimney
 chimp
 chimpanzee
@@ -1902,6 +1925,7 @@ chinos
 chintz
 chip
 chipmunk
+chipotle
 chipper
 chiropractic
 chiropractor
@@ -1926,6 +1950,7 @@ chopstick
 chord
 chore
 choreographer
+choreography
 chorister
 chorizo
 chorus
@@ -1945,8 +1970,10 @@ chump
 chunk
 church
 churn
+churro
 chute
 chutney
+ciabatta
 cider
 cigar
 cigarette
@@ -1954,6 +1981,7 @@ cilantro
 cinch
 cinder
 cinema
+cinematography
 cinnamon
 cipher
 circle
@@ -1973,6 +2001,7 @@ citizen
 citizenship
 city
 civic
+civics
 civil
 civilian
 civility
@@ -1998,6 +2027,7 @@ clasp
 class
 classic
 classical
+classics
 classification
 classroom
 clause
@@ -2134,6 +2164,7 @@ college
 collie
 colliery
 collision
+colloquium
 cologne
 colon
 colonel
@@ -2300,6 +2331,7 @@ confuse
 confused
 confusion
 conga
+congee
 congenial
 congratulations
 congregation
@@ -2488,6 +2520,7 @@ cortisol
 corvette
 cosmetic
 cosmic
+cosmology
 cosmos
 cost
 costume
@@ -2612,6 +2645,7 @@ cribbage
 cricket
 crime
 criminal
+criminology
 crimp
 crimson
 cringe
@@ -2677,6 +2711,7 @@ cue
 cuff
 cufflink
 cuisine
+culinary
 culminate
 culprit
 cult
@@ -2753,6 +2788,7 @@ dainty
 dairy
 dais
 daisy
+dal
 dale
 dam
 damage
@@ -3151,6 +3187,7 @@ disqualified
 disrupt
 dissatisfaction
 disseminate
+dissertation
 dissipate
 dissolve
 dissonant
@@ -3210,6 +3247,7 @@ doldrums
 doll
 dollar
 dollhouse
+dolma
 dolphin
 dolt
 domain
@@ -3467,6 +3505,7 @@ elder
 elderly
 elect
 election
+elective
 electoral
 electric
 electrical
@@ -3530,6 +3569,7 @@ emote
 emoticon
 emotion
 emotional
+empanada
 empathy
 emperor
 emphasis
@@ -3693,6 +3733,7 @@ ethnic
 ethnicity
 ethos
 etude
+etymology
 eucalyptus
 eulogy
 euphemism
@@ -3860,6 +3901,7 @@ fairway
 fairy
 faith
 faithful
+fajita
 fake
 falafel
 falcon
@@ -4070,6 +4112,7 @@ flame
 flamenco
 flamethrower
 flamingo
+flan
 flange
 flannel
 flapdoodle
@@ -4395,6 +4438,7 @@ gay
 gaze
 gazebo
 gazelle
+gazpacho
 gear
 gearbox
 gecko
@@ -4708,8 +4752,10 @@ gymnast
 gymnastics
 gynecologist
 gynecology
+gyoza
 gypsum
 gyro
+habanero
 haberdasher
 haberdashery
 habit
@@ -4753,6 +4799,7 @@ hallway
 halo
 halt
 halter
+halva
 ham
 hamburger
 hamlet
@@ -4796,6 +4843,7 @@ hardwood
 hardworking
 hardy
 harebrained
+harissa
 harm
 harmful
 harmonica
@@ -4875,7 +4923,6 @@ heat
 heater
 heathen
 heather
-heatwave
 heaven
 heavy
 heck
@@ -4933,6 +4980,7 @@ heroin
 heroism
 heron
 herpes
+herpetology
 herring
 herself
 hesitant
@@ -4998,6 +5046,7 @@ hoe
 hoedown
 hog
 hogwash
+hoisin
 hoist
 hokum
 hold
@@ -5053,6 +5102,7 @@ hopeful
 hopefully
 hopper
 hopscotch
+horchata
 horizon
 horizontal
 hormone
@@ -5158,6 +5208,7 @@ hydration
 hydraulics
 hydro
 hydrogen
+hydrology
 hydroplane
 hyena
 hymn
@@ -5180,6 +5231,7 @@ ibis
 ibuprofen
 ice
 iceberg
+ichthyology
 icicle
 icing
 icon
@@ -5366,6 +5418,7 @@ initially
 initiate
 initiative
 injection
+injera
 injury
 ink
 inland
@@ -5457,6 +5510,7 @@ intermission
 internal
 international
 internet
+internship
 interpret
 interpretation
 interpreter
@@ -5621,6 +5675,7 @@ junior
 juniper
 junk
 jurisdiction
+jurisprudence
 juror
 jury
 just
@@ -5682,6 +5737,7 @@ kilogram
 kilometer
 kilowatt
 kilt
+kimchi
 kimono
 kin
 kind
@@ -5723,6 +5779,7 @@ knucklehead
 koala
 kombucha
 kooky
+korma
 kosher
 kraken
 krill
@@ -5789,6 +5846,7 @@ laryngitis
 larynx
 lasagna
 laser
+lassi
 lasso
 last
 latch
@@ -5865,6 +5923,7 @@ legume
 leisure
 lemon
 lemonade
+lemongrass
 lemur
 lend
 lender
@@ -6102,6 +6161,7 @@ machinery
 machinist
 mackerel
 macrame
+macroeconomics
 mad
 made
 madness
@@ -6250,7 +6310,9 @@ martyr
 marvel
 marvelous
 marzipan
+masala
 mascara
+mascarpone
 mascot
 mash
 mask
@@ -6268,6 +6330,7 @@ mastiff
 mastodon
 mat
 match
+matcha
 matchbox
 matchmaker
 matchstick
@@ -6404,10 +6467,12 @@ metropolitan
 mettle
 mew
 mezzanine
+mezze
 mica
 mice
 microbe
 microbiology
+microeconomics
 microphone
 microscope
 microwave
@@ -6455,6 +6520,7 @@ mindset
 mine
 miner
 mineral
+mineralogy
 mini
 miniature
 minimal
@@ -6512,6 +6578,7 @@ mobile
 mobility
 moccasin
 mocha
+mochi
 mock
 mockingbird
 mode
@@ -6603,6 +6670,7 @@ mount
 mountain
 mourning
 mouse
+moussaka
 mousse
 mouth
 mouthpiece
@@ -6641,6 +6709,7 @@ mushroom
 music
 musical
 musician
+musicology
 musket
 muskrat
 muslin
@@ -6655,6 +6724,7 @@ mutt
 mutton
 mutual
 my
+mycology
 myriad
 myrrh
 myrtle
@@ -6665,6 +6735,7 @@ mystic
 mystical
 mysticism
 myth
+mythology
 naan
 nacho
 nadir
@@ -6812,6 +6883,7 @@ nonsense
 noodle
 noon
 nor
+nori
 norm
 normal
 normally
@@ -6968,6 +7040,7 @@ onslaught
 onto
 ontology
 onyx
+oolong
 opal
 opaque
 open
@@ -7017,6 +7090,7 @@ orbit
 orca
 orchard
 orchestra
+orchestration
 orchid
 order
 ordinary
@@ -7045,6 +7119,7 @@ orthodontist
 orthodox
 orthopedist
 oryx
+orzo
 oscillation
 osmosis
 osprey
@@ -7142,6 +7217,7 @@ painting
 pair
 paisley
 pajamas
+pakora
 pal
 palace
 paladin
@@ -7156,11 +7232,15 @@ pamphlet
 pan
 panama
 pancake
+pancetta
 pancreas
 panda
+paneer
 panegyric
 panel
 panic
+panini
+panko
 pannier
 pansy
 pant
@@ -7295,6 +7375,7 @@ pebble
 pecan
 pectoral
 peculiar
+pedagogy
 pedal
 peddler
 pediatrician
@@ -7402,9 +7483,11 @@ philosophical
 philosophy
 phishing
 phlebotomist
+pho
 phobia
 phoenix
 phone
+phonetics
 phosphorus
 photo
 photograph
@@ -7440,6 +7523,7 @@ pie
 piece
 pier
 pierce
+pierogi
 piffle
 pig
 pigeon
@@ -7537,6 +7621,7 @@ playoff
 playpen
 playroom
 playwright
+playwriting
 plaza
 plea
 plead
@@ -7573,6 +7658,7 @@ plywood
 pneumonia
 poach
 poacher
+poblano
 pocket
 podcast
 podiatrist
@@ -7670,6 +7756,7 @@ post
 postal
 postcard
 poster
+postgraduate
 postman
 postulate
 pot
@@ -7693,6 +7780,7 @@ power
 powerful
 practical
 practice
+practicum
 pragmatism
 prairie
 praise
@@ -7733,6 +7821,7 @@ prepare
 preposition
 preposterous
 preppy
+prerequisite
 prescribe
 prescription
 presence
@@ -7772,6 +7861,7 @@ principal
 principle
 print
 printer
+printmaking
 prior
 priority
 priory
@@ -7795,6 +7885,7 @@ process
 processor
 proclaim
 procrastination
+proctor
 prodigious
 prodigy
 produce
@@ -7875,6 +7966,7 @@ provincial
 provision
 provoke
 provolone
+provost
 prowler
 proximity
 prudence
@@ -7979,6 +8071,7 @@ quench
 querulous
 query
 quesadilla
+queso
 quest
 question
 queue
@@ -8020,6 +8113,7 @@ racist
 rack
 racket
 racketeering
+raclette
 raconteur
 racquetball
 radar
@@ -8224,6 +8318,7 @@ regiment
 region
 regional
 register
+registrar
 registration
 regret
 regular
@@ -8509,11 +8604,13 @@ rosary
 rose
 rosebud
 rosemary
+rosewater
 rosewood
 rosin
 roster
 rotary
 rotation
+roti
 rotisserie
 rotor
 rottweiler
@@ -8564,6 +8661,7 @@ rush
 rutabaga
 rye
 sabbath
+sabbatical
 saber
 sable
 sabotage
@@ -8610,12 +8708,14 @@ saloon
 salsa
 salt
 salubrious
+salutatorian
 salvage
 salvation
 salve
 salvia
 samba
 same
+samosa
 sample
 sampler
 samurai
@@ -8648,9 +8748,11 @@ sardine
 sardonic
 sari
 sarong
+sashimi
 sass
 sassy
 sat
+satay
 satchel
 satellite
 satiate
@@ -8718,6 +8820,7 @@ schedule
 scheme
 schlemiel
 schnapps
+schnitzel
 scholar
 scholarship
 school
@@ -8828,6 +8931,7 @@ selflessness
 sell
 seller
 seltzer
+semantics
 semblance
 semester
 semicolon
@@ -8927,6 +9031,7 @@ sharp
 sharpener
 shave
 shaver
+shawarma
 shawl
 she
 sheaf
@@ -9229,6 +9334,7 @@ so
 soap
 soar
 sob
+soba
 sober
 sobriety
 soccer
@@ -9248,6 +9354,7 @@ softball
 softener
 software
 soil
+soju
 solace
 solar
 sold
@@ -9293,6 +9400,7 @@ soon
 soothing
 sophisticated
 sophistication
+sophomore
 soprano
 sorbet
 sorcery
@@ -9318,6 +9426,7 @@ south
 southeast
 southern
 southwest
+souvlaki
 sovereign
 sovereignty
 sow
@@ -9332,6 +9441,7 @@ spade
 spaghetti
 spam
 span
+spanakopita
 spandex
 spaniel
 spare
@@ -9616,8 +9726,10 @@ stringent
 strip
 stripe
 strive
+stroganoff
 stroke
 stroller
+stromboli
 strong
 struck
 structural
@@ -9703,6 +9815,7 @@ sulfur
 sullen
 sultan
 sum
+sumac
 summary
 summer
 summit
@@ -9835,6 +9948,7 @@ syndrome
 synecdoche
 synergy
 synonym
+syntax
 synthesis
 synthesizer
 synthetic
@@ -9844,6 +9958,7 @@ syrupy
 system
 systematic
 tab
+tabbouleh
 tabby
 table
 tablecloth
@@ -9864,6 +9979,8 @@ tadpole
 taffeta
 taffy
 tag
+tagine
+tahini
 taiga
 tail
 taillight
@@ -9879,11 +9996,13 @@ talisman
 talk
 tall
 talon
+tamale
 tamarind
 tambourine
 tampon
 tan
 tandem
+tandoori
 tangent
 tangerine
 tangible
@@ -9894,6 +10013,7 @@ tannery
 tantalizing
 tantamount
 tap
+tapas
 tape
 taper
 tapestry
@@ -9922,6 +10042,7 @@ taut
 tavern
 tax
 taxi
+taxonomy
 taxpayer
 tea
 teach
@@ -9959,6 +10080,7 @@ television
 tell
 teller
 temerity
+tempeh
 temper
 tempera
 temperate
@@ -10134,6 +10256,7 @@ tiff
 tiger
 tight
 tights
+tikka
 tilapia
 tile
 till
@@ -10156,6 +10279,7 @@ tint
 tiny
 tip
 tirade
+tiramisu
 tire
 tired
 tiredness
@@ -10217,6 +10341,7 @@ toothpick
 top
 topaz
 topic
+topology
 topsoil
 torah
 torch
@@ -10231,6 +10356,7 @@ tortilla
 tortoise
 torture
 toss
+tostada
 total
 tote
 toucan
@@ -10280,6 +10406,7 @@ tranquility
 tranquilizer
 transaction
 transcend
+transcript
 transept
 transfer
 transform
@@ -10439,6 +10566,7 @@ turtle
 turtleneck
 tusk
 tutor
+tutorial
 tutu
 tuxedo
 twaddle
@@ -10461,9 +10589,12 @@ two
 type
 typhoid
 typical
+typography
 tyrannosaurus
 tyranny
+tzatziki
 ubiquitous
+udon
 ugly
 ukulele
 ulcer
@@ -10626,6 +10757,7 @@ vagina
 vagrant
 vague
 vain
+valedictorian
 valerian
 valet
 valiant
@@ -10720,6 +10852,7 @@ vestry
 vet
 veteran
 veterinarian
+veterinary
 veto
 vex
 via
@@ -10747,6 +10880,7 @@ village
 villain
 villanelle
 vinaigrette
+vindaloo
 vindicate
 vine
 vinegar
@@ -10828,6 +10962,7 @@ wage
 wages
 waging
 wagon
+wagyu
 waist
 waistband
 waistcoat
@@ -11138,6 +11273,7 @@ xylophone
 yacht
 yahoo
 yak
+yakitori
 yam
 yard
 yardage
