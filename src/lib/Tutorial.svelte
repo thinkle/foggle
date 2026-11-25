@@ -1,8 +1,20 @@
 <script>
 	import GuessArea from './GuessArea.svelte';
 	import SpeechBubble from './SpeechBubble.svelte';
+	import { getGuessConflicts } from './hardMode';
+	import { computeFeedback } from './wordFeedback';
 
 	let { onClose = () => {} } = $props(); // Callback for when the tutorial is closed
+
+	/**
+	 * Hard mode feedback for a demo guess that was entered but rejected
+	 * @param {{ answer: string, guesses: string[], hardModeGuess?: string }} example
+	 */
+	function demoConflicts(example) {
+		if (!example.hardModeGuess) return null;
+		const { guessFeedback } = computeFeedback(example.guesses, example.answer);
+		return getGuessConflicts(example.hardModeGuess, example.guesses, guessFeedback);
+	}
 
 	const tutorialSteps = [
 		{
@@ -99,6 +111,37 @@
 			}
 		},
 		{
+			text: "In hard mode, the game won't let you enter a guess that couldn't fit. But it doubles as 'explainer' mode, because it will tell you why.",
+			position: 'left',
+			example: {
+				answer: 'foggy',
+				guesses: ['fools'],
+				hardModeGuess: 'focus',
+				caption: "The 'S' in FOOLS was gray, so FOCUS can't be the answer."
+			}
+		},
+		{
+			text: 'Sometimes the reason will surprise you!',
+			position: 'right',
+			example: {
+				answer: 'foggy',
+				guesses: ['astonish'],
+				hardModeGuess: 'boggle',
+				caption:
+					"The 'O' in BOGGLE is 5th from the right, just like the 'O' in ASTONISH. Since the 'O' was not green on the right, BOGGLE can't fit."
+			}
+		},
+		{
+			position: 'left',
+			example: {
+				answer: 'foggy',
+				guesses: ['astonish'],
+				hardModeGuess: 'befog',
+				caption:
+					"The 'O' in BEFOG is 4th from the left, just like the 'O' in ASTONISH. Since the 'O' was not green on the left, BEFOG can't fit either."
+			}
+		},
+		{
 			text: 'Finally, the game will show you blank letters showing you how long you know the answer must be based on your guesses so far.',
 			position: 'left'
 		},
@@ -128,7 +171,9 @@
 				{/if}
 				{#if step.example}
 					{@const nletters = Math.max(
-						...step.example.guesses.map((guess) => guess.length)
+						...[...step.example.guesses, step.example.hardModeGuess ?? ''].map(
+							(guess) => guess.length
+						)
 					)}
 					<SpeechBubble
 						position={step.position}
@@ -137,9 +182,10 @@
 						<GuessArea
 							guesses={step.example.guesses}
 							theWord={step.example.answer}
-							isRight={!step.example.showGuess}
+							isRight={!step.example.showGuess && !step.example.hardModeGuess}
 							isDemo={true}
-							nextGuess=""
+							nextGuess={step.example.hardModeGuess ?? ''}
+							guessConflicts={demoConflicts(step.example)}
 							isInvalid={false}
 							justify={step.example.justify}
 							letterSize={step.example.size || 1.5}
