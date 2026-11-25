@@ -7774,6 +7774,7 @@ backspaced
 backspaces
 backspacing
 backspin
+backsplash
 backstabber
 backstabbers
 backstabbing
@@ -10361,6 +10362,7 @@ bingled
 bingles
 bingling
 bingo
+binky
 binman
 binmen
 binnacle
@@ -10547,6 +10549,7 @@ birdcages
 birded
 birder
 birders
+birdfeeder
 birdhouse
 birdhouses
 birdie
@@ -13048,6 +13051,7 @@ brocades
 brocading
 brocatel
 broccoli
+broccolini
 broch
 brochette
 brochettes
@@ -15520,6 +15524,7 @@ cardsharper
 cardsharpers
 cardsharping
 cardsharps
+cardstock
 carduaceous
 care
 cared
@@ -18512,6 +18517,7 @@ cinchonize
 cincture
 cinctures
 cinder
+cinderblock
 cindered
 cindering
 cinders
@@ -40106,6 +40112,7 @@ firelock
 firelocks
 fireman
 firemen
+firepit
 fireplace
 fireplaces
 fireplug
@@ -42542,6 +42549,7 @@ fringing
 fringy
 fripperies
 frippery
+frisbee
 frise
 frisette
 friseur
@@ -43980,6 +43988,7 @@ gelatinizing
 gelatinoid
 gelatinous
 gelation
+gelato
 gelcap
 geld
 gelded
@@ -45627,6 +45636,7 @@ gotta
 gotten
 gouache
 gouaches
+gouda
 gouge
 gouged
 gouger
@@ -56792,6 +56802,7 @@ jibed
 jibes
 jibing
 jibs
+jicama
 jiff
 jiffies
 jiffs
@@ -57216,6 +57227,7 @@ jumpiest
 jumpily
 jumpiness
 jumping
+jumprope
 jumps
 jumpsuit
 jumpsuits
@@ -57556,6 +57568,7 @@ keeshond
 keeshonds
 kef
 keffiyeh
+kefir
 keg
 kegler
 kegs
@@ -57676,6 +57689,7 @@ keyboardist
 keyboardists
 keyboards
 keycard
+keychain
 keyed
 keyhole
 keyholes
@@ -58240,6 +58254,7 @@ kolkhoz
 kolkhozes
 kolo
 komatik
+kombucha
 koniology
 koodoo
 koodoos
@@ -60194,6 +60209,7 @@ ligaturing
 liger
 ligers
 light
+lightbulb
 lighted
 lighten
 lightened
@@ -70704,6 +70720,7 @@ nutcase
 nutcases
 nutcracker
 nutcrackers
+nutella
 nutgall
 nuthatch
 nuthatches
@@ -71724,6 +71741,7 @@ onerously
 onerousness
 ones
 oneself
+onesie
 onetime
 ongoing
 onion
@@ -75031,6 +75049,7 @@ parlours
 parlous
 parlously
 parlousness
+parmesan
 parmigiana
 parmigiano
 parochial
@@ -75590,6 +75609,7 @@ pave
 paved
 pavement
 pavements
+paver
 paves
 pavid
 pavilion
@@ -78063,6 +78083,7 @@ pine
 pineal
 pineapple
 pineapples
+pinecone
 pined
 pinery
 pines
@@ -78729,6 +78750,7 @@ playbook
 playbooks
 playboy
 playboys
+playdough
 played
 player
 players
@@ -79845,6 +79867,7 @@ poppy
 poppycock
 poppyhead
 pops
+popsicle
 populace
 populaces
 popular
@@ -84348,6 +84371,7 @@ rabies
 raccoon
 raccoons
 race
+racecar
 racecourse
 racecourses
 raced
@@ -85513,6 +85537,7 @@ rebalanced
 rebaptise
 rebaptism
 rebaptize
+rebar
 rebarbative
 rebatable
 rebate
@@ -89521,6 +89546,7 @@ ribbonfish
 ribbons
 ribbonwood
 ribcage
+ribeye
 riboflavin
 ribonuclease
 ribonucleic
@@ -94603,6 +94629,7 @@ sheet
 sheeted
 sheeting
 sheetlike
+sheetrock
 sheets
 sheik
 sheikdom
@@ -95121,6 +95148,7 @@ showdowns
 showed
 shower
 showered
+showerhead
 showering
 showerproof
 showers
@@ -95913,6 +95941,7 @@ sipper
 sippers
 sippet
 sipping
+sippy
 sips
 sir
 sirdar
@@ -100923,6 +100952,7 @@ stovepipes
 stover
 stovers
 stoves
+stovetop
 stow
 stowage
 stowaway
@@ -105043,6 +105073,7 @@ teeters
 teeth
 teethe
 teethed
+teether
 teethes
 teething
 teetotal
@@ -107219,6 +107250,7 @@ tomahawk
 tomahawked
 tomahawking
 tomahawks
+tomatillo
 tomato
 tomatoes
 tomb
@@ -108501,6 +108533,7 @@ tree
 treed
 treehopper
 treehoppers
+treehouse
 treeing
 treeless
 treelike
@@ -113931,6 +113964,7 @@ velarium
 velarize
 velars
 velate
+velcro
 veld
 velds
 veldt
@@ -115464,6 +115498,7 @@ walkaways
 walked
 walker
 walkers
+walkie
 walkies
 walking
 walkingstick
@@ -118311,6 +118346,7 @@ yowl
 yowled
 yowling
 yowls
+yoyo
 yrs
 ytterbia
 ytterbite

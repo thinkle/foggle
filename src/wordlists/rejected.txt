@@ -73,7 +73,9 @@ betel	obscure or niche
 beth	proper noun or brand
 biggest	inflected form
 billy	proper noun or brand
+binky	slang, abbreviation or fragment
 bio	slang, abbreviation or fragment
+birdfeeder	two words in print (valid guess, not an answer)
 bitch	offensive
 bitcoin	proper noun or brand
 blackface	offensive
@@ -135,6 +137,7 @@ chink	offensive
 choc	slang, abbreviation or fragment
 christian	proper noun or brand
 chub	obscure or niche
+cinderblock	two words in print (valid guess, not an answer)
 circumstances	inflected form
 circumstantiate	removed from upcoming (obscure)
 cirrus	obscure or niche
@@ -427,6 +430,7 @@ john	proper noun or brand
 johnny	proper noun or brand
 josh	proper noun or brand
 judgement	british spelling
+jumprope	two words in print (valid guess, not an answer)
 jun	slang, abbreviation or fragment
 justified	inflected form
 kelly	proper noun or brand
@@ -463,6 +467,7 @@ letterbox	british spelling
 lewis	proper noun or brand
 liana	obscure or niche
 licence	british spelling
+lightbulb	two words in print (valid guess, not an answer)
 limitations	inflected form
 lives	inflected form
 loaves	plural ending in s (irregular)
@@ -552,6 +557,7 @@ non	slang, abbreviation or fragment
 noose	sensitive (mildly offensive): fine as a guess and to show, not as an answer
 nope	slang, abbreviation or fragment
 notified	inflected form
+nutella	proper noun or brand
 observed	inflected form
 occupied	inflected form
 oct	slang, abbreviation or fragment
@@ -587,8 +593,10 @@ pic	slang, abbreviation or fragment
 pica	obscure or niche
 pickaninny	offensive
 pika	obscure or niche
+pinecone	two words in print (valid guess, not an answer)
 pinking	inflected form
 piss	offensive
+playdough	proper noun or brand
 plexiglass	proper noun or brand
 pneumatics	removed from upcoming (obscure)
 politicians	inflected form
@@ -618,6 +626,7 @@ pumpkinseed	removed from upcoming (obscure)
 pupils	inflected form
 pussy	offensive
 qualified	inflected form
+racecar	two words in print (valid guess, not an answer)
 raiders	inflected form
 raja	proper noun or brand
 rand	obscure or niche
@@ -692,12 +701,14 @@ shanghai	proper noun or brand
 shareholders	inflected form
 shaw	proper noun or brand
 sheathing	obscure or niche
+sheetrock	proper noun or brand
 shelves	inflected form
 shit	offensive
 shitty	offensive
 shoes	inflected form
 siblings	inflected form
 sierra	proper noun or brand
+sippy	slang, abbreviation or fragment
 situated	inflected form
 skills	inflected form
 slater	proper noun or brand
@@ -811,6 +822,7 @@ voters	inflected form
 wadding	british spelling
 wahoo	obscure or niche
 wales	inflected form
+walkie	slang, abbreviation or fragment
 wanna	slang, abbreviation or fragment
 ware	slang, abbreviation or fragment
 watering	inflected form
@@ -845,4 +857,5 @@ yid	blocked: slur, not even a valid guess
 yids	blocked: slur, not even a valid guess
 yoghurt	british spelling
 york	proper noun or brand
+yoyo	two words in print (valid guess, not an answer)
 yup	slang, abbreviation or fragment

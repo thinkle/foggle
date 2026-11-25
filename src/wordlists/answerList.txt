@@ -754,6 +754,7 @@ backlog
 backpack
 backpacker
 backroom
+backsplash
 backstage
 backup
 backwards
@@ -1351,6 +1352,7 @@ broadcast
 broaden
 brocade
 broccoli
+broccolini
 brochure
 brogue
 broil
@@ -1622,6 +1624,7 @@ cardinal
 cardiologist
 cardiology
 cards
+cardstock
 care
 career
 careful
@@ -3933,6 +3936,7 @@ firefighter
 firefly
 firehouse
 fireman
+firepit
 fireplace
 firetruck
 firewall
@@ -4169,6 +4173,7 @@ friendship
 frightened
 frill
 fringe
+frisbee
 frittata
 frock
 frog
@@ -4296,6 +4301,7 @@ geek
 geese
 gel
 gelatin
+gelato
 gem
 gender
 gene
@@ -4435,6 +4441,7 @@ got
 goth
 gotten
 gouache
+gouda
 goulash
 gourd
 gout
@@ -5415,6 +5422,7 @@ jetty
 jewel
 jeweler
 jewelry
+jicama
 jiffy
 jig
 jigsaw
@@ -5490,6 +5498,7 @@ keel
 keen
 keep
 keeper
+kefir
 kelp
 ken
 kennel
@@ -5504,6 +5513,7 @@ ketchup
 kettle
 key
 keyboard
+keychain
 keyhole
 keypad
 keystone
@@ -5564,6 +5574,7 @@ known
 knuckle
 knucklehead
 koala
+kombucha
 kooky
 kosher
 kraken
@@ -6756,6 +6767,7 @@ once
 oncologist
 oncology
 one
+onesie
 ongoing
 onion
 online
@@ -7002,6 +7014,7 @@ parka
 parliament
 parliamentary
 parlor
+parmesan
 parody
 parrot
 parry
@@ -7061,6 +7074,7 @@ pattern
 patty
 pause
 pavement
+paver
 pavilion
 pawn
 pawnbroker
@@ -7410,6 +7424,7 @@ poplar
 poplin
 poppy
 poppycock
+popsicle
 popular
 popularity
 population
@@ -7898,6 +7913,7 @@ rear
 reason
 reasonable
 reasonably
+rebar
 rebel
 rebellion
 reboot
@@ -8173,6 +8189,7 @@ rhythm
 rib
 ribbon
 ribcage
+ribeye
 ribosome
 rice
 ricer
@@ -8743,6 +8760,7 @@ show
 showcase
 showdown
 shower
+showerhead
 shown
 showpiece
 showroom
@@ -9306,6 +9324,7 @@ story
 storytelling
 stout
 stove
+stovetop
 stowaway
 straight
 straightforward
@@ -9667,6 +9686,7 @@ teen
 teenage
 teenager
 teeth
+teether
 telecommunication
 telecommunications
 telegraph
@@ -9899,6 +9919,7 @@ toll
 tollbooth
 tom
 tomahawk
+tomatillo
 tomato
 tomb
 tombstone
@@ -10031,6 +10052,7 @@ treaty
 treble
 trebuchet
 tree
+treehouse
 trek
 trellis
 tremendous
@@ -10376,6 +10398,7 @@ veggie
 vehicle
 veil
 vein
+velcro
 vellum
 velocity
 velodrome
