@@ -167,6 +167,9 @@ def cmd_report(_):
 		problems.append(f'{len(bad)} answer(s) are not valid guesses')
 	if bad := [w for w in enc if not re.fullmatch('[a-z]+', w)]:
 		problems.append(f'{len(bad)} answer(s) contain non a-z characters')
+	blocked = {w for w, r in read_rejected().items() if r.startswith('blocked')}
+	if leaked := blocked & set(read_words(ALL_WORDS)):
+		problems.append(f'{len(leaked)} blocked word(s) are back in allTheWords.txt')
 	if clash := set(raw) & set(read_words(REJECTED)):
 		problems.append(f'{len(clash)} word(s) are in both answerList.txt and rejected.txt')
 
@@ -256,6 +259,10 @@ def cmd_accept(a):
 def cmd_add_valid(a):
 	"""Add words to allTheWords.txt (valid guesses), keeping it sorted."""
 	words = set(words_from(a.file))
+	blocked = {w for w, r in read_rejected().items() if r.startswith('blocked')}
+	if refused := words & blocked:
+		print(f'Refusing {len(refused)} blocked word(s).')
+	words -= blocked
 	valid = set(read_words(ALL_WORDS))
 	new = sorted(words - valid)
 	ALL_WORDS.write_text('\n'.join(sorted(valid | words)) + '\n')

@@ -26,6 +26,18 @@ Because the future gets reshuffled, puzzle numbers for "unlimited" games past th
 frozen window change after a rebuild. Shared links use a hash of the word, so
 those still work.
 
+## Rejected words and blocked guesses
+
+Each line of `rejected.txt` is a word, a tab and a reason (`inflected form`,
+`proper noun or brand`, `british spelling`, `offensive`, `obscure or niche`...).
+Pass `--reason` to `reject`/`remove` to record one.
+
+The standard is looser for guesses than for answers. Words that might make
+someone uncomfortable can still be typed; they just never become the answer.
+The worst slurs are tagged `blocked: ...` and are also taken out of
+`allTheWords.txt`, so they aren't accepted as guesses at all. `add-valid`
+refuses them, and a test fails if one comes back.
+
 ## Growing the list (with an AI or by hand)
 
 Setup, once:

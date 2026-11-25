@@ -4117,6 +4117,7 @@ gaunt
 gauntlet
 gauze
 gave
+gay
 gaze
 gazebo
 gazelle
@@ -5493,6 +5494,7 @@ lentil
 leopard
 leotard
 leprosy
+lesbian
 less
 lesser
 lesson
@@ -9575,6 +9577,7 @@ transform
 transformation
 transformer
 transfusion
+transgender
 transistor
 transit
 transition

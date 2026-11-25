@@ -22910,11 +22910,9 @@ cools
 coolth
 coom
 coomb
-coon
 cooncan
 coonhound
 coonhounds
-coons
 coonskin
 coonskins
 coontie
@@ -26274,8 +26272,6 @@ darkening
 darkens
 darker
 darkest
-darkie
-darkies
 darkish
 darkle
 darkling
@@ -33222,9 +33218,7 @@ dyestuffs
 dyewood
 dyewoods
 dying
-dyke
 dyked
-dykes
 dyking
 dynameter
 dynamic
@@ -38503,17 +38497,13 @@ faff
 faffed
 faffing
 faffs
-fag
 fagaceous
 fagged
 fagging
-faggot
 faggoting
-faggots
 fagot
 fagoting
 fagots
-fags
 fahlband
 faience
 fail
@@ -45525,8 +45515,6 @@ googol
 googolplex
 gooier
 gooiest
-gook
-gooks
 goon
 goons
 goop
@@ -56811,8 +56799,6 @@ jiffies
 jiffs
 jiffy
 jig
-jigaboo
-jigaboos
 jigged
 jigger
 jiggered
@@ -57814,8 +57800,6 @@ kieselguhr
 kieselguhrs
 kieserite
 kif
-kike
-kikes
 kilderkin
 kilderkins
 kill
@@ -69331,16 +69315,12 @@ niftier
 niftiest
 niftily
 nifty
-nigga
 niggard
 niggardliness
 niggardly
 niggards
-niggas
 niggaz
-nigger
 niggerhead
-niggers
 niggle
 niggled
 niggler
@@ -77751,7 +77731,6 @@ pickabacked
 pickabacking
 pickabacks
 pickaninnies
-pickaninny
 pickax
 pickaxe
 pickaxed
@@ -91359,7 +91338,6 @@ sambaing
 sambar
 sambars
 sambas
-sambo
 same
 samekh
 samekhs
@@ -98816,7 +98794,6 @@ sphygmograph
 sphygmoid
 sphygmomanometer
 sphygmomanometers
-spic
 spica
 spicate
 spiccato
@@ -98835,7 +98812,6 @@ spiciness
 spicing
 spick
 spicks
-spics
 spicula
 spiculate
 spicule
@@ -116375,8 +116351,6 @@ westward
 westwardly
 westwards
 wet
-wetback
-wetbacks
 wether
 wethers
 wetland
