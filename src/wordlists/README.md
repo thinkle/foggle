@@ -69,12 +69,50 @@ about 5+ is very common, 4 is an everyday word, 3 is known but uncommon, and bel
 `candidates` only lists words that are **not** answers yet, so they aren't
 spoilers, and an AI can review them in batches of a few hundred. The
 `rejected.txt` ledger keeps the next session from reviewing the same words
-again. The usual criteria: base forms rather than plurals or past tenses,
-American spelling, no proper nouns, brands, abbreviations, slang or
-profanity, and a word a typical adult would recognise. Irregular plurals
-that don't end in s (*geese*, *criteria*, *cherubim*) and plural-only words
-(*scissors*, *pajamas*) are welcome, but *knives*/*indices* style plurals aren't.
-Mild words like *virgin* or *drunk* are fine; vulgar words and slurs aren't.
+again.
+
+### Review rules (calibrated with Tom)
+
+**In:**
+- Base forms of everyday words, plus fun specialist words people know as
+  words (*mortise*, *tenon*, *zeugma*, *capybara*, *balderdash*).
+- Irregular plurals and verb forms that **don't end in s**: *geese, criteria,
+  cherubim, seraphim, went, gave, taken, drew*. Also *worse, worst*.
+- Plural-only words: *scissors, pajamas, clothes, smithereens*.
+- `-ed`/`-ing` words that feel like words in their own right. The test: would a
+  2-year-old learn it before the base word? *tired, scared, excited, boring,
+  pudding, upbringing*; also names of sports and activities (*boxing, sailing*).
+- Common adverbs and function words: *actually, absolutely, really, out, our, thee*.
+- Lowercase senses of proper nouns: *china, cooper, trump, march, jay, kit, tom*.
+- Mild, clinical or bodily words: *virgin, drunk, damn, ass, butt, penis, sperm*.
+- Identity words: *gay, lesbian, transgender*.
+- Closed compounds where the closed spelling wins in print (`compound`, 60% or
+  more). Verb-phrase lookalikes like *breakaway, dugout, timeout* are fine.
+- Silly and goofy words are a plus (*nincompoop, hornswoggle, doofus*).
+
+**Out:**
+- Regular inflections (*cats, walked, quickly* where *quick* exists) and
+  irregular plurals ending in s (*knives, wolves, indices*).
+- British spellings (*colour, theatre*); pure proper nouns and brands; slang,
+  clipped forms and abbreviations (*gonna, info, bio*).
+- Words that feel foreign or very niche to a non-specialist (*sfumato,
+  sgraffito, grisaille, ballade*). For fields like painting or science, compare
+  frequencies within the field (*gouache* beats *gesso*, so both are fine;
+  anything at half of *gesso* or below is out).
+- Drugs: in if well known (frequency above about 2.7: *opium, morphine,
+  codeine, acetaminophen*); brands out.
+
+**Offensive words have three tiers**, recorded in `rejected.txt`:
+1. `blocked: ...` means a slur with no regular meaning. It's removed from
+   `allTheWords.txt`, so it can't even be typed.
+2. `offensive` means it can be typed, but is never an answer and never
+   displayed (the analysis tab skips it). Use this for words that mainly read
+   as slurs but have another meaning or a reclaimed use (*faggot, nigga,
+   sambo, retard, negro*).
+3. `fine as a guess, not as an answer` is for uncomfortable but legitimate
+   words (*abortion, jew*). They're also never displayed.
+
+Always pass `--reason` when rejecting, so the ledger stays skimmable.
 
 ### Domain brainstorms
 
