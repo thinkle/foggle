@@ -14,6 +14,7 @@ afghan	proper noun or brand
 afterwards	inflected form
 ah	slang, abbreviation or fragment
 aileron	removed from upcoming (obscure)
+aisles	inflected form
 aka	slang, abbreviation or fragment
 al	slang, abbreviation or fragment
 allegations	inflected form
@@ -36,6 +37,7 @@ approved	inflected form
 arranged	inflected form
 arrived	inflected form
 aspergillus	obscure or niche
+aspirator	obscure or niche
 assembled	inflected form
 assets	inflected form
 asshole	offensive
@@ -51,6 +53,8 @@ bacillus	obscure or niche
 backing	inflected form
 bailey	proper noun or brand
 ballade	removed from upcoming (obscure)
+baluster	obscure or niche
+bandsaw	obscure or niche
 baptist	proper noun or brand
 barbeque	british spelling
 based	inflected form
@@ -76,20 +80,24 @@ blackface	offensive
 blackfish	obscure or niche
 blah	slang, abbreviation or fragment
 bleeding	inflected form
+blocks	inflected form
 blogger	obscure or niche
 bobby	proper noun or brand
 bock	obscure or niche
 bodkin	obscure or niche
 boll	obscure or niche
 boobs	inflected form
+booties	inflected form
 bootlace	british spelling
 bot	slang, abbreviation or fragment
 brant	obscure or niche
 brazil	proper noun or brand
 bream	obscure or niche
+bricks	inflected form
 brill	obscure or niche
 bro	slang, abbreviation or fragment
 bruin	obscure or niche
+bubbles	inflected form
 bullshit	offensive
 buried	inflected form
 burke	proper noun or brand
@@ -111,8 +119,10 @@ cassia	obscure or niche
 casualties	inflected form
 catalogue	british spelling
 cayman	obscure or niche
+celeriac	obscure or niche
 centre	british spelling
 certified	inflected form
+changing	inflected form
 characteristics	inflected form
 characterized	inflected form
 charlie	proper noun or brand
@@ -243,6 +253,7 @@ dorm	slang, abbreviation or fragment
 douche	offensive
 draught	british spelling
 dried	inflected form
+drinks	inflected form
 duff	obscure or niche
 dumplings	inflected form
 dustbin	british spelling
@@ -253,8 +264,10 @@ dyke	blocked: slur, not even a valid guess
 dykes	blocked: slur, not even a valid guess
 earlier	inflected form
 earliest	inflected form
+earplugs	inflected form
 easier	inflected form
 ed	slang, abbreviation or fragment
+edger	obscure or niche
 educated	inflected form
 effloresce	removed from upcoming (obscure)
 el	slang, abbreviation or fragment
@@ -284,17 +297,20 @@ ex	slang, abbreviation or fragment
 executed	inflected form
 expectations	inflected form
 exposed	inflected form
+eyebolt	obscure or niche
 fag	blocked: slur, not even a valid guess
 faggot	offensive
 faggots	offensive
 fags	blocked: slur, not even a valid guess
 farina	obscure or niche
+fasteners	inflected form
 favour	british spelling
 favourite	british spelling
 fiddlestick	obscure or niche
 findings	inflected form
 firebird	obscure or niche
 fitch	obscure or niche
+flashing	inflected form
 flathead	obscure or niche
 foetus	british spelling
 folks	inflected form
@@ -309,11 +325,13 @@ french	proper noun or brand
 fried	inflected form
 frying	inflected form
 fuck	offensive
+games	inflected form
 ganja	obscure or niche
 gemma	obscure or niche
 gen	slang, abbreviation or fragment
 geneva	proper noun or brand
 german	proper noun or brand
+giblet	obscure or niche
 gilbert	proper noun or brand
 gloves	inflected form
 glycine	obscure or niche
@@ -345,16 +363,20 @@ halves	inflected form
 hank	proper noun or brand
 happier	inflected form
 harbour	british spelling
+hardhat	obscure or niche
 harper	proper noun or brand
 harry	proper noun or brand
 has	inflected form
+hasp	obscure or niche
 henry	proper noun or brand
+highchair	obscure or niche
 hmm	slang, abbreviation or fragment
 holocaust	sensitive (your call)
 hon	slang, abbreviation or fragment
 hong	proper noun or brand
 honky	blocked: slur, not even a valid guess
 honour	british spelling
+hooded	inflected form
 hooves	plural ending in s (irregular)
 horsewhip	obscure or niche
 huh	slang, abbreviation or fragment
@@ -431,6 +453,8 @@ lama	obscure or niche
 lang	obscure or niche
 largest	inflected form
 lasagne	british spelling
+lath	obscure or niche
+layette	obscure or niche
 lbs	slang, abbreviation or fragment
 learnt	british spelling
 leaves	inflected form
@@ -446,6 +470,7 @@ located	inflected form
 logan	proper noun or brand
 looper	obscure or niche
 louis	proper noun or brand
+lovey	slang, abbreviation or fragment
 ltd	slang, abbreviation or fragment
 lucerne	obscure or niche
 lupin	obscure or niche
@@ -467,7 +492,9 @@ marguerite	obscure or niche
 maria	proper noun or brand
 marmite	proper noun or brand
 mart	slang, abbreviation or fragment
+masking	inflected form
 matt	proper noun or brand
+mattock	obscure or niche
 mavis	proper noun or brand
 max	proper noun or brand
 maya	proper noun or brand
@@ -489,6 +516,8 @@ min	slang, abbreviation or fragment
 mina	obscure or niche
 miners	inflected form
 minutes	inflected form
+misc	inflected form
+mittens	inflected form
 mod	slang, abbreviation or fragment
 modified	inflected form
 mollie	proper noun or brand
@@ -502,14 +531,17 @@ motivated	inflected form
 mouton	obscure or niche
 mph	slang, abbreviation or fragment
 multi	slang, abbreviation or fragment
+multimeter	obscure or niche
 mum	british spelling
 murphy	proper noun or brand
 nah	slang, abbreviation or fragment
+nailer	obscure or niche
 nancy	proper noun or brand
 negotiations	inflected form
 negro	offensive
 neighbourhood	british spelling
 nelson	proper noun or brand
+newel	obscure or niche
 newton	proper noun or brand
 nigga	offensive
 niggas	offensive
@@ -567,6 +599,7 @@ poof	offensive
 poofter	blocked: slur, not even a valid guess
 poofters	blocked: slur, not even a valid guess
 poon	offensive
+popgun	obscure or niche
 porn	offensive
 postbox	british spelling
 prep	slang, abbreviation or fragment
@@ -623,6 +656,7 @@ rick	proper noun or brand
 rickey	proper noun or brand
 rickrack	obscure or niche
 ripper	slang, abbreviation or fragment
+rocking	inflected form
 roebuck	obscure or niche
 roger	proper noun or brand
 roman	proper noun or brand
@@ -657,6 +691,7 @@ shadowbox	obscure or niche
 shanghai	proper noun or brand
 shareholders	inflected form
 shaw	proper noun or brand
+sheathing	obscure or niche
 shelves	inflected form
 shit	offensive
 shitty	offensive
@@ -669,10 +704,13 @@ slater	proper noun or brand
 smocking	inflected form
 snood	obscure or niche
 socks	inflected form
+soffit	obscure or niche
+soldering	inflected form
 soundbar	removed from upcoming (obscure)
 soviet	proper noun or brand
 sox	slang, abbreviation or fragment
 soya	british spelling
+spanner	british spelling
 specialized	inflected form
 specified	inflected form
 spelt	british spelling
@@ -689,12 +727,14 @@ staph	obscure or niche
 staphylococcus	obscure or niche
 stat	slang, abbreviation or fragment
 stats	inflected form
+stilts	inflected form
 stipe	obscure or niche
 stockinette	obscure or niche
 storey	british spelling
 stover	obscure or niche
 streptococcus	obscure or niche
 studied	inflected form
+stuffed	inflected form
 sub	slang, abbreviation or fragment
 subscribers	inflected form
 sunhat	obscure or niche
@@ -737,13 +777,16 @@ tony	proper noun or brand
 tools	inflected form
 tore	inflected form
 towards	inflected form
+toys	inflected form
 tracing	inflected form
+training	inflected form
 trans	slang, abbreviation or fragment
 tried	inflected form
 troops	inflected form
 trotter	obscure or niche
 troy	proper noun or brand
 tufting	inflected form
+turnbuckle	obscure or niche
 turner	proper noun or brand
 twitter	proper noun or brand
 ugh	slang, abbreviation or fragment
@@ -771,6 +814,8 @@ wales	inflected form
 wanna	slang, abbreviation or fragment
 ware	slang, abbreviation or fragment
 watering	inflected form
+weatherstripping	obscure or niche
+weedkiller	obscure or niche
 weenie	slang, abbreviation or fragment
 wellington	proper noun or brand
 welsh	proper noun or brand
