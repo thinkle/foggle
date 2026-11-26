@@ -36,13 +36,16 @@ There are three tiers, from strictest to loosest:
 
 | Tier | Reason starts with | Answer? | Shown in analysis? | Guessable? | Examples |
 | --- | --- | --- | --- | --- | --- |
-| Slurs | `blocked` | No | No | No | ethnic and other slurs |
-| Curse words | `offensive` | No | No | Yes | *asshole*, *fuck*, *shit* |
+| Worst slurs | `blocked` | No | No | No | most ethnic slurs |
+| Curse words, some slurs | `offensive` | No | No | Yes | *asshole*, *fuck*, *shit* |
 | Uncomfortable | `sensitive` | No | Yes | Yes | *penis*, *sphincter*, *noose*, *ass*, *bitch* |
 
-- **Guesses are liberal.** If someone wants to type *asshole*, fine. Only
-  slurs are `blocked`; they're taken out of `allTheWords.txt`, `add-valid`
-  refuses them, and a test fails if one comes back.
+- **Guesses are liberal.** If someone wants to type *asshole*, fine. The
+  worst slurs are `blocked`; they're taken out of `allTheWords.txt`,
+  `add-valid` refuses them, and a test fails if one comes back.
+- **Which slurs are `blocked` and which are `offensive` was decided case by
+  case, deliberately.** Don't move a slur between tiers without asking the
+  maintainer.
 - **The analysis tab hides only words that are just a curse word or a slur**
   (`offensive`, plus `blocked` and the older `fine as a guess, not as an
   answer`). A word with an ordinary meaning is fine to show, so "you were

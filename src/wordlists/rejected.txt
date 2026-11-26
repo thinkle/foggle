@@ -163,7 +163,7 @@ chifforobe	obscure or niche
 chile	proper noun or brand
 chilli	british spelling
 chine	obscure or niche
-chink	offensive: only a curse word or slur, hidden from the analysis tab
+chink	offensive
 choc	slang, abbreviation or fragment
 christian	proper noun or brand
 chromatin	obscure or niche
@@ -364,8 +364,8 @@ eyebolt	obscure or niche
 eyre	proper noun or brand
 fabrics	inflected form
 fag	blocked: slur, not even a valid guess
-faggot	blocked: slur, not even a valid guess
-faggots	blocked: slur, not even a valid guess
+faggot	offensive
+faggots	offensive
 fags	blocked: slur, not even a valid guess
 fairs	inflected form
 fanny	sensitive: never the answer, but fine to show
@@ -431,17 +431,17 @@ graham	proper noun or brand
 greenbrier	obscure or niche
 greenwood	obscure or niche
 grey	british spelling
-gringo	offensive: only a curse word or slur, hidden from the analysis tab
+gringo	offensive
 grisaille	removed from upcoming (obscure)
 grosgrain	obscure or niche
 guan	obscure or niche
 guidelines	inflected form
-gyp	offensive: only a curse word or slur, hidden from the analysis tab
-gypsy	offensive: only a curse word or slur, hidden from the analysis tab
+gyp	offensive
+gypsy	offensive
 gyrus	obscure or niche
 ha	slang, abbreviation or fragment
 hadron	obscure or niche
-halfbreed	blocked: slur, not even a valid guess
+halfbreed	offensive
 halvah	variant spelling
 halves	inflected form
 hank	proper noun or brand
@@ -511,7 +511,7 @@ jaybird	obscure or niche
 jellyroll	obscure or niche
 jenny	proper noun or brand
 jerry	proper noun or brand
-jew	sensitive: never the answer, but fine to show
+jew	fine as a guess, not as an answer
 jewellery	british spelling
 jigaboo	blocked: slur, not even a valid guess
 jigaboos	blocked: slur, not even a valid guess
@@ -618,7 +618,7 @@ mickey	proper noun or brand
 micks	blocked: slur, not even a valid guess
 micro	slang, abbreviation or fragment
 mid	slang, abbreviation or fragment
-midget	offensive: only a curse word or slur, hidden from the analysis tab
+midget	offensive
 mike	proper noun or brand
 miles	inflected form
 milt	obscure or niche
@@ -654,13 +654,13 @@ nailer	obscure or niche
 nailhead	obscure or niche
 nancy	proper noun or brand
 negotiations	inflected form
-negro	offensive: only a curse word or slur, hidden from the analysis tab
+negro	offensive
 neighbourhood	british spelling
 nelson	proper noun or brand
 newel	obscure or niche
 newton	proper noun or brand
-nigga	blocked: slur, not even a valid guess
-niggas	blocked: slur, not even a valid guess
+nigga	offensive
+niggas	offensive
 nigger	blocked: slur, not even a valid guess
 niggers	blocked: slur, not even a valid guess
 nipple	sensitive: never the answer, but fine to show
@@ -714,7 +714,7 @@ phage	obscure or niche
 phil	proper noun or brand
 pic	slang, abbreviation or fragment
 pica	obscure or niche
-pickaninny	blocked: slur, not even a valid guess
+pickaninny	offensive
 pika	obscure or niche
 pinecone	two words in print (valid guess, not an answer)
 pinkie	variant spelling
@@ -731,7 +731,7 @@ politicians	inflected form
 pollard	obscure or niche
 pom	slang, abbreviation or fragment
 ponderosa	obscure or niche
-poof	offensive: only a curse word or slur, hidden from the analysis tab
+poof	offensive
 poofter	blocked: slur, not even a valid guess
 poofters	blocked: slur, not even a valid guess
 poon	offensive: only a curse word or slur, hidden from the analysis tab
@@ -790,8 +790,8 @@ researchers	inflected form
 resources	inflected form
 restricted	inflected form
 restrictions	inflected form
-retard	offensive: only a curse word or slur, hidden from the analysis tab
-retarded	offensive: only a curse word or slur, hidden from the analysis tab
+retard	offensive
+retarded	offensive
 reticulum	obscure or niche
 retired	inflected form
 rev	slang, abbreviation or fragment
@@ -812,7 +812,7 @@ rusk	obscure or niche
 ruth	proper noun or brand
 sadism	sensitive: never the answer, but fine to show
 sally	inflected form
-sambo	blocked: slur, not even a valid guess
+sambo	offensive
 sanctions	inflected form
 sanders	inflected form
 sandpit	british spelling
