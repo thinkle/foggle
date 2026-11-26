@@ -48,6 +48,7 @@ arsehole	offensive: only a curse word or slur, hidden from the analysis tab
 arts	inflected form
 aspergillus	obscure or niche
 aspirator	obscure or niche
+ass	sensitive: never the answer, but fine to show
 assembled	inflected form
 assets	inflected form
 asshole	offensive: only a curse word or slur, hidden from the analysis tab
@@ -103,6 +104,7 @@ bobby	proper noun or brand
 bock	obscure or niche
 bodkin	obscure or niche
 boll	obscure or niche
+boob	sensitive: never the answer, but fine to show
 boobs	inflected form
 booties	inflected form
 bootlace	british spelling
@@ -119,6 +121,7 @@ bubbles	inflected form
 bullshit	offensive: only a curse word or slur, hidden from the analysis tab
 buried	inflected form
 burke	proper noun or brand
+butt	sensitive: never the answer, but fine to show
 buttocks	sensitive: never the answer, but fine to show
 buttoning	inflected form
 bye	slang, abbreviation or fragment
@@ -336,6 +339,7 @@ employed	inflected form
 employees	inflected form
 en	slang, abbreviation or fragment
 encaustic	removed from upcoming (obscure)
+enema	sensitive: never the answer, but fine to show
 english	proper noun or brand
 enrolled	inflected form
 entitled	inflected form
@@ -571,6 +575,7 @@ ltd	slang, abbreviation or fragment
 lucerne	obscure or niche
 lupin	obscure or niche
 lying	inflected form
+lynch	sensitive: never the answer, but fine to show
 lyrics	inflected form
 ma	slang, abbreviation or fragment
 mac	slang, abbreviation or fragment
@@ -658,6 +663,7 @@ nigga	blocked: slur, not even a valid guess
 niggas	blocked: slur, not even a valid guess
 nigger	blocked: slur, not even a valid guess
 niggers	blocked: slur, not even a valid guess
+nipple	sensitive: never the answer, but fine to show
 noggin	slang, abbreviation or fragment
 nominated	inflected form
 non	slang, abbreviation or fragment
@@ -697,6 +703,8 @@ participants	inflected form
 parts	inflected form
 passer	obscure or niche
 pecker	sensitive: never the answer, but fine to show
+pee	sensitive: never the answer, but fine to show
+penis	sensitive: never the answer, but fine to show
 perceived	inflected form
 perry	proper noun or brand
 peter	proper noun or brand
@@ -898,6 +906,7 @@ stuffed	inflected form
 styles	inflected form
 sub	slang, abbreviation or fragment
 subscribers	inflected form
+suicide	sensitive: never the answer, but fine to show
 sunhat	obscure or niche
 superman	proper noun or brand
 supplied	inflected form
@@ -968,6 +977,7 @@ unified	inflected form
 united	inflected form
 unsurpassable	removed from upcoming (obscure)
 urethra	sensitive: never the answer, but fine to show
+vagina	sensitive: never the answer, but fine to show
 varied	inflected form
 vela	proper noun or brand
 venipuncture	removed from upcoming (obscure)
