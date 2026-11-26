@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """Foggle word-list workbench.
 
-Designed so that a human can maintain the answer list without spoilers, and an
-AI can review it in small batches without reading the whole list.
+answerList.txt is the alphabetical pool of possible answers; the day-by-day
+schedule lives only in answerList.encoded.txt. Seeing the pool doesn't spoil the
+game. These tools let a human or an AI grow and prune it in small batches
+without reading the whole list.
 
   python src/wordlists/tools/wordlist.py report
-      Spoiler-free health check: integrity, frozen-history check, runway,
-      length + frequency distributions. Prints no answer words.
+      Health check: integrity, frozen-history check, runway, length +
+      frequency distributions.
 
   python src/wordlists/tools/wordlist.py candidates [--min 4] [--max 99] [--limit 300]
       Words that are valid guesses, NOT answers, and NOT already rejected,
-      sorted most-common first. These are not spoilers (they aren't answers yet).
+      sorted most-common first.
       Inflected-looking forms (plurals, -ed, -ing, -ly...) are hidden unless
       --inflected is given.
 
@@ -18,7 +20,7 @@ AI can review it in small batches without reading the whole list.
   python src/wordlists/tools/wordlist.py reject FILE      # append to rejected.txt
 
   python src/wordlists/tools/wordlist.py weak [--max 2.5]
-      SPOILERS: upcoming answers that look obscure, for AI review.
+      Upcoming answers that look obscure, for review.
   python src/wordlists/tools/wordlist.py remove FILE
       Remove words from the upcoming list (refuses to touch already-played days)
       and record them in rejected.txt so they are never proposed again.
@@ -252,7 +254,7 @@ def cmd_accept(a):
 		write_rejected({w: r for w, r in read_rejected().items() if w not in clash})
 	new = append_unique(ANSWERS, words)
 	ANSWERS.write_text('\n'.join(sorted(set(read_words(ANSWERS)))) + '\n')
-	print(f'Added {len(new)} new answer(s) to {ANSWERS.name} (no words printed, to avoid spoilers).')
+	print(f'Added {len(new)} new answer(s) to {ANSWERS.name}.')
 	print('Now run: npm run build-wordlist')
 
 
@@ -281,7 +283,7 @@ def cmd_weak(a):
 	valid = set(read_words(ALL_WORDS))
 	fut = schedule()[t + 1:]
 	out = sorted((z(w), w) for w in fut if z(w) < a.max or (a.inflected and looks_inflected(w, valid)))
-	print(f'# SPOILERS: {len(out)} upcoming answers', file=sys.stderr)
+	print(f'# {len(out)} upcoming answers', file=sys.stderr)
 	print(' '.join(w for _, w in out))
 
 
@@ -471,7 +473,7 @@ def cmd_compound(a):
 
 
 def cmd_review(a):
-	"""Markdown summary of answerList.txt changes vs a git ref (spoils added words)."""
+	"""Markdown summary of answerList.txt changes vs a git ref."""
 	old_text = subprocess.run(['git', '-C', str(LISTS), 'show', f'{a.ref}:./{ANSWERS.name}'],
 	                          capture_output=True, text=True, check=True).stdout
 	old = {l.strip() for l in old_text.split('\n') if l.strip()}

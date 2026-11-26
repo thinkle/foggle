@@ -1,18 +1,24 @@
 # Foggle word lists
 
-**Spoiler warning:** `answerList.txt` is the plaintext answer list. Don't open it
-if you want to keep playing. Everything else here is safe to read.
+**About spoilers:** reading these files won't spoil the game. `answerList.txt`
+is the *pool* of possible answers, sorted alphabetically, and it holds
+10,000+ words for roughly 30 years of daily puzzles. Seeing a word there
+only tells you it might come up some day. The real spoiler is the
+*schedule*, which word falls on which day. That only exists in
+`answerList.encoded.txt`, obfuscated and shuffled, and every rebuild
+reshuffles the future. So you can review and edit the answer list in the
+open and still enjoy playing.
 
 ## Files
 
-| File                     | What it is                                                                                                                                                              | Spoilers? |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `allTheWords.txt`        | Every word accepted as a guess.                                                                                                                                         | No        |
-| `answerList.txt`         | The pool of possible answers, sorted alphabetically. This is the file you edit.                                                                                         | **Yes**   |
-| `answerList.encoded.txt` | The actual schedule: one obfuscated answer per day, starting 2025-01-05 (`magicNumber.ts`). This is what the app ships.                                                 | Obscured  |
-| `rejected.txt`           | Words that were reviewed and deliberately left out (or removed). They're never proposed again, so each review session only looks at new words.                          | No        |
-| `build-wordlist.ts`      | Rebuilds the schedule from `answerList.txt`. Days up to today plus a 14-day buffer are frozen; everything after that is reshuffled.                                     | —         |
-| `tools/wordlist.py`      | Workbench for reviewing and growing the list without reading all of it.                                                                                                 | —         |
+| File                     | What it is                                                                                                                                     |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `allTheWords.txt`        | Every word accepted as a guess.                                                                                                                |
+| `answerList.txt`         | The pool of possible answers, sorted alphabetically. This is the file you edit, and it's safe to read.                                         |
+| `answerList.encoded.txt` | The actual schedule: one obfuscated answer per day, starting 2025-01-05 (`magicNumber.ts`). This is what the app ships. Don't decode it.       |
+| `rejected.txt`           | Words that were reviewed and deliberately left out (or removed). They're never proposed again, so each review session only looks at new words. |
+| `build-wordlist.ts`      | Rebuilds the schedule from `answerList.txt`. Days up to today plus a 14-day buffer are frozen; everything after that is reshuffled.             |
+| `tools/wordlist.py`      | Workbench for reviewing and growing the list without reading all of it.                                                                        |
 
 ## How the schedule stays stable
 
@@ -68,9 +74,9 @@ Then:
 
 ```bash
 W=".venv/bin/python src/wordlists/tools/wordlist.py"
-$W report                                     # spoiler-free health check
+$W report                                     # health check: integrity, runway, distributions
 $W candidates --min 3.5 --max 4 --limit 400   # unreviewed non-answers, most common first
-$W accept picks.txt                           # adds to answerList.txt, prints no words
+$W accept picks.txt                           # adds to answerList.txt
 $W reject rest.txt                            # adds to rejected.txt
 npm run build-wordlist && npx vitest run
 ```
@@ -78,8 +84,8 @@ npm run build-wordlist && npx vitest run
 Frequencies are on the [wordfreq](https://github.com/rspeer/wordfreq) Zipf scale:
 about 5+ is very common, 4 is an everyday word, 3 is known but uncommon, and below 2 is rare.
 
-`candidates` only lists words that are **not** answers yet, so they aren't
-spoilers, and an AI can review them in batches of a few hundred. The
+`candidates` only lists words that are **not** answers yet, so an AI can
+review them in batches of a few hundred without wading through the whole pool. The
 `rejected.txt` ledger keeps the next session from reviewing the same words
 again. The usual criteria: base forms rather than plurals or past tenses,
 American spelling, no proper nouns, brands, abbreviations, slang or
@@ -163,6 +169,6 @@ there. Google rate-limits the endpoint, so the command waits between lookups.
 Before opening a PR, `$W review --out changes.md` lists every added and removed
 answer compared with `main`, so you can check what went in.
 
-To prune obscure **upcoming** answers, `$W weak --max 2.3` lists them. That
-list is a spoiler, so leave it to the AI. `$W remove FILE` then drops them
+To prune obscure **upcoming** answers, `$W weak --max 2.3` lists them.
+`$W remove FILE` then drops them
 (it won't touch played or frozen days) and logs them in `rejected.txt`.
