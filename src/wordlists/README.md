@@ -92,7 +92,9 @@ American spelling, no proper nouns, brands, abbreviations, slang or
 profanity, and a word a typical adult would recognise. Irregular plurals
 that don't end in s (*geese*, *criteria*, *cherubim*) and plural-only words
 (*scissors*, *pajamas*) are welcome, but *knives*/*indices* style plurals aren't.
-Mild words like *virgin* or *drunk* are fine; vulgar words and slurs aren't.
+An -ly adverb isn't an inflection: *obviously* and *really* belong, and the
+only question is whether it's common enough (*superbly*, at Zipf 3.0, is about
+where they stop sounding natural). Mild words like *virgin* or *drunk* are fine; vulgar words and slurs aren't.
 
 ### Domain brainstorms
 

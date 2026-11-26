@@ -362,6 +362,7 @@ dodgers	inflected form
 dodgy	british spelling
 doggie	obscure or niche
 dolce	slang, abbreviation or fragment
+dolly	proper noun or brand
 domesticated	inflected form
 dominated	inflected form
 don	obscure or niche
@@ -680,6 +681,7 @@ liana	obscure or niche
 licence	british spelling
 lightbulb	two words in print (valid guess, not an answer)
 likeable	british spelling
+lilly	proper noun or brand
 limitations	inflected form
 limo	slang, abbreviation or fragment
 lingua	slang, abbreviation or fragment
@@ -798,6 +800,7 @@ nee	slang, abbreviation or fragment
 negotiations	inflected form
 negro	offensive
 neighbourhood	british spelling
+nelly	proper noun or brand
 nelson	proper noun or brand
 newel	obscure or niche
 newton	proper noun or brand
@@ -881,6 +884,7 @@ plexus	obscure or niche
 pneumatics	removed from upcoming (obscure)
 politicians	inflected form
 pollard	obscure or niche
+poly	slang, abbreviation or fragment
 pom	slang, abbreviation or fragment
 ponderosa	obscure or niche
 poof	offensive
@@ -1016,6 +1020,7 @@ sepia	obscure or niche
 sept	slang, abbreviation or fragment
 sewn	inflected form
 sexiness	sensitive: never the answer, but fine to show
+sexually	sensitive: never the answer, but fine to show
 sfumato	removed from upcoming (obscure)
 sgraffito	removed from upcoming (obscure)
 shad	obscure or niche
@@ -1028,6 +1033,7 @@ shaw	proper noun or brand
 sheathing	obscure or niche
 shedding	inflected form
 sheetrock	proper noun or brand
+shelly	proper noun or brand
 shelves	inflected form
 shit	offensive: only a curse word or slur, hidden from the analysis tab
 shitty	offensive: only a curse word or slur, hidden from the analysis tab
@@ -1102,6 +1108,7 @@ suicide	sensitive: never the answer, but fine to show
 summarise	british spelling
 sunhat	obscure or niche
 sunk	inflected form
+superbly	obscure or niche
 superman	proper noun or brand
 supplied	inflected form
 supplies	inflected form
@@ -1126,6 +1133,7 @@ tatting	inflected form
 tech	slang, abbreviation or fragment
 tee	slang, abbreviation or fragment
 tel	slang, abbreviation or fragment
+telly	british spelling
 terry	proper noun or brand
 tessera	obscure or niche
 testa	obscure or niche
@@ -1210,6 +1218,7 @@ wadi	obscure or niche
 wahoo	obscure or niche
 wales	inflected form
 walkie	slang, abbreviation or fragment
+wally	proper noun or brand
 wanna	slang, abbreviation or fragment
 ware	slang, abbreviation or fragment
 watching	inflected form
@@ -1231,6 +1240,7 @@ whore	sensitive: never the answer, but fine to show
 whorehouse	sensitive: never the answer, but fine to show
 wight	obscure or niche
 willie	proper noun or brand
+willy	proper noun or brand
 wimp	obscure or niche
 winder	obscure or niche
 windscreen	british spelling

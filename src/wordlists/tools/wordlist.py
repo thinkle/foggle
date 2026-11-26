@@ -13,7 +13,7 @@ without reading the whole list.
   python src/wordlists/tools/wordlist.py candidates [--min 4] [--max 99] [--limit 300]
       Words that are valid guesses, NOT answers, and NOT already rejected,
       sorted most-common first.
-      Inflected-looking forms (plurals, -ed, -ing, -ly...) are hidden unless
+      Inflected-looking forms (plurals, -ed, -ing...) are hidden unless
       --inflected is given.
 
   python src/wordlists/tools/wordlist.py accept FILE      # append to answerList.txt
@@ -125,9 +125,8 @@ def base_forms(w: str) -> list[str]:
 		out += [w[:-2], w[:-1], w[:-3]]
 	if w.endswith('ing'):
 		out += [w[:-3], w[:-3] + 'e', w[:-4]]
-	if w.endswith('ly'):
-		out += [w[:-2], w[:-3] + 'e', w[:-3] + 'y' if w.endswith('ily') else w[:-2]]
-	# (no -er/-est: it hid too many real nouns like shower, speaker, drawer)
+	# (no -ly: an adverb like "obviously" is judged on how common it is, not as an
+	# inflection; no -er/-est: it hid too many real nouns like shower, speaker, drawer)
 	return out
 
 
