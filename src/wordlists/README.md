@@ -140,6 +140,14 @@ Categories include `noun.artifact`, `noun.food`, `noun.animal`, `noun.plant`,
 
 ### Finding gaps
 
+For the big picture, `categories` lists all 45 WordNet categories (`noun.food`,
+`verb.motion`, `adj.all`...) with how many words in each are answers, rejected
+or still unreviewed, sorted from least covered to most:
+
+```bash
+$W categories            # e.g. "noun.food  346 answers ... 96%"  vs  "adj.all  1253 answers ... 33%"
+```
+
 The most useful question is "what whole areas are missing?" `gaps` files every
 reasonably common noun under its WordNet parent and grandparent concept, then
 ranks the concepts by how little of them the answer list covers:

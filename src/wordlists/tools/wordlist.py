@@ -501,6 +501,36 @@ def cmd_review(a):
 		print(text)
 
 
+def cmd_categories(a):
+	"""Coverage of every WordNet category: answers vs unreviewed words, by first sense."""
+	en = _wordnet()
+	valid = set(read_words(ALL_WORDS))
+	answers = set(read_words(ANSWERS)) | set(schedule())
+	rejected = set(read_words(REJECTED))
+	rows = collections.defaultdict(lambda: [0, 0, 0, 0])  # answers, rejected, unreviewed >=3.5, unreviewed below
+	for w in valid:
+		if len(w) < a.min_len or z(w) < a.min:
+			continue
+		if w not in answers and looks_inflected(w, valid):
+			continue
+		ss = en.synsets(w)
+		if not ss or w not in [l.lower() for l in ss[0].lemmas()]:
+			continue
+		r = rows[ss[0].lexfile()]
+		if w in answers:
+			r[0] += 1
+		elif w in rejected:
+			r[1] += 1
+		else:
+			r[2 if z(w) >= 3.5 else 3] += 1
+	print(f'Words with zipf >= {a.min}, filed by their most common WordNet sense.')
+	print('coverage = answers / (answers + unreviewed); rejected words are left out of it.\n')
+	print(f'{"category":22} {"answers":>7} {"rejected":>8} {"unrev 3.5+":>10} {"unrev <3.5":>10} {"coverage":>8}')
+	for cat, (n_a, n_r, hi, lo) in sorted(rows.items(), key=lambda kv: kv[1][0] / max(1, kv[1][0] + kv[1][2] + kv[1][3])):
+		cov = n_a / max(1, n_a + hi + lo)
+		print(f'{cat:22} {n_a:7} {n_r:8} {hi:10} {lo:10} {cov:8.0%}')
+
+
 def main():
 	p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 	sub = p.add_subparsers(dest='cmd', required=True)
@@ -548,6 +578,10 @@ def main():
 	co.add_argument('--start', type=int, default=1980)
 	co.add_argument('--end', type=int, default=2022)
 	co.set_defaults(fn=cmd_compound)
+	ca = sub.add_parser('categories', help='coverage of every WordNet category (noun.food, verb.motion...)')
+	ca.add_argument('--min', type=float, default=2.5, help='ignore words rarer than this zipf')
+	ca.add_argument('--min-len', type=int, default=2)
+	ca.set_defaults(fn=cmd_categories)
 	r = sub.add_parser('review', help='markdown list of added/removed answers vs a git ref')
 	r.add_argument('--ref', default='main')
 	r.add_argument('--out', help='write to this file instead of stdout')
