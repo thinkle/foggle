@@ -1,0 +1,7 @@
+animal sounds: moo baa neigh whinny bray oink cluck cackle gobble quack honk coo caw chirp cheep tweet squawk hoot howl yip yelp bark growl snarl hiss purr mew meow roar trumpet
+drinks: whiskey whisky scotch bourbon gin rum vodka tequila brandy cognac sherry port vermouth schnapps liqueur absinthe mead cider ale stout lager
+weather: monsoon squall gale gust breeze tailwind headwind drizzle downpour cloudburst sleet hail blizzard whiteout flurry fog mist haze smog drought heatwave
+rocks: shale slate pumice granite basalt marble limestone sandstone quartz flint obsidian gneiss schist gypsum talc mica
+isms: paganism mysticism shamanism monotheism polytheism atheism stoicism pragmatism idealism realism cynicism skepticism fascism communism socialism capitalism liberalism conservatism anarchism patriotism nationalism feminism heroism vandalism plagiarism
+fairs and meetings: seminar symposium caucus conclave summit convention rally
+ordinals: eleventh twelfth thirteenth fourteenth fifteenth sixteenth seventeenth eighteenth nineteenth twentieth hundredth thousandth millionth

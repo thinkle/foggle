@@ -1,18 +1,24 @@
 # Foggle word lists
 
-**Spoiler warning:** `answerList.txt` is the plaintext answer list. Don't open it
-if you want to keep playing. Everything else here is safe to read.
+**About spoilers:** reading these files won't spoil the game. `answerList.txt`
+is the *pool* of possible answers, sorted alphabetically, and it holds
+10,000+ words for roughly 30 years of daily puzzles. Seeing a word there
+only tells you it might come up some day. The real spoiler is the
+*schedule*, which word falls on which day. That only exists in
+`answerList.encoded.txt`, obfuscated and shuffled, and every rebuild
+reshuffles the future. So you can review and edit the answer list in the
+open and still enjoy playing.
 
 ## Files
 
-| File                     | What it is                                                                                                                                                              | Spoilers? |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `allTheWords.txt`        | Every word accepted as a guess.                                                                                                                                         | No        |
-| `answerList.txt`         | The pool of possible answers, sorted alphabetically. This is the file you edit.                                                                                         | **Yes**   |
-| `answerList.encoded.txt` | The actual schedule: one obfuscated answer per day, starting 2025-01-05 (`magicNumber.ts`). This is what the app ships.                                                 | Obscured  |
-| `rejected.txt`           | Words that were reviewed and deliberately left out (or removed). They're never proposed again, so each review session only looks at new words.                          | No        |
-| `build-wordlist.ts`      | Rebuilds the schedule from `answerList.txt`. Days up to today plus a 14-day buffer are frozen; everything after that is reshuffled.                                     | —         |
-| `tools/wordlist.py`      | Workbench for reviewing and growing the list without reading all of it.                                                                                                 | —         |
+| File                     | What it is                                                                                                                                     |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `allTheWords.txt`        | Every word accepted as a guess.                                                                                                                |
+| `answerList.txt`         | The pool of possible answers, sorted alphabetically. This is the file you edit, and it's safe to read.                                         |
+| `answerList.encoded.txt` | The actual schedule: one obfuscated answer per day, starting 2025-01-05 (`magicNumber.ts`). This is what the app ships. Don't decode it.       |
+| `rejected.txt`           | Words that were reviewed and deliberately left out (or removed). They're never proposed again, so each review session only looks at new words. |
+| `build-wordlist.ts`      | Rebuilds the schedule from `answerList.txt`. Days up to today plus a 14-day buffer are frozen; everything after that is reshuffled.             |
+| `tools/wordlist.py`      | Workbench for reviewing and growing the list without reading all of it.                                                                        |
 
 ## How the schedule stays stable
 
@@ -32,16 +38,28 @@ Each line of `rejected.txt` is a word, a tab and a reason (`inflected form`,
 `proper noun or brand`, `british spelling`, `offensive`, `obscure or niche`...).
 Pass `--reason` to `reject`/`remove` to record one.
 
-The standard is looser for guesses than for answers. Words that might make
-someone uncomfortable can still be typed; they just never become the answer.
-The worst slurs are tagged `blocked: ...` and are also taken out of
-`allTheWords.txt`, so they aren't accepted as guesses at all. `add-valid`
-refuses them, and a test fails if one comes back.
+There are three tiers, from strictest to loosest:
 
-Anything tagged `offensive` (or `fine as a guess, not as an answer`) can
-still be typed, but it's left out of `displayableWords` in `src/lib/words.ts`.
-The analysis tab uses that list, so it never says "you were down to two
-words: ___ and fathom" with an offensive word in the blank.
+| Tier | Reason starts with | Answer? | Shown in analysis? | Guessable? | Examples |
+| --- | --- | --- | --- | --- | --- |
+| Worst slurs | `blocked` | No | No | No | most ethnic slurs |
+| Curse words, some slurs | `offensive` | No | No | Yes | *asshole*, *fuck*, *shit* |
+| Uncomfortable | `sensitive` | No | Yes | Yes | *penis*, *sphincter*, *noose*, *ass*, *bitch* |
+
+- **Guesses are liberal.** If someone wants to type *asshole*, fine. The
+  worst slurs are `blocked`; they're taken out of `allTheWords.txt`,
+  `add-valid` refuses them, and a test fails if one comes back.
+- **Which slurs are `blocked` and which are `offensive` was decided case by
+  case, deliberately.** Don't move a slur between tiers without asking the
+  maintainer.
+- **The analysis tab hides only words that are just a curse word or a slur**
+  (`offensive`, plus `blocked` and the older `fine as a guess, not as an
+  answer`). A word with an ordinary meaning is fine to show, so "you were
+  down to *penis* and *pens*" is OK, and so is *ass* or *bitch*. *Asshole*
+  isn't. The analysis tab uses `displayableWords` in `src/lib/words.ts`.
+- **The answer of the day is the strictest.** Anything that would be an
+  awkward puzzle answer (anatomy, sex, grim topics) gets `sensitive`: never
+  the answer, but still typeable and showable.
 
 ## Growing the list (with an AI or by hand)
 
@@ -56,9 +74,9 @@ Then:
 
 ```bash
 W=".venv/bin/python src/wordlists/tools/wordlist.py"
-$W report                                     # spoiler-free health check
+$W report                                     # health check: integrity, runway, distributions
 $W candidates --min 3.5 --max 4 --limit 400   # unreviewed non-answers, most common first
-$W accept picks.txt                           # adds to answerList.txt, prints no words
+$W accept picks.txt                           # adds to answerList.txt
 $W reject rest.txt                            # adds to rejected.txt
 npm run build-wordlist && npx vitest run
 ```
@@ -66,15 +84,18 @@ npm run build-wordlist && npx vitest run
 Frequencies are on the [wordfreq](https://github.com/rspeer/wordfreq) Zipf scale:
 about 5+ is very common, 4 is an everyday word, 3 is known but uncommon, and below 2 is rare.
 
-`candidates` only lists words that are **not** answers yet, so they aren't
-spoilers, and an AI can review them in batches of a few hundred. The
+`candidates` only lists words that are **not** answers yet, so an AI can
+review them in batches of a few hundred without wading through the whole pool. The
 `rejected.txt` ledger keeps the next session from reviewing the same words
 again. The usual criteria: base forms rather than plurals or past tenses,
 American spelling, no proper nouns, brands, abbreviations, slang or
 profanity, and a word a typical adult would recognise. Irregular plurals
 that don't end in s (*geese*, *criteria*, *cherubim*) and plural-only words
 (*scissors*, *pajamas*) are welcome, but *knives*/*indices* style plurals aren't.
-Mild words like *virgin* or *drunk* are fine; vulgar words and slurs aren't.
+An -ly adverb isn't an inflection: *obviously* and *really* belong, and the
+only question is whether it's common enough. The cutoff is Zipf above 3.0:
+*superbly* sits at exactly 3.0 and was judged too rare, so it and the words
+tied with it are out. Mild words like *virgin* or *drunk* are fine; vulgar words and slurs aren't.
 
 ### Domain brainstorms
 
@@ -89,7 +110,23 @@ $W check domain.txt --new-out new.txt   # splits into new / already answers / re
 
 Then `accept` the good ones from `new.txt`. Brainstorms done so far live in
 `domains/` (house, cooking, bikes, sports, outdoors, zoo, painting, poetry,
-fashion), so it's easy to see what's been covered.
+fashion, and more), so it's easy to see what's been covered. "Store walks"
+work well: picture walking the aisles of a craft store, hardware store,
+grocery (including the international aisle), toy store, furniture store, auto
+parts store or pet store and name everything you see (`crafts.txt`,
+`hardware.txt`, `grocery.txt`, `international.txt`, `toys.txt`,
+`furniture.txt`, `cars.txt`, `pets.txt`). A college course catalog
+(`courses.txt`) works the same way.
+
+A walk often turns up familiar words that aren't valid guesses yet (*udon*,
+*frisbee*, *backsplash*). `check` lists them as invalid. Run compounds
+through `compound` first, then `add-valid` the real words and `accept` them.
+Brands, fragments (*sippy*, *tikka*) and compounds still written as two
+words in print (*lightbulb*, *firepit*) can be valid guesses without being
+answers. Log those with `reject --reason "two words in print (valid guess,
+not an answer)"` or similar. A mildly uncomfortable word that's fine to show
+in the analysis tab (*noose*) gets a reason starting with `sensitive`,
+not `offensive`.
 
 ### Category sprays
 
@@ -105,6 +142,14 @@ Categories include `noun.artifact`, `noun.food`, `noun.animal`, `noun.plant`,
 `noun.body`, `noun.substance` and `noun.object`.
 
 ### Finding gaps
+
+For the big picture, `categories` lists all 45 WordNet categories (`noun.food`,
+`verb.motion`, `adj.all`...) with how many words in each are answers, rejected
+or still unreviewed, sorted from least covered to most:
+
+```bash
+$W categories            # e.g. "noun.food  346 answers ... 96%"  vs  "adj.all  1253 answers ... 33%"
+```
 
 The most useful question is "what whole areas are missing?" `gaps` files every
 reasonably common noun under its WordNet parent and grandparent concept, then
@@ -135,6 +180,6 @@ there. Google rate-limits the endpoint, so the command waits between lookups.
 Before opening a PR, `$W review --out changes.md` lists every added and removed
 answer compared with `main`, so you can check what went in.
 
-To prune obscure **upcoming** answers, `$W weak --max 2.3` lists them. That
-list is a spoiler, so leave it to the AI. `$W remove FILE` then drops them
+To prune obscure **upcoming** answers, `$W weak --max 2.3` lists them.
+`$W remove FILE` then drops them
 (it won't touch played or frozen days) and logs them in `rejected.txt`.
