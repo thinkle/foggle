@@ -32,16 +32,25 @@ Each line of `rejected.txt` is a word, a tab and a reason (`inflected form`,
 `proper noun or brand`, `british spelling`, `offensive`, `obscure or niche`...).
 Pass `--reason` to `reject`/`remove` to record one.
 
-The standard is looser for guesses than for answers. Words that might make
-someone uncomfortable can still be typed; they just never become the answer.
-The worst slurs are tagged `blocked: ...` and are also taken out of
-`allTheWords.txt`, so they aren't accepted as guesses at all. `add-valid`
-refuses them, and a test fails if one comes back.
+There are three tiers, from strictest to loosest:
 
-Anything tagged `offensive` (or `fine as a guess, not as an answer`) can
-still be typed, but it's left out of `displayableWords` in `src/lib/words.ts`.
-The analysis tab uses that list, so it never says "you were down to two
-words: ___ and fathom" with an offensive word in the blank.
+| Tier | Reason starts with | Answer? | Shown in analysis? | Guessable? | Examples |
+| --- | --- | --- | --- | --- | --- |
+| Slurs | `blocked` | No | No | No | ethnic and other slurs |
+| Curse words | `offensive` | No | No | Yes | *asshole*, *fuck*, *shit* |
+| Uncomfortable | `sensitive` | No | Yes | Yes | *penis*, *sphincter*, *noose*, *ass*, *bitch* |
+
+- **Guesses are liberal.** If someone wants to type *asshole*, fine. Only
+  slurs are `blocked`; they're taken out of `allTheWords.txt`, `add-valid`
+  refuses them, and a test fails if one comes back.
+- **The analysis tab hides only words that are just a curse word or a slur**
+  (`offensive`, plus `blocked` and the older `fine as a guess, not as an
+  answer`). A word with an ordinary meaning is fine to show, so "you were
+  down to *penis* and *pens*" is OK, and so is *ass* or *bitch*. *Asshole*
+  isn't. The analysis tab uses `displayableWords` in `src/lib/words.ts`.
+- **The answer of the day is the strictest.** Anything that would be an
+  awkward puzzle answer (anatomy, sex, grim topics) gets `sensitive`: never
+  the answer, but still typeable and showable.
 
 ## Growing the list (with an AI or by hand)
 

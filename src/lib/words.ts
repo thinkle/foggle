@@ -71,7 +71,8 @@ export const validWords = words;
 
 // Words that may be typed as guesses but shouldn't be *shown* to players, e.g.
 // in the analysis tab's "words that could still fit" list: anything tagged
-// offensive (or never-an-answer for comfort) in rejected.txt.
+// offensive (only a curse word or slur) in rejected.txt. Words tagged
+// "sensitive" are never answers but can still be shown.
 const HIDDEN_REASONS = ['offensive', 'blocked', 'fine as a guess, not as an answer'];
 const hiddenWords = new Set(
 	rejectedList

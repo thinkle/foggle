@@ -1,5 +1,5 @@
 abandoned	inflected form
-abortion	fine as a guess, not as an answer
+abortion	sensitive: never the answer, but fine to show
 absorber	slang, abbreviation or fragment
 accessories	inflected form
 accompanied	inflected form
@@ -37,20 +37,20 @@ anna	proper noun or brand
 announced	inflected form
 anti	slang, abbreviation or fragment
 anticipated	inflected form
-anus	sensitive (anatomy or mildly uncomfortable): fine as a guess and to show, not as an answer
+anus	sensitive: never the answer, but fine to show
 applied	inflected form
 appointed	inflected form
 apposite	removed from upcoming (obscure)
 approved	inflected form
 arranged	inflected form
 arrived	inflected form
-arsehole	offensive
+arsehole	offensive: only a curse word or slur, hidden from the analysis tab
 arts	inflected form
 aspergillus	obscure or niche
 aspirator	obscure or niche
 assembled	inflected form
 assets	inflected form
-asshole	offensive
+asshole	offensive: only a curse word or slur, hidden from the analysis tab
 assigned	inflected form
 associated	inflected form
 atm	slang, abbreviation or fragment
@@ -71,7 +71,7 @@ barbeque	british spelling
 based	inflected form
 basking	inflected form
 basswood	obscure or niche
-bastard	offensive
+bastard	sensitive: never the answer, but fine to show
 basting	inflected form
 batman	proper noun or brand
 batting	inflected form
@@ -89,9 +89,9 @@ binky	slang, abbreviation or fragment
 bio	slang, abbreviation or fragment
 birdfeeder	two words in print (valid guess, not an answer)
 birds	inflected form
-bitch	offensive
+bitch	sensitive: never the answer, but fine to show
 bitcoin	proper noun or brand
-blackface	offensive
+blackface	sensitive: never the answer, but fine to show
 blackfish	obscure or niche
 blah	slang, abbreviation or fragment
 bleeding	inflected form
@@ -116,10 +116,10 @@ brill	obscure or niche
 bro	slang, abbreviation or fragment
 bruin	obscure or niche
 bubbles	inflected form
-bullshit	offensive
+bullshit	offensive: only a curse word or slur, hidden from the analysis tab
 buried	inflected form
 burke	proper noun or brand
-buttocks	sensitive (anatomy or mildly uncomfortable): fine as a guess and to show, not as an answer
+buttocks	sensitive: never the answer, but fine to show
 buttoning	inflected form
 bye	slang, abbreviation or fragment
 cables	inflected form
@@ -160,7 +160,7 @@ chifforobe	obscure or niche
 chile	proper noun or brand
 chilli	british spelling
 chine	obscure or niche
-chink	offensive
+chink	offensive: only a curse word or slur, hidden from the analysis tab
 choc	slang, abbreviation or fragment
 christian	proper noun or brand
 chromatin	obscure or niche
@@ -177,11 +177,11 @@ citizens	inflected form
 clarence	proper noun or brand
 clary	obscure or niche
 classified	inflected form
-clit	offensive
-clitoris	fine as a guess, not as an answer
+clit	offensive: only a curse word or slur, hidden from the analysis tab
+clitoris	sensitive: never the answer, but fine to show
 clostridium	obscure or niche
 coatrack	obscure or niche
-cock	offensive
+cock	sensitive: never the answer, but fine to show
 cocker	obscure or niche
 coco	obscure or niche
 col	slang, abbreviation or fragment
@@ -205,7 +205,7 @@ conceived	inflected form
 concluded	inflected form
 conditions	inflected form
 condo	slang, abbreviation or fragment
-condom	fine as a guess, not as an answer
+condom	sensitive: never the answer, but fine to show
 coney	obscure or niche
 confined	inflected form
 confusing	inflected form
@@ -234,8 +234,8 @@ crises	plural ending in s (irregular)
 criticized	inflected form
 critics	inflected form
 cubs	inflected form
-cum	offensive
-cunt	offensive
+cum	offensive: only a curse word or slur, hidden from the analysis tab
+cunt	offensive: only a curse word or slur, hidden from the analysis tab
 cuppa	british spelling
 cutting	inflected form
 cuttlebone	obscure or niche
@@ -274,8 +274,8 @@ descry	removed from upcoming (obscure)
 designated	inflected form
 details	inflected form
 diagnosed	inflected form
-dick	offensive
-dildo	offensive
+dick	sensitive: never the answer, but fine to show
+dildo	sensitive: never the answer, but fine to show
 dingle	obscure or niche
 dipole	obscure or niche
 disabled	inflected form
@@ -298,7 +298,7 @@ don	obscure or niche
 donna	proper noun or brand
 dorado	proper noun or brand
 dorm	slang, abbreviation or fragment
-douche	offensive
+douche	sensitive: never the answer, but fine to show
 draught	british spelling
 dried	inflected form
 drinks	inflected form
@@ -321,7 +321,7 @@ ed	slang, abbreviation or fragment
 edger	obscure or niche
 educated	inflected form
 effloresce	removed from upcoming (obscure)
-ejaculate	fine as a guess, not as an answer
+ejaculate	sensitive: never the answer, but fine to show
 el	slang, abbreviation or fragment
 elan	slang, abbreviation or fragment
 elected	inflected form
@@ -360,11 +360,11 @@ eyebolt	obscure or niche
 eyre	proper noun or brand
 fabrics	inflected form
 fag	blocked: slur, not even a valid guess
-faggot	offensive
-faggots	offensive
+faggot	blocked: slur, not even a valid guess
+faggots	blocked: slur, not even a valid guess
 fags	blocked: slur, not even a valid guess
 fairs	inflected form
-fanny	offensive
+fanny	sensitive: never the answer, but fine to show
 farina	obscure or niche
 fasteners	inflected form
 faux	slang, abbreviation or fragment
@@ -387,7 +387,7 @@ following	inflected form
 footboard	obscure or niche
 foreigners	inflected form
 foreshore	obscure or niche
-foreskin	fine as a guess, not as an answer
+foreskin	sensitive: never the answer, but fine to show
 fossa	obscure or niche
 framing	inflected form
 franklin	proper noun or brand
@@ -395,7 +395,7 @@ french	proper noun or brand
 fretwork	obscure or niche
 fried	inflected form
 frying	inflected form
-fuck	offensive
+fuck	offensive: only a curse word or slur, hidden from the analysis tab
 fulfilment	british spelling
 galangal	obscure or niche
 games	inflected form
@@ -404,14 +404,14 @@ ganja	obscure or niche
 gemma	obscure or niche
 gen	slang, abbreviation or fragment
 geneva	proper noun or brand
-genitalia	fine as a guess, not as an answer
+genitalia	sensitive: never the answer, but fine to show
 german	proper noun or brand
 giblet	obscure or niche
 gilbert	proper noun or brand
 gloves	inflected form
 glycine	obscure or niche
 gneiss	obscure or niche
-goddamn	offensive
+goddamn	offensive: only a curse word or slur, hidden from the analysis tab
 goldeneye	obscure or niche
 goldilocks	obscure or niche
 gonna	slang, abbreviation or fragment
@@ -427,17 +427,17 @@ graham	proper noun or brand
 greenbrier	obscure or niche
 greenwood	obscure or niche
 grey	british spelling
-gringo	offensive
+gringo	offensive: only a curse word or slur, hidden from the analysis tab
 grisaille	removed from upcoming (obscure)
 grosgrain	obscure or niche
 guan	obscure or niche
 guidelines	inflected form
-gyp	offensive
-gypsy	offensive
+gyp	offensive: only a curse word or slur, hidden from the analysis tab
+gypsy	offensive: only a curse word or slur, hidden from the analysis tab
 gyrus	obscure or niche
 ha	slang, abbreviation or fragment
 hadron	obscure or niche
-halfbreed	offensive
+halfbreed	blocked: slur, not even a valid guess
 halvah	variant spelling
 halves	inflected form
 hank	proper noun or brand
@@ -456,7 +456,7 @@ highboy	obscure or niche
 highchair	obscure or niche
 historiography	obscure or niche
 hmm	slang, abbreviation or fragment
-holocaust	sensitive (your call)
+holocaust	sensitive: never the answer, but fine to show
 hon	slang, abbreviation or fragment
 hong	proper noun or brand
 honky	blocked: slur, not even a valid guess
@@ -507,7 +507,7 @@ jaybird	obscure or niche
 jellyroll	obscure or niche
 jenny	proper noun or brand
 jerry	proper noun or brand
-jew	fine as a guess, not as an answer
+jew	sensitive: never the answer, but fine to show
 jewellery	british spelling
 jigaboo	blocked: slur, not even a valid guess
 jigaboos	blocked: slur, not even a valid guess
@@ -613,7 +613,7 @@ mickey	proper noun or brand
 micks	blocked: slur, not even a valid guess
 micro	slang, abbreviation or fragment
 mid	slang, abbreviation or fragment
-midget	offensive
+midget	offensive: only a curse word or slur, hidden from the analysis tab
 mike	proper noun or brand
 miles	inflected form
 milt	obscure or niche
@@ -649,19 +649,19 @@ nailer	obscure or niche
 nailhead	obscure or niche
 nancy	proper noun or brand
 negotiations	inflected form
-negro	offensive
+negro	offensive: only a curse word or slur, hidden from the analysis tab
 neighbourhood	british spelling
 nelson	proper noun or brand
 newel	obscure or niche
 newton	proper noun or brand
-nigga	offensive
-niggas	offensive
+nigga	blocked: slur, not even a valid guess
+niggas	blocked: slur, not even a valid guess
 nigger	blocked: slur, not even a valid guess
 niggers	blocked: slur, not even a valid guess
 noggin	slang, abbreviation or fragment
 nominated	inflected form
 non	slang, abbreviation or fragment
-noose	sensitive (mildly offensive): fine as a guess and to show, not as an answer
+noose	sensitive: never the answer, but fine to show
 nope	slang, abbreviation or fragment
 norepinephrine	obscure or niche
 notified	inflected form
@@ -696,7 +696,7 @@ parquetry	obscure or niche
 participants	inflected form
 parts	inflected form
 passer	obscure or niche
-pecker	offensive
+pecker	sensitive: never the answer, but fine to show
 perceived	inflected form
 perry	proper noun or brand
 peter	proper noun or brand
@@ -706,12 +706,12 @@ phage	obscure or niche
 phil	proper noun or brand
 pic	slang, abbreviation or fragment
 pica	obscure or niche
-pickaninny	offensive
+pickaninny	blocked: slur, not even a valid guess
 pika	obscure or niche
 pinecone	two words in print (valid guess, not an answer)
 pinkie	variant spelling
 pinking	inflected form
-piss	offensive
+piss	offensive: only a curse word or slur, hidden from the analysis tab
 placer	obscure or niche
 plasmid	obscure or niche
 platy	obscure or niche
@@ -723,12 +723,12 @@ politicians	inflected form
 pollard	obscure or niche
 pom	slang, abbreviation or fragment
 ponderosa	obscure or niche
-poof	offensive
+poof	offensive: only a curse word or slur, hidden from the analysis tab
 poofter	blocked: slur, not even a valid guess
 poofters	blocked: slur, not even a valid guess
-poon	offensive
+poon	offensive: only a curse word or slur, hidden from the analysis tab
 popgun	obscure or niche
-porn	offensive
+porn	sensitive: never the answer, but fine to show
 postbox	british spelling
 prat	slang, abbreviation or fragment
 prep	slang, abbreviation or fragment
@@ -746,21 +746,21 @@ pruner	removed from upcoming (obscure)
 published	inflected form
 pumpkinseed	removed from upcoming (obscure)
 pupils	inflected form
-puss	offensive
-pussy	offensive
+puss	sensitive: never the answer, but fine to show
+pussy	offensive: only a curse word or slur, hidden from the analysis tab
 qualified	inflected form
 racecar	two words in print (valid guess, not an answer)
 raiders	inflected form
 raja	proper noun or brand
 rand	obscure or niche
 rangers	inflected form
-rape	offensive
+rape	sensitive: never the answer, but fine to show
 rarefy	removed from upcoming (obscure)
 re	slang, abbreviation or fragment
 realise	british spelling
 received	inflected form
 recognise	british spelling
-rectum	sensitive (anatomy or mildly uncomfortable): fine as a guess and to show, not as an answer
+rectum	sensitive: never the answer, but fine to show
 redskin	blocked: slur, not even a valid guess
 redskins	blocked: slur, not even a valid guess
 reeve	obscure or niche
@@ -782,8 +782,8 @@ researchers	inflected form
 resources	inflected form
 restricted	inflected form
 restrictions	inflected form
-retard	offensive
-retarded	offensive
+retard	offensive: only a curse word or slur, hidden from the analysis tab
+retarded	offensive: only a curse word or slur, hidden from the analysis tab
 reticulum	obscure or niche
 retired	inflected form
 rev	slang, abbreviation or fragment
@@ -802,9 +802,9 @@ rowan	obscure or niche
 rudd	obscure or niche
 rusk	obscure or niche
 ruth	proper noun or brand
-sadism	sensitive (anatomy or mildly uncomfortable): fine as a guess and to show, not as an answer
+sadism	sensitive: never the answer, but fine to show
 sally	inflected form
-sambo	offensive
+sambo	blocked: slur, not even a valid guess
 sanctions	inflected form
 sanders	inflected form
 sandpit	british spelling
@@ -816,21 +816,21 @@ schist	obscure or niche
 sci	slang, abbreviation or fragment
 sciences	inflected form
 scratcher	obscure or niche
-scrotum	fine as a guess, not as an answer
+scrotum	sensitive: never the answer, but fine to show
 sculpting	inflected form
 seating	inflected form
 sec	slang, abbreviation or fragment
 seine	proper noun or brand
 selvage	obscure or niche
 selvedge	british spelling
-semen	fine as a guess, not as an answer
+semen	sensitive: never the answer, but fine to show
 semi	slang, abbreviation or fragment
 sen	slang, abbreviation or fragment
 senna	obscure or niche
-sensuality	fine as a guess, not as an answer
+sensuality	sensitive: never the answer, but fine to show
 sepia	obscure or niche
 sept	slang, abbreviation or fragment
-sexiness	fine as a guess, not as an answer
+sexiness	sensitive: never the answer, but fine to show
 sfumato	removed from upcoming (obscure)
 sgraffito	removed from upcoming (obscure)
 shad	obscure or niche
@@ -843,8 +843,8 @@ sheathing	obscure or niche
 shedding	inflected form
 sheetrock	proper noun or brand
 shelves	inflected form
-shit	offensive
-shitty	offensive
+shit	offensive: only a curse word or slur, hidden from the analysis tab
+shitty	offensive: only a curse word or slur, hidden from the analysis tab
 shoes	inflected form
 shunt	obscure or niche
 siblings	inflected form
@@ -871,7 +871,7 @@ specified	inflected form
 speeding	inflected form
 spelt	british spelling
 spencer	proper noun or brand
-sphincter	sensitive (anatomy or mildly uncomfortable): fine as a guess and to show, not as an answer
+sphincter	sensitive: never the answer, but fine to show
 spic	blocked: slur, not even a valid guess
 spics	blocked: slur, not even a valid guess
 spitz	obscure or niche
@@ -922,7 +922,7 @@ tel	slang, abbreviation or fragment
 terry	proper noun or brand
 tessera	obscure or niche
 testa	obscure or niche
-testicle	fine as a guess, not as an answer
+testicle	sensitive: never the answer, but fine to show
 testified	inflected form
 tetra	obscure or niche
 thalamus	obscure or niche
@@ -941,7 +941,7 @@ til	slang, abbreviation or fragment
 timing	inflected form
 timothy	proper noun or brand
 tits	inflected form
-titty	offensive
+titty	offensive: only a curse word or slur, hidden from the analysis tab
 toile	obscure or niche
 tony	proper noun or brand
 tools	inflected form
@@ -967,12 +967,12 @@ un	slang, abbreviation or fragment
 unified	inflected form
 united	inflected form
 unsurpassable	removed from upcoming (obscure)
-urethra	sensitive (anatomy or mildly uncomfortable): fine as a guess and to show, not as an answer
+urethra	sensitive: never the answer, but fine to show
 varied	inflected form
 vela	proper noun or brand
 venipuncture	removed from upcoming (obscure)
 verified	inflected form
-vibrator	offensive
+vibrator	sensitive: never the answer, but fine to show
 victoria	proper noun or brand
 viewers	inflected form
 villa	obscure or niche
@@ -983,7 +983,7 @@ vivarium	obscure or niche
 voile	obscure or niche
 vol	slang, abbreviation or fragment
 voters	inflected form
-vulva	fine as a guess, not as an answer
+vulva	sensitive: never the answer, but fine to show
 wadding	british spelling
 wadi	obscure or niche
 wahoo	obscure or niche
@@ -1004,8 +1004,8 @@ wetbacks	blocked: slur, not even a valid guess
 wether	obscure or niche
 whilst	slang, abbreviation or fragment
 whisky	british spelling
-whore	offensive
-whorehouse	offensive
+whore	sensitive: never the answer, but fine to show
+whorehouse	sensitive: never the answer, but fine to show
 wight	obscure or niche
 willie	proper noun or brand
 wimp	obscure or niche

@@ -62,11 +62,29 @@ describe('displayable words', () => {
 		const offensive = rejectedList
 			.split('\n')
 			.map((line) => line.split('\t'))
-			.filter(([, reason]) => reason === 'offensive')
+			.filter(([, reason]) => reason?.startsWith('offensive'))
 			.map(([word]) => word)
 			.filter((w) => isValid(w));
 		expect(offensive.length).toBeGreaterThan(0);
 		const shown = new Set(displayableWords);
 		expect(offensive.filter((w) => shown.has(w))).toEqual([]);
+	});
+});
+
+import answerList from '../wordlists/answerList.txt?raw';
+
+describe('sensitive words', () => {
+	it('are valid guesses that can be shown, but are never answers', () => {
+		const sensitive = rejectedList
+			.split('\n')
+			.map((line) => line.split('\t'))
+			.filter(([, reason]) => reason?.startsWith('sensitive'))
+			.map(([word]) => word)
+			.filter((w) => isValid(w));
+		expect(sensitive.length).toBeGreaterThan(0);
+		const shown = new Set(displayableWords);
+		expect(sensitive.filter((w) => !shown.has(w))).toEqual([]);
+		const answers = new Set(answerList.split(/\s+/));
+		expect(sensitive.filter((w) => answers.has(w))).toEqual([]);
 	});
 });

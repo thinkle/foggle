@@ -38520,9 +38520,7 @@ faffs
 fagaceous
 fagged
 fagging
-faggot
 faggoting
-faggots
 fagot
 fagoting
 fagots
@@ -47452,7 +47450,6 @@ halfback
 halfbacks
 halfbeak
 halfbeaks
-halfbreed
 halfcocked
 halfhearted
 halfheartedly
@@ -69357,12 +69354,10 @@ niftier
 niftiest
 niftily
 nifty
-nigga
 niggard
 niggardliness
 niggardly
 niggards
-niggas
 niggaz
 niggerhead
 niggle
@@ -77786,7 +77781,6 @@ pickabacked
 pickabacking
 pickabacks
 pickaninnies
-pickaninny
 pickax
 pickaxe
 pickaxed
@@ -91402,7 +91396,6 @@ sambaing
 sambar
 sambars
 sambas
-sambo
 same
 samekh
 samekhs
