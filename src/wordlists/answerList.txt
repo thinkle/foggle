@@ -6292,7 +6292,6 @@ identification
 identify
 identity
 ideological
-ideologically
 ideology
 idiom
 idiosyncrasy
@@ -6565,7 +6564,6 @@ informative
 informer
 infrared
 infrastructure
-infrequently
 infringe
 infuriating
 infuse
@@ -7911,7 +7909,6 @@ mildly
 mile
 mileage
 milestone
-militarily
 military
 militia
 milk
@@ -9560,7 +9557,6 @@ predecessor
 predicate
 predict
 predictable
-predictably
 prediction
 predictive
 predominant
@@ -10579,7 +10575,6 @@ rights
 rigid
 rigmarole
 rigorous
-rigorously
 rim
 rind
 ring
@@ -13091,7 +13086,6 @@ uncle
 unclean
 unclear
 uncomfortable
-uncomfortably
 uncommon
 uncompromising
 unconditional

@@ -93,8 +93,9 @@ profanity, and a word a typical adult would recognise. Irregular plurals
 that don't end in s (*geese*, *criteria*, *cherubim*) and plural-only words
 (*scissors*, *pajamas*) are welcome, but *knives*/*indices* style plurals aren't.
 An -ly adverb isn't an inflection: *obviously* and *really* belong, and the
-only question is whether it's common enough (*superbly*, at Zipf 3.0, is about
-where they stop sounding natural). Mild words like *virgin* or *drunk* are fine; vulgar words and slurs aren't.
+only question is whether it's common enough. The cutoff is Zipf above 3.0:
+*superbly* sits at exactly 3.0 and was judged too rare, so it and the words
+tied with it are out. Mild words like *virgin* or *drunk* are fine; vulgar words and slurs aren't.
 
 ### Domain brainstorms
 

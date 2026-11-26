@@ -577,6 +577,7 @@ huh	slang, abbreviation or fragment
 humour	british spelling
 hydrosphere	removed from upcoming (obscure)
 identified	inflected form
+ideologically	obscure or niche (-ly cutoff: Zipf above 3.0, the level of superbly)
 illustrated	inflected form
 immigrants	inflected form
 impasto	removed from upcoming (obscure)
@@ -598,6 +599,7 @@ industrialized	inflected form
 infected	inflected form
 inflated	inflected form
 info	slang, abbreviation or fragment
+infrequently	obscure or niche (-ly cutoff: Zipf above 3.0, the level of superbly)
 ingredients	inflected form
 inhabitants	inflected form
 inherited	inflected form
@@ -754,6 +756,7 @@ midget	offensive
 midi	slang, abbreviation or fragment
 mike	proper noun or brand
 miles	inflected form
+militarily	obscure or niche (-ly cutoff: Zipf above 3.0, the level of superbly)
 milt	obscure or niche
 min	slang, abbreviation or fragment
 mina	obscure or niche
@@ -899,6 +902,7 @@ postbox	british spelling
 practise	british spelling
 prat	slang, abbreviation or fragment
 predetermined	inflected form
+predictably	obscure or niche (-ly cutoff: Zipf above 3.0, the level of superbly)
 preform	slang, abbreviation or fragment
 prep	slang, abbreviation or fragment
 prescribed	inflected form
@@ -973,6 +977,7 @@ rhesus	obscure or niche
 rick	proper noun or brand
 rickey	proper noun or brand
 rickrack	obscure or niche
+rigorously	obscure or niche (-ly cutoff: Zipf above 3.0, the level of superbly)
 ripper	slang, abbreviation or fragment
 rocking	inflected form
 rocks	inflected form
@@ -1108,7 +1113,7 @@ suicide	sensitive: never the answer, but fine to show
 summarise	british spelling
 sunhat	obscure or niche
 sunk	inflected form
-superbly	obscure or niche
+superbly	obscure or niche (-ly cutoff: Zipf above 3.0, the level of superbly)
 superman	proper noun or brand
 supplied	inflected form
 supplies	inflected form
@@ -1185,6 +1190,7 @@ ugh	slang, abbreviation or fragment
 ultra	slang, abbreviation or fragment
 un	slang, abbreviation or fragment
 unauthorised	british spelling
+uncomfortably	obscure or niche (-ly cutoff: Zipf above 3.0, the level of superbly)
 unified	inflected form
 united	inflected form
 unsurpassable	removed from upcoming (obscure)
