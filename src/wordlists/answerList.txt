@@ -3840,6 +3840,7 @@ doldrums
 doll
 dollar
 dollhouse
+dolly
 dolma
 dolphin
 dolt
